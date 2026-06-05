@@ -38,37 +38,101 @@ void Character::RandomizeStats()
 {
     race = (rand() % 5 == 0) ? "Human" : (rand() % 4 == 0) ? "Elf" : (rand() % 3 == 0) ? "Dwarf" : (rand() % 2 == 0) ? "Orc" : "Goblin";        // Random race
     
-    //=============================Randomize stats based on profession=============================
-    if (profession == "Warrior") {
-        age = rand() % 31 + 20; // Random age between 20 and 50
-        health = 120;
-        level = 1;
-        description = "A strong and resilient fighter, excelling in melee combat.";
-    } else if (profession == "Mage") {
-        age =  40 + rand() % 51; // Random age between 40 and 90
-        health = 80;
-        level = 1;
-        description = "A master of arcane arts, wielding powerful spells to defeat enemies.";
-    } else if (profession == "Rogue") {         //Злodій
-        age = 16 + rand() % 25; // Random age between 16 and 40
-        health = 100;
-        level = 1;
-        description = "A stealthy and agile character, skilled in sneaking and critical strikes.";
-    } else if (profession == "Cleric") {       //Священник
-        age = 40 + rand() % 31; // Random age between 40 and 70
-        health = 120;
-        level = 1;
-        description = "A holy warrior, capable of healing allies and smiting foes with divine power.";
-    } else {
-        age = 18 + rand() % 31; // Random age between 20 and 50
-        health = 90;
-        level = 1;
-        description = "A versatile adventurer, ready to take on any challenge that comes their way.";
-    }
-//=============================Name generation=============================
 
+//=============================Professions base===============================================
+std::string professions_h[] = {"Warrior", "Mage", "Rogue", "Peasant"}; //For_Human
+std::string professions_e[] = { "Archer", "Druid", "Ranger"}; //For_Elf
+std::string professions_d[] = {"Blacksmith", "Miner", "Berserker"}; //For_Dwarf
+std::string professions_o[] = {"Shaman", "Warlord", "Berserker"}; //For_Orc
+std::string professions_g[] = {"Thief", "Assassin", "Scavenger"}; //For_Goblin
 
-std::string firstNames_h[] = {"Arin", "Bryn", "Cora", "Dain", "Eira", "Finn", "Gwen", "Hale", "Iris", "Jax"};
+//=============================Randomize stats based on profession=============================
+   if(race == "Human") profession = professions_h[rand() % 4];
+   else if (race == "Elf") profession = professions_e[rand() % 3];
+   else if (race == "Dwarf") profession = professions_d[rand() % 3];
+   else if (race == "Orc") profession = professions_o[rand() % 3];
+   else if (race == "Goblin") profession = professions_g[rand() % 3];
+    
+//=============================Stats randomizer================================================
+if(profession == "Warrior") {
+    health = 120;
+    level = 1;
+    description = "A strong and resilient fighter, skilled in melee combat.";
+}
+else if (profession == "Mage") {
+    health = 70;
+    level = 1;
+    description = "A master of arcane arts, capable of casting powerful spells.";
+}
+else if (profession == "Rogue") {
+    health = 80;
+    level = 1;
+    description = "A stealthy and agile character, excelling in sneaking and critical strikes.";
+}
+else if (profession == "Peasant") {
+    health = 70;
+    level = 1;
+    description = "A simple villager with basic survival skills, but untapped potential.";
+}
+else if (profession == "Archer") {
+    health = 100;
+    level = 1;
+    description = "A skilled marksman, proficient with bows and ranged attacks.";
+}
+else if (profession == "Druid") {
+    health = 110;
+    level = 1;
+    description = "A nature-based spellcaster, able to heal allies and summon creatures.";
+}
+else if (profession == "Ranger") {
+    health = 100;
+    level = 1;
+    description = "A versatile hunter, adept at tracking and surviving in the wilderness.";
+}
+else if (profession == "Blacksmith") {
+    health = 120;
+    level = 1;
+    description = "A master craftsman, able to forge powerful weapons and armor.";
+}
+else if (profession == "Miner") {
+    health = 140;
+    level = 1;
+    description = "A hardy worker, skilled in extracting valuable resources from the earth.";
+}
+else if (profession == "Berserker") {
+    health = 130;
+    level = 1;
+    description = "A fierce warrior who thrives in the heat of battle, gaining strength as they fight.";
+}
+else if (profession == "Shaman") {
+    health = 120;
+    level = 1;
+    description = "A spiritual guide, able to commune with spirits and harness elemental powers.";
+}
+else if (profession == "Warlord") {
+    health = 140;
+    level = 1;
+    description = "A strategic leader, commanding troops and inspiring allies on the battlefield.";
+}
+else if (profession == "Thief") {
+    health = 80;
+    level = 1;
+    description = "A cunning and resourceful character, skilled in stealing and deception.";
+}
+else if (profession == "Assassin") {
+    health = 90;
+    level = 1;
+    description = "A deadly and silent killer, specializing in eliminating targets quickly and efficiently.";
+}
+else if (profession == "Scavenger") {
+    health = 100;
+    level = 1;
+    description = "A resourceful survivor, adept at finding valuable items and making the most of limited resources.";
+}
+
+//=============================Name randomizer=================================================
+
+    std::string firstNames_h[] = {"Arin", "Bryn", "Cora", "Dain", "Eira", "Finn", "Gwen", "Hale", "Iris", "Jax"};
     std::string lastNames_h[] = {"Stormwind", "Shadowbane", "Ironfist", "Silverleaf", "Darkwood", "Brightblade", "Stoneheart", "Moonshadow", "Fireforge", "Duskwhisper"};
    
    std::string firstNames_e[] = {"Elara", "Thalion", "Lirael", "Eldrin", "Sylvara", "Faelar", "Aeris", "Galadriel", "Riven", "Nimriel"};
@@ -99,7 +163,6 @@ std::string firstNames_h[] = {"Arin", "Bryn", "Cora", "Dain", "Eira", "Finn", "G
     else if (race == "Goblin") {
         name = firstNames_g[rand() % 10] + " " + lastNames_g[rand() % 10];
     }
-
-      
-
+//=============================Age randomizer=================================================
+    age = 18 + rand() % 83; // Random age between 18 and 100  
 }
