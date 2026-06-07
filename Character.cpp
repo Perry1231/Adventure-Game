@@ -18,7 +18,7 @@ void Character::DisplayStats()
 {
     std::cout << "\n\n" << std::endl;
     std::cout <<"============================================="<< std::endl;
-    std::cout << "\n\nCharacter Stats:" << std::endl;
+    std::cout << "Character Stats:" << std::endl;
     std::cout << "Name: " << name << std::endl;
     std::cout << "Health: " << health << std::endl;
     std::cout << "Age: " << age << std::endl;
@@ -270,6 +270,7 @@ else if (profession == "Scavenger") {
         intelligence = 8 + rand() % 6; // Random intelligence between 8 and 13
         defense = 15 + rand() % 6; // Random defense between 10 and 15
         gold = 70 + rand() % 21; // Random gold between 70 and 90
+        age = 18 + rand() % 27; // Random age between 18 and 45 for Assassin
     }
     else if (profession == "Scavenger") {
         strength = 10 + rand() % 6; // Random strength between 10 and 15
