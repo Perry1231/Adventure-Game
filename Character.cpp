@@ -4,11 +4,6 @@
 #include <string>
 #include <cstdlib>
 
-Character::Character() : health(100), name ("Hero"), age(20), race("Human"), profession("Adventurer"), level(1), description("A brave adventurer ready to explore the world.")
-{
-    std::cout << "\n\nCharacter created: " << name << std::endl;
-}
-
 Character::~Character() 
 {
     std::cout << "\n\nCharacter destructor called." << std::endl;
