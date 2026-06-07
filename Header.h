@@ -42,7 +42,6 @@ void RandomizeStats();
 
 };
 
-
-
+void HelpFunction() ;
 
 #endif
