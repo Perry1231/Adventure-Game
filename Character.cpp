@@ -171,7 +171,7 @@ else if (profession == "Scavenger") {
     else if (race == "Goblin") {
         name = firstNames_g[rand() % 10] + " " + lastNames_g[rand() % 10];
     }
-//=============================Age randomizer=================================================
+//=============================Age randomizer=================================================              &&&&&&&&&&&&&&&&&&&
     age = 18 + rand() % 83; // Random age between 18 and 100  
 
 
@@ -220,69 +220,68 @@ else if (profession == "Scavenger") {
         gold = 50 + rand() % 21; // Random gold between 50 and 70
     }
 
-    //--------------------------------------------------------------------------------------
     else if (profession == "Ranger") {
-        strength = 10;
-        agility = 12;
-        intelligence = 10;
-        defense = 10;
-        gold = 100;
+        strength = rand() % 15 + 10; // Random strength between 10 and 25
+        agility = 20 + rand() % 11; // Random agility between 20 and 30
+        intelligence = 15 + rand() % 11; // Random intelligence between 15 and 25
+        defense = 15 + rand() % 11; // Random defense between 15 and 25
+        gold = 50 + rand() % 21; // Random gold between 50 and 70
     }
     else if (profession == "Blacksmith") {
-        strength = 15;
-        agility = 8;
-        intelligence = 10;
-        defense = 12;
-        gold = 150;
+        strength = 15 + rand() % 11; // Random strength between 15 and 25
+        agility = 8 + rand() % 6; // Random agility between 8 and 14
+        intelligence = 20 + rand() % 6; // Random intelligence between 20 and 25
+        defense = 10 + rand() % 11; // Random defense between 10 and 20
+        gold =50 + rand() % 21; // Random gold between 50 and 70
     }
     else if (profession == "Miner") {
-        strength = 12;
-        agility = 8;
-        intelligence = 10;
-        defense = 15;
-        gold = 80;
+        strength = 20 + rand() % 11; // Random strength between 20 and 30
+        agility = 5 + rand() % 6; // Random agility between 5 and 10
+        intelligence = 15 + rand() % 6; // Random intelligence between 10 and 15
+        defense = 15 + rand() % 11; // Random defense between 15 and 25
+        gold = 70 + rand() % 21; // Random gold between 70 and 90
     }
     else if (profession == "Berserker") {
-        strength = 18; // Increased strength for Berserker
-        agility = 10; // Balanced agility
-        intelligence = 5; // Lower intelligence for Berserker
-        defense = 14; // Increased defense for Berserker
-        gold = 120; // Starting gold for Berserker
+        strength = 20 + rand() % 11; // Increased strength for Berserker
+        agility = 10 + rand() % 6; // Balanced agility
+        intelligence = 5 + rand() % 11; // Lower intelligence for Berserker
+        defense = 15 + rand() % 11; // Increased defense for Berserker
+        gold = 30 + rand() % 21; // Starting gold for Berserker
     }
     else if (profession == "Shaman") {
-        strength = 10;
-        agility = 8;
-        intelligence = 15;
-        defense = 12;
-        gold = 110;
+        strength = 10 + rand() % 6; // Random strength between 10 and 15
+        agility = 8 + rand() % 7; // Random agility between 8 and 15
+        intelligence = 25 + rand() % 6; // Random intelligence between 25 and 30
+        defense = 12 + rand() % 4; // Random defense between 12 and 15
+        gold = 50 + rand() % 21; // Random gold between 50 and 70
     }
     else if (profession == "Warlord") {
-        strength = 15;
-        agility = 10;
-        intelligence = 12;
-        defense = 15;
-        gold = 130;
+        strength = 20 + rand() % 11; // Random strength between 20 and 30
+        agility = 15 + rand() % 6; // Random agility between 15 and 20
+        intelligence = 15 + rand() % 11; // Random intelligence between 15 and 20
+        defense = 15 + rand() % 11; // Random defense between 15 and 25
+        gold = 20 + rand() % 21; // Random gold between 20 and 40
     }
     else if (profession == "Thief") {
-        strength = 8;
-        agility = 15;
-        intelligence = 10;
-        defense = 8;
-        gold = 90;
+        strength = 10+ rand() % 6; // Random strength between 10 and 15
+        agility = 15 + rand() % 11; // Random agility between 15 and 25
+        intelligence = 10 + rand() % 6; // Random intelligence between 10 and 15
+        defense = 8 + rand() % 8; // Random defense between 8 and 15
+        gold = 80 + rand() % 21; // Random gold between 80 and 100
     }
     else if (profession == "Assassin") {
-        strength = 12;
-        agility = 18;
-        intelligence = 8;
-        defense = 10;
-        gold = 110;
+        strength = 15 + rand() % 6; // Random strength between 12 and 20
+        agility = 18 + rand() % 7; // Random agility between 18 and 24
+        intelligence = 8 + rand() % 6; // Random intelligence between 8 and 13
+        defense = 15 + rand() % 6; // Random defense between 10 and 15
+        gold = 70 + rand() % 21; // Random gold between 70 and 90
     }
     else if (profession == "Scavenger") {
-        strength = 10;
-        agility = 12;
-        intelligence = 8;
-        defense = 10;
-        gold = 80;
+        strength = 10 + rand() % 6; // Random strength between 10 and 15
+        agility = 12 + rand() % 6; // Random agility between 12 and 17
+        intelligence = 8 + rand() % 6; // Random intelligence between 8 and 13
+        defense = 10 + rand() % 6; // Random defense between 10 and 15
+        gold = 80 + rand() % 21; // Random gold between 80 and 100
     }
 
     //=============================End of randomization=============================
