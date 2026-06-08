@@ -1,5 +1,3 @@
-//підключ всі функції та класи з інших файлів
-
 #ifndef Header_h
 #define Header_h
 #include <string>
@@ -9,7 +7,7 @@
 
 class Character
 {
-    private :
+    protected :
 int health;
 std::string name;
 int age;
@@ -40,8 +38,72 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
 void DisplayStats();
 void RandomizeStats();
 
+
 };
 
-void HelpFunction() ;
 
+
+
+class Weapon
+{
+    protected:
+    bool isEquipped;
+    bool isBroken;
+    bool isEnchanted;
+int attack;
+int defend;
+int durability;
+int value;
+std::string name;
+   public:
+Weapon() : attack(), defend(), durability(), value(), name() {}
+Weapon(std::string name_)
+{
+    this->name = name_;
+    this->attack = 0;
+    this->defend = 0;
+    this->durability = 100; // Default durability
+    this->value = 0; 
+    this->isEquipped = false;
+    this->isBroken = false;
+    this->isEnchanted = false;
+}
+Weapon(std::string name_, int attack_) : Weapon(name_)
+{
+    this->attack = attack_;
+}
+Weapon(std::string name_, int attack_, int defend_) : Weapon(name_, attack_)
+{
+    this->defend = defend_;
+}
+Weapon(std::string name_, int attack_, int defend_, int durability_) : Weapon(name_, attack_, defend_)
+{
+    this->durability = durability_; 
+}
+Weapon(std::string name_, int attack_, int defend_, int durability_, int value_) : Weapon(name_, attack_, defend_, durability_)
+{
+    this->value = value_;
+}
+Weapon(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_) : Weapon(name_, attack_, defend_, durability_, value_)
+{
+    this->isEquipped = isEquipped_;
+}
+Weapon(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon(name_, attack_, defend_, durability_, value_, isEquipped_)
+{
+    this->isBroken = isBroken_;
+}
+Weapon(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon(name_, attack_, defend_, durability_, value_, isEquipped_, isBroken_)
+{
+    this->isEnchanted = isEnchanted_;
+}
+
+    virtual void Use() = 0; // Pure virtual function for using the weapon
+
+    virtual ~Weapon();
+};
+
+
+
+void HelpFunction() ;
+void Inventory();
 #endif
