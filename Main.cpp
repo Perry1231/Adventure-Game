@@ -11,8 +11,6 @@ int main()
     hero.RandomizeStats();
     hero.DisplayStats();
 
-    std::cin.sync_with_stdio(false);
-    std::cin.ignore();
-    std::cin.get();
+    system("pause");
     return 0;
 }
