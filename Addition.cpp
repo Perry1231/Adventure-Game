@@ -9,3 +9,6 @@ void HelpFunction()
     std::cout << "This program shows how to structure a simple adventure game using C++." << std::endl;
     std::cout << "This program is written by Vladyslav Vytrykush to show the knowledge of C++ programming." << std::endl;
 }
+
+
+
