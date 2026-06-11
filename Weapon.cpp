@@ -32,7 +32,7 @@ class BasicSword : public Weapon_hand {                                         
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_hand::attack;  
     }
 };
 
@@ -45,7 +45,7 @@ class BasicBow : public Weapon_shoter {
     }
     void Delete()
     {
-        /*~Weapon()*/
+        
     }
     void Shoot() override {
         this->attack = attack + 2;
@@ -59,7 +59,7 @@ class BasicBow : public Weapon_shoter {
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_shoter::attack;  
     }
 };
 
@@ -86,7 +86,7 @@ class BasicRod : public Weapon_magic {
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_magic::attack;  
     }
 };
 
@@ -113,7 +113,7 @@ class BasicDagger : public Weapon_hand {
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_hand::attack;  
     }
 };
 
@@ -141,7 +141,7 @@ void Create()
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_magic::attack;  
     }
 };
 
@@ -169,7 +169,7 @@ void Create()
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack =  Weapon_shoter::attack;  
     }
 };
 
@@ -197,6 +197,6 @@ void Create()
     }
     void NoUse() 
     {
-        this->attack = attack - 2;  
+        this->attack = Weapon_hand::attack;  
     }
 };
