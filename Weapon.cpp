@@ -11,39 +11,192 @@ Weapon_magic::~Weapon_magic() {}
 
 
 class BasicSword : public Weapon_hand {                                                                                                  //NotReady
-      void Use() override {
-
-  
-    this->attack = attack + 2; 
-    this->durability = durability - 7; 
-    this->value = value + 10;
-    if (durability <= 0) {
-        std::cout << "The sword has broken!" << std::endl;
-        durability = 0; 
+    void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
     }
-}
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Use() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
 };
 
+
 class BasicBow : public Weapon_shoter {
-    void Shoot() override {
-    this->attack = attack + 2; 
-    this->durability = durability - 7; 
-    this->value = value + 10;
-    if (durability <= 0) {
-        std::cout << "The bow has broken!" << std::endl;
-        durability = 0; 
+   void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
     }
-}
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Shoot() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
 };
 
 
 class BasicRod : public Weapon_magic {
-    void Use_m() override {}
-
+    void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
+    }
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Use_m() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
 };
+
 
 class BasicDagger : public Weapon_hand {
-    void Use() override {}
-
+ void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
+    }
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Use() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
 };
 
+
+class BasicStaff : public Weapon_magic {
+    void Use_m() override {}
+void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
+    }
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Use_m() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
+};
+
+
+class BasicCrossbow : public Weapon_shoter {
+    void Shoot() override {}
+void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
+    }
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Shoot() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
+};
+
+
+class BasicWeaponOC : public Weapon_hand {
+void Use() override{}
+void Create()
+    {
+        this->value = value + 6;
+        this->name = "This is basic Rod";
+    }
+    void Delete()
+    {
+        /*~Weapon()*/
+    }
+    void Use() override {
+        this->attack = attack + 2;
+        this->durability = durability -8;
+        this-> value = value -0.5;
+        if(durability <= 0){
+            std::cout << "The bow has broken!" << std::endl;
+            durability =0;
+             Delete();
+        }
+    }
+    void NoUse() 
+    {
+        this->attack = attack - 2;  
+    }
+};

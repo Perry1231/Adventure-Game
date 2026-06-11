@@ -40,15 +40,24 @@ void RandomizeStats();
 };
 
 
+
+
+/*void BrokenWeapon()
+{
+    ~Weapon();
+}
+*/
+
+
 //For melee weapons like swords, daggers======================================================================================================================================================
-class Weapon_hand                                                         
+class Weapon_hand                                                 
 {
     protected:
     bool isEquipped;
     bool isBroken;
     bool isEnchanted;
 int attack;
-int durability;
+float durability;
 int value;
 std::string name;
    public:
@@ -67,23 +76,23 @@ Weapon_hand(std::string name_, int attack_) : Weapon_hand(name_)
 {
     this->attack = attack_;
 }
-Weapon_hand(std::string name_, int attack_, int durability_) : Weapon_hand(name_, attack_ )
+Weapon_hand(std::string name_, int attack_, float durability_) : Weapon_hand(name_, attack_ )
 {
     this->durability = durability_; 
 }
-Weapon_hand(std::string name_, int attack_,  int durability_, int value_) : Weapon_hand(name_, attack_,  durability_)
+Weapon_hand(std::string name_, int attack_, float durability_, int value_) : Weapon_hand(name_, attack_,  durability_)
 {
     this->value = value_;
 }
-Weapon_hand(std::string name_, int attack_, int durability_, int value_, bool isEquipped_) : Weapon_hand(name_, attack_, durability_, value_)
+Weapon_hand(std::string name_, int attack_, float durability_, int value_, bool isEquipped_) : Weapon_hand(name_, attack_, durability_, value_)
 {
     this->isEquipped = isEquipped_;
 }
-Weapon_hand(std::string name_, int attack_, int durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_hand(name_, attack_,  durability_, value_, isEquipped_)
+Weapon_hand(std::string name_, int attack_, float durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_hand(name_, attack_,  durability_, value_, isEquipped_)
 {
     this->isBroken = isBroken_;
 }
-Weapon_hand(std::string name_, int attack_,  int durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_hand(name_, attack_, durability_, value_, isEquipped_, isBroken_)
+Weapon_hand(std::string name_, int attack_, float durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_hand(name_, attack_, durability_, value_, isEquipped_, isBroken_)
 {
     this->isEnchanted = isEnchanted_;
 }
@@ -103,7 +112,7 @@ class Weapon_shoter
     bool isBroken;
     bool isEnchanted;
 int attack;
-int durability;
+float durability;
 int value;
 std::string name;
 
@@ -123,23 +132,23 @@ Weapon_shoter(std::string name_, int attack_) : Weapon_shoter(name_)
 {
     this->attack = attack_;
 }
-Weapon_shoter(std::string name_, int attack_, int durability_) : Weapon_shoter(name_, attack_ )
+Weapon_shoter(std::string name_, int attack_, float durability_) : Weapon_shoter(name_, attack_ )
 {
     this->durability = durability_; 
 }
-Weapon_shoter(std::string name_, int attack_,  int durability_, int value_) : Weapon_shoter(name_, attack_,  durability_)
+Weapon_shoter(std::string name_, int attack_, float durability_, int value_) : Weapon_shoter(name_, attack_,  durability_)
 {
     this->value = value_;
 }
-Weapon_shoter(std::string name_, int attack_, int durability_, int value_, bool isEquipped_) : Weapon_shoter(name_, attack_, durability_, value_)
+Weapon_shoter(std::string name_, int attack_, float durability_, int value_, bool isEquipped_) : Weapon_shoter(name_, attack_, durability_, value_)
 {
     this->isEquipped = isEquipped_;
 }
-Weapon_shoter(std::string name_, int attack_, int durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_shoter(name_, attack_,  durability_, value_, isEquipped_)
+Weapon_shoter(std::string name_, int attack_, float durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_shoter(name_, attack_,  durability_, value_, isEquipped_)
 {
     this->isBroken = isBroken_;
 }
-Weapon_shoter(std::string name_, int attack_,  int durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_shoter(name_, attack_, durability_, value_, isEquipped_, isBroken_)
+Weapon_shoter(std::string name_, int attack_, float durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_shoter(name_, attack_, durability_, value_, isEquipped_, isBroken_)
 {
     this->isEnchanted = isEnchanted_;
 }
@@ -159,7 +168,7 @@ class Weapon_magic
     bool isEnchanted;
 int attack;
 int defend;
-int durability;
+float durability;
 int value;
 std::string name;
 
@@ -184,23 +193,23 @@ Weapon_magic(std::string name_, int attack_, int defend_) : Weapon_magic(name_, 
 {
     this->defend = defend_;
 }
-Weapon_magic(std::string name_, int attack_, int defend_, int durability_) : Weapon_magic(name_, attack_, defend_)
+Weapon_magic(std::string name_, int attack_, int defend_, float durability_) : Weapon_magic(name_, attack_, defend_)
 {
     this->durability = durability_; 
 }
-Weapon_magic(std::string name_, int attack_, int defend_, int durability_, int value_) : Weapon_magic(name_, attack_, defend_, durability_)
+Weapon_magic(std::string name_, int attack_, int defend_, float durability_, int value_) : Weapon_magic(name_, attack_, defend_, durability_)
 {
     this->value = value_;
 }
-Weapon_magic(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_) : Weapon_magic(name_, attack_, defend_, durability_, value_)
+Weapon_magic(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_) : Weapon_magic(name_, attack_, defend_, durability_, value_)
 {
     this->isEquipped = isEquipped_;
 }
-Weapon_magic(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_magic(name_, attack_, defend_, durability_, value_, isEquipped_)
+Weapon_magic(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon_magic(name_, attack_, defend_, durability_, value_, isEquipped_)
 {
     this->isBroken = isBroken_;
 }
-Weapon_magic(std::string name_, int attack_, int defend_, int durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_magic(name_, attack_, defend_, durability_, value_, isEquipped_, isBroken_)
+Weapon_magic(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon_magic(name_, attack_, defend_, durability_, value_, isEquipped_, isBroken_)
 {
     this->isEnchanted = isEnchanted_;
 }
