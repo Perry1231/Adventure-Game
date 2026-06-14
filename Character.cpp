@@ -5,7 +5,7 @@
 
 Character::~Character() 
 {
-    std::cout << "\n\nCharacter destructor called." << std::endl;
+    std::cout << "\n\nCharacter destructor called.  In character.cpp" << std::endl;
 }
 
 
