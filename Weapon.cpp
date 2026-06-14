@@ -119,7 +119,7 @@ class BasicDagger : public Weapon_hand {
 
 
 class BasicStaff : public Weapon_magic {
-    void Use_m() override {}
+   
 void Create()
     {
         this->value = value + 6;
@@ -147,7 +147,7 @@ void Create()
 
 
 class BasicCrossbow : public Weapon_shoter {
-    void Shoot() override {}
+   
 void Create()
     {
         this->value = value + 6;
@@ -175,7 +175,7 @@ void Create()
 
 
 class BasicWeaponOC : public Weapon_hand {
-void Use() override{}
+
 void Create()
     {
         this->value = value + 6;
