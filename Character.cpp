@@ -281,3 +281,8 @@ else if (profession == "Scavenger") {
 
     //=============================End of randomization=============================
 }
+
+void Usage(Weapon *weapon)
+{
+    weapon -> Use();
+}

@@ -10,6 +10,8 @@ int main()
     hero.RandomizeStats();
     hero.DisplayStats();
 
+    Weapon weapon_1;
+
     system("pause");
     return 0;
 }

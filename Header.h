@@ -33,11 +33,11 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
         age(age_), race(race_), profession(profession_), level(level_), description(description_), strength(strength_), agility(agility_),  
         intelligence(intelligence_), defense(defense_), gold(gold_) {}
     
-
-~Character();
-
 void DisplayStats();
 void RandomizeStats();
+void Usage();
+
+~Character();
 };
 
 
@@ -98,27 +98,17 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
    
 
 
-    virtual void Use() = 0;                                                     //Abstract method
-    virtual void Reset() = 0;  //NoUse
-    
+    virtual void Use()  { }                                             
+    virtual void Reset()  { }  //NoUse
 
-
-
-    //=========================Realizuwaty treba
-    int GetAttack() const;                                                      //No changes in all
-    int GetDurability() const;  
-    int GetValue() const;
-    bool IsBroken() const;
-    bool IsEnchanted() const;
+    int GetAttack() const { return attack; };                                                      
+    int GetDurability() const{ return durability; };  
+    int GetValue() const { return value; };
+    bool IsBroken() const { return isBroken; };
+    bool IsEnchanted() const { return isEnchanted; };
     void RandomizeWeapon();
+    void BrokenWeapon();
 };
-
-
-/*void BrokenWeapon()
-{
-    ~Weapon();
-}
-*/
 
 
 void HelpFunction() ;
