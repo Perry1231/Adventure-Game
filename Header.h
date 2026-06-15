@@ -55,7 +55,7 @@ int value;
 std::string name;
 
     public :
-Weapon() : attack(), defend(), durability(), value(), name() {}
+Weapon() : attack(), defend(), durability(), value(), name(), isEnchanted(), isEquipped(), isBroken() {}
 Weapon(std::string name_)
 {
     this->name = name_;
@@ -101,6 +101,10 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     virtual void Use() = 0;                                                     //Abstract method
     virtual void Reset() = 0;  //NoUse
     
+
+
+
+    //=========================Realizuwaty treba
     int GetAttack() const;                                                      //No changes in all
     int GetDurability() const;  
     int GetValue() const;
