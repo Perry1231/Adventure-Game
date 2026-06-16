@@ -36,6 +36,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
 void DisplayStats();
 void RandomizeStats();
 void Usage();
+std::string GetProfession() const { return profession; };
 
 ~Character();
 };
@@ -109,7 +110,6 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void RandomizeWeapon(const std::string& profession);
     void BrokenWeapon();
     void RandomizeWeaponSpeacial(const std::string& profession);
-    std::string GetProfession() const { return profession; };
 };
 
 

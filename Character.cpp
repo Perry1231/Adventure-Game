@@ -287,7 +287,4 @@ void Usage(Weapon *weapon)
     weapon -> Use();
 }
 
-void GetProfession(Character *profession)
-{
-    return profession;
-}
+

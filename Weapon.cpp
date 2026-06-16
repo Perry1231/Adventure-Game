@@ -19,6 +19,7 @@ else if (profession == "")
 }
 }
 */
+}
 
 void Weapon::BrokenWeapon()
 {
