@@ -12,7 +12,7 @@ int main()
     
 
     Weapon weapon_1;
-    weapon_1.RandomizeWeapon(hero.GetProfession());
+    //weapon_1.RandomizeWeapon(hero.GetProfession());
 
 
     system("pause");
