@@ -9,8 +9,11 @@ int main()
     Character hero;
     hero.RandomizeStats();
     hero.DisplayStats();
+    
 
     Weapon weapon_1;
+    weapon_1.RandomizeWeapon(hero.GetProfession());
+
 
     system("pause");
     return 0;

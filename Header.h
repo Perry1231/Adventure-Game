@@ -106,13 +106,14 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     int GetValue() const { return value; };
     bool IsBroken() const { return isBroken; };
     bool IsEnchanted() const { return isEnchanted; };
-    void RandomizeWeapon();
+    void RandomizeWeapon(const std::string& profession);
     void BrokenWeapon();
-    void RandomizeWeapon();
-    void RandomizeWeaponSpeacial();
-
+    void RandomizeWeaponSpeacial(const std::string& profession);
+    std::string GetProfession() const { return profession; };
 };
 
+
+//Not realized
 class Inventory
 {
 private:
