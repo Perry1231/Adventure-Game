@@ -108,6 +108,17 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     bool IsEnchanted() const { return isEnchanted; };
     void RandomizeWeapon();
     void BrokenWeapon();
+    void RandomizeWeapon();
+    void RandomizeWeaponSpeacial();
+
+};
+
+class Inventory
+{
+private:
+
+public:
+
     void DisplayInventory();
 };
 
