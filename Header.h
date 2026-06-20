@@ -126,13 +126,13 @@ private:
 public:
 Inventory() : size() {}
 
+~Inventory(){}
+
 void DisplayInventory();
 int GetSpace(int& size);
 int AddSpace(int *&my_inv_mass,int& size, const int value);
 int DelSpace(int *&my_inv_mass,int& size);
 void InventoryFunctions();
-
-~Inventory(){}
 };
 
 

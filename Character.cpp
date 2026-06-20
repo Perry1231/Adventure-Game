@@ -3,15 +3,6 @@
 #include <string>
 #include <cstdlib>
 
-Character::~Character() 
-{
-    std::cout << "\n\nCharacter destructor called.  In character.cpp" << std::endl;
-}
-
-
-
-
-
 //=============================Main functions=============================
 void Character::DisplayStats() 
 {

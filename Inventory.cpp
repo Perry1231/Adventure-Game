@@ -11,7 +11,8 @@ for(int i=0; i<size; i++)
 newArray[size++]= value;
 delete[] my_inv_mass;
 my_inv_mass = newArray;
-delete [] newArray;
+size++;
+return size;
 }
 
 
@@ -31,8 +32,9 @@ for(int i =0; i<size; i++)
     newArray[i]= my_inv_mass[i];
 }
 delete[] my_inv_mass;
-my_inv_mass = newArray;
-delete [] newArray;
+my_inv_mass = newArray;\
+
+return size;
 }
 
 

@@ -85,7 +85,7 @@ else if (profession_get == "Scavenger")
 this -> name_w = weapon_me[rand() % 13];
 return name_w;
 }
-else this -> name_w = "Sword"; return name_w;
+else {this -> name_w = "Sword"; return name_w;}
 }
 
 //================================================================Other_functions=============================================================================
@@ -93,7 +93,7 @@ void Weapon::ShowCharacteristicWeapon()                                         
 {
 std::cout << "\n\n ===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
-            << durability_w << "\nValue : " << value_w <<"\n Is enchanted : " << IsEnchanted << std::endl;
+            << durability_w << "\nValue : " << value_w <<"\n Is enchanted : " << isEnchanted_w << std::endl;
 }
 
 
