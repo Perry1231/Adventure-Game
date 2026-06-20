@@ -3,9 +3,9 @@
 
 void Weapon::RandomizeWeaponSpeacial(const std::string& profession)
 {
-std::string weapon_sp[] = {"Guandao", "Poleaxe", ""}; //Special_weapon
-std::string weapon_se[] = {""}; //For_spells
-std::string weapon_ar[] = {""}; //For_artifacts
+std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Super Rod"}; //Special_weapon
+std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
+std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 
 
 }

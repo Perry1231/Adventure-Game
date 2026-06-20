@@ -46,55 +46,55 @@ std::string GetProfession() const { return profession; };
 class Weapon                                     
 {
     protected:
-    bool isEquipped;
-    bool isBroken;
-    bool isEnchanted;
-int attack;
-int defend;
-float durability;
-int value;
-std::string name;
+    bool isEquipped_w;
+    bool isBroken_w;
+    bool isEnchanted_w;
+int attack_w;
+int defend_w;
+float durability_w;
+int value_w;
+std::string name_w;
 
     public :
-Weapon() : attack(), defend(), durability(), value(), name(), isEnchanted(), isEquipped(), isBroken() {}
+Weapon() : attack_w(), defend_w(), durability_w(), value_w(), name_w(), isEnchanted_w(), isEquipped_w(), isBroken_w() {}
 Weapon(std::string name_)
 {
-    this->name = name_;
-    this->attack = 0;
-    this->defend = 0;   
-    this->durability = 100; // Default durability
-    this->value = 0; 
-    this->isEquipped = false;
-    this->isBroken = false;
-    this->isEnchanted = false;
+    this->name_w = name_;
+    this->attack_w = 0;
+    this->defend_w = 0;   
+    this->durability_w = 100; // Default durability
+    this->value_w = 0; 
+    this->isEquipped_w = false;
+    this->isBroken_w = false;
+    this->isEnchanted_w = false;
 }
 Weapon(std::string name_, int attack_) : Weapon(name_)
 {
-    this->attack = attack_;
+    this->attack_w = attack_;
 }
 Weapon(std::string name_, int attack_, int defend_) : Weapon(name_, attack_)
 {
-    this->defend = defend_;
+    this->defend_w = defend_;
 }
 Weapon(std::string name_, int attack_, int defend_, float durability_) : Weapon(name_, attack_, defend_)
 {
-    this->durability = durability_; 
+    this->durability_w = durability_; 
 }
 Weapon(std::string name_, int attack_, int defend_, float durability_, int value_) : Weapon(name_, attack_, defend_, durability_)
 {
-    this->value = value_;
+    this->value_w = value_;
 }
 Weapon(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_) : Weapon(name_, attack_, defend_, durability_, value_)
 {
-    this->isEquipped = isEquipped_;
+    this->isEquipped_w = isEquipped_;
 }
 Weapon(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_) : Weapon(name_, attack_, defend_, durability_, value_, isEquipped_)
 {
-    this->isBroken = isBroken_;
+    this->isBroken_w = isBroken_;
 }
 Weapon(std::string name_, int attack_, int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Weapon(name_, attack_, defend_, durability_, value_, isEquipped_, isBroken_)
 {
-    this->isEnchanted = isEnchanted_;
+    this->isEnchanted_w = isEnchanted_;
 }
    
 
@@ -102,18 +102,19 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     virtual void Use()  { }                                             
     virtual void Reset()  { }  //NoUse
 
-    int GetAttack() const { return attack; };                                                      
-    int GetDurability() const{ return durability; };  
-    int GetValue() const { return value; };
-    bool IsBroken() const { return isBroken; };
-    bool IsEnchanted() const { return isEnchanted; };
-    void RandomizeWeapon(const std::string& profession);
+    int GetAttack() const { return attack_w; };                                                      
+    int GetDurability() const{ return durability_w; };  
+    int GetValue() const { return value_w; };
+    bool IsBroken() const { return isBroken_w; };
+    bool IsEnchanted() const { return isEnchanted_w; };
+    std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
     void RandomizeWeaponSpeacial(const std::string& profession);
+    bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 };
 
 
-//Not realized
+//=======================================================================Inventory_structure===========================================================================
 class Inventory
 {
 private:
