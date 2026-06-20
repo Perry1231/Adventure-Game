@@ -3,7 +3,7 @@
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
-std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)             //For start
+std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
 {
 std::string weapon_me[] = {"Sword", "Dagger", "Spear", "Mace", "Longsword", "War Hammer", "Axe", "Club", "Mace", "Knife", "Katana", "Rapier", "Sabre"}; //For_Melee == 13
 std::string weapon_ra[] = {"Crossbow", "Longbow", "Nand Cannon", "Bow"}; //For_range == 4
@@ -89,7 +89,7 @@ else this -> name_w = "Sword"; return name_w;
 }
 
 //================================================================Other_functions=============================================================================
-void Weapon::ShowCharacteristicWeapon()                                                     //Show weapon characteristics
+void Weapon::ShowCharacteristicWeapon()                                                                                          //Show weapon characteristics
 {
 std::cout << "\n\n ===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
@@ -97,7 +97,7 @@ std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " <
 }
 
 
-void Weapon::BrokenWeapon()
+void Weapon::BrokenWeapon()                                                                                                     //Count is weapon broken
 {
     isBroken_w = true;
     durability_w = 0;

@@ -16,13 +16,13 @@ delete [] newArray;
 
 
 
-int Inventory::GetSpace(int &size)             //Show number of items
+int Inventory::GetSpace(int &size)                                                //Show number of items
 {
 return size;
 }
 
 
-int Inventory::DelSpace(int *& my_inv_mass, int &size)             //Delete sapce 
+int Inventory::DelSpace(int *& my_inv_mass, int &size)                            //Delete sapce 
 {
 size--;
 int *newArray = new int [size];
@@ -36,13 +36,13 @@ delete [] newArray;
 }
 
 
-void Inventory::DisplayInventory()
+void Inventory::DisplayInventory()                                               //Shows items in inventory
 {
     //for 
 }
 
 
-void InventoryFunctions()                           //For displaying functions , like : show items , delete items;
+void InventoryFunctions()                                                         //For displaying functions , like : show items , delete items;
 {
 
 }
