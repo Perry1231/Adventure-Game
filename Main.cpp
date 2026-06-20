@@ -14,6 +14,7 @@ int main()
     Weapon weapon_1;
     weapon_1.RandomizeWeaponStart(hero.GetProfession());
 
+    //Inventory inv1;
 
     system("pause");
     return 0;

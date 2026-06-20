@@ -1,4 +1,5 @@
 #include "Header.h"
+#include <iostream>
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
@@ -87,6 +88,13 @@ return name_w;
 else this -> name_w = "Sword"; return name_w;
 }
 
+//================================================================Other_functions=============================================================================
+void Weapon::ShowCharacteristicWeapon()                                                     //Show weapon characteristics
+{
+std::cout << "\n\n ===Your weapon characteristic=== "<< std::endl;
+std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
+            << durability_w << "\nValue : " << value_w <<"\n Is enchanted : " << IsEnchanted << std::endl;
+}
 
 
 void Weapon::BrokenWeapon()

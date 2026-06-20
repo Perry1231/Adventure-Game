@@ -38,7 +38,7 @@ void RandomizeStats();
 void Usage();
 std::string GetProfession() const { return profession; };
 
-~Character();
+~Character(){}
 };
 
 
@@ -111,6 +111,8 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void BrokenWeapon();
     void RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
+    void ShowCharacteristicWeapon();
+    ~Weapon(){}
 };
 
 
@@ -118,13 +120,21 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
 class Inventory
 {
 private:
-
+ int size=0;
+ int *my_inv_mass = new int [size];
+ int *ot_inv_mass = new int [size];
 public:
+Inventory() : size() {}
 
-    void DisplayInventory();
+void DisplayInventory();
+int GetSpace(int& size);
+int AddSpace(int *&my_inv_mass,int& size, const int value);
+int DelSpace(int *&my_inv_mass,int& size);
+void InventoryFunctions();
+
+~Inventory(){}
 };
 
 
 void HelpFunction() ;
-void Inventory();
 #endif
