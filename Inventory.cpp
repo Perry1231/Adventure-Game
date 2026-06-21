@@ -43,8 +43,27 @@ void Inventory::DisplayInventory()                                              
     //for 
 }
 
-
-void InventoryFunctions()                                                         //For displaying functions , like : show items , delete items;
+void Inventory::DeleteItem()                                                    //Deleet item ferom inventory
 {
+
+}
+
+
+void Inventory::InventoryFunctions()                                                         //For displaying functions , like : show items , delete items; (MENU)
+{
+    int choice=0;
+    std::cout << "\n\n" << std::endl;
+    std::cout <<"============================================="<< std::endl;
+    std::cout << "Size: " << size << std::endl;
+    std::cout <<"=================Functions=================="<< std::endl;
+    std::cout <<"Disaply all items in : 1 \nDelete item : 2 " << std::endl;
+    std::cout <<"============================================="<< std::endl;
+    std::cout << "\n\n" << std::endl;
+    while(true)
+    {
+        if(choice == '1') DisplayInventory();
+        else if (choice == '2') DeleteItem();
+        else break;
+    }
 
 }

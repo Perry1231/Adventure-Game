@@ -121,14 +121,15 @@ class Inventory
 {
 private:
  int size=0;
- int *my_inv_mass = new int [size];
- int *ot_inv_mass = new int [size];
+ int *my_inv_mass = new int [size];                         //Player inventory
+ int *ot_inv_mass = new int [size];                         //Other character inventory (trader , ...)
 public:
 Inventory() : size() {}
 
 ~Inventory(){}
 
 void DisplayInventory();
+void DeleteItem();
 int GetSpace(int& size);
 int AddSpace(int *&my_inv_mass,int& size, const int value);
 int DelSpace(int *&my_inv_mass,int& size);
