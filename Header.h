@@ -136,8 +136,8 @@ class MyInventory
 {
 private:
 Item** items;
-int id=0;
-int size=0;
+int id=1;
+int size=1;
 
 
 int id_obj;
