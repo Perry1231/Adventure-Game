@@ -89,7 +89,7 @@ else {this -> name_w = "Sword"; return name_w;}
 }
 
 //================================================================Other_functions=============================================================================
-void Weapon::ShowCharacteristicWeapon()                                                                                          //Show weapon characteristics
+void Weapon::ShowInfo() const                                                                                          //Show weapon characteristics
 {
 std::cout << "\n\n ===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 

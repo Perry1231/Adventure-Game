@@ -4,6 +4,15 @@
 #include <iostream>
 #include <cstdlib>
 
+//========================================================================Item+structure==========================================
+class Item {
+public:
+    virtual ~Item() {}
+    virtual void ShowInfo() const = 0;
+    virtual std::string GetName() const = 0;
+    virtual std::string GetType() const = 0;
+};
+
 
 //=======================================================================Character_structure===================================================================================
 class Character
@@ -43,21 +52,21 @@ std::string GetProfession() const { return profession; };
 
 
 //============================================================================Weapon_structure=============================================================================
-class Weapon                                     
-{
-    protected:
+class Weapon : public Item  
+{                               
+protected:
     bool isEquipped_w;
     bool isBroken_w;
     bool isEnchanted_w;
-int attack_w;
-int defend_w;
-float durability_w;
-int value_w;
+    int attack_w;
+    int defend_w;
+    float durability_w;
+    int value_w;
 std::string name_w;
 
     public :
-Weapon() : attack_w(), defend_w(), durability_w(), value_w(), name_w(), isEnchanted_w(), isEquipped_w(), isBroken_w() {}
-Weapon(std::string name_)
+Weapon() : isEquipped_w(false), isBroken_w(false), 
+           isEnchanted_w(false), attack_w(0), defend_w(0), durability_w(100), value_w(0), name_w("") {}Weapon(std::string name_)
 {
     this->name_w = name_;
     this->attack_w = 0;
@@ -111,31 +120,59 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void BrokenWeapon();
     void RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
-    void ShowCharacteristicWeapon();
-    ~Weapon(){}
+    void ShowInfo();
+
+    void ShowInfo() const override ;
+    std::string GetName() const override { return name_w; }
+    std::string GetType() const override { return "Weapon"; }
+
+
+    ~Weapon() {}
 };
 
 
 //=======================================================================Inventory_structure===========================================================================
-class Inventory
+class MyInventory
 {
 private:
- int size=0;
- int *my_inv_mass = new int [size];                         //Player inventory
- int *ot_inv_mass = new int [size];                         //Other character inventory (trader , ...)
-public:
-Inventory() : size() {}
+Item** items;
+int id=0;
+int size=0;
 
-~Inventory(){}
+
+int id_obj;
+public:
+MyInventory() : size() {}
+
+~MyInventory(){}
+
 
 void DisplayInventory();
-void DeleteItem();
-int GetSpace(int& size);
-int AddSpace(int *&my_inv_mass,int& size, const int value);
-int DelSpace(int *&my_inv_mass,int& size);
+int GetCount() const { return size; }
+int AddItem(Item* item);
+int DelItem(int id);
 void InventoryFunctions();
+};
+void HelpFunction() ;
+
+
+
+
+
+class OtInventory
+{
+private:
+    int size;
+     int *ot_inv_mass = new int [size];                         //Other character inventory (trader , ...)
+
+public:
+OtInventory() : size() {}
+
+~OtInventory(){delete[] ot_inv_mass;}
 };
 
 
-void HelpFunction() ;
+
+
+
 #endif
