@@ -156,7 +156,7 @@ else if (profession == "Scavenger") {
     else if (race == "Goblin") {
         name = firstNames_g[rand() % 10] + " " + lastNames_g[rand() % 10];
     }
-//=============================Age randomizer=================================================              &&&&&&&&&&&&&&&&&&&
+//=============================Age randomizer=================================================             
     age = 18 + rand() % 83; // Random age between 18 and 100  
 
 
