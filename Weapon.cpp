@@ -7,7 +7,7 @@ std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)     
 {
 std::string weapon_me[] = {"Sword", "Dagger", "Spear", "Mace", "Longsword", "War Hammer", "Axe", "Club", "Mace", "Knife", "Katana", "Rapier", "Sabre"}; //For_Melee == 13
 std::string weapon_ra[] = {"Crossbow", "Longbow", "Nand Cannon", "Bow"}; //For_range == 4
-std::string weapon_ma[] = {"Rod", "Wands", "Staffs"}; //For_magic == 3
+std::string weapon_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
 
 if (profession_get == "Warrior")
 {
@@ -91,13 +91,13 @@ else {this -> name_w = "Sword"; return name_w;}
 //================================================================Other_functions=============================================================================
 void Weapon::ShowInfo() const                                                                                          //Show weapon characteristics
 {
-std::cout << "\n ===Your weapon characteristic=== "<< std::endl;
+std::cout << "\n===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
-            << durability_w << "\nValue : " << value_w <<"\nIs enchanted : " << isEnchanted_w << std::endl;
+            << durability_w << "\nValue : " << value_w <<"\nIs enchanted : " << isEnchanted_w <<"\n"<< std::endl;
 }
 
 
-void Weapon::BrokenWeapon()                                                                                                     //Count is weapon broken
+void Weapon::BrokenWeapon()                                                                                                   //Count is weapon broken
 {
     isBroken_w = true;
     durability_w = 0;

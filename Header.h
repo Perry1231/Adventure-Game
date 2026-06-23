@@ -6,13 +6,16 @@
 
 //========================================================================Item+structure==========================================
 class Item {
+private:
+    int itemId;
 public:
     virtual ~Item() {}
     virtual void ShowInfo() const = 0;
     virtual std::string GetName() const = 0;
     virtual std::string GetType() const = 0;
+    int GetItemId() const { return itemId; }
+    void SetItemId(int id) { itemId = id; }
 };
-
 
 //=======================================================================Character_structure===================================================================================
 class Character
@@ -228,7 +231,6 @@ int GetCount() const { return count; }
 int AddItem(Item* item);
 int DelItem(int id);
 int ResizeInventoryBig();
-int ResizeInventorySma();
 void InventoryFunctions();
 };
 void HelpFunction() ;

@@ -16,12 +16,6 @@ int MyInventory::ResizeInventoryBig()
 return 0;
 }
 
-int MyInventory::ResizeInventorySma()
-{
-    capacity--;
-    return 0;
-
-}
 
 void MyInventory::DisplayInventory() const                                            //Shows items in inventory
 {
@@ -31,49 +25,43 @@ void MyInventory::DisplayInventory() const                                      
         return;
     }
 
-    std::cout << "\n\n=== Your Inventory ===" << std::endl;
+    std::cout << "\n\n=== Your Inventory ================" << std::endl;
     for (int i = 0; i < count; i++)
     {
-        std::cout << "\nID: " << items[i]->GetName() << " (Type: " << items[i]->GetType() << ")" << std::endl;
+        std::cout << "\nID: " << items[i]->GetItemId() << "\nName: " <<items[i]->GetName() << " (Type: " << items[i]->GetType() << ")" << std::endl;
         items[i]->ShowInfo();
     }
-    std::cout << "\n=======================" << std::endl;
+    std::cout << "\n==================================" << std::endl;
 }
 
 
 
-
-int MyInventory::AddItem(Item* item)
-{
-    if (count >= capacity)
-        ResizeInventoryBig();
-
-    item->ShowInfo(); 
-
+int MyInventory::AddItem(Item* item) {
+    if (count >= capacity) ResizeInventoryBig();
+    item->SetItemId(id);   
     items[count++] = item;
-    
+    std::cout << "Added item with ID: " << id << std::endl;
+    id++;
     return 0;
 }
 
 
 
-int MyInventory::DelItem(int id)
-{
-    if (id < 0 || id >= count)
-    {
-        std::cout << "Invalid ID!" << std::endl;
-        return -1;
+int MyInventory::DelItem(int itemId) {
+    for (int i = 0; i < count; i++) {
+        if (items[i]->GetItemId() == itemId) {
+            delete items[i];
+            for (int j = i; j < count - 1; j++) {
+                items[j] = items[j + 1];
+            }
+            count--;
+            std::cout << "Item with ID " << itemId << " deleted." << std::endl;
+            return 0;
+        }
     }
-    delete items[id];
-
-    for (int i = id; i < count - 1; i++)
-        items[i] = items[i + 1];
-
-    count--;
-    std::cout << "Item deleted." << std::endl;
-    return 0;
+    std::cout << "Item with ID " << itemId << " not found!" << std::endl;
+    return -1;
 }
-
 
 void MyInventory::InventoryFunctions()                                                       //For displaying functions , like : show items , delete items; (MENU)
 {
@@ -85,6 +73,7 @@ void MyInventory::InventoryFunctions()                                          
     std::cout <<"Disaply all items in : 1 \nDelete item from id : 2" << std::endl;
     std::cout << "Exit: 0" << std::endl;
     std::cout <<"============================================="<< std::endl;
+                
     std::cout << "\n\n" << std::endl;
     while (true)
     {

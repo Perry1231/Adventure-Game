@@ -17,7 +17,11 @@ int main() {
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
     weapon_2->RandomizeWeaponStart(hero.GetProfession());
 
-    
+    MyInventory inv1;
+    inv1.AddItem(weapon_1);
+    inv1.AddItem(weapon_2);
+    inv1.DisplayInventory();
+    inv1.InventoryFunctions();
 
 /*Armory* armor_1 = new Armor();                                       //Weapon create test
 armor_1->RandomizeArmorStart(hero.GetProfession());
