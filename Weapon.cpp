@@ -91,9 +91,9 @@ else {this -> name_w = "Sword"; return name_w;}
 //================================================================Other_functions=============================================================================
 void Weapon::ShowInfo() const                                                                                          //Show weapon characteristics
 {
-std::cout << "\n\n ===Your weapon characteristic=== "<< std::endl;
+std::cout << "\n ===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
-            << durability_w << "\nValue : " << value_w <<"\n Is enchanted : " << isEnchanted_w << std::endl;
+            << durability_w << "\nValue : " << value_w <<"\nIs enchanted : " << isEnchanted_w << std::endl;
 }
 
 
@@ -110,7 +110,7 @@ void Weapon::BrokenWeapon()                                                     
 
 //=================================================================Special_weapon=================================================================================
 
-void Weapon::RandomizeWeaponSpeacial(const std::string& profession)
+void Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
 {
 std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Super Rod"}; //Special_weapon
 std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells

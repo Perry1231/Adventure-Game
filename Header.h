@@ -120,7 +120,6 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void BrokenWeapon();
     void RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
-    void ShowInfo();
 
     void ShowInfo() const override ;
     std::string GetName() const override { return name_w; }
@@ -226,6 +225,8 @@ void DisplayInventory();
 int GetCount() const { return size; }
 int AddItem(Item* item);
 int DelItem(int id);
+int ResizeInventoryBig();
+int ResizeInventorySma();
 void InventoryFunctions();
 };
 void HelpFunction() ;

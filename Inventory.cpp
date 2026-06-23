@@ -2,6 +2,18 @@
 
 //====================================================Inventory_functions=======================================================================================================
 
+int MyInventory::ResizeInventoryBig()
+{
+    size ++;
+return 0;
+}
+
+int MyInventory::ResizeInventorySma()
+{
+    size--;
+    return 0;
+
+}
 
 void MyInventory::DisplayInventory()                                               //Shows items in inventory
 {
@@ -29,7 +41,7 @@ void MyInventory::InventoryFunctions()                                          
 {
     int choice =0;
     std::cout << "\n\n" << std::endl;
-    std::cout <<"============================================="<< std::endl;
+    std::cout <<"==================Inventory================="<< std::endl;
     std::cout << "Size: " << size << std::endl;
     std::cout <<"=================Functions=================="<< std::endl;
     std::cout <<"Disaply all items in : 1 \nDelete item from id : 2" << std::endl;

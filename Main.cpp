@@ -14,6 +14,7 @@ int main() {
 
     Weapon* weapon_1 = new Weapon();                                    //Weapon create test
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
+    weapon_1->ShowInfo();
 
     MyInventory inv1;
     inv1.AddItem(weapon_1);
@@ -31,7 +32,7 @@ inv1.AddItem(armor_1);
 
 
 
-    inv1.InventoryFunctions();
+   
 
     system("pause");
     return 0;
