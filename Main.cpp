@@ -20,6 +20,7 @@ int main() {
     MyInventory inv1;
     inv1.AddItem(weapon_1);
     inv1.AddItem(weapon_2);
+    inv1.GetCount();
     inv1.DisplayInventory();
     inv1.InventoryFunctions();
 
