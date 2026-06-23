@@ -131,6 +131,66 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
 };
 
 
+//=======================================================================Armory_strucuture==========================================================================
+class Armory : public Item
+{
+    protected :
+bool isEquipped_a;
+bool isBroken_a;
+bool isEnchanted_a;
+int defend_a;
+float durability_a;
+int value_a;
+std::string name_a;
+
+
+    public:
+Armory() : isEquipped_a(false), isBroken_a(false), 
+           isEnchanted_a(false), defend_a(0), durability_a(100), value_a(0), name_a("") {}Armory(std::string name_a)
+{
+    this->name_a = name_a;
+    this->defend_a = 0;   
+    this->durability_a = 100; // Default durability
+    this->value_a = 0; 
+    this->isEquipped_a = false;
+    this->isBroken_a = false;
+    this->isEnchanted_a = false;
+}
+Armory(std::string name_a, int defend_) : Armory(name_a)
+{
+    this->defend_a = defend_;
+}
+Armory(std::string name_a, int defend_, float durability_) : Armory(name_a,  defend_)
+{
+    this->durability_a = durability_; 
+}
+Armory(std::string name_a,  int defend_, float durability_, int value_) : Armory(name_a,  defend_, durability_)
+{
+    this->value_a = value_;
+}
+Armory(std::string name_a,  int defend_, float durability_, int value_, bool isEquipped_) : Armory(name_a,  defend_, durability_, value_)
+{
+    this->isEquipped_a = isEquipped_;
+}
+Armory(std::string name_a,  int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_) : Armory(name_a, defend_, durability_, value_, isEquipped_)
+{
+    this->isBroken_a = isBroken_;
+}
+Armory(std::string name_a,  int defend_, float durability_, int value_, bool isEquipped_, bool isBroken_, bool isEnchanted_) : Armory(name_a,  defend_, durability_, value_, isEquipped_, isBroken_)
+{
+    this->isEnchanted_a = isEnchanted_;
+}
+
+
+
+
+~Armory();
+};
+
+
+
+
+
 //=======================================================================Inventory_structure===========================================================================
 class MyInventory
 {
