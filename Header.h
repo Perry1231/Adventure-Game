@@ -181,10 +181,25 @@ Armory(std::string name_a,  int defend_, float durability_, int value_, bool isE
     this->isEnchanted_a = isEnchanted_;
 }
 
+virtual void Use() { }
+virtual void Reset() { }
+int GetDefense() const { return defend_a; }
+int GetDurability() const { return durability_a; }
+int GetValue() const { return value_a; }
+bool IsBroken() const { return isBroken_a; }
+bool IsEnchanted() const { return isEnchanted_a; }
+
+
+std::string RandomizeArmorStart(const std::string& profession);
+void BrokenArmor();
+void RandomizeArmorSpeacial(const std::string& profession);
+bool IsUsable() const { return !isBroken_a && durability_a > 0; }
+
+void ShowInfo() const override;
 
 
 
-~Armory();
+~Armory() {};
 };
 
 
