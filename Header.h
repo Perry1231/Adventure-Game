@@ -45,18 +45,19 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
         age(age_), race(race_), profession(profession_), level(level_), description(description_), strength(strength_), agility(agility_),  
         intelligence(intelligence_), defense(defense_), gold(gold_) {}
     
-void DisplayStats();
-void RandomizeStats();
-void Usage();
-std::string GetProfession() const { return profession; };
-
-~Character(){}
+    void DisplayStats();
+    void RandomizeStats();
+        
+    std::string GetProfession() const { return profession; };
+    void Usage();
+    
+    ~Character(){}
 };
 
 
 //============================================================================Weapon_structure=============================================================================
 class Weapon : public Item  
-{                               
+{
 protected:
     bool isEquipped_w;
     bool isBroken_w;
@@ -242,17 +243,19 @@ void HelpFunction() ;
 class OtInventory
 {
 private:
-    int size;
+    int size=0;
      int *ot_inv_mass = new int [size];                         //Other character inventory (trader , ...)
 
-public:
-OtInventory() : size() {}
+public:            
+OtInventory() : size(0), ot_inv_mass(nullptr) {}
+
+int GetSize() const { return size; }
+int* GetInventory() const { return ot_inv_mass; }
+void AddItem(int id);
+void RemoveItem(int id);
 
 ~OtInventory(){delete[] ot_inv_mass;}
 };
-
-
-
 
 
 #endif
