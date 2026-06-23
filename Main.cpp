@@ -13,13 +13,11 @@ int main() {
 
 
     Weapon* weapon_1 = new Weapon();                                    //Weapon create test
+    Weapon* weapon_2 = new Weapon();  
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
-    weapon_1->ShowInfo();
+    weapon_2->RandomizeWeaponStart(hero.GetProfession());
 
-    MyInventory inv1;
-    inv1.AddItem(weapon_1);
-
-
+    
 
 /*Armory* armor_1 = new Armor();                                       //Weapon create test
 armor_1->RandomizeArmorStart(hero.GetProfession());

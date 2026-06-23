@@ -210,19 +210,21 @@ class MyInventory
 {
 private:
 Item** items;
-int id=1;
-int size=1;
+int capacity;   //Capacity of inventory given
+int count;      //How many items now
+int id;
 
 
-int id_obj;
 public:
-MyInventory() : size() {}
+MyInventory() :  items(nullptr) , count(0) , capacity(0), id(1) {}
 
-~MyInventory(){}
+~MyInventory(){for (int i = 0; i < count; i++)
+        delete items[i];
+    delete[] items;}
 
 
-void DisplayInventory();
-int GetCount() const { return size; }
+void DisplayInventory() const;
+int GetCount() const { return count; }
 int AddItem(Item* item);
 int DelItem(int id);
 int ResizeInventoryBig();
