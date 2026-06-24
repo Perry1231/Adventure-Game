@@ -199,7 +199,8 @@ void BrokenArmory();
 void ShowInfo() const override;
 std::string RandomizeArmorSpeacial(const std::string& profession);
 std::string RandomizeArmorStart(const std::string& profession_get);
-
+std::string GetName() const override { return name_a; }
+std::string GetType() const override { return "Armor"; }
 
 
 ~Armory() {};
@@ -248,6 +249,8 @@ private:
 
 public:            
 OtInventory() : size(0), ot_inv_mass(nullptr) {}
+
+
 
 int GetSize() const { return size; }
 int* GetInventory() const { return ot_inv_mass; }

@@ -24,11 +24,11 @@ int main() {
     inv1.InventoryFunctions();
 
 
-/*Armory* armor_1 = new Armor();                                       //Weapon create test
+    Armory* armor_1 = new Armory();                                       //Weapon create test
     armor_1->RandomizeArmorStart(hero.GetProfession());
     MyInventory inv2;
     inv2.AddItem(armor_1);
     inv2.DisplayInventory();
-   */
+   
    return 0;             
 }
