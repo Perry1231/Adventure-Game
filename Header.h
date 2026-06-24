@@ -194,11 +194,13 @@ bool IsEnchanted() const { return isEnchanted_a; }
 
 
 std::string RandomizeArmorStart(const std::string& profession);
-void BrokenArmor();
 void RandomizeArmorSpeacial(const std::string& profession);
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 
+void BrokenArmory();
 void ShowInfo() const override;
+void RandomizeArmorSpeacial(const std::string& profession);
+std::string RandomizeArmorStart(const std::string& profession_get);
 
 
 
