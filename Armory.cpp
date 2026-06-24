@@ -4,86 +4,87 @@
 
 std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
 {
-std::string armor_me[] = {"Sword", "Dagger", "Spear", "Mace", "Longsword", "War Hammer", "Axe", "Club", "Mace", "Knife", "Katana", "Rapier", "Sabre"}; //For_Melee == 13
-std::string armor_ra[] = {"Crossbow", "Longbow", "Nand Cannon", "Bow"}; //For_range == 4
-std::string armor_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
+std::string armor_li[] = {"Padded suit","Leather suit", "Studded suit"}; //For_light == 3
+std::string armor_me[] = {"Hide suit", "Chain suit", "Scale suit", "Breathplate", "Halp plate"}; //For_medium == 5
+std::string armor_we[] = {"Ring mail suit", "Splint suit", "Plated suit"}; //For_weight == 3
+std::string armor_ot[] = {"Shield"};
 if (profession_get == "Warrior")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_me[rand() % 3];
 return name_a;
-}
+} 
 
 else if (profession_get == "Mage")
-{
-this -> name_a = armor_ma[rand() % 3];
+{ 
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Rogue")
 {
-this -> name_a = armor_me[rand() % 13];
-return name_a;
+this -> name_a = armor_li[rand() % 3];
+return name_a; 
 }
 else if (profession_get == "Peasant")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Archer")
 {
-this -> name_a = armor_ra[rand() % 4];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Druid")
 {
-this -> name_a = armor_ma[rand() % 3];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Ranger")
 {
-this -> name_a = armor_ra[rand() % 4];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Blacksmith")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Miner")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Berserker")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Shaman")
 {
-this -> name_a = armor_ma[rand() % 3];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Warlord")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Thief")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Assassin")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
 else if (profession_get == "Scavenger")
 {
-this -> name_a = armor_me[rand() % 13];
+this -> name_a = armor_li[rand() % 3];
 return name_a;
 }
-else {this -> name_a = "Sword"; return name_a;}
+else {this -> name_a = "Armor"; return name_a;}
 }
 
 
@@ -108,9 +109,7 @@ void Armory::BrokenArmory()                                                     
 
 std::string Armory::RandomizeArmorSpeacial(const std::string& profession)                                                             //for chests 
 {
-std::string armor_sp[] = {}; //Special_weapon
-std::string armor_se[] = {}; //For_spells
-std::string armor_ar[] = {}; //For_artifacts
-
-return 0;
+std::string armor_sp[] = {"Dragon suit", "shadow suit", "Death suit", "Void suit"}; //Special_armor
+this -> name_a = armor_sp[rand() % 4];
+return name_a;
 }
