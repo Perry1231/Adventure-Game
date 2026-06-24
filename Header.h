@@ -122,7 +122,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     bool IsEnchanted() const { return isEnchanted_w; };
     std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
-    void RandomizeWeaponSpeacial(const std::string& profession);
+    std::string  RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
     void ShowInfo() const override ;
@@ -193,13 +193,11 @@ bool IsBroken() const { return isBroken_a; }
 bool IsEnchanted() const { return isEnchanted_a; }
 
 
-std::string RandomizeArmorStart(const std::string& profession);
-void RandomizeArmorSpeacial(const std::string& profession);
-bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 
+bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 void BrokenArmory();
 void ShowInfo() const override;
-void RandomizeArmorSpeacial(const std::string& profession);
+std::string RandomizeArmorSpeacial(const std::string& profession);
 std::string RandomizeArmorStart(const std::string& profession_get);
 
 

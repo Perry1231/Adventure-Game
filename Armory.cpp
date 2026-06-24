@@ -106,11 +106,11 @@ void Armory::BrokenArmory()                                                     
 //==================================================================Special_weapon=========================================================================
 
 
-void Armory::RandomizeArmorSpeacial(const std::string& profession)                                                             //for chests 
+std::string Armory::RandomizeArmorSpeacial(const std::string& profession)                                                             //for chests 
 {
 std::string armor_sp[] = {}; //Special_weapon
 std::string armor_se[] = {}; //For_spells
 std::string armor_ar[] = {}; //For_artifacts
 
-
+return 0;
 }

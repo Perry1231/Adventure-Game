@@ -110,12 +110,12 @@ void Weapon::BrokenWeapon()                                                     
 
 //=================================================================Special_weapon=================================================================================
 
-void Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
+std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
 {
 std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Super Rod"}; //Special_weapon
 std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
 std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 
-
+return 0;
 }
 
