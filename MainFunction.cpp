@@ -1,10 +1,8 @@
 #include <iostream>
 #include "Header.h"
-#include <cstdlib>
-#include <ctime>
+
 
 void MainFunction() {
-    std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     Character hero;
     hero.RandomizeStats();
