@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Header.h"
-#include <map>
+#include <map>          //-> for map function 
+#include <string>
 
+ //Change all for *map*
 
 std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
 {
@@ -13,8 +15,7 @@ if (profession_get == "Warrior")
 {
 this -> name_a = armor_me[rand() % 3];
 return name_a;
-} 
-
+}
 else if (profession_get == "Mage")
 { 
 this -> name_a = armor_li[rand() % 3];
