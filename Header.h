@@ -35,10 +35,16 @@ int defense;
 int gold;
 
 
+Weapon* equipped_weapon;                //For equipment
+Armory* equipped_armor;
+
+
     public :
-//Default constructor
+//Default constructo 
 Character() : health(100), name ("Hero"), age(20), race("Human"), profession("Adventurer"), level(1), 
-description("A brave adventurer ready to explore the world."), strength(10), agility(10), intelligence(10), defense(10), gold(100)   {}
+description("A brave adventurer ready to explore the world."), strength(10), agility(10), intelligence(10), 
+defense(10), gold(100) , equipped_weapon(nullptr), equipped_armor(nullptr) {}
+
 //Parameterized constructor
 Character(int health_, std::string name_, int age_, std::string race_, std::string profession_, int level_, 
         std::string description_, int strength_, int agility_, int intelligence_, int defense_, int gold_) : health(health_), name(name_),
@@ -48,6 +54,14 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void DisplayStats();
     void RandomizeStats();
         
+    void EquipWeapon(Weapon* w);                                                                                //For slots
+    void EquipArmor(Armory* a);
+    Weapon* GetEquippedWeapon() const { return equipped_weapon; }
+    Armory* GetEquippedArmor() const { return equipped_armor; }
+    int GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); }
+    int GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }
+
+
     std::string GetProfession() const { return profession; };
     void Usage();
     
@@ -66,7 +80,7 @@ protected:
     int defend_w;
     float durability_w;
     int value_w;
-std::string name_w;
+    std::string name_w;
 
     public :
 Weapon() : isEquipped_w(false), isBroken_w(false), 

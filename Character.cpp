@@ -273,7 +273,38 @@ else if (profession == "Scavenger") {
     //=============================End of randomization=============================
 }
 
-void Usage(Weapon* weapon)
+
+void Character::EquipWeapon(Weapon* w)
 {
-    weapon->Use();
+    if (equipped_weapon) {
+        equipped_weapon->Reset(); // зняти стару
+    }
+    equipped_weapon = w;
+    if (equipped_weapon) {
+        equipped_weapon->Use(); // активувати нову
+    }
+}
+
+void Character::EquipArmor(Armory* a)
+{
+    if (equipped_armor) {
+        equipped_armor->Reset(); // зняти стару
+    }
+    equipped_armor = a;
+    if (equipped_armor) {
+        equipped_armor->Use(); // активувати нову
+    }
+}
+
+void Character::Usage()
+{
+    std::cout << "\n" << name << " is using their equipment...\n";
+    if (equipped_weapon) {
+        std::cout << "Weapon: " << equipped_weapon->GetName() << std::endl;
+        std::cout << "Attack: " << GetTotalAttack() << std::endl;
+    }
+    if (equipped_armor) {
+        std::cout << "Armor: " << equipped_armor->GetName() << std::endl;
+        std::cout << "Defense: " << GetTotalDefense() << std::endl;
+    }
 }
