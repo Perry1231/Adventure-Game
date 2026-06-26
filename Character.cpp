@@ -329,3 +329,9 @@ void Character::Usage()
         std::cout << "Defense: " << GetTotalDefense() << std::endl;
     }
 }
+
+
+Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 
+Armory* Character::GetEquippedArmor() const { return equipped_armor; } 
+int Character::GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); } 
+int Character::GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }

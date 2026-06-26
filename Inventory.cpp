@@ -88,24 +88,40 @@ void MyInventory::InventoryFunctions()                                          
             DelItem(choice_2);
         }
 
-        else if (choice == 3)
+        else if (choice == 3)         
+{
+    int itemId;
+    std::cout << "Enter item ID to equip: ";
+    std::cin >> itemId;
+    
+    // Шукаємо предмет в інвентарі
+    for (int i = 0; i < count; i++)
+    {
+        if (items[i]->GetItemId() == itemId)
         {
-            int choice_2=0;
-            std::cout << "What do you want to equip \n 1-Armor \n 2-Weapon\n"<< std::endl;
-            if (choice_2 == 1)
+            if (items[i]->GetType() == "Weapon")
             {
-                Character::EquipArmor(id);
+                owner->EquipWeapon(dynamic_cast<Weapon*>(items[i]));
             }
-            else if(choice_2 == 2)
+            else if (items[i]->GetType() == "Armor")
             {
-                Character::EquipWeapon(id);
+                owner->EquipArmor(dynamic_cast<Armory*>(items[i]));
             }
-            else std::cout << "Invalid choice!" << std::endl; continue;
+            else
+            {
+                std::cout << "This item cannot be equipped!" << std::endl;
+            }
+            break;
         }
+    }
+    
+}
+        
         else if (choice == 0) break;
         else std::cout << "Invalid choice!" << std::endl;
     }
 }
+
 
 
 //==============================================For_other_characters================================================================

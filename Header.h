@@ -4,10 +4,18 @@
 #include <iostream>
 #include <cstdlib>
 
-//========================================================================Item+structure==========================================
+class Weapon;
+class Armory;
+class Character;
+class Inventory;
+class Item;
+class OtInventory;
+
+
+//=====================================================Item_structure==========================================
 class Item {
 private:
-    int itemId;
+int itemId;
 public:
     virtual ~Item() {}
     virtual void ShowInfo() const = 0;
@@ -23,6 +31,7 @@ public:
 };
 
 //=======================================================================Character_structure===================================================================================
+
 class Character
 {
     protected :
@@ -59,13 +68,13 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void DisplayStats();
     void RandomizeStats();
         
-    void EquipWeapon(Weapon* w);                                                                                //For slots
-    void EquipArmor(Armory* a);
-    Weapon* GetEquippedWeapon() const { return equipped_weapon; }
-    Armory* GetEquippedArmor() const { return equipped_armor; }
-    int GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); }
-    int GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }
-    void UnequipWeapon();                                                                                //For slots
+    void EquipWeapon(Weapon* w); 
+    void EquipArmor(Armory* a); 
+    Weapon* GetEquippedWeapon() const;
+    Armory* GetEquippedArmor() const; 
+    int GetTotalAttack() const; 
+    int GetTotalDefense() const; 
+    void UnequipWeapon(); 
     void UnequipArmor();
 
     std::string GetProfession() const { return profession; };
@@ -237,7 +246,7 @@ Item** items;
 int capacity;   //Capacity of inventory given
 int count;      //How many items now
 int id;
-
+Character* owner;
 
 public:
 MyInventory() :  items(nullptr) , count(0) , capacity(0), id(1) {}

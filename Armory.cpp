@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Header.h"
+#include <map>
 
 
 std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
@@ -103,6 +104,17 @@ void Armory::BrokenArmory()                                                     
     std::cout << (IsUsable() ? "Usable" : "Broken") << std::endl;
 }
 
+
+
+void Armory::Use() {
+    isEquipped_a = true;
+    std::cout << name_a << " equipped! Defense: +" << defend_a << std::endl;
+}
+
+void Armory::Reset() {
+    isEquipped_a = false;
+    std::cout << name_a << " unequipped." << std::endl;
+}
 
 //==================================================================Special_weapon=========================================================================
 
