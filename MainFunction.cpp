@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Header.h"
-
+//This file is for adding main functions that wiil start my programm
 
 void MainFunction() {
 
