@@ -111,14 +111,15 @@ void MyInventory::InventoryFunctions()                                          
             {
                 std::cout << "This item cannot be equipped!" << std::endl;
             }
-            break;
+            continue;
         }
     }
     
 }
         
-        else if (choice == 0) break;
+        else if (choice == 0) continue;
         else std::cout << "Invalid choice!" << std::endl;
+        
     }
 }
 

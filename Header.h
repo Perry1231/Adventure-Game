@@ -288,5 +288,7 @@ void RemoveItem(int id);
 ~OtInventory(){delete[] ot_inv_mass;}
 };
 
+//==================================================================Other_functions=============================================================================
+void MainFunction();
 
 #endif
