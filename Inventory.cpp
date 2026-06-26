@@ -70,7 +70,7 @@ void MyInventory::InventoryFunctions()                                          
     std::cout <<"==================Inventory================="<< std::endl;
     std::cout << "Size: " << count << std::endl;
     std::cout <<"=================Functions=================="<< std::endl;
-    std::cout <<"Disaply all items in : 1 \nDelete item from id : 2 \Equip item from id : 3" << std::endl;
+    std::cout <<"Disaply all items in : 1 \nDelete item from id : 2 \n Equip item from id : 3" << std::endl;
     std::cout << "Exit: 0" << std::endl;
     std::cout <<"============================================="<< std::endl;
                 
