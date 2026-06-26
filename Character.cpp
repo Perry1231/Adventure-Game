@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <map>
+
 
 //=============================Main functions=============================
 void Character::DisplayStats() 
@@ -277,34 +279,53 @@ else if (profession == "Scavenger") {
 void Character::EquipWeapon(Weapon* w)
 {
     if (equipped_weapon) {
-        equipped_weapon->Reset(); // зняти стару
+        equipped_weapon->Reset(); 
     }
     equipped_weapon = w;
     if (equipped_weapon) {
-        equipped_weapon->Use(); // активувати нову
+        equipped_weapon->Use(); 
+         GetTotalAttack();
+        GetTotalDefense();  
     }
 }
 
 void Character::EquipArmor(Armory* a)
 {
     if (equipped_armor) {
-        equipped_armor->Reset(); // зняти стару
+        equipped_armor->Reset(); 
     }
     equipped_armor = a;
     if (equipped_armor) {
-        equipped_armor->Use(); // активувати нову
+        equipped_armor->Use(); 
+        GetTotalAttack();
+        GetTotalDefense();  
+    }
+    
+}
+
+void Character::UnequipWeapon()
+{
+ if (equipped_weapon) {
+        equipped_weapon->Reset();
+        equipped_weapon = nullptr;
+    }
+}
+
+void Character::UnequipArmor()
+{
+ if (equipped_armor) {
+        equipped_armor->Reset();
+        equipped_armor = nullptr;
     }
 }
 
 void Character::Usage()
 {
-    std::cout << "\n" << name << " is using their equipment...\n";
+    std::cout << "\n" << this->name << " is using their equipment...\n";
     if (equipped_weapon) {
-        std::cout << "Weapon: " << equipped_weapon->GetName() << std::endl;
         std::cout << "Attack: " << GetTotalAttack() << std::endl;
     }
     if (equipped_armor) {
-        std::cout << "Armor: " << equipped_armor->GetName() << std::endl;
         std::cout << "Defense: " << GetTotalDefense() << std::endl;
     }
 }

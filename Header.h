@@ -15,6 +15,11 @@ public:
     virtual std::string GetType() const = 0;
     int GetItemId() const { return itemId; }
     void SetItemId(int id) { itemId = id; }
+
+
+    virtual void Use() = 0;
+    virtual void Reset() = 0;
+
 };
 
 //=======================================================================Character_structure===================================================================================
@@ -60,7 +65,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     Armory* GetEquippedArmor() const { return equipped_armor; }
     int GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); }
     int GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }
-
+    void UnequipWeapon();                                                                                //For slots
+    void UnequipArmor();
 
     std::string GetProfession() const { return profession; };
     void Usage();
@@ -126,8 +132,8 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
    
 
 
-    virtual void Use()  { }                                             
-    virtual void Reset()  { }  //NoUse
+    void Use() override;
+    void Reset() override;
 
     int GetAttack() const { return attack_w; };                                                      
     int GetDurability() const{ return durability_w; };  
@@ -142,7 +148,6 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void ShowInfo() const override ;
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }
-
 
     ~Weapon() {}
 };
@@ -198,8 +203,8 @@ Armory(std::string name_a,  int defend_, float durability_, int value_, bool isE
     this->isEnchanted_a = isEnchanted_;
 }
 
-virtual void Use() { }
-virtual void Reset() { }
+void Use();
+void Reset();
 int GetDefense() const { return defend_a; }
 int GetDurability() const { return durability_a; }
 int GetValue() const { return value_a; }

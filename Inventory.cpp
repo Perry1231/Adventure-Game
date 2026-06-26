@@ -70,7 +70,7 @@ void MyInventory::InventoryFunctions()                                          
     std::cout <<"==================Inventory================="<< std::endl;
     std::cout << "Size: " << count << std::endl;
     std::cout <<"=================Functions=================="<< std::endl;
-    std::cout <<"Disaply all items in : 1 \nDelete item from id : 2" << std::endl;
+    std::cout <<"Disaply all items in : 1 \nDelete item from id : 2 \Equip item from id : 3" << std::endl;
     std::cout << "Exit: 0" << std::endl;
     std::cout <<"============================================="<< std::endl;
                 
@@ -79,12 +79,28 @@ void MyInventory::InventoryFunctions()                                          
     {
         std::cin >> choice;
         if (choice == 1) DisplayInventory();
+
         else if (choice == 2)
         {
             int choice_2;
             std::cout << "Eneter id of item to delete : " ;
             std::cin>> choice_2;
             DelItem(choice_2);
+        }
+
+        else if (choice == 3)
+        {
+            int choice_2=0;
+            std::cout << "What do you want to equip \n 1-Armor \n 2-Weapon\n"<< std::endl;
+            if (choice_2 == 1)
+            {
+                Character::EquipArmor(id);
+            }
+            else if(choice_2 == 2)
+            {
+                Character::EquipWeapon(id);
+            }
+            else std::cout << "Invalid choice!" << std::endl; continue;
         }
         else if (choice == 0) break;
         else std::cout << "Invalid choice!" << std::endl;

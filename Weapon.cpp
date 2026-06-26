@@ -1,5 +1,6 @@
 #include "Header.h"
 #include <iostream>
+#include <map>
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
@@ -11,6 +12,7 @@ std::string weapon_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
 
 if (profession_get == "Warrior")
 {
+
 this -> name_w = weapon_me[rand() % 13];
 return name_w;
 }
@@ -105,8 +107,17 @@ void Weapon::BrokenWeapon()                                                     
 }
 
 
+void Weapon::Use()
+{
+    isEquipped_w = true;
+    std::cout << name_w << " equipped! Attack +" << attack_w << std::endl;
+}
 
-
+void Weapon::Reset()
+{
+    isEquipped_w = false;
+        std::cout << name_w << " equipped! Attack -" << attack_w << std::endl;
+}
 
 //=================================================================Special_weapon=================================================================================
 
@@ -119,3 +130,7 @@ std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 return 0;
 }
 
+
+
+
+//НОВЕ: задаємо атаку за назвою зброї

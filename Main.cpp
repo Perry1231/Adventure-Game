@@ -29,6 +29,12 @@ int main() {
     MyInventory inv2;
     inv2.AddItem(armor_1);
     inv2.DisplayInventory();
-   
-   return 0;             
+    
+
+    hero.EquipWeapon(weapon_1);
+    std::cout << "Total attack: " << hero.GetTotalAttack() << std::endl;  // strength + attack_w
+
+    hero.EquipArmor(armor_1);
+    std::cout << "Total defense: " << hero.GetTotalDefense() << std::endl;
+    return 0;             
 }
