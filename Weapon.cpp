@@ -1,6 +1,6 @@
 #include "Header.h"
 #include <iostream>
-#include <map>
+#include <map>      //-> for map function for all weapon
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
