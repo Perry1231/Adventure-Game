@@ -17,6 +17,7 @@ void MainFunction() {
     armor_1->RandomizeArmorStart(hero.GetProfession());
 
     MyInventory inv1;
+    inv1.SetOwner(&hero);
     inv1.AddItem(weapon_1);
     inv1.AddItem(weapon_2);
 
