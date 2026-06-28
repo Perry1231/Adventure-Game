@@ -5,9 +5,9 @@
 #include <utility> 
 
 
-std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
+void Armory::ArmorList()
 {
-//              suit name defense cost
+    //              suit name defense cost
     std::map<std::string, std::pair<int, int>> SuitLightName = {
         {"Padded suit", {11 ,5}}, 
         {"Leather suit", {11, 10}}, 
@@ -28,7 +28,11 @@ std::string Armory::RandomizeArmorStart(const std::string& profession_get)      
         {"Plate", {26, 250}}};
 
     std::map<std::string, std::pair<int, int>> AddictionName  = {{"Shield", {6, 70}}};
+}
 
+
+std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
+{
 name_a = "Padded suit";
 defend_a = 11;
 value_a = 5;

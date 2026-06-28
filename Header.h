@@ -219,7 +219,7 @@ int GetDurability() const { return durability_a; }
 int GetValue() const { return value_a; }
 bool IsBroken() const { return isBroken_a; }
 bool IsEnchanted() const { return isEnchanted_a; }
-
+void ArmorList();
 
 
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
@@ -249,13 +249,14 @@ int id;
 Character* owner;
 
 public:
-MyInventory() :  items(nullptr) , count(0) , capacity(0), id(1) {}
+MyInventory() :  items(nullptr) , count(0) , capacity(0), id(1), owner(nullptr) {}
 
 ~MyInventory(){for (int i = 0; i < count; i++)
         delete items[i];
     delete[] items;}
 
 
+void SetOwner(Character* c) { owner = c; }
 void DisplayInventory() const;
 int GetCount() const { return count; }
 int AddItem(Item* item);
