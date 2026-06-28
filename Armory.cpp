@@ -2,92 +2,39 @@
 #include "Header.h"
 #include <map>          //-> for map function 
 #include <string>
+#include <utility> 
 
- //Change all for *map*
 
 std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
 {
-std::string armor_li[] = {"Padded suit","Leather suit", "Studded suit"}; //For_light == 3
-std::string armor_me[] = {"Hide suit", "Chain suit", "Scale suit", "Breathplate", "Halp plate"}; //For_medium == 5
-std::string armor_we[] = {"Ring mail suit", "Splint suit", "Plated suit"}; //For_weight == 3
-std::string armor_ot[] = {"Shield"};
-if (profession_get == "Warrior")
-{
-this -> name_a = armor_me[rand() % 3];
+//              suit name defense cost
+    std::map<std::string, std::pair<int, int>> SuitLightName = {
+        {"Padded suit", {11 ,5}}, 
+        {"Leather suit", {11, 10}}, 
+        {"Studded suit", {12, 22}}};
+
+    std::map<std::string, std::pair<int, int>> SuitMediumName = {
+        {"Hide suit", {12, 10}},
+        {"Chain shirt",{ 13, 30}}, 
+        {"Scale male", {13, 43}},
+        {"Spaiked armor", {15 , 50}},
+        {"Breastplate",{17, 70}},
+        {"Halfplate",  {19, 110}}};
+
+    std::map<std::string, std::pair<int, int>> SuitHeavyName = {
+        {"Ring mail", {14, 40 }}, 
+        {"Chain mail", {15, 55}},
+        {"Splint", {20, 140}}, 
+        {"Plate", {26, 250}}};
+
+    std::map<std::string, std::pair<int, int>> AddictionName  = {{"Shield", {6, 70}}};
+
+name_a = "Padded suit";
+defend_a = 11;
+value_a = 5;
 return name_a;
 }
-else if (profession_get == "Mage")
-{ 
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Rogue")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a; 
-}
-else if (profession_get == "Peasant")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Archer")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Druid")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Ranger")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Blacksmith")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Miner")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Berserker")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Shaman")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Warlord")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Thief")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Assassin")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else if (profession_get == "Scavenger")
-{
-this -> name_a = armor_li[rand() % 3];
-return name_a;
-}
-else {this -> name_a = "Armor"; return name_a;}
-}
+    
 
 
 void Armory::ShowInfo() const                                                                                          //Show armor characteristics
@@ -120,9 +67,10 @@ void Armory::Reset() {
 //==================================================================Special_weapon=========================================================================
 
 
-std::string Armory::RandomizeArmorSpeacial(const std::string& profession)                                                             //for chests 
-{
-std::string armor_sp[] = {"Dragon suit", "shadow suit", "Death suit", "Void suit"}; //Special_armor
-this -> name_a = armor_sp[rand() % 4];
-return name_a;
+std::string Armory::RandomizeArmorSpeacial(const std::string& profession)       
+{                                                 
+name_a = "Dragon suit";
+    defend_a = 25;
+    value_a = 500;
+    return name_a;
 }

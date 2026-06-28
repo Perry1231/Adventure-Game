@@ -68,8 +68,4 @@ void MainFunction() {
             std::cout << "Invalid choice!" << std::endl;
         }
     }
-
-    delete weapon_1;
-    delete weapon_2;
-    delete armor_1;
 }
