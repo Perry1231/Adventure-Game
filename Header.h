@@ -154,6 +154,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     std::string  RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
+    void WeaponList();
     void ShowInfo() const override ;
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }

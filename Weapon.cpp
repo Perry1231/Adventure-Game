@@ -4,6 +4,51 @@
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
+void Weapon::WeaponList()                                                                   //Need cos and attack adjustment
+{    //              name attack cost
+std::map<std::string, std::pair<int, int>> WeaponMeleeLightName = {
+        {"Club", {3 ,2}}, 
+        {"Dagger", {5, 3}}, 
+        {"Greatclub", {6, 5}},
+        {"Handaxe", {5, 5}},
+        {"Javelin", {6, 5}},
+        {"Light hammer", {6, 5}},
+        {"Mace", {6, 5}},
+        {"Sickle", {6, 5}},
+        {"Quarterstaff", {6, 5}},
+        {"Scimitar", {6, 5}},
+        {"Shortsword",{17, 70}},
+        {"Unarmed strike", {6, 5}}};
+
+
+std::map<std::string, std::pair<int, int>> WeaponRangedName = {
+        {"Light crossbow", {12, 10}},
+        {"Dart",{ 13, 30}}, 
+        {"Shortbow", {13, 43}},
+        {"Blowgun",{17, 70}},
+        {"Longbow",{17, 70}},
+        {"Greatsword",{17, 70}},
+        {"Net",{17, 70}}};
+
+std::map<std::string, std::pair<int, int>> WeaponMeleeHeavyName = {
+        {"Battleaxe", {12, 10}},
+        {"Flail",{ 13, 30}}, 
+        {"Glaive", {13, 43}},
+        {"Greataxe", {15 , 50}},
+        {"Greatsword",{17, 70}},
+        {"Lance",{17, 70}},
+        {"Longsword",{17, 70}},
+        {"Maul",{17, 70}},
+        {"Morningstar",{17, 70}},
+        {"Pike",{17, 70}},
+        {"Rapier",{17, 70}},
+        {"Greatsword",{17, 70}},
+        {"Greatsword",{17, 70}},
+        {"Warhammer",{17, 70}},
+        {"Halberd",  {19, 110}}};
+}
+
+
 std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
 {
 std::string weapon_me[] = {"Sword", "Dagger", "Spear", "Mace", "Longsword", "War Hammer", "Axe", "Club", "Mace", "Knife", "Katana", "Rapier", "Sabre"}; //For_Melee == 13
