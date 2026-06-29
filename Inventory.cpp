@@ -12,8 +12,6 @@ int MyInventory::ResizeInventoryBig()
     items = temp;
     capacity = new_capacity;
     return 0;
-
-return 0;
 }
 
 
