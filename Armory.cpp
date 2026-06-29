@@ -4,7 +4,7 @@
 #include <string>
 #include <utility> 
 
-
+//Also make as is in weapon.cpp
 void Armory::ArmorList()
 {
     //              suit name defense cost
