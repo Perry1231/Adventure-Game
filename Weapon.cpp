@@ -4,9 +4,12 @@
 
 
 //=====================================================Weapom_Randomize=========================================================================================================
-void Weapon::WeaponList()                                                                   //Need cos and attack adjustment
-{    //              name attack cost
-std::map<std::string, std::pair<int, int>> WeaponMeleeLightName = {
+ 
+    static std::map<std::string, std::pair<int, int>>& GetWeaponDB() {
+    static std::map<std::string, std::pair<int, int>> db;
+    if (db.empty()) {
+        db = {
+
         {"Club", {3 ,2}}, 
         {"Sword", {3 ,2}}, 
         {"Dagger", {5, 3}}, 
@@ -19,19 +22,19 @@ std::map<std::string, std::pair<int, int>> WeaponMeleeLightName = {
         {"Quarterstaff", {6, 5}},
         {"Scimitar", {6, 5}},
         {"Shortsword",{17, 70}},
-        {"Unarmed strike", {6, 5}}};
+        {"Unarmed strike", {6, 5}},
 
 
-std::map<std::string, std::pair<int, int>> WeaponRangedName = {
+//Ranged
         {"Light crossbow", {12, 10}},
         {"Dart",{ 13, 30}}, 
         {"Shortbow", {13, 43}},
         {"Blowgun",{17, 70}},
         {"Longbow",{17, 70}},
         {"Greatsword",{17, 70}},
-        {"Net",{17, 70}}};
+        {"Net",{17, 70}},
 
-std::map<std::string, std::pair<int, int>> WeaponMeleeHeavyName = {
+//Heavy male
         {"Battleaxe", {12, 10}},
         {"Flail",{ 13, 30}}, 
         {"Glaive", {13, 43}},
@@ -46,13 +49,21 @@ std::map<std::string, std::pair<int, int>> WeaponMeleeHeavyName = {
         {"Greatsword",{17, 70}},
         {"Greatsword",{17, 70}},
         {"Warhammer",{17, 70}},
-        {"Halberd",  {19, 110}}};
+        {"Halberd",  {19, 110}},
+
+//Magic
+{"Rod", {12, 10}},
+{"Wand", {12, 10}},
+{"Staff", {12, 10}}};
+        }
+    return db;
 }
 
 
 std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
 {
-std::string weapon_me[] = {"Sword","Club", "Dagger ","Greatclub", "Handaxe","Javelin", "Light hammer", "Mace", "Sickle",  "Quarterstaff", "Scimitar", "Shortsword","Unarmed strike"}; //For_Melee == 13
+    auto& db = GetWeaponDB();
+std::string weapon_me[] = {"Sword","Club", "Dagger","Greatclub", "Handaxe","Javelin", "Light hammer", "Mace", "Sickle", "Quarterstaff", "Scimitar", "Shortsword","Unarmed strike"}; //For_Melee == 13
 std::string weapon_ra[] = {"Light crossbow","Dart", "Shortbow", "Blowgun","Longbow","Greatsword","Net"};//For_range == 7
 std::string weapon_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
 
@@ -60,81 +71,163 @@ if (profession_get == "Warrior")
 {
 
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 
 else if (profession_get == "Mage")
 {
 this -> name_w = weapon_ma[rand() % 3];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Rogue")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Peasant")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Archer")
 {
 this -> name_w = weapon_ra[rand() % 7];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Druid")
 {
 this -> name_w = weapon_ma[rand() % 3];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Ranger")
 {
 this -> name_w = weapon_ra[rand() % 7];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Blacksmith")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Miner")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Berserker")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Shaman")
 {
 this -> name_w = weapon_ma[rand() % 3];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Warlord")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Thief")
 {
 this -> name_w = weapon_me[rand() % 13];
+        auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
+
 return name_w;
 }
 else if (profession_get == "Assassin")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
 return name_w;
 }
 else if (profession_get == "Scavenger")
 {
 this -> name_w = weapon_me[rand() % 13];
+auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
+
 return name_w;
 }
-else {this -> name_w = "Sword"; return name_w;}
+else {this -> name_w = "Sword"; 
+    auto it = db.find(name_w);
+    if (it != db.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second;} return name_w;}
 }
+
 
 //================================================================Other_functions=============================================================================
 void Weapon::ShowInfo() const                                                                                          //Show weapon characteristics
@@ -176,7 +269,3 @@ std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 return 0;
 }
 
-
-
-
-//НОВЕ: задаємо атаку за назвою зброї
