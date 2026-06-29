@@ -8,6 +8,7 @@ void Weapon::WeaponList()                                                       
 {    //              name attack cost
 std::map<std::string, std::pair<int, int>> WeaponMeleeLightName = {
         {"Club", {3 ,2}}, 
+        {"Sword", {3 ,2}}, 
         {"Dagger", {5, 3}}, 
         {"Greatclub", {6, 5}},
         {"Handaxe", {5, 5}},
@@ -51,8 +52,8 @@ std::map<std::string, std::pair<int, int>> WeaponMeleeHeavyName = {
 
 std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
 {
-std::string weapon_me[] = {"Sword", "Dagger", "Spear", "Mace", "Longsword", "War Hammer", "Axe", "Club", "Mace", "Knife", "Katana", "Rapier", "Sabre"}; //For_Melee == 13
-std::string weapon_ra[] = {"Crossbow", "Longbow", "Nand Cannon", "Bow"}; //For_range == 4
+std::string weapon_me[] = {"Sword","Club", "Dagger ","Greatclub", "Handaxe","Javelin", "Light hammer", "Mace", "Sickle",  "Quarterstaff", "Scimitar", "Shortsword","Unarmed strike"}; //For_Melee == 13
+std::string weapon_ra[] = {"Light crossbow","Dart", "Shortbow", "Blowgun","Longbow","Greatsword","Net"};//For_range == 7
 std::string weapon_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
 
 if (profession_get == "Warrior")
@@ -79,7 +80,7 @@ return name_w;
 }
 else if (profession_get == "Archer")
 {
-this -> name_w = weapon_ra[rand() % 4];
+this -> name_w = weapon_ra[rand() % 7];
 return name_w;
 }
 else if (profession_get == "Druid")
@@ -89,7 +90,7 @@ return name_w;
 }
 else if (profession_get == "Ranger")
 {
-this -> name_w = weapon_ra[rand() % 4];
+this -> name_w = weapon_ra[rand() % 7];
 return name_w;
 }
 else if (profession_get == "Blacksmith")
