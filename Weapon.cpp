@@ -218,7 +218,6 @@ auto it = db.find(name_w);
         attack_w = it->second.first;  
         value_w  = it->second.second; 
     }
-
 return name_w;
 }
 else {this -> name_w = "Sword"; 
@@ -266,6 +265,6 @@ std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Su
 std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
 std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 
-return 0;
+return weapon_sp[rand() % 5];
 }
 

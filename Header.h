@@ -261,6 +261,7 @@ void SetOwner(Character* c) { owner = c; }
 void DisplayInventory() const;
 int GetCount() const { return count; }
 int AddItem(Item* item);
+
 int DelItem(int id);
 int ResizeInventoryBig();
 void InventoryFunctions();
@@ -274,7 +275,7 @@ void HelpFunction() ;
 class OtInventory
 {
 private:
-    int size=0;
+    int size=1;
      int *ot_inv_mass = new int [size];                         //Other character inventory (trader , ...)
 
 public:            
