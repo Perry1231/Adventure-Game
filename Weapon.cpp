@@ -263,7 +263,7 @@ void Weapon::Reset()
 
 
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponSpeacialDB() {
+ static std::map<std::string, std::pair<int, int>>& GetWeaponSpeacialDB() {                 //Speacial weapon list
     static std::map<std::string, std::pair<int, int>> dp;
     if (dp.empty()) {
         dp = {
@@ -285,21 +285,70 @@ void Weapon::Reset()
             {"Sword of Life Stealing", {10, 10}},
             {"Mind Lash", {10, 10}},
             {"Dragon Slayer", {10, 10}}};
-
-
-            //Spells 
-            
-            // Artifacts
     }
     return dp;
 }
 
 
+ static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Artifacts spells and potion list
+    static std::map<std::string, std::pair<int, int>> dsp;
+    if (dsp.empty()) {
+        dsp = {
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}},
+            {"", {10, 10}}};
+    }
+    return dsp;
+}
+
+
+ static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list
+    static std::map<std::string, std::pair<int, int>> ar;
+    if (ar.empty()) {
+        ar = {
+            {"s", {10, 10}},
+            {"Javelin of Backbiting", {10, 10}},
+            {"Wand of Orcus", {10, 10}},
+            {"Windvane", {10, 10}},
+            {"Spear of Heliod", {10, 10}},
+            {"Ephixis", {10, 10}},
+            {"Two-Birds Sling", {10, 10}},
+            {"Axe of the Dwarvish Lords", {10, 10}},
+            {"Gambler’s Blade", {10, 10}},
+            {"Orcsplitter ", {10, 10}},
+            {"Sword of Sharpness", {10, 10}},
+            {"Vorpal Sword", {10, 10}},
+            {"Acheron Blade", {10, 10}},
+            {"Luck Blade", {10, 10}},
+            {"Sword of Life Stealing", {10, 10}},
+            {"Mind Lash", {10, 10}},
+            {"Dragon Slayer", {10, 10}}};
+    }
+    return ar;
+}
+
+
 std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
 {
-    auto& dp = GetWeaponDB();
+    auto& dp = GetWeaponSpeacialDB();
+    auto& ar = GetWeaponArtifactDB();
+    auto& dsp = GetWeaponSpellDB();
 std::string weapon_sp[] = {"Blade of Broken Mirrors","Javelin of Backbiting", "Wand of Orcus","Windvane", "Spear of Heliod","Ephixis", 
-    "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler’s Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
+    "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler's Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
     "Luck Blade","Sword of Life Stealing","Mind Lash", "Dragon Slayer"};                                                                     //Special_weapon
 std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
 std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
