@@ -5,37 +5,44 @@
 #include <utility> 
 
 //Also make as is in weapon.cpp
-void Armory::ArmorList()
-{
+ static std::map<std::string, std::pair<int, int>>& GetWeaponDB() {
+    static std::map<std::string, std::pair<int, int>> db;
+    if (db.empty()) {
+        db = {
     //              suit name defense cost
-    std::map<std::string, std::pair<int, int>> SuitLightName = {
+ 
         {"Padded suit", {11 ,5}}, 
         {"Leather suit", {11, 10}}, 
-        {"Studded suit", {12, 22}}};
+        {"Studded suit", {12, 22}},
 
-    std::map<std::string, std::pair<int, int>> SuitMediumName = {
+  
         {"Hide suit", {12, 10}},
         {"Chain shirt",{ 13, 30}}, 
         {"Scale male", {13, 43}},
         {"Spaiked armor", {15 , 50}},
         {"Breastplate",{17, 70}},
-        {"Halfplate",  {19, 110}}};
+        {"Halfplate",  {19, 110}},
 
-    std::map<std::string, std::pair<int, int>> SuitHeavyName = {
+    
         {"Ring mail", {14, 40 }}, 
         {"Chain mail", {15, 55}},
         {"Splint", {20, 140}}, 
-        {"Plate", {26, 250}}};
+        {"Plate", {26, 250}},
 
-    std::map<std::string, std::pair<int, int>> AddictionName  = {{"Shield", {6, 70}}};
+        {"Shield", {6, 70}}};
+        }
+         return db;
 }
 
 
 std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
 {
+    auto& db = GetWeaponDB();
 name_a = "Padded suit";
-defend_a = 11;
-value_a = 5;
+auto it = db.find(name_a);
+    if (it != db.end()) {
+        value_a  = it->second.second; 
+    }
 return name_a;
 }
     

@@ -259,6 +259,34 @@ void Weapon::Reset()
 
 //=================================================================Special_weapon=================================================================================
 
+
+
+
+ static std::map<std::string, std::pair<int, int>>& GetWeaponDB() {
+    static std::map<std::string, std::pair<int, int>> db;
+    if (db.empty()) {
+        db = {
+            {"Blade of Broken Mirrors", {10, 10}},
+            {"Javelin of Backbiting", {10, 10}},
+            {"Wand of Orcus", {10, 10}},
+            {"Windvane", {10, 10}},
+            {"Spear of Heliod", {10, 10}},
+            {"Ephixis", {10, 10}},
+            {"Two-Birds Sling", {10, 10}},
+            {"Axe of the Dwarvish Lords", {10, 10}},
+            {"Gambler’s Blade", {10, 10}},
+            {"Orcsplitter ", {10, 10}},
+            {"Sword of Sharpness", {10, 10}},
+            {"Vorpal Sword", {10, 10}},
+            {"Acheron Blade", {10, 10}},
+            {"Luck Blade", {10, 10}},
+            {"Sword of Life Stealing", {10, 10}},
+            {"Mind Lash", {10, 10}},
+            {"Dragon Slayer", {10, 10}}};
+    }
+}
+
+
 std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
 {
 std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Super Rod"}; //Special_weapon
