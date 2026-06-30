@@ -28,14 +28,10 @@ void MainFunction() {
     while (true) {
         std::cout << "\n=== MAIN MENU ===" << std::endl;
         std::cout << "1. Show character stats" << std::endl;
-        std::cout << "2. Show weapon inventory" << std::endl;
-        std::cout << "3. Manage weapon inventory" << std::endl;
-        std::cout << "4. Show armor inventory" << std::endl;
-        std::cout << "5. Equip first weapon" << std::endl;
-        std::cout << "6. Equip first armor" << std::endl;
-        std::cout << "7. Unequip weapon" << std::endl;
-        std::cout << "8. Unequip armor" << std::endl;
-        std::cout << "9. Show equipped stats" << std::endl;
+        std::cout << "2. Show your inventory" << std::endl;
+        std::cout << "3. Manage your Inventory" << std::endl;
+        std::cout << "4. Get info " << std::endl;
+        std::cout << "5. Help" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choice: ";
         std::cin >> mainChoice;
@@ -45,24 +41,49 @@ void MainFunction() {
         } else if (mainChoice == 2) {
             inv1.DisplayInventory();
         } else if (mainChoice == 3) {
-            inv1.InventoryFunctions(); // повертається сюди після виходу з інвентаря
+            inv1.InventoryFunctions();
         } else if (mainChoice == 4) {
-            inv2.DisplayInventory();
+            
+            std::cout << "1. Display inventory" << std::endl;
+            std::cout << "2. Show weapon stats" << std::endl;
+            std::cout << "3. Equip weapon" << std::endl;
+            std::cout << "4. Unequip weapon" << std::endl;
+            std::cout << "5. Show armor stats" << std::endl;
+            std::cout << "6. Equip armor" << std::endl;
+            std::cout << "7. Enquip armor" << std::endl;
+            std::cout << "0. Back to main menu" << std::endl;
+            std::cout << "Choice: ";
+            std::cin >> mainChoice;
+        if (mainChoice == 1) {
+           
+        } else if (mainChoice == 2) {
+            inv1.DisplayInventory();
+        } else if (mainChoice == 3) {
+            
+        } else if (mainChoice == 4) {
+
         } else if (mainChoice == 5) {
-            hero.EquipWeapon(weapon_1);
-            std::cout << "Weapon equipped! Total Attack: " << hero.GetTotalAttack() << std::endl;
+           
         } else if (mainChoice == 6) {
-            hero.EquipArmor(armor_1);
-            std::cout << "Armor equipped! Total Defense: " << hero.GetTotalDefense() << std::endl;
+            
         } else if (mainChoice == 7) {
-            hero.UnequipWeapon();
-            std::cout << "Weapon unequipped!" << std::endl;
-        } else if (mainChoice == 8) {
-            hero.UnequipArmor();
-            std::cout << "Armor unequipped!" << std::endl;
-        } else if (mainChoice == 9) {
-            std::cout << "Total Attack: " << hero.GetTotalAttack() << std::endl;
-            std::cout << "Total Defense: " << hero.GetTotalDefense() << std::endl;
+            
+        } else if (mainChoice == 0) {
+            break;
+        } else {
+            std::cout << "Invalid choice!" << std::endl;
+        }
+
+            
+        }else if (mainChoice == 5) {
+            std::cout << "\n=== HELP ===" << std::endl;
+            std::cout << "1. Show character stats - Displays current character statistics" << std::endl;
+            std::cout << "2. Show your inventory - Lists all items in your inventory" << std::endl;
+            std::cout << "3. Manage your Inventory - Access inventory management functions" << std::endl;
+            std::cout << "4. Get info - Display help information" << std::endl;
+            std::cout << "5. Help - Shows this help menu" << std::endl;
+            std::cout << "0. Exit - Quit the program" << std::endl;
+
         } else if (mainChoice == 0) {
             break;
         } else {

@@ -233,7 +233,7 @@ void Weapon::ShowInfo() const                                                   
 {
 std::cout << "\n===Your weapon characteristic=== "<< std::endl;
 std::cout << "Name : " << name_w << "\nAttack : " << attack_w << "\nDefend : " << defend_w << "\nDurability : " 
-            << durability_w << "\nValue : " << value_w <<"\nIs enchanted : " << isEnchanted_w <<"\n"<< std::endl;
+            << durability_w << "\nValue : " << value_w << "\nIs enchanted : " << (isEnchanted_w ? "Yes" : "No") << std::endl;
 }
 
 

@@ -63,23 +63,26 @@ int MyInventory::DelItem(int itemId) {
 
 void MyInventory::InventoryFunctions()                                                       //For displaying functions , like : show items , delete items; (MENU)
 {
+    while(true)
+    {
     int choice =0;
     std::cout << "\n\n" << std::endl;
     std::cout <<"==================Inventory================="<< std::endl;
     std::cout << "Size: " << count << std::endl;
     std::cout <<"=================Functions=================="<< std::endl;
-    std::cout <<"Disaply all items in : 1 \nDelete item from id : 2 \n Equip item from id : 3" << std::endl;
+    std::cout <<"Disaply all items in : 1 \nDelete item from id  : 2 \nEquip item from id   : 3 " << std::endl;
     std::cout << "Exit: 0" << std::endl;
     std::cout <<"============================================="<< std::endl;
                 
     std::cout << "\n\n" << std::endl;
     while (true)
-    {
-        std::cin >> choice;
+    {//Show inventory
+        std::cout << "Choice: ";
+        std::cin >>choice;
         if (choice == 1) DisplayInventory();
 
         else if (choice == 2)
-        {
+        {//Display all items
             int choice_2;
             std::cout << "Eneter id of item to delete : " ;
             std::cin>> choice_2;
@@ -87,12 +90,12 @@ void MyInventory::InventoryFunctions()                                          
         }
 
         else if (choice == 3)         
-{
+{//Equip item
     int itemId;
     std::cout << "Enter item ID to equip: ";
     std::cin >> itemId;
     
-    // Шукаємо предмет в інвентарі
+    //Search items in inventory
     for (int i = 0; i < count; i++)
     {
         if (items[i]->GetItemId() == itemId)
@@ -113,11 +116,10 @@ void MyInventory::InventoryFunctions()                                          
         }
     }
     
-}
-        
+} //Else if choice not good
         else if (choice == 0) continue;
-        else std::cout << "Invalid choice!" << std::endl;
-        
+        else std::cout << "Invalid choice!" << std::endl;   
+    }
     }
 }
 
