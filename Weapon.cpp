@@ -263,10 +263,10 @@ void Weapon::Reset()
 
 
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponDB() {
-    static std::map<std::string, std::pair<int, int>> db;
-    if (db.empty()) {
-        db = {
+ static std::map<std::string, std::pair<int, int>>& GetWeaponSpeacialDB() {
+    static std::map<std::string, std::pair<int, int>> dp;
+    if (dp.empty()) {
+        dp = {
             {"Blade of Broken Mirrors", {10, 10}},
             {"Javelin of Backbiting", {10, 10}},
             {"Wand of Orcus", {10, 10}},
@@ -284,16 +284,29 @@ void Weapon::Reset()
             {"Sword of Life Stealing", {10, 10}},
             {"Mind Lash", {10, 10}},
             {"Dragon Slayer", {10, 10}}};
+
+
+            //Spells + Artifacts
     }
+    return dp;
 }
 
 
 std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
 {
-std::string weapon_sp[] = {"Guandao", "Poleaxe", "Super Bow", "Super Sword", "Super Rod"}; //Special_weapon
+    auto& dp = GetWeaponDB();
+std::string weapon_sp[] = {"Blade of Broken Mirrors","Javelin of Backbiting", "Wand of Orcus","Windvane", "Spear of Heliod","Ephixis", 
+    "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler’s Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
+    "Luck Blade","Sword of Life Stealing","Mind Lash", "Dragon Slayer"};                                                                     //Special_weapon
 std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
 std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
 
-return weapon_sp[rand() % 5];
+this -> name_w = weapon_sp[rand() % 17];
+auto it = dp.find(name_w);
+    if (it != dp.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+    }
+return name_w;
 }
 
