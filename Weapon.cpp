@@ -267,6 +267,7 @@ void Weapon::Reset()
     static std::map<std::string, std::pair<int, int>> dp;
     if (dp.empty()) {
         dp = {
+            //Weapon speacial
             {"Blade of Broken Mirrors", {10, 10}},
             {"Javelin of Backbiting", {10, 10}},
             {"Wand of Orcus", {10, 10}},
@@ -286,7 +287,9 @@ void Weapon::Reset()
             {"Dragon Slayer", {10, 10}}};
 
 
-            //Spells + Artifacts
+            //Spells 
+            
+            // Artifacts
     }
     return dp;
 }
