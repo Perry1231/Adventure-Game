@@ -6,7 +6,6 @@ void MainFunction() {
 
     Character hero;
     hero.RandomizeStats();
-    hero.DisplayStats();
 
     Weapon* weapon_1 = new Weapon();
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
