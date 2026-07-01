@@ -309,7 +309,7 @@ void Weapon::Reset()
 }
 
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list
+ static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list + need new list for good and bad 
     static std::map<std::string, std::pair<int, int>> ar;
     if (ar.empty()) {
         ar = {
