@@ -290,11 +290,10 @@ void Weapon::Reset()
 }
 
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Spells and potion list
+ static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Spells and potion list  + need new list for good and bad spells
     static std::map<std::string, std::pair<int, int>> dsp;
     if (dsp.empty()) {
         dsp = {
-            {"", {10, 10}},
             {"Healing Potion", {10, 10}},
             {"Poison Cure", {10, 10}},
             {"Defence Potion", {10, 10}},
@@ -314,7 +313,7 @@ void Weapon::Reset()
     static std::map<std::string, std::pair<int, int>> ar;
     if (ar.empty()) {
         ar = {
-            {"s", {10, 10}},
+            {"Midas arm", {10, 10}},
             {"Javelin of Backbiting", {10, 10}},
             {"Wand of Orcus", {10, 10}},
             {"Windvane", {10, 10}},
@@ -344,8 +343,10 @@ std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)     
 std::string weapon_sp[] = {"Blade of Broken Mirrors","Javelin of Backbiting", "Wand of Orcus","Windvane", "Spear of Heliod","Ephixis", 
     "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler's Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
     "Luck Blade","Sword of Life Stealing","Mind Lash", "Dragon Slayer"};                                                                     //Special_weapon
-std::string weapon_se[] = {"Health potion", "Power potion", "Poison cure", "experience potion", "Agilitty potion", "Inteligents potion", }; //For_spells
-std::string weapon_ar[] = {"Midas arm", ""}; //For_artifacts
+std::string weapon_se[] = {"Healing Potion", "Poison Cure", "Defence Potion",  
+                           "Agility Potion",  "Intelligence Potion",  "Clear Potion",  "Resilience Potion", "Experience Potion",  "Strength Potion", "Gold Potion"}; //For_spells
+std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", "Windvane",  "Spear of Heliod",  "Ephixis",  "Two-Birds Sling",  "Axe of the Dwarvish Lords", 
+                           "Gambler’s Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
 
 this -> name_w = weapon_sp[rand() % 17];
 auto it = dp.find(name_w);
@@ -354,5 +355,23 @@ auto it = dp.find(name_w);
         value_w  = it->second.second; 
     }
 return name_w;
+
+this -> name_w = weapon_se[rand() % 10];
+auto it = dsp.find(name_w);
+    if (it != dsp.end()) {
+        attack_w = it->second.first;  
+        defend_w  = it->second.second;
+    }
+        return name_w;
+
+
+this -> name_w = weapon_ar[rand() % 17];
+auto it = ar.find(name_w);
+    if (it != ar.end()) {
+        attack_w = it->second.first;  
+        value_w  = it->second.second; 
+
+        return name_w;
+    }
 }
 
