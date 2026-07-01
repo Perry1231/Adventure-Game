@@ -290,27 +290,21 @@ void Weapon::Reset()
 }
 
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Artifacts spells and potion list
+ static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Spells and potion list
     static std::map<std::string, std::pair<int, int>> dsp;
     if (dsp.empty()) {
         dsp = {
             {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}},
-            {"", {10, 10}}};
+            {"Healing Potion", {10, 10}},
+            {"Poison Cure", {10, 10}},
+            {"Defence Potion", {10, 10}},
+            {"Agility Potion", {10, 10}},
+            {"Intelligence Potion", {10, 10}},
+            {"Clear Potion", {10, 10}},
+            {"Resilience Potion", {10, 10}},
+            {"Experience Potion", {10, 10}},
+            {"Strength Potion", {10, 10}},
+            {"Gold Potion", {10, 10}}};
     }
     return dsp;
 }

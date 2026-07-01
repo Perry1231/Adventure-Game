@@ -12,13 +12,13 @@ void Character::DisplayStats()
     std::cout <<"============================================="<< std::endl;
     std::cout << "Character Stats:" << std::endl;
     std::cout << "Name: " << name << std::endl;
-    std::cout << "Health: " << health << std::endl;
     std::cout << "Age: " << age << std::endl;
     std::cout << "Race: " << race << std::endl;
     std::cout << "Profession: " << profession << std::endl;
     std::cout << "Level: " << level << std::endl;
     std::cout << "Description: " << description << std::endl;
     std::cout <<"=================Self Stats=================="<< std::endl;
+    std::cout << "Health: " << health << std::endl;
     std::cout << "Strength: " << strength << std::endl;
     std::cout << "Agility: " << agility << std::endl;
     std::cout << "Intelligence: " << intelligence << std::endl;
