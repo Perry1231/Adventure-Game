@@ -47,7 +47,6 @@
         {"Pike",{17, 70}},
         {"Rapier",{17, 70}},
         {"Greatsword",{17, 70}},
-        {"Greatsword",{17, 70}},
         {"Warhammer",{17, 70}},
         {"Halberd",  {19, 110}},
 
@@ -348,30 +347,32 @@ std::string weapon_se[] = {"Healing Potion", "Poison Cure", "Defence Potion",
 std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", "Windvane",  "Spear of Heliod",  "Ephixis",  "Two-Birds Sling",  "Axe of the Dwarvish Lords", 
                            "Gambler’s Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
 
-this -> name_w = weapon_sp[rand() % 17];
-auto it = dp.find(name_w);
-    if (it != dp.end()) {
-        attack_w = it->second.first;  
-        value_w  = it->second.second; 
+ int category = rand() % 3; // 0 = special, 1 = potions, 2 = artifacts
+    std::string chosen_name;
+    
+    if (category == 0) {
+        chosen_name = weapon_sp[rand() % 17];
+        auto it = dp.find(chosen_name);
+        if (it != dp.end()) {
+            attack_w = it->second.first;
+            value_w = it->second.second;
+        }
+    } else if (category == 1) {
+        chosen_name = weapon_se[rand() % 10];
+        auto it = dsp.find(chosen_name);
+        if (it != dsp.end()) {
+            attack_w = it->second.first;
+            value_w = it->second.second;
+        }
+    } else {
+        chosen_name = weapon_ar[rand() % 17];
+        auto it = ar.find(chosen_name);
+        if (it != ar.end()) {
+            attack_w = it->second.first;
+            value_w = it->second.second;
+        }
     }
-return name_w;
-
-this -> name_w = weapon_se[rand() % 10];
-auto it = dsp.find(name_w);
-    if (it != dsp.end()) {
-        attack_w = it->second.first;  
-        defend_w  = it->second.second;
-    }
-        return name_w;
-
-
-this -> name_w = weapon_ar[rand() % 17];
-auto it = ar.find(name_w);
-    if (it != ar.end()) {
-        attack_w = it->second.first;  
-        value_w  = it->second.second; 
-
-        return name_w;
-    }
+    
+    name_w = chosen_name;
+    return name_w;
 }
-
