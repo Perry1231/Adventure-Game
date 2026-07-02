@@ -295,23 +295,25 @@ int* GetInventory() const { return ot_inv_mass; }
 class Potion : public Item
 {
 public:
-
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD }; // Example effect types
 
 private:
     std::string name_p;
-    int effectType; // 0=HP, 1=STR, 2=AGI...
+    int effectType; 
     int potency;
-    int duration;
+    int duration_p;
     std::string description_p;
+bool isEquipped_p;
 
 
+    Potion (std::string name_, int effectType_, int potency_, int duration_)
+     : name_p(name_), effectType(effectType_), potency(potency_), duration_p(duration_) {}
 
-    Potion (std::string name_, int effectType_, int potency_, int duration_) : name_p(name_), effectType(effectType_), potency(potency_), duration(duration_) {}
     std::string GetName() const override { return name_p; }
     std::string GetType() const override { return "Potion"; }
     int GetEffectType() const { return effectType; }
     int GetPotency() const { return potency; }
-    int GetDuration() const { return duration; }
+    int GetDuration() const { return duration_p; }
     std::string GetDescription() const { return description_p; }
     void ShowInfo() const override ;
     void Use() override;

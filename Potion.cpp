@@ -26,16 +26,22 @@ static std::map<std::string, std::tuple<int, int, int>>& GetPotionDB() {        
 
 
 
-void ShowInfo()   
+void Potion::ShowInfo() const                                                                                                  //Count is weapon broken
 {
-
+std::cout << "\n===Your potion characteristic=== "<< std::endl;
+std::cout << "Name : " << name_p << "\nEffect Type : " << effectType << "\nPotency : " 
+            << potency << "\nDuration : " << duration_p << std::endl;
 }
 
-void Use() 
-{
 
+void Potion::Use()
+{
+    isEquipped_p = true;
+//continue
 }
-void Reset() 
-{
 
+void Potion::Reset()
+{
+    isEquipped_p = false;
+        std::cout << name_p << " equipped! Attack -" << potency << std::endl;
 }
