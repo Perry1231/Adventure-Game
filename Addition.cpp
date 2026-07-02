@@ -14,10 +14,11 @@ void HelpFunction()
 void ChoiceHard()
 {
     int difil = 0;
-    std::cout << "You have chosen the hard difficulty level!" << std::endl;
+    std::cout << "Choose difficulty level first" << std::endl;
     std::cout << "Be prepared for tougher enemies and more challenging puzzles." << std::endl;
     std::cout << "Good luck on your adventure!" << std::endl;
-    std::cout << "Enter dificulty level : " << difil ;
+    std::cout << "Enter dificulty level : "  ;
+    std::cin >> difil;
     if (difil == 1) {
         std::cout << "You have chosen the easy difficulty level!" << std::endl;
         std::cout << "Enemies will be weaker and puzzles will be simpler." << std::endl;
