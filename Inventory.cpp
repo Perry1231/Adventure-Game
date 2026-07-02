@@ -125,19 +125,18 @@ else if (choice == 4) {
             if (items[i]->GetType() == "Potion") {
                 Potion* potion = dynamic_cast<Potion*>(items[i]);
                 potion->ApplyEffect(owner);
-                if (potion->IsEquipped()) {
-                    potion->Reset();
+                DelItem(itemId);
+            break;
                 }
             } else {
                 std::cout << "Cannot use directly!" << std::endl;
             }
         }
     }
-}//Else if choice not good
         else if (choice == 0) continue;
         else std::cout << "Invalid choice!" << std::endl;   
     }
-    }
+}
 }
 
 
