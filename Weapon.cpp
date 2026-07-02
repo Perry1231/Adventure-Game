@@ -288,26 +288,6 @@ void Weapon::Reset()
     return dp;
 }
 
-
- static std::map<std::string, std::pair<int, int>>& GetWeaponSpellDB() {                 //Spells and potion list  + need new list for good and bad spells
-    static std::map<std::string, std::pair<int, int>> dsp;
-    if (dsp.empty()) {
-        dsp = {
-            {"Healing Potion", {10, 10}},
-            {"Poison Cure", {10, 10}},
-            {"Defence Potion", {10, 10}},
-            {"Agility Potion", {10, 10}},
-            {"Intelligence Potion", {10, 10}},
-            {"Clear Potion", {10, 10}},
-            {"Resilience Potion", {10, 10}},
-            {"Experience Potion", {10, 10}},
-            {"Strength Potion", {10, 10}},
-            {"Gold Potion", {10, 10}}};
-    }
-    return dsp;
-}
-
-
  static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list + need new list for good and bad 
     static std::map<std::string, std::pair<int, int>> ar;
     if (ar.empty()) {
@@ -334,45 +314,42 @@ void Weapon::Reset()
 }
 
 
-std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                             //for chests 
+std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                            
 {
     auto& dp = GetWeaponSpeacialDB();
     auto& ar = GetWeaponArtifactDB();
-    auto& dsp = GetWeaponSpellDB();
+
 std::string weapon_sp[] = {"Blade of Broken Mirrors","Javelin of Backbiting", "Wand of Orcus","Windvane", "Spear of Heliod","Ephixis", 
     "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler's Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
     "Luck Blade","Sword of Life Stealing","Mind Lash", "Dragon Slayer"};                                                                     //Special_weapon
-std::string weapon_se[] = {"Healing Potion", "Poison Cure", "Defence Potion",  
-                           "Agility Potion",  "Intelligence Potion",  "Clear Potion",  "Resilience Potion", "Experience Potion",  "Strength Potion", "Gold Potion"}; //For_spells
 std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", "Windvane",  "Spear of Heliod",  "Ephixis",  "Two-Birds Sling",  "Axe of the Dwarvish Lords", 
                            "Gambler’s Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
 
- int category = rand() % 3; // 0 = special, 1 = potions, 2 = artifacts
-    std::string chosen_name;
-    
-    if (category == 0) {
+int random_number = rand() % 2; // Randomly choose between special weapon and artifact
+if(random_number == 0)
+{
+    std::string chosen_name; 
         chosen_name = weapon_sp[rand() % 17];
         auto it = dp.find(chosen_name);
         if (it != dp.end()) {
             attack_w = it->second.first;
             value_w = it->second.second;
         }
-    } else if (category == 1) {
-        chosen_name = weapon_se[rand() % 10];
-        auto it = dsp.find(chosen_name);
-        if (it != dsp.end()) {
-            attack_w = it->second.first;
-            value_w = it->second.second;
-        }
-    } else {
+    
+    name_w = chosen_name;
+    return name_w;
+}
+else 
+{
+ std::string chosen_name; 
         chosen_name = weapon_ar[rand() % 17];
         auto it = ar.find(chosen_name);
         if (it != ar.end()) {
             attack_w = it->second.first;
             value_w = it->second.second;
-        }
-    }
-    
+        }  
     name_w = chosen_name;
     return name_w;
+}
+
 }

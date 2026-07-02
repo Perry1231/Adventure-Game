@@ -14,6 +14,9 @@ void MainFunction() {
     Armory* armor_1 = new Armory();
     armor_1->RandomizeArmorStart(hero.GetProfession());
 
+    Weapon* weapon_2 = new Weapon();
+    weapon_2->RandomizeWeaponSpeacial(hero.GetProfession());
+
     MyInventory inv1;
     inv1.SetOwner(&hero);
     inv1.AddItem(weapon_1);
