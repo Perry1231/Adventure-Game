@@ -21,6 +21,9 @@ void MainFunction() {
     inv1.SetOwner(&hero);
     inv1.AddItem(weapon_1);
 
+    Potion* p = new Potion();
+    inv1.AddItem(p);
+
 
     int mainChoice = 0;
     while (true) {

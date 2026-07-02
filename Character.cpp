@@ -330,6 +330,33 @@ void Character::Usage()
     }
 }
 
+void Character::ApplyPotionEffect(int effectType, int potency, int duration) {
+    switch (effectType) {
+        case 0: // HEALTH
+            health += potency;
+            std::cout << name << " restored " << potency << " HP!" << std::endl;
+            break;
+        case 1: // DEFENSE
+            defense += potency;
+            std::cout << name << " defense increased by " << potency << std::endl;
+            break;
+        case 2: // AGILITY
+            agility += potency;
+            std::cout << name << " agility increased by " << potency << std::endl;
+            break;
+        case 3: // INTELLIGENCE
+            intelligence += potency;
+            std::cout << name << " intelligence increased by " << potency << std::endl;
+            break;
+        case 4: // GOLD
+            gold += potency;
+            std::cout << name << " got " << potency << " gold!" << std::endl;
+            break;
+        default:
+            std::cout << "Unknown potion effect!" << std::endl;
+    }
+}
+
 
 Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 
 Armory* Character::GetEquippedArmor() const { return equipped_armor; } 

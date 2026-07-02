@@ -78,6 +78,15 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void UnequipWeapon(); 
     void UnequipArmor();
 
+    void GetHealth() const { std::cout << "Health: " << health << std::endl; }
+    void GetLevel() const { std::cout << "Level: " << level << std::endl; }
+    void GetDefense() const { std::cout << "Defense: " << defense << std::endl; }
+    void GetStrength() const { std::cout << "Strength: " << strength << std::endl; }
+    void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
+    void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
+
+    void ApplyPotionEffect(int effectType, int potency, int duration);//===========-0=--=0-0-0-0-0-0000-0-0-0-0-0-0000 Realize cont
+
     std::string GetProfession() const { return profession; };
     void Usage();
     
@@ -221,7 +230,6 @@ int GetDurability() const { return durability_a; }
 int GetValue() const { return value_a; }
 bool IsBroken() const { return isBroken_a; }
 bool IsEnchanted() const { return isEnchanted_a; }
-void ArmorList();
 
 
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
@@ -297,24 +305,36 @@ class Potion : public Item
 public:
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD }; // Example effect types
 
-private:
+protected:
     std::string name_p;
     int effectType; 
-    int potency;
-    int duration_p;
+    int potency;                // How strong the potion is
+    int duration;               // How long the effect lasts
     std::string description_p;
-bool isEquipped_p;
+    bool isEquipped_p;
+    int value_p; // Value of the potion in gold
 
 
-    Potion (std::string name_, int effectType_, int potency_, int duration_)
-     : name_p(name_), effectType(effectType_), potency(potency_), duration_p(duration_) {}
+public:
+    Potion() : effectType(0),  potency(0) ,  duration(0) ,value_p(0) ,name_p("") , isEquipped_p(false) , description_p("")  {}
 
+    Potion (std::string name_, int effectType_, int potency_, int duration_, std::string description_, int value_)
+     : name_p(name_), effectType(effectType_), potency(potency_), duration(duration_), value_p(value_), isEquipped_p(false), description_p(description_) {}
+
+    int GetValue() const { return value_p; }
     std::string GetName() const override { return name_p; }
     std::string GetType() const override { return "Potion"; }
     int GetEffectType() const { return effectType; }
     int GetPotency() const { return potency; }
-    int GetDuration() const { return duration_p; }
+    int GetDuration() const { return duration; }
     std::string GetDescription() const { return description_p; }
+
+    bool IsEquipped() const { return isEquipped_p; }
+    void SetEquipped(bool equipped) { isEquipped_p = equipped; }
+     void SetValue(int val) { value_p = val; }
+
+    void ApplyEffect(Character* target); // Apply the potion effect to the character
+
     void ShowInfo() const override ;
     void Use() override;
     void Reset() override;

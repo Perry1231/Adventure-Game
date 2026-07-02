@@ -2,14 +2,6 @@
 #include <map>
 #include <string>
 
-struct PotionData {
-    std::string name;
-    int effectType; // 0=HP, 1=STR, 2=AGI...
-    int potency;
-    int duration;
-};
-
-
 static std::map<std::string, std::tuple<int, int, int>>& GetPotionDB() {                 //For spell list
     static std::map<std::string, std::tuple<int, int, int>> pt;
     if (pt.empty()) {
@@ -30,7 +22,7 @@ void Potion::ShowInfo() const                                                   
 {
 std::cout << "\n===Your potion characteristic=== "<< std::endl;
 std::cout << "Name : " << name_p << "\nEffect Type : " << effectType << "\nPotency : " 
-            << potency << "\nDuration : " << duration_p << std::endl;
+            << potency << std::endl;
 }
 
 
@@ -44,4 +36,17 @@ void Potion::Reset()
 {
     isEquipped_p = false;
         std::cout << name_p << " equipped! Attack -" << potency << std::endl;
+}
+
+void Potion::ApplyEffect(Character* character) {
+    isEquipped_p = true;
+    if (!character) {
+        std::cout << "No character to apply the potion effect!" << std::endl;
+        return;
+    }
+    else
+{
+     }
+    character->ApplyPotionEffect(GetEffectType(), GetPotency(), GetDuration());
+    std::cout << "Used " << GetName() << "." << std::endl;
 }
