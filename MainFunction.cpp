@@ -38,7 +38,8 @@ void MainFunction() {
         std::cout << "Choice: ";
         std::cin >> mainChoice;
         if (mainChoice == 1){
-            //Start game();
+            StartGame();
+
         }else if (mainChoice == 2) {
             hero.DisplayStats();
         } else if (mainChoice == 3) {
