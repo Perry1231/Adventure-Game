@@ -10,6 +10,7 @@ class Character;
 class Inventory;
 class Item;
 class OtInventory;
+class Potion;
 
 
 //=====================================================Item_structure==========================================
@@ -285,11 +286,38 @@ OtInventory() : size(0), ot_inv_mass(nullptr) {}
 
 int GetSize() const { return size; }
 int* GetInventory() const { return ot_inv_mass; }
-void AddItem(int id);
-void RemoveItem(int id);
+
 
 ~OtInventory(){delete[] ot_inv_mass;}
 };
+//==================================================================Potion_structure=========================================================================================
+
+class Potion : public Item
+{
+public:
+
+
+private:
+    std::string name_p;
+    int effectType; // 0=HP, 1=STR, 2=AGI...
+    int potency;
+    int duration;
+    std::string description_p;
+
+
+
+    Potion (std::string name_, int effectType_, int potency_, int duration_) : name_p(name_), effectType(effectType_), potency(potency_), duration(duration_) {}
+    std::string GetName() const override { return name_p; }
+    std::string GetType() const override { return "Potion"; }
+    int GetEffectType() const { return effectType; }
+    int GetPotency() const { return potency; }
+    int GetDuration() const { return duration; }
+    std::string GetDescription() const { return description_p; }
+    void ShowInfo() const override ;
+    void Use() override;
+    void Reset() override;
+};
+
 
 //==================================================================Other_functions=============================================================================
 void MainFunction();

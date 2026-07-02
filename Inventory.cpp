@@ -44,7 +44,6 @@ int MyInventory::AddItem(Item* item) {
 }
 
 
-
 int MyInventory::DelItem(int itemId) {
     for (int i = 0; i < count; i++) {
         if (items[i]->GetItemId() == itemId) {

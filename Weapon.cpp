@@ -68,7 +68,6 @@ std::string weapon_ma[] = {"Rod", "Wand", "Staff"}; //For_magic == 3
 
 if (profession_get == "Warrior")
 {
-
 this -> name_w = weapon_me[rand() % 13];
 auto it = db.find(name_w);
     if (it != db.end()) {
@@ -88,6 +87,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Rogue")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -98,6 +98,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Peasant")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -108,6 +109,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Archer")
 {
 this -> name_w = weapon_ra[rand() % 7];
@@ -118,6 +120,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Druid")
 {
 this -> name_w = weapon_ma[rand() % 3];
@@ -128,6 +131,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Ranger")
 {
 this -> name_w = weapon_ra[rand() % 7];
@@ -138,6 +142,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Blacksmith")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -148,6 +153,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Miner")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -158,6 +164,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Berserker")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -168,6 +175,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Shaman")
 {
 this -> name_w = weapon_ma[rand() % 3];
@@ -178,6 +186,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Warlord")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -188,6 +197,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Thief")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -199,6 +209,7 @@ this -> name_w = weapon_me[rand() % 13];
 
 return name_w;
 }
+
 else if (profession_get == "Assassin")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -209,6 +220,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else if (profession_get == "Scavenger")
 {
 this -> name_w = weapon_me[rand() % 13];
@@ -219,6 +231,7 @@ auto it = db.find(name_w);
     }
 return name_w;
 }
+
 else {this -> name_w = "Sword"; 
     auto it = db.find(name_w);
     if (it != db.end()) {
@@ -288,7 +301,7 @@ void Weapon::Reset()
     return dp;
 }
 
- static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list + need new list for good and bad 
+ static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list
     static std::map<std::string, std::pair<int, int>> ar;
     if (ar.empty()) {
         ar = {

@@ -23,3 +23,19 @@ static std::map<std::string, std::tuple<int, int, int>>& GetPotionDB() {        
     }
     return pt;
 }
+
+
+
+void ShowInfo()   
+{
+
+}
+
+void Use() 
+{
+
+}
+void Reset() 
+{
+
+}
