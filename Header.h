@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 class Weapon;
 class Armory;
@@ -32,7 +33,11 @@ public:
 };
 
 //=======================================================================Character_structure===================================================================================
-
+struct ActiveEffect {
+    int type;     
+    int potency;    
+    bool isDebuff;  
+};
 class Character
 {
     protected :
@@ -48,6 +53,7 @@ int agility;
 int intelligence;
 int defense;
 int gold;
+std::vector<ActiveEffect> activeEffects; 
 
 
 Weapon* equipped_weapon;                //For equipment
@@ -85,9 +91,10 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
     void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
-    void ActiveEffect(int effectType, int potency, int duration); // Apply potion effects to character stats
 
-    void ApplyPotionEffect(int effectType, int potency, int duration);//===========-0=--=0-0-0-0-0-0000-0-0-0-0-0-0000 Realize cont
+    void ApplyPotionEffect(int effectType, int potency);
+    void ProcessEffects(); // викликати на початку кожного ходу
+    void AddEffect(int type, int potency, bool debuff = false);
 
     std::string GetProfession() const { return profession; };
     void Usage();
@@ -305,37 +312,34 @@ int* GetInventory() const { return ot_inv_mass; }
 class Potion : public Item
 {
 public:
-enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGHT }; // Example effect types (6)
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // Example effect types (6)
 
 protected:
     std::string name_p;
     int effectType; 
-    int potency;                // How strong the potion is
-    int duration;               // How long the effect lasts
+    int potency;                // How strong the potion is              
     std::string description_p;
     bool isEquipped_p;
     int value_p; // Value of the potion in gold
 
-
 public:
-    Potion() : effectType(0),  potency(0) ,  duration(0) ,value_p(0) ,name_p("") , isEquipped_p(false) , description_p("")  {}
+    Potion() : effectType(0),  potency(0) ,value_p(0) ,name_p("") , isEquipped_p(false) , description_p("")  {}
 
     Potion (std::string name_, int effectType_, int potency_, int duration_, std::string description_, int value_)
-     : name_p(name_), effectType(effectType_), potency(potency_), duration(duration_), value_p(value_), isEquipped_p(false), description_p(description_) {}
+     : name_p(name_), effectType(effectType_), potency(potency_), value_p(value_), isEquipped_p(false), description_p(description_) {}
 
     int GetValue() const { return value_p; }
     std::string GetName() const override { return name_p; }
     std::string GetType() const override { return "Potion"; }
     int GetEffectType() const { return effectType; }
     int GetPotency() const { return potency; }
-    int GetDuration() const { return duration; }
     std::string GetDescription() const { return description_p; }
 
     bool IsEquipped() const { return isEquipped_p; }
     void SetEquipped(bool equipped) { isEquipped_p = equipped; }
-     void SetValue(int val) { value_p = val; }
+    void SetValue(int val) { value_p = val; }
 
-    void ApplyEffect(Character* target); // Apply the potion effect to the character
+    void ApplyEffect(Character* target);
 
     void ShowInfo() const override ;
     void Use() override;

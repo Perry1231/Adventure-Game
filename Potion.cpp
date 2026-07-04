@@ -15,9 +15,9 @@ static std::map<std::string, std::tuple<int, int, int, int>>& GetPotionDB() { //
 	static std::map<std::string, std::tuple<int, int, int, int>> pt;
 	if (pt.empty()) {
 		pt = {
-			{"Health Potion", {0, 20, 0, 0}},   //First -- value is efect in "Header.h" , second -- potency , thirs -- price , forth --duartion
-			{"Strength Potion", {1, 5, 3, 0}},
-			{"Inteligence potion", {3, 5, 3, 0}},
+			{"Health Potion", {0, 20, 0, 2}},   //First -- value is efect in "Header.h" , second -- potency , thirs -- price , forth --duartion
+			{"Strength Potion", {1, 5, 3, 3}},
+			{"Inteligence potion", {3, 5, 3, 1}},
 			{"Defense Potion", {2, 5, 3, 0}},
 			{"Gold Potion", {4, 10, 3, 0}},
 			{"Intelligence Potion", {3, 5, 3, 0}},
@@ -45,8 +45,12 @@ static std::string EffectTypeToString(int type) {
 void Potion::ShowInfo() const //Count is weapon broken
 {
 	std::cout << "\n===Your potion characteristic=== " << std::endl;
-	std::cout << "Name : " << name_p << "\nEffect Type : " << EffectTypeToString(effectType) << "\nPotency : "
-		<< potency << std::endl;
+	std::cout << "Name : " << name_p << "\nEffect Type : " << EffectTypeToString(effectType) 
+		<< "\nPotency : "<< potency 
+		<< "\nDescribtion : " << description_p
+		<< "\nValue : " << value_p
+		<< "\nIs equipped : " << (isEquipped_p ? "Yes" : "No") << std::endl;
+	std::cout << "\n\n" << std::endl;
 }
 
 
@@ -70,7 +74,7 @@ void Potion::ApplyEffect(Character* character) {
 	}
 	else
 	{
-	character->ApplyPotionEffect(GetEffectType(), GetPotency(), GetDuration());
+	character->ApplyPotionEffect(GetEffectType(), GetPotency());
 	std::cout << "Used " << GetName() << "." << std::endl;
 	}
 }

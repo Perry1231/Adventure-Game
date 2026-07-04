@@ -330,7 +330,7 @@ void Character::Usage()
     }
 }
 
-void Character::ApplyPotionEffect(int effectType, int potency, int duration) {
+void Character::ApplyPotionEffect(int effectType, int potency) {
     switch (effectType) {
         case 0: // HEALTH
             health += potency;
@@ -362,3 +362,54 @@ Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; }
 Armory* Character::GetEquippedArmor() const { return equipped_armor; } 
 int Character::GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); } 
 int Character::GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }
+
+void Character::AddEffect(int type, int potency, bool debuff) {
+    ActiveEffect eff;
+    eff.type = type;
+    eff.potency = potency;
+    eff.isDebuff = debuff;
+    activeEffects.push_back(eff);
+    std::cout << name << " gained effect: " << GetEffectName(type);
+}
+
+void Character::ProcessEffects() {
+    for (auto it = activeEffects.begin(); it != activeEffects.end(); ) {
+        switch (it->type) {
+            case 0: // HEALTH (Poison heal/damage over time)
+                if (it->isDebuff) {
+                    health += it->potency;
+                    std::cout << name << " takes " << (-it->potency) << " poison damage! (HP: " << health << ")\n";
+                } else {
+                    // не afford health regen over time from potion (instant only)
+                }
+                break;
+            case 1: // DEFENSE
+                defense += it->potency;
+                break;
+            case 2: // AGILITY
+                agility += it->potency;
+                break;
+            case 3: // INTELLIGENCE
+                intelligence += it->potency;
+                break;
+            case 4: // GOLD
+                gold += it->potency; // або не давати гроші кожен хід, а тільки раз
+                break;
+            case 5: // STRENGTH
+                strength += it->potency;
+                break;
+        }
+    }
+}
+
+std::string GetEffectName(int type) {
+    switch (type) {
+        case 0: return "Health";
+        case 1: return "Defense";
+        case 2: return "Agility";
+        case 3: return "Intelligence";
+        case 4: return "Gold";
+        case 5: return "Strength";
+        default: return "Unknown";
+    }
+}

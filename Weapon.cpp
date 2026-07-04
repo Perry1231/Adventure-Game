@@ -336,7 +336,7 @@ std::string weapon_sp[] = {"Blade of Broken Mirrors","Javelin of Backbiting", "W
     "Two-Birds Sling","Axe of the Dwarvish Lords","Gambler's Blade","Orcsplitter ", "Sword of Sharpness","Vorpal Sword", "Acheron Blade",  
     "Luck Blade","Sword of Life Stealing","Mind Lash", "Dragon Slayer"};                                                                     //Special_weapon
 std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", "Windvane",  "Spear of Heliod",  "Ephixis",  "Two-Birds Sling",  "Axe of the Dwarvish Lords", 
-                           "Gambler’s Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
+                           "Gambler's Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
 
 int random_number = rand() % 2; // Randomly choose between special weapon and artifact
 if(random_number == 0)
