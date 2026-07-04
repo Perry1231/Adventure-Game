@@ -100,7 +100,7 @@ Submenu: Get Info
 7. Unequip armor
 0. Back to main menu
 
-https://github.com/Perry1231/Adventure-Game/blob/main/Photo.png
+![Screenshot](https://github.com/Perry1231/Adventure-Game/blob/main/Photo.png)
 
 
 ## GitHub Actions
