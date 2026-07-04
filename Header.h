@@ -84,6 +84,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetStrength() const { std::cout << "Strength: " << strength << std::endl; }
     void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
     void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
+    void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
+    void ActiveEffect(int effectType, int potency, int duration); // Apply potion effects to character stats
 
     void ApplyPotionEffect(int effectType, int potency, int duration);//===========-0=--=0-0-0-0-0-0000-0-0-0-0-0-0000 Realize cont
 
@@ -303,7 +305,7 @@ int* GetInventory() const { return ot_inv_mass; }
 class Potion : public Item
 {
 public:
-enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD }; // Example effect types
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGHT }; // Example effect types (6)
 
 protected:
     std::string name_p;
