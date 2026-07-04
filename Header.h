@@ -42,6 +42,7 @@ class Character
 {
     protected :
 int health;
+int Shealth=health;
 std::string name;
 int age;
 std::string race;
