@@ -56,7 +56,8 @@ Static Build (Portable)
 To generate a standalone executable without requiring MinGW DLLs on the target machine:
 
 g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
-Microsoft Visual Studio
+
+## Microsoft Visual Studio
 Open Visual Studio → Open a Local Folder → select the project folder.
 Build → Build Solution.
 Run with Local Windows Debugger.
