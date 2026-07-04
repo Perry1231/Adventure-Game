@@ -327,7 +327,7 @@ void Weapon::Reset()
 }
 
 
-std::string  Weapon::RandomizeWeaponSpeacial()                                                            
+std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                            
 {
     auto& dp = GetWeaponSpeacialDB();
     auto& ar = GetWeaponArtifactDB();

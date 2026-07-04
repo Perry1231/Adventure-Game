@@ -172,7 +172,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     bool IsEnchanted() const { return isEnchanted_w; };
     std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
-    std::string  RandomizeWeaponSpeacial();
+    std::string  RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
 
