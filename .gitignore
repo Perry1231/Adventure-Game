@@ -1,5 +1,4 @@
-Makefile
-install_manifest.txt
+# Build artifacts
 *.o
 *.obj
 *.exe
@@ -8,8 +7,16 @@ install_manifest.txt
 *.ilk
 *.pdb
 *.idb
+*.gch
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+
+# Directories
 .vs/
+build/
+output/
+
+# IDE
+.vscode/  
