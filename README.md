@@ -1,10 +1,9 @@
-README.md
-
 # Adventure Game
 
 Text-based RPG written in C++17. Manage your character, collect weapons and armor, use potions, and embark on a procedural adventure from the terminal.
 
 ## Features
+
 - **Character System**: Randomized stats based on profession (health, strength, agility, intelligence, defense, gold).
 - **Inventory Management**: Add, remove, resize, and manage weapons, armor, and potions.
 - **Equipment**: Equip and unequip weapons and armor to modify attack and defense values.
@@ -14,6 +13,7 @@ Text-based RPG written in C++17. Manage your character, collect weapons and armo
 - **Cross-platform**: Compiles on Windows (MinGW/MSVC), Linux, and macOS.
 
 ## Project Structure
+
 | File | Purpose |
 |------|---------|
 | `Main.cpp` | Entry point (`main()` → calls `MainFunction()`). |
@@ -33,6 +33,7 @@ Text-based RPG written in C++17. Manage your character, collect weapons and armo
 | `Trade.cpp` | Trading/shop system. |
 
 ## Requirements
+
 - A C++17 compiler:
   - **GCC / MinGW-w64** (recommended)
   - **Microsoft Visual C++ (MSVC)**
@@ -43,6 +44,7 @@ Text-based RPG written in C++17. Manage your character, collect weapons and armo
 ## Building
 
 ### GCC / MinGW-w64 (Recommended)
+
 Compile **all** `.cpp` files together:
 
 ```bash
@@ -95,6 +97,12 @@ Submenu: Get Info
 6. Equip armor
 7. Unequip armor
 0. Back to main menu
+
+<img width="1908" height="987" alt="image" src="https://github.com/user-attachments/assets/453b1099-c1a9-4ec9-bda6-f623ea556d9f" />
+
+
+
+
 GitHub Actions
 This repository includes a GitHub Actions workflow (.github/workflows/c-cpp.yml) that automatically builds the project on every push to main.
 
@@ -109,7 +117,9 @@ Because the executable is not digitally signed, Windows SmartScreen may display 
 
 Windows protected your PC
 
-Click More Info → Run Anyway. This is expected behavior for unsigned educational projects.
+Click More Info → Run Anyway.
+
+This is expected behavior for unsigned educational projects.
 
 Troubleshooting
 undefined reference errors during linking
@@ -130,3 +140,4 @@ Developed by Vladyslav Vytrykush to demonstrate C++ programming practices, OOP d
 
 License
 This project is for educational purposes. No explicit license is set; contact the author for reuse permissions. ```
+
