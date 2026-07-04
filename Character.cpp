@@ -357,6 +357,17 @@ void Character::ApplyPotionEffect(int effectType, int potency) {
     }
 }
 
+std::string GetEffectName(int type) {
+    switch (type) {
+        case 0: return "Health";
+        case 1: return "Defense";
+        case 2: return "Agility";
+        case 3: return "Intelligence";
+        case 4: return "Gold";
+        case 5: return "Strength";
+        default: return "Unknown";
+    }
+}
 
 Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 
 Armory* Character::GetEquippedArmor() const { return equipped_armor; } 
@@ -402,17 +413,5 @@ void Character::ProcessEffects() {
                 strength += it->potency;
                 break;
         }
-    }
-}
-
-std::string GetEffectName(int type) {
-    switch (type) {
-        case 0: return "Health";
-        case 1: return "Defense";
-        case 2: return "Agility";
-        case 3: return "Intelligence";
-        case 4: return "Gold";
-        case 5: return "Strength";
-        default: return "Unknown";
     }
 }

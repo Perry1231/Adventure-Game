@@ -21,7 +21,7 @@ void MainFunction() {
     inv1.SetOwner(&hero);
     inv1.AddItem(weapon_1);
 
-    Potion* p = new Potion("Health Potion", 0, 20, 0, "Restores 20 health points.", 10);
+    Potion* p = new Potion();
     inv1.AddItem(p);
 
 

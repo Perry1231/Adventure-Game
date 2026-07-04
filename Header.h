@@ -93,6 +93,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
 
+    
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects(); // викликати на початку кожного ходу
     void AddEffect(int type, int potency, bool debuff = false);
@@ -118,8 +119,8 @@ protected:
     std::string name_w;
 
     public :
-Weapon() : isEquipped_w(false), isBroken_w(false), 
-           isEnchanted_w(false), attack_w(0), defend_w(0), durability_w(100), value_w(0), name_w("") {}Weapon(std::string name_)
+Weapon() : name_w(""), isEquipped_w(false), isBroken_w(false), 
+ isEnchanted_w(false), attack_w(0), defend_w(0), value_w(0), durability_w(100) {}Weapon(std::string name_)
 {
     this->name_w = name_;
     this->attack_w = 0;
@@ -197,8 +198,8 @@ std::string name_a;
 
 
     public:
-Armory() : isEquipped_a(false), isBroken_a(false), 
-           isEnchanted_a(false), defend_a(0), durability_a(100), value_a(0), name_a("") {}Armory(std::string name_a)
+Armory() : name_a(""), isEquipped_a(false), isBroken_a(false),
+ isEnchanted_a(false), defend_a(0), value_a(0), durability_a(100) {}Armory(std::string name_a)
 {
     this->name_a = name_a;
     this->defend_a = 0;   
@@ -259,17 +260,17 @@ std::string GetType() const override { return "Armor"; }
 
 
 //=======================================================================Inventory_structure===========================================================================
-class MyInventory
-{
-private:
-Item** items;
-int capacity;   //Capacity of inventory given
-int count;      //How many items now
-int id;
-Character* owner;
+ class MyInventory
+ {
+ private:
+ Item** items;
+ int capacity; //Capacity of inventory given
+ int count; //How many items now
+ int id;
+ Character* owner;
 
-public:
-MyInventory() :  items(nullptr) , count(0) , capacity(0), id(1), owner(nullptr) {}
+ public:
+ MyInventory() : items(nullptr) , capacity(0), count(0), id(1), owner(nullptr) {}
 
 ~MyInventory(){for (int i = 0; i < count; i++)
         delete items[i];
@@ -312,9 +313,6 @@ int* GetInventory() const { return ot_inv_mass; }
 
 class Potion : public Item
 {
-public:
-enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // Example effect types (6)
-
 protected:
     std::string name_p;
     int effectType; 
@@ -324,10 +322,12 @@ protected:
     int value_p; // Value of the potion in gold
 
 public:
-    Potion() : effectType(0),  potency(0) ,value_p(0) ,name_p("") , isEquipped_p(false) , description_p("")  {}
+ Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
 
-    Potion (std::string name_, int effectType_, int potency_, int duration_, std::string description_, int value_)
+    Potion (std::string name_, int effectType_, int potency_,  std::string description_, int value_)
      : name_p(name_), effectType(effectType_), potency(potency_), value_p(value_), isEquipped_p(false), description_p(description_) {}
+
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // Example effect types (6)
 
     int GetValue() const { return value_p; }
     std::string GetName() const override { return name_p; }
