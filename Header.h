@@ -119,8 +119,8 @@ protected:
     std::string name_w;
 
     public :
-Weapon() : name_w(""), isEquipped_w(false), isBroken_w(false), 
- isEnchanted_w(false), attack_w(0), defend_w(0), value_w(0), durability_w(100) {}Weapon(std::string name_)
+Weapon() : isEquipped_w(false), isBroken_w(false), 
+ isEnchanted_w(false), attack_w(0), defend_w(0), durability_w(100), value_w(0), name_w("")  {}Weapon(std::string name_)
 {
     this->name_w = name_;
     this->attack_w = 0;
@@ -199,7 +199,7 @@ std::string name_a;
 
     public:
 Armory() :isEquipped_a(false), isBroken_a(false),
- isEnchanted_a(false), defend_a(0), value_a(0), durability_a(100), name_a("") {}Armory(std::string name_a)
+ isEnchanted_a(false), defend_a(0), durability_a(100), value_a(0), name_a("") {}Armory(std::string name_a)
 {
     this->name_a = name_a;
     this->defend_a = 0;   
