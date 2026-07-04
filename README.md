@@ -48,18 +48,16 @@ AdventureGame.exe
 ## Building with Visual Studio Code
 
 1. Install the **C/C++ Extension** by Microsoft.
-2. Open the project folder.
-3. Open the integrated terminal.
+2. Open the project folder in VSCode.
+3. Open the integrated terminal (`Ctrl + ``).
 4. Build the project using:
 
 ```bash
 g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
-```
-
 5. Run the generated executable:
 
 ```bash
-./AdventureGame.exe
+./adventureGame.exe
 ```
 
 ---
