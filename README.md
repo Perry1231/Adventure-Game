@@ -1,192 +1,132 @@
-# Build Instructions
+README.md
 
-The project can be built from source using any modern C++ compiler. A precompiled executable is also available through GitHub Releases and GitHub Actions artifacts for users who do not wish to compile the source code manually.
+# Adventure Game
+
+Text-based RPG written in C++17. Manage your character, collect weapons and armor, use potions, and embark on a procedural adventure from the terminal.
+
+## Features
+- **Character System**: Randomized stats based on profession (health, strength, agility, intelligence, defense, gold).
+- **Inventory Management**: Add, remove, resize, and manage weapons, armor, and potions.
+- **Equipment**: Equip and unequip weapons and armor to modify attack and defense values.
+- **Potion Effects**: Apply active buffs/debuffs with different potencies and durations.
+- **Dynamic Events**: Randomized encounters, traders, and story-driven plot points.
+- **Combat & Stats**: Real-time stat display with active effect processing.
+- **Cross-platform**: Compiles on Windows (MinGW/MSVC), Linux, and macOS.
+
+## Project Structure
+| File | Purpose |
+|------|---------|
+| `Main.cpp` | Entry point (`main()` → calls `MainFunction()`). |
+| `MainFunction.cpp` | Main menu, game loop, inventory interaction. |
+| `Header.h` | Class declarations for `Character`, `Weapon`, `Armory`, `Potion`, `MyInventory`, `OtInventory`, `Item`, and global functions. |
+| `Character.cpp` | Character stats, equip/unequip logic, effect processing. |
+| `Weapon.cpp` | Weapon randomization, durability, info display. |
+| `Armory.cpp` | Armor randomization, durability, info display. |
+| `Potion.cpp` | Potion effects, database, usage. |
+| `Inventory.cpp` | Inventory array management, display, add/delete/resize. |
+| `Addition.cpp` | Startup (`StartGame`), difficulty choice (`ChoiceHard`), help text. |
+| `Plot.cpp` | Story/lore events. |
+| `Action.cpp` | Combat/action logic. |
+| `OtherCharacter.cpp` | NPC and trader logic. |
+| `OtherRandomizer.cpp` | Shared randomization helpers. |
+| `Evets.cpp` | Random event triggers. |
+| `Trade.cpp` | Trading/shop system. |
 
 ## Requirements
+- A C++17 compiler:
+  - **GCC / MinGW-w64** (recommended)
+  - **Microsoft Visual C++ (MSVC)**
+  - **Clang**
+- **Git** (optional, for cloning)
+- Windows, Linux, or macOS
 
-Before building the project, make sure you have:
+## Building
 
-* A C++ compiler with C++17 support:
-
-  * GCC / MinGW-w64
-  * Microsoft Visual C++ (MSVC)
-  * Clang
-* Git (optional, for cloning the repository)
-* Windows, Linux, or macOS operating system
-
----
-
-## Clone the Repository
+### GCC / MinGW-w64 (Recommended)
+Compile **all** `.cpp` files together:
 
 ```bash
-git clone https://github.com/Perry1231/Adventure-Game.git
-cd Adventure-Game
-```
+g++ -Wall -Wextra -g3 *.cpp -o AdventureGame.exe
+Or explicitly:
 
----
+g++ -Wall -Wextra -g3 Main.cpp MainFunction.cpp Character.cpp Weapon.cpp Armory.cpp Potion.cpp Inventory.cpp Addition.cpp Plot.cpp OtherCharacter.cpp Action.cpp OtherRandomizer.cpp Evets.cpp Trade.cpp -o AdventureGame.exe
+Static Build (Portable)
+To generate a standalone executable without requiring MinGW DLLs on the target machine:
 
-## Building with GCC (Recommended)
-
-Compile all source files into a single executable:
-
-```bash
 g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
-```
+Microsoft Visual Studio
+Open Visual Studio → Open a Local Folder → select the project folder.
+Build → Build Solution.
+Run with Local Windows Debugger.
+Visual Studio Code
+Install the C/C++ Extension by Microsoft.
+Open the project folder.
+In the integrated terminal (`Ctrl + ``), run the GCC command above.
+Running
+After compilation, run the executable:
 
-### Why use static linking?
+Windows: AdventureGame.exe
+Linux/macOS: ./AdventureGame
+Gameplay
+Upon launch, the main menu appears:
 
-The static build includes all required runtime libraries directly inside the executable. This allows the game to run on other Windows computers without requiring MinGW, MSYS2, or additional DLL files.
+=== MAIN MENU ===
+1. Start game
+2. Show character stats
+3. Show your inventory
+4. Manage your Inventory
+5. Get info
+6. Help
+0. Exit
+Commands
+Start Game — chooses difficulty and begins the adventure.
+Show Character Stats — displays health, strength, agility, intelligence, defense, gold, equipped weapon/armor, and active effects.
+Show Inventory — lists all items with IDs, names, types, and values.
+Manage Inventory — submenu for additional inventory operations.
+Get Info — detailed weapon/armor inspection, equip/unequip commands.
+Help — quick reference for controls.
+Exit — closes the application.
+Submenu: Get Info
+1. Display inventory
+2. Show weapon stats
+3. Equip weapon
+4. Unequip weapon
+5. Show armor stats
+6. Equip armor
+7. Unequip armor
+0. Back to main menu
+GitHub Actions
+This repository includes a GitHub Actions workflow (.github/workflows/c-cpp.yml) that automatically builds the project on every push to main.
 
-After compilation, run:
+To download the latest automated build:
 
-```bash
-AdventureGame.exe
-```
+Open the repository on GitHub.
+Go to Actions → latest successful workflow.
+Download the generated artifact.
+Extract and run AdventureGame.
+Windows Defender / SmartScreen Warning
+Because the executable is not digitally signed, Windows SmartScreen may display a warning when running for the first time:
 
----
+Windows protected your PC
 
-## Building with Visual Studio Code
+Click More Info → Run Anyway. This is expected behavior for unsigned educational projects.
 
-1. Install the **C/C++ Extension** by Microsoft.
-2. Open the project folder in VSCode.
-3. Open the integrated terminal (`Ctrl + ``).
-4. Build the project using:
+Troubleshooting
+undefined reference errors during linking
+Make sure all .cpp files are passed to the compiler. The project relies on definitions spread across multiple translation units. The wildcard *.cpp is the easiest way to avoid this.
 
-```bash
-g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
-5. Run the generated executable:
+g++: command not found
+Install MinGW-w64 or MSYS2 and ensure g++ is in your system PATH. Verify with:
 
-```bash
-./adventureGame.exe
-```
-
----
-
-## Building with Microsoft Visual Studio
-
-1. Open Visual Studio.
-2. Select **Open a Local Folder**.
-3. Choose the Adventure-Game project folder.
-4. Build the solution using:
-
-```text
-Build → Build Solution
-```
-
-5. Start the game:
-
-```text
-Local Windows Debugger
-```
-
----
-
-## GitHub Actions Automatic Builds
-
-This repository includes GitHub Actions workflows that automatically compile the project whenever changes are pushed to the repository.
-
-To download the latest automatically generated build:
-
-1. Open the repository on GitHub.
-2. Navigate to:
-
-```text
-Actions → Latest Successful Workflow
-```
-
-3. Download the generated artifact:
-
-```text
-AdventureGame.zip
-```
-
-4. Extract the archive.
-5. Run:
-
-```text
-AdventureGame.exe
-```
-
-No compiler or development tools are required when using a prebuilt release.
-
----
-
-## Running on Another Computer
-
-The executable generated using static linking can be copied directly to another Windows computer.
-
-Steps:
-
-1. Build the project.
-2. Copy:
-
-```text
-AdventureGame.exe
-```
-
-3. Transfer the file to another PC.
-4. Double-click the executable to start the game.
-
-No source code, compiler, or external libraries are required.
-
----
-
-## Troubleshooting
-
-### g++: command not found
-
-The GCC compiler is not installed or not added to the system PATH.
-
-Install one of the following:
-
-* MinGW-w64
-* MSYS2
-* Visual Studio Build Tools
-
-Verify installation:
-
-```bash
 g++ --version
-```
+Missing features or crashes
+Verify all source files are present in the same directory and none have been renamed or removed. The project requires C++17 support.
 
----
-### Build fails with "undefined reference" errors
+Contributing
+Contributions are welcome. Please open an issue or pull request on GitHub.
 
-Make sure you are compiling **all** `.cpp` files together, not just `MainFunction.cpp`. The correct command is:
+Author
+Developed by Vladyslav Vytrykush to demonstrate C++ programming practices, OOP design, and project structure.
 
-```bash
-g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
-### Windows Defender Warning
-
-Because the executable is not digitally signed, Windows SmartScreen may display a warning.
-
-To continue:
-
-```text
-More Info → Run Anyway
-```
-
-This behavior is common for independent and educational projects.
-
----
-
-### Compilation Errors
-
-If compilation fails:
-
-1. Verify that all `.cpp` files are present.
-2. Confirm that your compiler supports C++17.
-3. Ensure all project files are located in the same directory.
-4. Check that no source files have been renamed or removed.
-
----
-
-## Build Output
-
-Successful compilation creates:
-
-```text
-AdventureGame.exe
-```
-
-This executable contains the complete game and can be distributed to other Windows users without additional dependencies.
+License
+This project is for educational purposes. No explicit license is set; contact the author for reuse permissions. ```
