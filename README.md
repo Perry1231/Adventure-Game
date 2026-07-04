@@ -97,12 +97,6 @@ Submenu: Get Info
 6. Equip armor
 7. Unequip armor
 0. Back to main menu
-
-<img width="1908" height="987" alt="image" src="https://github.com/user-attachments/assets/453b1099-c1a9-4ec9-bda6-f623ea556d9f" />
-
-
-
-
 GitHub Actions
 This repository includes a GitHub Actions workflow (.github/workflows/c-cpp.yml) that automatically builds the project on every push to main.
 
@@ -117,9 +111,7 @@ Because the executable is not digitally signed, Windows SmartScreen may display 
 
 Windows protected your PC
 
-Click More Info → Run Anyway.
-
-This is expected behavior for unsigned educational projects.
+Click More Info → Run Anyway. This is expected behavior for unsigned educational projects.
 
 Troubleshooting
 undefined reference errors during linking
@@ -140,4 +132,3 @@ Developed by Vladyslav Vytrykush to demonstrate C++ programming practices, OOP d
 
 License
 This project is for educational purposes. No explicit license is set; contact the author for reuse permissions. ```
-
