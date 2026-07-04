@@ -20,8 +20,11 @@
         "OtherCharacter.cpp",
         "OtherRandomizer.cpp",
         "Evets.cpp",
+        "-static-libgcc",
+        "-static-libstdc++",
+        "-static",
         "-o",
-        "adventure_game.exe"
+        "AdventureGame.exe"
       ],
       "group": {
         "kind": "build",

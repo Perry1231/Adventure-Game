@@ -1,33 +1,17 @@
 {
-  "version": "2.0.0",
-  "tasks": [
+  "version": "0.2.0",
+  "configurations": [
     {
-      "type": "shell",
-      "label": "Build Adventure Game",
-      "command": "g++",
-      "args": [
-        "Main.cpp",
-        "Character.cpp",
-        "MainFunction.cpp",
-        "Inventory.cpp",
-        "Weapon.cpp",
-        "Potion.cpp",
-        "Armory.cpp",
-        "Action.cpp",
-        "Plot.cpp",
-        "Trade.cpp",
-        "Addition.cpp",
-        "OtherCharacter.cpp",
-        "OtherRandomizer.cpp",
-        "Evets.cpp",
-        "-o",
-        "adventure_game.exe"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
+      "name": "Run Adventure Game",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\AdventureGame.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb"
     }
   ]
 }
