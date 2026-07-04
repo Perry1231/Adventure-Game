@@ -172,7 +172,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     bool IsEnchanted() const { return isEnchanted_w; };
     std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
-    std::string  RandomizeWeaponSpeacial(const std::string& profession);
+    std::string  RandomizeWeaponSpeacial();
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
 
@@ -198,8 +198,8 @@ std::string name_a;
 
 
     public:
-Armory() : name_a(""), isEquipped_a(false), isBroken_a(false),
- isEnchanted_a(false), defend_a(0), value_a(0), durability_a(100) {}Armory(std::string name_a)
+Armory() :isEquipped_a(false), isBroken_a(false),
+ isEnchanted_a(false), defend_a(0), value_a(0), durability_a(100), name_a("") {}Armory(std::string name_a)
 {
     this->name_a = name_a;
     this->defend_a = 0;   
@@ -324,8 +324,9 @@ protected:
 public:
  Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
 
-    Potion (std::string name_, int effectType_, int potency_,  std::string description_, int value_)
-     : name_p(name_), effectType(effectType_), potency(potency_), value_p(value_), isEquipped_p(false), description_p(description_) {}
+   Potion (std::string name_, int effectType_, int potency_, std::string description_, int value_)
+: name_p(name_), effectType(effectType_), potency(potency_),
+description_p(description_), isEquipped_p(false), value_p(value_) {}
 
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // Example effect types (6)
 

@@ -1,8 +1,20 @@
-# Object files
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
 *.o
-
-# Executables
+*.obj
 *.exe
-
-# Build output
-build/
+*.out
+*.app
+*.ilk
+*.pdb
+*.idb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
