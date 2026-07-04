@@ -99,10 +99,14 @@ Submenu: Get Info
 6. Equip armor
 7. Unequip armor
 0. Back to main menu
-GitHub Actions
+
+
+
+
+## GitHub Actions
 This repository includes a GitHub Actions workflow (.github/workflows/c-cpp.yml) that automatically builds the project on every push to main.
 
-To download the latest automated build:
+## To download the latest automated build:
 
 Open the repository on GitHub.
 Go to Actions → latest successful workflow.
@@ -111,11 +115,11 @@ Extract and run AdventureGame.
 Windows Defender / SmartScreen Warning
 Because the executable is not digitally signed, Windows SmartScreen may display a warning when running for the first time:
 
-Windows protected your PC
+## Windows protected your PC
 
 Click More Info → Run Anyway. This is expected behavior for unsigned educational projects.
 
-Troubleshooting
+## Troubleshooting
 undefined reference errors during linking
 Make sure all .cpp files are passed to the compiler. The project relies on definitions spread across multiple translation units. The wildcard *.cpp is the easiest way to avoid this.
 
@@ -126,11 +130,11 @@ g++ --version
 Missing features or crashes
 Verify all source files are present in the same directory and none have been renamed or removed. The project requires C++17 support.
 
-Contributing
+## Contributing
 Contributions are welcome. Please open an issue or pull request on GitHub.
 
-Author
+## Author
 Developed by Vladyslav Vytrykush to demonstrate C++ programming practices, OOP design, and project structure.
 
-License
+## License
 This project is for educational purposes. No explicit license is set; contact the author for reuse permissions. ```
