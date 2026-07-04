@@ -150,7 +150,12 @@ g++ --version
 ```
 
 ---
+### Build fails with "undefined reference" errors
 
+Make sure you are compiling **all** `.cpp` files together, not just `MainFunction.cpp`. The correct command is:
+
+```bash
+g++ -static-libgcc -static-libstdc++ -static *.cpp -o AdventureGame.exe
 ### Windows Defender Warning
 
 Because the executable is not digitally signed, Windows SmartScreen may display a warning.
