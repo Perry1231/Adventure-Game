@@ -175,7 +175,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     std::string  RandomizeWeaponSpeacial(const std::string& profession);
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
-
+    std::string RandomizeWeapon(); 
     void ShowInfo() const override ;
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }
@@ -348,7 +348,25 @@ enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // 
     void Reset() override;
 };
 
+//==================================================================Chest_structure=========================================================================================
+enum Type { COMMON, RARE, EPIC, LEGENDARY };
+class Chest
+{
+    private :
+    bool isOpen;
+    std::vector<Item*> items;
+    Type chestType;
 
+    Chest() : isOpen(false),  chestType(COMMON) {}
+
+    public:
+    void ChestCreate(Type type);
+    void RandomizeChest(Type type);
+    void Open(Character* target);
+    bool IsOpen() const;
+    void Close();
+    void ShowInfo() const;
+};
 //==================================================================Other_functions=============================================================================
 void MainFunction();
 void ChoiceHard();

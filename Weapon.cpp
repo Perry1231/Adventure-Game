@@ -59,6 +59,11 @@
 }
 
 
+std::string Weapon::RandomizeWeapon()
+{
+
+}
+
 std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
 {
     auto& db = GetWeaponDB();

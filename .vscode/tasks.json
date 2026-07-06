@@ -19,6 +19,7 @@
         "Addition.cpp",
         "OtherCharacter.cpp",
         "OtherRandomizer.cpp",
+        "Chest.cpp",
         "Evets.cpp",
         "-static-libgcc",
         "-static-libstdc++",
