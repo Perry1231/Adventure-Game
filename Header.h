@@ -13,7 +13,8 @@ class Item;
 class OtInventory;
 class Potion;
 
-
+enum ChestType { COMMON, RARE, EPIC, LEGENDARY };
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; 
 //=====================================================Item_structure==========================================
 class Item {
 private:
@@ -327,8 +328,7 @@ public:
    Potion (std::string name_, int effectType_, int potency_, std::string description_, int value_)
 : name_p(name_), effectType(effectType_), potency(potency_),
 description_p(description_), isEquipped_p(false), value_p(value_) {}
-
-enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // Example effect types (6)
+// Example effect types (6)
 
     int GetValue() const { return value_p; }
     std::string GetName() const override { return name_p; }
@@ -350,21 +350,20 @@ enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // 
 };
 
 //==================================================================Chest_structure=========================================================================================
-enum Type { COMMON, RARE, EPIC, LEGENDARY };
 class Chest
 {
     private :
     bool isOpen;
     std::vector<Item*> items;
-    Type chestType;
+    ChestType chestType;
     int capacity;
     Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
 
     public:
-    void ChestCreate(Type type);
-    void RandomizeChest(Type type);
+    void ChestCreate(ChestType type);
+    void RandomizeChest(ChestType type);
     void Open(Character* target);
-    bool IsOpen() const;
+    bool IsOpen() const{ return !isOpen && capacity > 0; };
     void Close();
     void ShowInfo() const;
 };

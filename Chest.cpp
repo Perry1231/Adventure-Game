@@ -2,7 +2,7 @@
 #include "Header.h"
 
 
-void Chest::ChestCreate(Type type) {
+void Chest::ChestCreate(ChestType type) {
     Chest chest;
     this->chestType = type;
     this->isOpen = false;
@@ -13,29 +13,71 @@ void Chest::ChestCreate(Type type) {
  
 
 
-void Chest::RandomizeChest(Type type)
+void Chest::RandomizeChest(ChestType type)
 {
-                // Randomly select a chest type (0 to 3)
+                
     switch (type) {
         case COMMON:
-            // Add common items to the chest
-            items.push_back(new Weapon("Common Sword", 5));     // Add a common weapon to the chest and int is an attack value
-            items.push_back(new Potion("Health Potion", Potion::HEALTH, 20, "Restores health", 10));
+            capacity = rand() % 4 + 1; // Random capacity between 1 and 4
+            this->chestType = COMMON;
+            this->isOpen = false;
+            this->capacity =capacity;
+            
             break;
         case RARE:
-            // Add rare items to the chest
-            items.push_back(new Weapon("Rare Sword", 10));
-            items.push_back(new Potion("Strength Potion", Potion::STRENGTH, 5, "Increases strength", 15));
+            this->chestType = RARE;
+            this->isOpen = false;
+            this->capacity =capacity;
+            capacity = rand() % 6 + 1; 
+            
             break;
         case EPIC:
-            // Add epic items to the chest
-            items.push_back(new Weapon("Epic Sword", 15));
-            items.push_back(new Potion("Intelligence Potion", Potion::INTELLIGENCE, 5, "Increases intelligence", 20));
+            this->chestType = EPIC;
+            this->isOpen = false;
+            this->capacity =capacity;
+            capacity = rand() % 8 + 2;
+            
             break;
         case LEGENDARY:
-            // Add legendary items to the chest
-            items.push_back(new Weapon("Legendary Sword", 20));
-            items.push_back(new Potion("Defense Potion", Potion::DEFENSE, 5, "Increases defense", 25));
+            this->chestType = LEGENDARY;
+            this->isOpen = false;
+            this->capacity =capacity;
+            capacity = rand() % 10 + 3;
+
             break;
     }
+}
+
+
+
+void Chest::Open(Character* target) {
+    if (!isOpen) {
+        isOpen = true;
+        std::cout << "Chest opened!" << std::endl;
+        // Here you can add logic to give items to the character
+    } else {
+        std::cout << "Chest is already open!" << std::endl;
+    }
+}
+
+
+void Chest::Close() {
+    if (isOpen) {
+        isOpen = false;
+        std::cout << "Chest closed!" << std::endl;
+    } else {
+        std::cout << "Chest is already closed!" << std::endl;
+    }
+}
+
+
+void Chest::ShowInfo() const {
+    std::cout << "Chest Type: ";
+    switch (chestType) {
+        case COMMON: std::cout << "Common"; break;
+        case RARE: std::cout << "Rare"; break;
+        case EPIC: std::cout << "Epic"; break;
+        case LEGENDARY: std::cout << "Legendary"; break;
+    }
+    std::cout << "\nCapacity: " << capacity << "\nIs Open: " << (isOpen ? "Yes" : "No") << std::endl;
 }
