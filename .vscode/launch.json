@@ -1,17 +1,18 @@
-{
+﻿{
   "version": "0.2.0",
   "configurations": [
     {
       "name": "Run Adventure Game",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\AdventureGame.exe",
+      "program": "${workspaceFolder}\\output\\Main.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "externalConsole": true,
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb"
+      "miDebuggerPath": "gdb",
+      "preLaunchTask": "Build Adventure Game"
     }
   ]
 }

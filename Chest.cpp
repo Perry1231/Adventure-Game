@@ -6,15 +6,16 @@ void Chest::ChestCreate(Type type) {
     Chest chest;
     this->chestType = type;
     this->isOpen = false;
+    this->capacity =0;
     items.clear();                                          // Clear any existing items in the chest
     chest.RandomizeChest(type);
 }
-
+ 
 
 
 void Chest::RandomizeChest(Type type)
 {
-rand() % 4; // Randomly select a chest type (0 to 3)
+                // Randomly select a chest type (0 to 3)
     switch (type) {
         case COMMON:
             // Add common items to the chest

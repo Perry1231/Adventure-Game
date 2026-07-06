@@ -5,7 +5,7 @@
 #include <utility> 
 
 //Also make as is in weapon.cpp
- static std::map<std::string, std::pair<int, int>>& GetWeaponDB() {
+ static std::map<std::string, std::pair<int, int>>& GetWeaponAR() {
     static std::map<std::string, std::pair<int, int>> db;
     if (db.empty()) {
         db = {
@@ -35,10 +35,22 @@
 }
 
 
-std::string Armory::RandomizeArmorStart(const std::string& profession_get)                                  //Starter pack armor
+std::string Armory::RandomizeArmorStart()                                  //Starter pack armor
 {
-    auto& db = GetWeaponDB();
-name_a = "Padded suit";
+    auto& db = GetWeaponAR();
+    int choise = rand ()% 3; 
+switch(choise)
+{
+    case 0:
+        name_a = "Padded suit";
+        break;
+    case 1:
+        name_a = "Leather suit";
+        break;
+    case 2:
+        name_a = "Studded suit";
+        break;
+}
 auto it = db.find(name_a);
     if (it != db.end()) {
         value_a  = it->second.second; 
@@ -78,7 +90,7 @@ void Armory::Reset() {
 //==================================================================Special_weapon=========================================================================
 
 
-std::string Armory::RandomizeArmorSpeacial(const std::string& profession)       
+std::string Armory::RandomizeArmorSpeacial()       
 {                                                 
 name_a = "Dragon suit";
     defend_a = 25;

@@ -172,7 +172,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     bool IsEnchanted() const { return isEnchanted_w; };
     std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
-    std::string  RandomizeWeaponSpeacial(const std::string& profession);
+    std::string  RandomizeWeaponSpeacial();
     bool IsUsable() const { return !isBroken_w && durability_w > 0; }
 
     std::string RandomizeWeapon(); 
@@ -246,8 +246,8 @@ bool IsEnchanted() const { return isEnchanted_a; }
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 void BrokenArmory();
 void ShowInfo() const override;
-std::string RandomizeArmorSpeacial(const std::string& profession);
-std::string RandomizeArmorStart(const std::string& profession_get);
+std::string RandomizeArmorSpeacial();
+std::string RandomizeArmorStart();
 std::string GetName() const override { return name_a; }
 std::string GetType() const override { return "Armor"; }
 
@@ -343,6 +343,7 @@ enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; // 
 
     void ApplyEffect(Character* target);
 
+    void RandomizePotion();
     void ShowInfo() const override ;
     void Use() override;
     void Reset() override;
@@ -356,8 +357,8 @@ class Chest
     bool isOpen;
     std::vector<Item*> items;
     Type chestType;
-
-    Chest() : isOpen(false),  chestType(COMMON) {}
+    int capacity;
+    Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
 
     public:
     void ChestCreate(Type type);

@@ -11,7 +11,7 @@
 // [ ] Make Health Potion heal only and remove negative effect logic
 // [ ] Refactor ApplyEffect to handle all EffectType enum values
 
-static std::map<std::string, std::tuple<int, int, int, int>>& GetPotionDB() { //For spell list
+static std::map<std::string, std::tuple<int, int, int, int>>& GetPotionPO() { //For spell list
 	static std::map<std::string, std::tuple<int, int, int, int>> pt;
 	if (pt.empty()) {
 		pt = {
@@ -81,3 +81,16 @@ void Potion::ApplyEffect(Character* character) {
 
 
 
+void Potion::RandomizePotion()
+{
+    auto& db = GetPotionPO();
+    int choise = rand() % db.size();
+    auto it = db.begin();
+    std::advance(it, choise);
+    
+    name_p = it->first;
+    std::get<0>(it->second) = effectType;							// Set the effect type based on the potion name
+    std::get<1>(it->second) = potency;								// Set the potency based on the potion name
+    description_p = "Potion of " + EffectTypeToString(effectType);
+    value_p = std::get<2>(it->second);								// Set the value based on the potion name
+}

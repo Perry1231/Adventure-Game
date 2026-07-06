@@ -1,37 +1,25 @@
-{
+﻿{
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "shell",
+      "type": "cppbuild",
       "label": "Build Adventure Game",
       "command": "g++",
       "args": [
-        "Main.cpp",
-        "Character.cpp",
-        "MainFunction.cpp",
-        "Inventory.cpp",
-        "Weapon.cpp",
-        "Potion.cpp",
-        "Armory.cpp",
-        "Action.cpp",
-        "Plot.cpp",
-        "Trade.cpp",
-        "Addition.cpp",
-        "OtherCharacter.cpp",
-        "OtherRandomizer.cpp",
-        "Chest.cpp",
-        "Evets.cpp",
-        "-static-libgcc",
-        "-static-libstdc++",
-        "-static",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-std=c++17",
+        "${workspaceFolder}\\*.cpp",
         "-o",
-        "AdventureGame.exe"
+        "${workspaceFolder}\\output\\Main.exe"
       ],
+      "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "problemMatcher": ["$gcc"]
+      "detail": "Compile all .cpp files in the project root"
     }
   ]
 }

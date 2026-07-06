@@ -59,9 +59,13 @@
 }
 
 
-std::string Weapon::RandomizeWeapon()
+std::string Weapon::RandomizeWeapon()   //Ready or not = 
 {
-
+auto& db = GetWeaponDB();
+    int randomIndex = rand() % db.size();
+    auto it = db.begin();
+    std::advance(it, randomIndex);
+    return it->first;
 }
 
 std::string Weapon::RandomizeWeaponStart(const std::string& profession_get)                                  //Starter pack weapon
@@ -331,8 +335,8 @@ void Weapon::Reset()
     return ar;
 }
 
-
-std::string  Weapon::RandomizeWeaponSpeacial(const std::string& profession)                                                            
+//For chest =====================================================================================================================================================================
+std::string  Weapon::RandomizeWeaponSpeacial()                                                            
 {
     auto& dp = GetWeaponSpeacialDB();
     auto& ar = GetWeaponArtifactDB();
