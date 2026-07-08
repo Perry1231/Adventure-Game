@@ -24,8 +24,6 @@ void MainFunction() {
     Potion* p = new Potion();
     inv1.AddItem(p);
 
-    Chest chest;
-    chest.ChestCreate(COMMON);
 
     int mainChoice = 0;
     while (true) {

@@ -52,7 +52,7 @@ void Chest::RandomizeChest(ChestType type)
 
 
 
-void Chest::Open(Character* target) {
+void Chest::Open(Character* target) {                                                            //===============Not Ready
     int action;
     if (!isOpen) {
         isOpen = true;
