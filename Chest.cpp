@@ -103,6 +103,10 @@ void Chest::ShowInfo(ChestType type) const {
 
 void Chest::ShowItems()
 {
-
+for(int i =0; i < items.size(); i++)
+{
+    std::cout << i+1 << ". ";
+    items[i]->ShowInfo();
 }
-
+std::cout << std::endl;
+}

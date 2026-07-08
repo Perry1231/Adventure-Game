@@ -11,3 +11,7 @@ int main() {
 
     return 0;             
 }
+
+
+
+ //===============Not Ready Randomizer not readyfor all items (Armor , Weapon Potion)
