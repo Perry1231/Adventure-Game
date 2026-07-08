@@ -13,7 +13,7 @@ class Item;
 class OtInventory;
 class Potion;
 
-enum ChestType { COMMON, RARE, EPIC, LEGENDARY };
+enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; 
 //=====================================================Item_structure==========================================
 class Item {
@@ -95,6 +95,9 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
 
     
+    int Take();
+    int TakeAll();
+
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects(); // викликати на початку кожного ходу
     void AddEffect(int type, int potency, bool debuff = false);
@@ -286,6 +289,7 @@ int AddItem(Item* item);
 int DelItem(int id);
 int ResizeInventoryBig();
 void InventoryFunctions();
+
 };
 void HelpFunction() ;
 
@@ -323,9 +327,9 @@ protected:
     int value_p;                                    // Value of the potion in gold
 
 public:
- Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
+    Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
 
-   Potion (std::string name_, int effectType_, int potency_, std::string description_, int value_)
+    Potion (std::string name_, int effectType_, int potency_, std::string description_, int value_)
 : name_p(name_), effectType(effectType_), potency(potency_),
 description_p(description_), isEquipped_p(false), value_p(value_) {}
 // Example effect types (6)
@@ -352,20 +356,21 @@ description_p(description_), isEquipped_p(false), value_p(value_) {}
 //==================================================================Chest_structure=========================================================================================
 class Chest
 {
-    private :
+protected :
     bool isOpen;
     std::vector<Item*> items;
     ChestType chestType;
     int capacity;
     Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
 
-    public:
+public:
     void ChestCreate(ChestType type);
     void RandomizeChest(ChestType type);
     void Open(Character* target);
     bool IsOpen() const{ return !isOpen && capacity > 0; };
     void Close();
-    void ShowInfo() const;
+    void ShowInfo(ChestType type) const;
+    void ShowItems();
 };
 //==================================================================Other_functions=============================================================================
 void MainFunction();
