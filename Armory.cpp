@@ -90,7 +90,7 @@ void Armory::Reset() {
 //==================================================================Special_weapon=========================================================================
 
 
-std::string Armory::RandomizeArmorSpeacial()       
+std::string Armory::RandomizeArmorSpeacial()                                 //===============Not Ready
 {                                                 
 name_a = "Dragon suit";
     defend_a = 25;

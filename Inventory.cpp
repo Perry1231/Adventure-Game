@@ -142,16 +142,4 @@ else if (choice == 4) {
 
 
 //==============================================For_other_characters================================================================
-int Take()                                         //Take from another character
-{
-return 0;
-
-}
-
-int AllTake()                                       //Take all from another character  
-{
-return 0;
-
-}
-
 

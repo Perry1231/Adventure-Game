@@ -95,8 +95,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
 
     
-    int Take();
-    int TakeAll();
+    void Take();
+    void TakeAll();
 
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects(); // викликати на початку кожного ходу

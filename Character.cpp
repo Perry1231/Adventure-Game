@@ -321,12 +321,14 @@ void Character::UnequipArmor()
 
 void Character::Usage()
 {
-    std::cout << "\n" << this->name << " is using their equipment...\n";
+    std::cout << "\n" << this->name << " is using their equipment...\n";                            //===============Not Ready
     if (equipped_weapon) {
         std::cout << "Attack: " << GetTotalAttack() << std::endl;
+
     }
     if (equipped_armor) {
         std::cout << "Defense: " << GetTotalDefense() << std::endl;
+
     }
 }
 
@@ -415,3 +417,16 @@ void Character::ProcessEffects() {
         }
     }
 }
+
+
+
+void Character::Take()                                         //Take from another character                     //===============Not Ready
+{
+
+}
+
+void Character::TakeAll()                                       //Take all from another character                //===============Not Ready
+{
+
+}
+
