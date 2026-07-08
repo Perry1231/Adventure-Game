@@ -89,8 +89,8 @@ void Chest::Close() {
 
 
 void Chest::ShowInfo(ChestType type) const {
-    std::cout << "Chest Type: " << chestType;
-    switch (chestType) {
+    std::cout << "Chest Type: " << type;
+    switch (type) {
         case COMMON: std::cout << "Common"; break;
         case RARE: std::cout << "Rare"; break;
         case EPIC: std::cout << "Epic"; break;
