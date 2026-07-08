@@ -48,3 +48,25 @@ void StartGame()
     //Additional will be soon
     std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
 }
+
+void GetInfo()
+{
+        std::cout << "\n=== INFO ===" << std::endl;
+        std::cout << "This is a simple adventure game written in C++." << std::endl;
+        std::cout << "You can explore the world, fight enemies, and collect items." << std::endl;
+        std::cout << "Use the main menu to navigate through the game." << std::endl;
+        std::cout << "Have fun and enjoy your adventure!" << std::endl;
+        std::cout << "PS. This program is written by Vladyslav Vytrykush." << std::endl;
+}
+
+
+void Help()
+{
+            std::cout << "\n=== HELP ===" << std::endl;
+            std::cout << "1. Show character stats - Displays current character statistics" << std::endl;
+            std::cout << "2. Show your inventory - Lists all items in your inventory" << std::endl;
+            std::cout << "3. Manage your Inventory - Access inventory management functions" << std::endl;
+            std::cout << "4. Get info - Display help information" << std::endl;
+            std::cout << "5. Help - Shows this help menu" << std::endl;
+            std::cout << "0. Exit - Quit the program" << std::endl;
+}

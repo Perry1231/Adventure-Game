@@ -4,26 +4,7 @@
 
 void MainFunction() {
 
-    Character hero;
-    hero.RandomizeStats();
-
-    Weapon* weapon_1 = new Weapon();
-    weapon_1->RandomizeWeaponStart(hero.GetProfession());
-
-
-    Armory* armor_1 = new Armory();
-    armor_1->RandomizeArmorStart();
-
-    Weapon* weapon_2 = new Weapon();
-    weapon_2->RandomizeWeaponSpeacial();
-
-    MyInventory inv1;
-    inv1.SetOwner(&hero);
-    inv1.AddItem(weapon_1);
-
-    Potion* p = new Potion();
-    inv1.AddItem(p);
-
+Test();
 
     int mainChoice = 0;
     while (true) {
@@ -94,4 +75,30 @@ void MainFunction() {
             std::cout << "Invalid choice!" << std::endl;
         }
     }
+}
+
+
+
+void Test()
+{
+Character hero;
+    hero.RandomizeStats();
+
+    Weapon* weapon_1 = new Weapon();
+    weapon_1->RandomizeWeaponStart(hero.GetProfession());
+
+
+    Armory* armor_1 = new Armory();
+    armor_1->RandomizeArmorStart();
+
+    Weapon* weapon_2 = new Weapon();
+    weapon_2->RandomizeWeaponSpeacial();
+
+    MyInventory inv1;
+    inv1.SetOwner(&hero);
+    inv1.AddItem(weapon_1);
+
+    Potion* p = new Potion();
+    inv1.AddItem(p);
+
 }

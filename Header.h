@@ -265,8 +265,8 @@ std::string GetType() const override { return "Armor"; }
  {
  private:
  Item** items;
- int capacity; //Capacity of inventory given
- int count; //How many items now
+ int capacity;                  //Capacity of inventory given
+ int count;                     //How many items now
  int id;
  Character* owner;
 
@@ -317,10 +317,10 @@ class Potion : public Item
 protected:
     std::string name_p;
     int effectType; 
-    int potency;                // How strong the potion is              
+    int potency;                                    // How strong the potion is              
     std::string description_p;
     bool isEquipped_p;
-    int value_p; // Value of the potion in gold
+    int value_p;                                    // Value of the potion in gold
 
 public:
  Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
@@ -371,5 +371,7 @@ class Chest
 void MainFunction();
 void ChoiceHard();
 void StartGame();
+void Help();
+void GetInfo();
 
 #endif
