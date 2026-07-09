@@ -51,76 +51,91 @@ std::string professions_g[] = {"Thief", "Assassin", "Scavenger"}; //For_Goblin
 //=============================Stats randomizer================================================
 if(profession == "Warrior") {
     health = 120;
+    Shealth = health;
     level = 1;
     description = "A strong and resilient fighter, skilled in melee combat.";
 }
 else if (profession == "Mage") {
     health = 70;
+    Shealth = health;
     level = 1;
     description = "A master of arcane arts, capable of casting powerful spells.";
 }
 else if (profession == "Rogue") {
     health = 80;
+    Shealth = health;
     level = 1;
     description = "A stealthy and agile character, excelling in sneaking and critical strikes.";
 }
 else if (profession == "Peasant") {
     health = 70;
+    Shealth = health;
     level = 1;
     description = "A simple villager with basic survival skills, but untapped potential.";
 }
 else if (profession == "Archer") {
     health = 100;
+    Shealth = health;
     level = 1;
     description = "A skilled marksman, proficient with bows and ranged attacks.";
 }
 else if (profession == "Druid") {
     health = 110;
+    Shealth = health;
     level = 1;
     description = "A nature-based spellcaster, able to heal allies and summon creatures.";
 }
 else if (profession == "Ranger") {
     health = 100;
+    Shealth = health;
     level = 1;
     description = "A versatile hunter, adept at tracking and surviving in the wilderness.";
 }
 else if (profession == "Blacksmith") {
     health = 120;
+    Shealth = health;
     level = 1;
     description = "A master craftsman, able to forge powerful weapons and armor.";
 }
 else if (profession == "Miner") {
     health = 140;
+    Shealth = health;
     level = 1;
     description = "A hardy worker, skilled in extracting valuable resources from the earth.";
 }
 else if (profession == "Berserker") {
     health = 130;
+    Shealth = health;
     level = 1;
     description = "A fierce warrior who thrives in the heat of battle, gaining strength as they fight.";
 }
 else if (profession == "Shaman") {
     health = 120;
+    Shealth = health;
     level = 1;
     description = "A spiritual guide, able to commune with spirits and harness elemental powers.";
 }
 else if (profession == "Warlord") {
     health = 140;
+    Shealth = health;
     level = 1;
     description = "A strategic leader, commanding troops and inspiring allies on the battlefield.";
 }
 else if (profession == "Thief") {
     health = 80;
+    Shealth = health;
     level = 1;
     description = "A cunning and resourceful character, skilled in stealing and deception.";
 }
 else if (profession == "Assassin") {
     health = 90;
+    Shealth = health;
     level = 1;
     description = "A deadly and silent killer, specializing in eliminating targets quickly and efficiently.";
 }
 else if (profession == "Scavenger") {
     health = 100;
+    Shealth = health;
     level = 1;
     description = "A resourceful survivor, adept at finding valuable items and making the most of limited resources.";
 }
@@ -321,15 +336,88 @@ void Character::UnequipArmor()
 
 void Character::Usage()
 {
-    std::cout << "\n" << this->name << " is using their equipment...\n";                            //===============Not Ready
+    std::cout << "\n" << this->name << " is using their equipment...\n";
+    std::cout << "=== Equipped Gear ===\n";
     if (equipped_weapon) {
-        std::cout << "Attack: " << GetTotalAttack() << std::endl;
-
+        std::cout << "Weapon: " << equipped_weapon->GetName() << std::endl;
+        equipped_weapon->ShowInfo();
+    } else {
+        std::cout << "Weapon: None\n";
     }
     if (equipped_armor) {
-        std::cout << "Defense: " << GetTotalDefense() << std::endl;
-
+        std::cout << "Armor: " << equipped_armor->GetName() << std::endl;
+        equipped_armor->ShowInfo();
+    } else {
+        std::cout << "Armor: None\n";
     }
+    std::cout << "=== Total Stats ===\n";
+    std::cout << "Total Attack: " << GetTotalAttack() << std::endl;
+    std::cout << "Total Defense: " << GetTotalDefense() << std::endl;
+    if (!activeEffects.empty()) {
+        std::cout << "Active Effects:\n";
+        for (const auto& eff : activeEffects) {
+            std::cout << "- " << GetEffectName(eff.type) << (eff.isDebuff ? " (Debuff)" : " (Buff)") << ": " << eff.potency << std::endl;
+        }
+    }
+    std::cout << "=====================\n";
+}
+
+void Character::Take() {
+    if (!currentChest) {
+        std::cout << "No chest selected!\n";
+        return;
+    }
+    int itemCount = currentChest->GetItemCount();
+    if (itemCount == 0) {
+        std::cout << "Chest is empty!\n";
+        return;
+    }
+    std::cout << "\n=== Items in chest ===\n";
+    for (int i = 0; i < itemCount; ++i) {
+        std::cout << i + 1 << ". ";
+        currentChest->GetItem(i)->ShowInfo();
+    }
+    std::cout << "0. Cancel\n";
+    int choice;
+    std::cout << "Select item to take: ";
+    std::cin >> choice;
+    if (choice == 0) return;
+    if (choice < 1 || choice > itemCount) {
+        std::cout << "Invalid choice!\n";
+        return;
+    }
+    Item* selectedItem = currentChest->GetItem(choice - 1);
+    if (inventory) {
+        inventory->AddItem(selectedItem);  // <-- ТУТ inventory->, а не inventory.
+        currentChest->RemoveItem(choice - 1);
+        std::cout << "Successfully taken " << selectedItem->GetName() << "!\n";
+    } else {
+        std::cout << "Inventory not linked to character!\n";
+    }
+}
+
+void Character::TakeAll() {
+    if (!currentChest) {
+        std::cout << "No chest selected!\n";
+        return;
+    }
+    int itemCount = currentChest->GetItemCount();
+    if (itemCount == 0) {
+        std::cout << "Chest is already empty!\n";
+        return;
+    }
+    std::cout << "\nTaking all items from chest...\n";
+    if (!inventory) {
+        std::cout << "Inventory not linked to character!\n";
+        return;
+    }
+    for (int i = itemCount - 1; i >= 0; --i) {
+        Item* item = currentChest->GetItem(i);
+        inventory->AddItem(item);  // <-- ТУТ теж inventory->
+        currentChest->RemoveItem(i);
+        std::cout << "- Taken " << item->GetName() << std::endl;
+    }
+    std::cout << "All items transferred to inventory!\n";
 }
 
 void Character::ApplyPotionEffect(int effectType, int potency) {
@@ -353,7 +441,11 @@ void Character::ApplyPotionEffect(int effectType, int potency) {
         case 4: // GOLD
             gold += potency;
             std::cout << name << " got " << potency << " gold!" << std::endl;
-            break;
+              break;
+             case 5: // STRENGTH
+        strength += potency;
+        std::cout << name << " strength increased by " << potency << std::endl;
+        break;
         default:
             std::cout << "Unknown potion effect!" << std::endl;
     }
@@ -399,34 +491,11 @@ void Character::ProcessEffects() {
                     // не afford health regen over time from potion (instant only)
                 }
                 break;
-            case 1: // DEFENSE
-                defense += it->potency;
-                break;
-            case 2: // AGILITY
-                agility += it->potency;
-                break;
-            case 3: // INTELLIGENCE
-                intelligence += it->potency;
-                break;
-            case 4: // GOLD
-                gold += it->potency; // або не давати гроші кожен хід, а тільки раз
-                break;
-            case 5: // STRENGTH
-                strength += it->potency;
-                break;
+        case 1: defense += it->potency; break;
+        case 2: agility += it->potency; break;
+        case 3: intelligence += it->potency; break;
+        case 4: gold += it->potency; break;
+        case 5: strength += it->potency; break;;
         }
     }
 }
-
-
-
-void Character::Take()                                         //Take from another character                     //===============Not Ready
-{
-
-}
-
-void Character::TakeAll()                                       //Take all from another character                //===============Not Ready
-{
-
-}
-

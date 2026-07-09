@@ -60,11 +60,11 @@ void Chest::Open(Character* target) {
         std::cin >> action;
         switch(action) {
             case 1: 
-                target->SetCurrentChest(this);
+                target->SetCurrentChest(this); target->Take(); break;
                 target->Take(); 
                 break;
             case 2: 
-                target->SetCurrentChest(this);
+                target->SetCurrentChest(this); target->TakeAll(); break;
                 target->TakeAll(); 
                 break;
             case 3: 
@@ -113,4 +113,12 @@ for(int i =0; i < items.size(); i++)
     items[i]->ShowInfo();
 }
 std::cout << std::endl;
+}
+
+
+
+void Chest::RemoveItem(int index) {
+    if (index >= 0 && index < items.size()) {
+        items.erase(items.begin() + index);
+    }
 }
