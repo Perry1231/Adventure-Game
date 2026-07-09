@@ -1,15 +1,12 @@
 #include <iostream>
 #include "Header.h"
-//This file is for adding main functions that wiil start my programm
-
 void MainFunction() {
-
+//TESTING=======================================  (For user : -> don't about this)
     Character hero;
     hero.RandomizeStats();
 
     Weapon* weapon_1 = new Weapon();
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
-
 
     Armory* armor_1 = new Armory();
     armor_1->RandomizeArmorStart();
@@ -17,14 +14,19 @@ void MainFunction() {
     Weapon* weapon_2 = new Weapon();
     weapon_2->RandomizeWeaponSpeacial();
 
+
     MyInventory inv1;
     inv1.SetOwner(&hero);
+    hero.SetInventory(&inv1);
+
     inv1.AddItem(weapon_1);
+    inv1.AddItem(armor_1);
+    inv1.AddItem(weapon_2);
 
     Potion* p = new Potion();
+    p->RandomizePotion();
     inv1.AddItem(p);
-
-
+//====================================================================
     int mainChoice = 0;
     while (true) {
         std::cout << "\n=== MAIN MENU ===" << std::endl;
@@ -37,46 +39,45 @@ void MainFunction() {
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choice: ";
         std::cin >> mainChoice;
-        if (mainChoice == 1){
+        if (mainChoice == 1) {
             StartGame();
-
-        }else if (mainChoice == 2) {
+        } else if (mainChoice == 2) {
             hero.DisplayStats();
         } else if (mainChoice == 3) {
-            inv1.DisplayInventory();
-        } else if (mainChoice == 4) {       
+            inv1.DisplayInventory(); // <-- використовуємо напряму
+        } else if (mainChoice == 4) {
             std::cout << "1. Display inventory" << std::endl;
             std::cout << "2. Show weapon stats" << std::endl;
             std::cout << "3. Equip weapon" << std::endl;
             std::cout << "4. Unequip weapon" << std::endl;
             std::cout << "5. Show armor stats" << std::endl;
             std::cout << "6. Equip armor" << std::endl;
-            std::cout << "7. Enquip armor" << std::endl;
+            std::cout << "7. Unquip armor" << std::endl;
             std::cout << "0. Back to main menu" << std::endl;
             std::cout << "Choice: ";
             std::cin >> mainChoice;
-        if (mainChoice == 1) {
-           inv1.DisplayInventory();
-        } else if (mainChoice == 2) {
-            weapon_1->ShowInfo();    
-        } else if (mainChoice == 3) {
-            weapon_1->Use();
-        } else if (mainChoice == 4) {
-            weapon_1->Reset();
+            if (mainChoice == 1) {
+                inv1.DisplayInventory();
+            } else if (mainChoice == 2) {
+                weapon_1->ShowInfo();
+            } else if (mainChoice == 3) {
+                weapon_1->Use();
+            } else if (mainChoice == 4) {
+                weapon_1->Reset();
+            } else if (mainChoice == 5) {
+                armor_1->ShowInfo();
+            } else if (mainChoice == 6) {
+                armor_1->Use();
+            } else if (mainChoice == 7) {
+                armor_1->Reset();
+            } else if (mainChoice == 0) {
+                break;
+            } else {
+                std::cout << "Invalid choice!" << std::endl;
+            }
         } else if (mainChoice == 5) {
-           armor_1->ShowInfo();
+            GetInfo();
         } else if (mainChoice == 6) {
-            armor_1->Use();
-        } else if (mainChoice == 7) {
-            armor_1->Reset();
-        } else if (mainChoice == 0) {
-            break;
-        } else {
-            std::cout << "Invalid choice!" << std::endl;
-        }
-        }else if (mainChoice == 5) {
-            GetInfo();      
-        }else if (mainChoice == 6) {
             Help();
         } else if (mainChoice == 0) {
             break;

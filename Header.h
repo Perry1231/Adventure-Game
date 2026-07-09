@@ -12,6 +12,8 @@ class Inventory;
 class Item;
 class OtInventory;
 class Potion;
+class MyInventory;  
+class Chest; 
 
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; 
@@ -60,13 +62,18 @@ std::vector<ActiveEffect> activeEffects;
 
 Weapon* equipped_weapon;                //For equipment
 Armory* equipped_armor;
+MyInventory* inventory;      //Character inventory
+Chest* currentChest;
+
 
 
     public :
 //Default constructo 
-Character() : health(100),Shealth(100), name ("Hero"), age(20), race("Human"), profession("Adventurer"), level(1), 
-description("A brave adventurer ready to explore the world."), strength(10), agility(10), intelligence(10), 
-defense(10), gold(100) , equipped_weapon(nullptr), equipped_armor(nullptr) {}
+Character() : health(100), Shealth(100), name ("Hero"), age(20), race("Human"),
+profession("Adventurer"), level(1), description("A brave adventurer ready to explore the world."),
+strength(10), agility(10), intelligence(10), defense(10), gold(100),
+equipped_weapon(nullptr), equipped_armor(nullptr),
+inventory(nullptr), currentChest(nullptr) {} 
 
 //Parameterized constructor
 Character(int health_, std::string name_, int age_, std::string race_, std::string profession_, int level_, 
@@ -97,6 +104,11 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     
     void Take();
     void TakeAll();
+
+    void SetInventory(MyInventory* inv) { inventory = inv; }
+    void SetCurrentChest(Chest* chest) { currentChest = chest; }
+    Chest* GetCurrentChest() const { return currentChest; }
+    MyInventory* GetInventory() const { return inventory; } // повертає вказівник
 
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects(); // викликати на початку кожного ходу
@@ -359,6 +371,7 @@ class Chest
 protected :
     bool isOpen;
     std::vector<Item*> items;
+
     ChestType chestType;
     int capacity;
     Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
@@ -371,6 +384,14 @@ public:
     void Close();
     void ShowInfo(ChestType type) const;
     void ShowItems();
+
+
+    int GetItemCount() const { return items.size(); }
+    Item* GetItem(int index) const { 
+    if (index >= 0 && index < items.size()) return items[index]; 
+    return nullptr; 
+}
+    void RemoveItem(int index);
 };
 //==================================================================Other_functions=============================================================================
 void MainFunction();
