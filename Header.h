@@ -43,7 +43,7 @@ class Character
 {
     protected :
 int health;
-int Shealth=health;
+int Shealth;
 std::string name;
 int age;
 std::string race;
@@ -64,7 +64,7 @@ Armory* equipped_armor;
 
     public :
 //Default constructo 
-Character() : health(100), name ("Hero"), age(20), race("Human"), profession("Adventurer"), level(1), 
+Character() : health(100),Shealth(100), name ("Hero"), age(20), race("Human"), profession("Adventurer"), level(1), 
 description("A brave adventurer ready to explore the world."), strength(10), agility(10), intelligence(10), 
 defense(10), gold(100) , equipped_weapon(nullptr), equipped_armor(nullptr) {}
 
@@ -367,7 +367,7 @@ public:
     void ChestCreate(ChestType type);
     void RandomizeChest(ChestType type);
     void Open(Character* target);
-    bool IsOpen() const{ return !isOpen && capacity > 0; };
+    bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
     void ShowInfo(ChestType type) const;
     void ShowItems();
