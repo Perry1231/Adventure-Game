@@ -64,7 +64,7 @@ void Armory::ShowInfo() const                                                   
 {
 std::cout << "\n===Your armor characteristic=== "<< std::endl;
 std::cout << "Name : " << name_a << "\nDefend : " << defend_a << "\nDurability : " 
-            << durability_a << "\nValue : " << value_a <<"\nIs enchanted : " << isEnchanted_a <<"\n"<< std::endl;
+            << durability_a << "\nValue : " << value_a <<"\nIs enchanted : " << (isEnchanted_a ? "Yes" : "No") <<"\n"<< std::endl;
 }
 
 
