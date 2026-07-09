@@ -124,7 +124,8 @@ else if (choice == 4) {
     for (int i = 0; i < count; i++) {
         if (items[i]->GetItemId() == itemId) {
             found = true;
-            if (items[i]->GetType() == "Potion") {
+            if (items[i]->GetType() == "Potion") 
+            {
                 Potion* potion = dynamic_cast<Potion*>(items[i]);
                 // Важливо: тут потрібен owner, але ApplyEffect вказує на nullptr з Use()
                 // Без фікса в Potion.cpp тут буде падіння/повернення
@@ -137,10 +138,9 @@ else if (choice == 4) {
     if (!found) {
         std::cout << "Item with ID " << itemId << " not found!" << std::endl;
     }
+    }
+    }
+    }
 }
-}
-}
-
-
 //==============================================For_other_characters================================================================
 

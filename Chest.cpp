@@ -88,9 +88,6 @@ void Chest::Close() {
     }
 }
 
-bool Chest::IsOpen() const {
-    return isOpen && capacity > 0;
-}
 
 void Chest::ShowInfo(ChestType type) const {
     std::cout << "Chest Type: ";

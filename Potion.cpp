@@ -64,7 +64,7 @@ void Potion::Use()
 void Potion::Reset()
 {
 	isEquipped_p = false;
-	std::cout << name_p << " equipped! Attack -" << potency << std::endl;
+	std::cout << name_p << " unequipped!" << std::endl;
 }
 
 void Potion::ApplyEffect(Character* character) {
@@ -89,9 +89,9 @@ void Potion::RandomizePotion()
     auto it = db.begin();
     std::advance(it, choise);
     
-    name_p = it->first;
-    std::get<0>(it->second) = effectType;							// Set the effect type based on the potion name
-    std::get<1>(it->second) = potency;								// Set the potency based on the potion name
+     name_p = it->first;
+    effectType = std::get<0>(it->second);
+    potency = std::get<1>(it->second);
     description_p = "Potion of " + EffectTypeToString(effectType);
-    value_p = std::get<2>(it->second);								// Set the value based on the potion name
+    value_p = std::get<2>(it->second);							// Set the value based on the potion name
 }
