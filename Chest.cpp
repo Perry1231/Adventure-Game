@@ -7,8 +7,8 @@ void Chest::ChestCreate(ChestType type) {
     this->chestType = type;
     this->isOpen = false;
     this->capacity =0;
-    items.clear();                                          // Clear any existing items in the chest
-    chest.RandomizeChest(type);
+    items.clear();                                    
+    RandomizeChest(type);
 }
  
 
@@ -66,10 +66,10 @@ void Chest::Open(Character* target) {                                           
         std::cin >> action;
         switch(action)
         {
-            case 1:target->Take();
-            case 2:target->TakeAll();
-            case 3:Close();
-            default: std::cout << "Bad Choice" << std::endl;
+            case 1:target->Take(); break;
+            case 2:target->TakeAll(); break;
+            case 3:Close(); break;
+            default: std::cout << "Bad Choice" << std::endl; break;
         }
 
     } else {
@@ -89,8 +89,8 @@ void Chest::Close() {
 
 
 void Chest::ShowInfo(ChestType type) const {
-    std::cout << "Chest Type: " << type;
-    switch (type) {
+    std::cout << "Chest Type: ";
+    switch (chestType) {
         case COMMON: std::cout << "Common"; break;
         case RARE: std::cout << "Rare"; break;
         case EPIC: std::cout << "Epic"; break;
