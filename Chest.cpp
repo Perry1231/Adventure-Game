@@ -3,7 +3,6 @@
 
 
 void Chest::ChestCreate(ChestType type) {
-    Chest chest;
     this->chestType = type;
     this->isOpen = false;
     this->capacity =0;
@@ -18,7 +17,6 @@ void Chest::RandomizeChest(ChestType type)
         int proc = rand() % 100 + 1;     
         if(proc <= 52)
         {
-            this->chestType = type;
             capacity = rand() % 4 + 1; // Random capacity between 1 and 4
             this->chestType = COMMON;
             this->isOpen = false;
@@ -26,7 +24,6 @@ void Chest::RandomizeChest(ChestType type)
         }   
         else if (proc >52 && proc <=80)
         {
-            this->chestType = type;
             this->chestType = RARE;
             this->isOpen = false;
             this->capacity =capacity;
@@ -34,7 +31,6 @@ void Chest::RandomizeChest(ChestType type)
         }
         else if (proc > 80 && proc <= 95)
         {
-            this->chestType = type;
             this->chestType = EPIC;
             this->isOpen = false;
             this->capacity =capacity;
@@ -42,7 +38,6 @@ void Chest::RandomizeChest(ChestType type)
         }
         else 
         {
-            this->chestType = type;
             this->chestType = LEGENDARY;
             this->isOpen = false;
             this->capacity =capacity;
@@ -52,26 +47,32 @@ void Chest::RandomizeChest(ChestType type)
 
 
 
-void Chest::Open(Character* target) {                                                            //===============Not Ready
+void Chest::Open(Character* target) {
     int action;
     if (!isOpen) {
         isOpen = true;
         std::cout << "Chest opened!" << std::endl;
         ShowItems();
         std::cout << "Select actions what to do next : " << std::endl;
-        std::cin >> action;
         std::cout << "1. Take item" << std::endl;
         std::cout << "2. Take all" << std::endl;
         std::cout << "3. Close chest" << std::endl;
         std::cin >> action;
-        switch(action)
-        {
-            case 1:target->Take(); break;
-            case 2:target->TakeAll(); break;
-            case 3:Close(); break;
-            default: std::cout << "Bad Choice" << std::endl; break;
+        switch(action) {
+            case 1: 
+                target->SetCurrentChest(this);
+                target->Take(); 
+                break;
+            case 2: 
+                target->SetCurrentChest(this);
+                target->TakeAll(); 
+                break;
+            case 3: 
+                Close(); 
+                break;
+            default: 
+                std::cout << "Bad Choice" << std::endl;
         }
-
     } else {
         std::cout << "Chest is already open!" << std::endl;
     }
@@ -87,6 +88,9 @@ void Chest::Close() {
     }
 }
 
+bool Chest::IsOpen() const {
+    return isOpen && capacity > 0;
+}
 
 void Chest::ShowInfo(ChestType type) const {
     std::cout << "Chest Type: ";
