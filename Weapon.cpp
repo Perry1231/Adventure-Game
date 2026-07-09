@@ -28,7 +28,6 @@
 //Ranged
         {"Light crossbow", {12, 10}},
         {"Dart",{ 13, 30}}, 
-        {"Shortbow", {13, 43}},
         {"Blowgun",{17, 70}},
         {"Longbow",{17, 70}},
         {"Greatsword",{17, 70}},
@@ -41,12 +40,10 @@
         {"Greataxe", {15 , 50}},
         {"Greatsword",{17, 70}},
         {"Lance",{17, 70}},
-        {"Longsword",{17, 70}},
         {"Maul",{17, 70}},
         {"Morningstar",{17, 70}},
         {"Pike",{17, 70}},
         {"Rapier",{17, 70}},
-        {"Greatsword",{17, 70}},
         {"Warhammer",{17, 70}},
         {"Halberd",  {19, 110}},
 
@@ -275,7 +272,7 @@ void Weapon::Use()
 void Weapon::Reset()
 {
     isEquipped_w = false;
-        std::cout << name_w << " equipped! Attack -" << attack_w << std::endl;
+        std::cout << name_w << " unequipped!" << std::endl;
 }
 
 
