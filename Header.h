@@ -391,6 +391,8 @@ public:
     if (index >= 0 && index < items.size()) return items[index]; 
     return nullptr; 
 }
+
+~Chest(){}
     void RemoveItem(int index);
 };
 //==================================================================Other_functions=============================================================================

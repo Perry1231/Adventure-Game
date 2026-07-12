@@ -43,6 +43,90 @@ void Chest::RandomizeChest(ChestType type)
             this->capacity =capacity;
             capacity = rand() % 10 + 3;
         }
+         for (auto item : items) {
+        delete item;
+        }
+        items.clear();
+
+         for (int i = 0; i < capacity; ++i) {
+        int roll = rand() % 100;
+        Item* newItem = nullptr;
+        if (chestType == COMMON) {
+           
+            if (roll < 40) {
+                Weapon* w = new Weapon();
+                w->RandomizeWeaponStart("Warrior");
+                newItem = w;
+            } else if (roll < 70) {
+                Armory* a = new Armory();
+                a->RandomizeArmorStart();
+                newItem = a;
+            } else {
+                Potion* p = new Potion();
+                p->RandomizePotion();
+                newItem = p;
+            }
+        }
+
+         else if (chestType == RARE) {
+            
+            if (roll < 25) {
+                Weapon* w = new Weapon();
+                w->RandomizeWeaponStart("Warrior");
+                newItem = w;
+            } else if (roll < 50) {
+                Armory* a = new Armory();
+                a->RandomizeArmorStart();
+                newItem = a;
+            } else if (roll < 80) {
+                Weapon* w = new Weapon();
+                w->RandomizeWeaponSpeacial();
+                newItem = w;
+            } else {
+                Potion* p = new Potion();
+                p->RandomizePotion();
+                newItem = p;
+            }
+        }
+        else if (chestType == EPIC) {
+            
+            if (roll < 40) {
+                Weapon* w = new Weapon();
+                w->RandomizeWeaponSpeacial();
+                newItem = w;
+            } else if (roll < 70) {
+                Armory* a = new Armory();
+                a->RandomizeArmorSpeacial();
+                newItem = a;
+            } else {
+                Potion* p = new Potion();
+                p->RandomizePotion();
+                newItem = p;
+            }
+        }
+        else { // LEGENDARY
+            
+            if (roll < 35) {
+                Weapon* w = new Weapon();
+                w->RandomizeWeaponSpeacial();
+                newItem = w;
+            } else if (roll < 70) {
+                Armory* a = new Armory();
+                a->RandomizeArmorSpeacial();
+                newItem = a;
+            } else {
+                Potion* p = new Potion();
+                p->RandomizePotion();
+                newItem = p;
+            }
+        }
+
+
+if (newItem) {
+            items.push_back(newItem);
+}
+
+}
 }
 
 
@@ -116,6 +200,14 @@ std::cout << std::endl;
 
 void Chest::RemoveItem(int index) {
     if (index >= 0 && index < items.size()) {
-        items.erase(items.begin() + index);
+        delete items[index];     
+        items.erase(items.begin() + index);  
     }
+}
+
+Chest::~Chest() {
+    for (auto item : items) {
+        delete item;  
+    }
+    items.clear();
 }
