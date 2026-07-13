@@ -379,7 +379,7 @@ protected :
 
 public:
     void ChestCreate(ChestType type);
-    void RandomizeChest(ChestType type);
+    void RandomizeChest();
     void Open(Character* target);
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();

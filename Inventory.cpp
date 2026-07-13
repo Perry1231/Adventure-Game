@@ -142,5 +142,22 @@ else if (choice == 4) {
     }
     }
 }
+
+
+
+void MyInventory::Clear()
+{
+    for (int i = 0; i < count; i++)
+    {
+        delete items[i];
+    }
+    count = 0;
+    capacity = 0;
+    id = 1;
+    delete[] items;
+    items = nullptr;
+}
+
+
 //==============================================For_other_characters================================================================
 

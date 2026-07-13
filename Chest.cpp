@@ -7,12 +7,12 @@ void Chest::ChestCreate(ChestType type) {
     this->isOpen = false;
     this->capacity =0;
     items.clear();                                    
-    RandomizeChest(type);
+    RandomizeChest();
 }
  
 
 
-void Chest::RandomizeChest(ChestType type)
+void Chest::RandomizeChest()
 {
         int proc = rand() % 100 + 1;     
         if(proc <= 52)
@@ -205,9 +205,3 @@ void Chest::RemoveItem(int index) {
     }
 }
 
-Chest::~Chest() {
-    for (auto item : items) {
-        delete item;  
-    }
-    items.clear();
-}
