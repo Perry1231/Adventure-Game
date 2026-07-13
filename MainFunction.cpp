@@ -37,13 +37,13 @@ void MainFunction() {
         std::cout << "5. Help" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choice: ";
-        std::cin >> mainChoice;
+        std::cin >> mainChoice;                                                                     
         if (mainChoice == 1) {
             StartGame();
         } else if (mainChoice == 2) {
             hero.DisplayStats();
         } else if (mainChoice == 3) {
-            std::cout << "1. Display inventory" << std::endl;
+            std::cout << "1. Display inventory" << std::endl;                                           //Sub-main functions act1
             std::cout << "2. Show weapon status" << std::endl;
             std::cout << "3. Equip weapon" << std::endl;
             std::cout << "4. Unequip weapon" << std::endl;
