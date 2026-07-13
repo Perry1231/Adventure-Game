@@ -1,5 +1,5 @@
-//тут додаткова механіка до гри
 #include "Header.h"
+//Here is additional functions for game / settings
 
 void HelpFunction() 
 {
@@ -71,13 +71,77 @@ void Help()
             std::cout << "0. Exit - Quit the program" << std::endl;
 }
 
-void Settings()
+void Reseter(Character& hero, MyInventory& inv)
+{
+    hero = Character(); 
+    
+    
+    hero.EquipWeapon(nullptr);
+    hero.EquipArmor(nullptr);
+    
+    // Clear inventory
+    inv.Clear();
+    
+    Weapon* weapon_1 = new Weapon();
+    weapon_1->RandomizeWeaponStart(hero.GetProfession());
+    
+    Armory* armor_1 = new Armory();
+    armor_1->RandomizeArmorStart();
+    
+    Weapon* weapon_2 = new Weapon();
+    weapon_2->RandomizeWeaponSpeacial();
+    
+    Potion* p = new Potion();
+    p->RandomizePotion();
+    
+    inv.AddItem(weapon_1);
+    inv.AddItem(armor_1);
+    inv.AddItem(weapon_2);
+    inv.AddItem(p);
+    
+    std::cout << "Game reset! Your adventure starts anew." << std::endl;
+}
+
+
+
+void Settings(Character& hero, MyInventory& inv)
 {
     std::cout << "\n=== SETTINGS ===" << std::endl;
     std::cout << "1. Change difficulty level" << std::endl;
-    std::cout << "2. Toggle sound effects" << std::endl;
-    std::cout << "3. Adjust music volume" << std::endl;
+    std::cout << "2. --------" << std::endl;                                //Not implemended     
+    std::cout << "3. --------" << std::endl;                                //Not implemended     
     std::cout << "4. Reset game progress" << std::endl;
     std::cout << "0. Back to main menu" << std::endl;
+
+    int choice=0;
+    std::cout << "Enter choice : " ;
+    std::cin>> choice;
+    
+    switch (choice)
+    {
+         case 1://Dificulty 
+         ChoiceHard();
+         break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+        case 4:
+         std::cout << "\n=== RESET GAME ===" << std::endl;
+    std::cout << "All progress will be lost. Continue? (y/n): ";
+    char confirm;
+    std::cin >> confirm;
+    if (confirm == 'y' || confirm == 'Y') {
+        Reseter(hero, inv);
+    }
+    break;
+        case 0:
+
+        break;
+
+        default: std::cout<< "Invalid choice" << std::endl;
+    }
 
 }

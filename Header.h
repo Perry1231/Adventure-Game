@@ -29,7 +29,6 @@ public:
     int GetItemId() const { return itemId; }
     void SetItemId(int id) { itemId = id; }
 
-
     virtual void Use() = 0;
     virtual void Reset() = 0;
 
@@ -298,6 +297,8 @@ void DisplayInventory() const;
 int GetCount() const { return count; }
 int AddItem(Item* item);
 
+
+void Clear(); //Additional
 int DelItem(int id);
 int ResizeInventoryBig();
 void InventoryFunctions();
@@ -401,6 +402,7 @@ void ChoiceHard();
 void StartGame();
 void Help();
 void GetInfo();
-void Settings();
+void Settings(Character& hero, MyInventory& inv);
+void Reseter (Character& hero, MyInventory& inv);
 
 #endif

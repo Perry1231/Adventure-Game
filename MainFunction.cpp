@@ -73,7 +73,7 @@ void MainFunction() {
                 std::cout << "Invalid choice!" << std::endl;
             }
         } else if (mainChoice == 4) {
-            Settings();
+            Settings(hero , inv1);
         } else if (mainChoice == 5) {
             Help();
         } else if (mainChoice == 0) {
