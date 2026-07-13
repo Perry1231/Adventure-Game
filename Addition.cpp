@@ -70,3 +70,14 @@ void Help()
             std::cout << "5. Help - Shows this help menu" << std::endl;
             std::cout << "0. Exit - Quit the program" << std::endl;
 }
+
+void Settings()
+{
+    std::cout << "\n=== SETTINGS ===" << std::endl;
+    std::cout << "1. Change difficulty level" << std::endl;
+    std::cout << "2. Toggle sound effects" << std::endl;
+    std::cout << "3. Adjust music volume" << std::endl;
+    std::cout << "4. Reset game progress" << std::endl;
+    std::cout << "0. Back to main menu" << std::endl;
+
+}

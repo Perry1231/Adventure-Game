@@ -401,5 +401,6 @@ void ChoiceHard();
 void StartGame();
 void Help();
 void GetInfo();
+void Settings();
 
 #endif
