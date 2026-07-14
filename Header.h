@@ -402,7 +402,10 @@ void ChoiceHard();
 void StartGame();
 void Help();
 void GetInfo();
+//==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
+void Saver();
+void Loader();
 
 #endif
