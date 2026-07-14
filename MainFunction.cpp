@@ -31,19 +31,27 @@ void MainFunction() {
     while (true) {
         std::cout << "\n=== MAIN MENU ===" << std::endl;                                            //Main functions (*Main menu*)
         std::cout << "1. Start game" << std::endl;
-        std::cout << "2. Show character stats" << std::endl;
-        std::cout << "3. Manage your Inventory" << std::endl;
-        std::cout << "4. Settings " << std::endl;
-        std::cout << "5. Help" << std::endl;
+
+        std::cout << "2. Load game" << std::endl;
+        std::cout << "3. Save game" << std::endl;
+
+        std::cout << "4. Show character stats" << std::endl;
+        std::cout << "5. Manage your Inventory" << std::endl;
+        std::cout << "6. Settings " << std::endl;
+        std::cout << "7. Help" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choice: ";
         std::cin >> mainChoice;                                                                     
         if (mainChoice == 1) {
             StartGame();
         } else if (mainChoice == 2) {
-            hero.DisplayStats();
+           // Loader();                                                                              //Load game
         } else if (mainChoice == 3) {
-            std::cout << "1. Display inventory" << std::endl;                                           //Sub-main functions act1
+            // Saver();                                                                              //Save game
+        } else if (mainChoice == 4) {
+            hero.DisplayStats();                                                                     //Display stats
+        } else if (mainChoice == 5) {
+            std::cout << "1. Display inventory" << std::endl;                                        //Sub-main functions act1 (Manage inventory)
             std::cout << "2. Show weapon status" << std::endl;
             std::cout << "3. Equip weapon" << std::endl;
             std::cout << "4. Unequip weapon" << std::endl;
@@ -73,9 +81,9 @@ void MainFunction() {
                 std::cout << "Invalid choice!" << std::endl;
             }
         } else if (mainChoice == 4) {
-            Settings(hero , inv1);
+            Settings(hero , inv1);                                                                              //Settings
         } else if (mainChoice == 5) {
-            Help();
+            Help();                                                                                             //Help
         } else if (mainChoice == 0) {
             break;
         } else {
