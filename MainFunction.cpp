@@ -45,9 +45,9 @@ void MainFunction() {
         if (mainChoice == 1) {
             StartGame();
         } else if (mainChoice == 2) {
-           // Loader();                                                                              //Load game
+           Loader();                                                                              //Load game
         } else if (mainChoice == 3) {
-            // Saver();                                                                              //Save game
+            Saver();                                                                              //Save game
         } else if (mainChoice == 4) {
             hero.DisplayStats();                                                                     //Display stats
         } else if (mainChoice == 5) {
