@@ -511,6 +511,7 @@ std::cout << "Aura: " << auraType << std::endl;
 return auraType;
 }
 
+//============================================================Actions_with_others================================================================================
 
 void Attack()
 {
@@ -526,3 +527,25 @@ void DamageSystem()
 {
 
 }
+
+
+void Menu()
+{
+    //ToDo      1 - attack    2 - trade   3 - add to charcter (aura)   4 - talk
+
+}
+
+
+void Trade()
+{
+
+}
+
+
+void Talk()
+{
+
+}
+
+
+
