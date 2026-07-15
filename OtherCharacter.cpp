@@ -28,3 +28,23 @@ void Antagonists()
 }
 
 
+void Menu()
+{
+    //ToDo      1 - attack    2 - trade   3 - add to charcter (aura)   4 - talk
+
+}
+
+
+void Trade()
+{
+
+}
+
+
+void Talk()
+{
+
+}
+
+
+
