@@ -173,7 +173,8 @@ void Chest::Close() {
 }
 
 
-void Chest::ShowInfo(ChestType type) const {
+void Chest::ShowInfo() const 
+{
     std::cout << "Chest Type: ";
     switch (chestType) {
         case COMMON: std::cout << "Common"; break;
@@ -186,7 +187,7 @@ void Chest::ShowInfo(ChestType type) const {
 
 
 
-void Chest::ShowItems()
+void Chest::ShowItems() const
 {
 for(int i =0; i < items.size(); i++)
 {

@@ -409,6 +409,24 @@ public:
 ~Chest(){}
     void RemoveItem(int index);
 };
+//==================================================================Other_Character============================================================================
+enum CharacterType{QUESTGIVERS, MERCHANS, ALLIES, ANTAGONISTS};
+class OtherCharacter
+{
+    protected:
+        CharacterType ctype;
+
+    public:
+        
+        OtherCharacter() : ctype(QUESTGIVERS) {}
+        
+        CharacterType GetType() const { return ctype; }
+        void SetType(CharacterType type) { ctype = type; }
+        
+};
+
+
+
 //==================================================================Other_functions=============================================================================
 void MainFunction();
 void ChoiceHard();
