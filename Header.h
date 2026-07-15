@@ -16,7 +16,8 @@ class MyInventory;
 class Chest; 
 
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
-enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH  }; 
+enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH }; 
+enum AuraType {WORST,BAD,MEDIUM,GOOD,EXCELLENT};
 //=====================================================Item_structure==========================================
 class Item {
 private:
@@ -56,6 +57,7 @@ int agility;
 int intelligence;
 int defense;
 int gold;
+AuraType auraType;
 std::vector<ActiveEffect> activeEffects; 
 
 
@@ -70,7 +72,7 @@ Chest* currentChest;
 //Default constructo 
 Character() : health(100), Shealth(100), name ("Hero"), age(20), race("Human"),
 profession("Adventurer"), level(1), description("A brave adventurer ready to explore the world."),
-strength(10), agility(10), intelligence(10), defense(10), gold(100),
+strength(10), agility(10), intelligence(10), defense(10), gold(100),auraType(MEDIUM) ,
 equipped_weapon(nullptr), equipped_armor(nullptr),
 inventory(nullptr), currentChest(nullptr) {} 
 
@@ -78,11 +80,13 @@ inventory(nullptr), currentChest(nullptr) {}
 Character(int health_, std::string name_, int age_, std::string race_, std::string profession_, int level_, 
         std::string description_, int strength_, int agility_, int intelligence_, int defense_, int gold_) : health(health_), name(name_),
         age(age_), race(race_), profession(profession_), level(level_), description(description_), strength(strength_), agility(agility_),  
-        intelligence(intelligence_), defense(defense_), gold(gold_) {}
+        intelligence(intelligence_), defense(defense_), gold(gold_) , auraType(MEDIUM) {}
     
     void DisplayStats();
     void RandomizeStats();
         
+
+    char GetType(AuraType type);
     void EquipWeapon(Weapon* w); 
     void EquipArmor(Armory* a); 
     Weapon* GetEquippedWeapon() const;
@@ -194,6 +198,11 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void ShowInfo() const override ;
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }
+
+    void Attck();
+    void Defend();
+    void DamageSystem();
+
 
     ~Weapon() {}
 };
@@ -338,6 +347,7 @@ protected:
     std::string description_p;
     bool isEquipped_p;
     int value_p;                                    // Value of the potion in gold
+    Character* owner_p;
 
 public:
     Potion() : name_p(""), effectType(0), potency(0), description_p(""), isEquipped_p(false), value_p(0) {}
@@ -364,6 +374,9 @@ description_p(description_), isEquipped_p(false), value_p(value_) {}
     void ShowInfo() const override ;
     void Use() override;
     void Reset() override;
+
+    Character* GetOwner() const { return owner_p; } 
+    void SetOwner(Character* c) { owner_p = c; }   
 };
 
 //==================================================================Chest_structure=========================================================================================

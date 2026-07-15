@@ -345,6 +345,7 @@ void Character::UnequipArmor()
     }
 }
 
+
 void Character::Usage()
 {
     std::cout << "\n" << this->name << " is using their equipment...\n";
@@ -372,6 +373,7 @@ void Character::Usage()
     }
     std::cout << "=====================\n";
 }
+
 
 void Character::Take() {
     if (!currentChest) {
@@ -498,4 +500,29 @@ void Character::ProcessEffects() {
         case 5: strength += it->potency; break;;
         }
     }
+}
+
+
+
+char Character::GetType(AuraType type)
+{
+this->auraType = type;
+std::cout << "Aura: " << auraType << std::endl;
+return auraType;
+}
+
+
+void Attack()
+{
+
+}
+
+void Defend()
+{
+
+}
+
+void DamageSystem()
+{
+
 }

@@ -127,9 +127,8 @@ else if (choice == 4) {
             if (items[i]->GetType() == "Potion") 
             {
                 Potion* potion = dynamic_cast<Potion*>(items[i]);
-                // Важливо: тут потрібен owner, але ApplyEffect вказує на nullptr з Use()
-                // Без фікса в Potion.cpp тут буде падіння/повернення
-                potion->ApplyEffect(owner);
+                potion->SetOwner(owner);  // ← Установить владельца
+                potion->Use();             // ✓ Теперь это сработает
                 DelItem(itemId);
                 break;
             }
