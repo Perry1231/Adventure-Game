@@ -58,7 +58,7 @@ void Potion::ShowInfo() const //Count is weapon broken
 void Potion::Use()
 {
 	isEquipped_p = true;
-	ApplyEffect(nullptr); 
+	ApplyEffect(GetOwner());
 }
 
 void Potion::Reset()
