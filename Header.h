@@ -396,8 +396,8 @@ public:
     void Open(Character* target);
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
-    void ShowInfo(ChestType type) const;
-    void ShowItems();
+    void ShowInfo() const;
+    void ShowItems() const;
 
 
     int GetItemCount() const { return items.size(); }
@@ -422,7 +422,7 @@ class OtherCharacter
         
         CharacterType GetType() const { return ctype; }
         void SetType(CharacterType type) { ctype = type; }
-        
+
 };
 
 

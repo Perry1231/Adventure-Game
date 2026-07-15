@@ -19,7 +19,7 @@ void MainFunction() {
     inv1.SetOwner(&hero);
     hero.SetInventory(&inv1);
 
-    inv1.AddItem(weapon_1);
+    inv1.AddItem(weapon_1);             //Added item with ID ---- will be written
     inv1.AddItem(armor_1);
     inv1.AddItem(weapon_2);
 
