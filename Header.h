@@ -426,14 +426,14 @@ class OtherCharacter
 };
 
 //=================================================================Enemy_class================================================================================
-
 class Enemy : public Character
 {
     protected:
     std::string name;
     std::string describtion;
     std::string race;
-    std::string profession;
+    std::string profesion;
+    int strenght;
     int health;
     int year;
     int defense;
@@ -444,10 +444,16 @@ class Enemy : public Character
     Weapon* equipped_weapon;                //For equipment
     Armory* equipped_armor;
     MyInventory* inventory;
+    std::vector<ActiveEffect> activeEffects; 
+
     public: 
 
-    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"),profession("Warrior"),health(100) , year(25) , defense(15), attack(20), gold(50), level(25){};
-    Enemy(std::string name_ , std::string describtion_, std::string race_, std::string profession_,int health_, int year_, int defense_, int attack_ , int gold_, int level_) {}
+    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"),profesion("Warrior"),strenght(20),health(100) 
+    , year(25) , defense(15), attack(20), gold(50), level(25){};
+
+    Enemy(std::string name_ , std::string describtion_, std::string race_, std::string profesion_,int strenght_,
+        int health_, int year_, int defense_, int attack_ , int gold_, int level_):  name(name_), describtion(describtion_), race(race_), profesion(profesion_),
+          strenght(strenght_), health(health_), year(year_), defense(defense_), attack(attack_), gold(gold_), level(level_){}
 
     void DisplayStats();
     void RandomizeStats();
@@ -458,6 +464,7 @@ class Enemy : public Character
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
 
+    std::string GetEffectName(int type);
     void GetName() const {std::cout << "Name: " << name<< std::endl;}
     void GetDescribtion() const {std::cout << "Describtion: " << describtion<< std::endl;}
     void GetHealth() const {std::cout << "Health: " << health << std::endl;}
@@ -468,7 +475,7 @@ class Enemy : public Character
 
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects();
-    void AddEffect(int type, int potency, bool debuff = false);
+    void AddEffect(int type, int potency, bool debuff= false);
 
     void Usage();
 

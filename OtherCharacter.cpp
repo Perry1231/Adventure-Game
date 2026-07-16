@@ -29,6 +29,19 @@ void Enemy::RandomizeStats()
     
 }
 
+
+std::string GetEffectName(int type) {
+    switch (type) {
+        case 0: return "Health";
+        case 1: return "Defense";
+        case 2: return "Agility";
+        case 3: return "Intelligence";
+        case 4: return "Gold";
+        case 5: return "Strength";
+        default: return "Unknown";
+    }
+}
+
 void Enemy::EquipWeapon(Weapon* w)
 {
 if (equipped_weapon) {
@@ -64,21 +77,65 @@ int Character::GetTotalDefense() const { return defense + (equipped_armor ? equi
 
 void Enemy::ApplyPotionEffect(int effectType, int potency)
 {
+switch (effectType) {
+        case 0: // HEALTH
+            health += potency;
+            std::cout << name << " restored " << potency << " HP!" << std::endl;
+            break;
+        case 1: // DEFENSE
+            defense += potency;
+            std::cout << name << " defense increased by " << potency << std::endl;
+            break;
+        case 2: // GOLD
+            gold += potency;
+            std::cout << name << " got " << potency << " gold!" << std::endl;
+              break;
+             case 3: // STRENGTH
+        strength += potency;
+        std::cout << name << " strength increased by " << potency << std::endl;
+        break;
+        default:
+            std::cout << "Unknown potion effect!" << std::endl;
+    }
+}
 
+
+void Enemy::AddEffect(int type, int potency, bool debuff)
+{
+    ActiveEffect eff;
+    eff.type = type;
+    eff.potency = potency;
+    eff.isDebuff = debuff;
+    activeEffects.push_back(eff);
+    std::cout << name << " gained effect: " << GetEffectName(type);
 }
 
 void Enemy::ProcessEffects()
 {
-
-}
-
-void Enemy::AddEffect(int type, int potency, bool debuff = false)
-{
-
+ for (auto it = activeEffects.begin(); it != activeEffects.end(); ) {
+        switch (it->type) {
+            case 0: 
+                if (it->isDebuff) {
+					if (health !=Shealth){
+                    health += it->potency;
+                    std::cout << name << " takes " << (-it->potency) << " poison damage! (HP: " << health << ")\n";
+					}
+					else std::cout << name << " is at full health.\n";
+                } else {
+                    // не afford health regen over time from potion (instant only)
+                }
+                break;
+        case 1: defense += it->potency; break;
+        case 2: gold += it->potency; break;
+        case 3: strength += it->potency; break;;
+        }
+    }
 }
 
 void Enemy::Usage()
 {
 
 }
+
+
 
