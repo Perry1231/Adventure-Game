@@ -432,20 +432,21 @@ class Enemy : public Character
     protected:
     std::string name;
     std::string describtion;
+    std::string race;
     int health;
     int year;
     int defense;
     int attack;
     int gold;
-
+    int level;
 
     Weapon* equipped_weapon;                //For equipment
     Armory* equipped_armor;
     MyInventory* inventory;
     public: 
 
-    Enemy() : name("Stranger"), describtion("a mysterious stranger") , health(100) , year(25) , defense(15), attack(20), gold(50){};
-    Enemy(std::string name_ , std::string describtion_, int health_, int year_, int defense_, int attack_ , int gold_) {}
+    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"), health(100) , year(25) , defense(15), attack(20), gold(50), level(25){};
+    Enemy(std::string name_ , std::string describtion_, std::string race_, int health_, int year_, int defense_, int attack_ , int gold_, int level_) {}
 
     void DisplayStats();
     void RandomizeStats();
