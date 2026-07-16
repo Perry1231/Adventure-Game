@@ -12,6 +12,7 @@ void Enemy::DisplayStats()
     std::cout << "Name: " << name << std::endl;
     std::cout << "Age: " << age << std::endl;
     std::cout << "Race: " << race << std::endl;
+    std::cout << "Profession: " << profession << std::endl;
     std::cout << "Level: " << level << std::endl;
     std::cout << "Description: " << description << std::endl;
     std::cout <<"=================Self Stats=================="<< std::endl;
