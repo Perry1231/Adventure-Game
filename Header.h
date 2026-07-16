@@ -402,8 +402,7 @@ public:
 
     int GetItemCount() const { return items.size(); }
     Item* GetItem(int index) const { 
-    if (index >= 0 && index < items.size()) return items[index]; 
-    return nullptr; 
+if (index >= 0 && static_cast<std::vector<Item*>::size_type>(index) < items.size())    return nullptr; 
 }
 
 ~Chest(){}
@@ -459,12 +458,7 @@ class Enemy : public Character
     void RandomizeStats();
     void EquipWeapon(Weapon* w); 
     void EquipArmor(Armory* a); 
-    Weapon* GetEquippedWeapon() const;
-    Armory* GetEquippedArmor() const; 
-    int GetTotalAttack() const; 
-    int GetTotalDefense() const; 
 
-    std::string GetEffectName(int type);
     void GetName() const {std::cout << "Name: " << name<< std::endl;}
     void GetDescribtion() const {std::cout << "Describtion: " << describtion<< std::endl;}
     void GetHealth() const {std::cout << "Health: " << health << std::endl;}

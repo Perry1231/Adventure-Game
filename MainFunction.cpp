@@ -25,6 +25,7 @@ void MainFunction() {
 
     Potion* p = new Potion();
     p->RandomizePotion();
+    p->SetOwner(&hero); 
     inv1.AddItem(p);
 //====================================================================
     int mainChoice = 0;

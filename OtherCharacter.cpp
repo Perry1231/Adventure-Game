@@ -30,18 +30,6 @@ void Enemy::RandomizeStats()
 }
 
 
-std::string GetEffectName(int type) {
-    switch (type) {
-        case 0: return "Health";
-        case 1: return "Defense";
-        case 2: return "Agility";
-        case 3: return "Intelligence";
-        case 4: return "Gold";
-        case 5: return "Strength";
-        default: return "Unknown";
-    }
-}
-
 void Enemy::EquipWeapon(Weapon* w)
 {
 if (equipped_weapon) {
@@ -67,12 +55,6 @@ if (equipped_armor) {
         GetTotalDefense();  
     }
 }
-
-
-Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 
-Armory* Character::GetEquippedArmor() const { return equipped_armor; } 
-int Character::GetTotalAttack() const { return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0); } 
-int Character::GetTotalDefense() const { return defense + (equipped_armor ? equipped_armor->GetDefense() : 0); }
 
 
 void Enemy::ApplyPotionEffect(int effectType, int potency)
@@ -136,6 +118,5 @@ void Enemy::Usage()
 {
 
 }
-
 
 
