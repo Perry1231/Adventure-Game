@@ -111,10 +111,10 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void SetInventory(MyInventory* inv) { inventory = inv; }
     void SetCurrentChest(Chest* chest) { currentChest = chest; }
     Chest* GetCurrentChest() const { return currentChest; }
-    MyInventory* GetInventory() const { return inventory; } // повертає вказівник
+    MyInventory* GetInventory() const { return inventory; } 
 
     void ApplyPotionEffect(int effectType, int potency);
-    void ProcessEffects(); // викликати на початку кожного ходу
+    void ProcessEffects(); 
     void AddEffect(int type, int potency, bool debuff = false);
 
     std::string GetProfession() const { return profession; };
@@ -422,6 +422,53 @@ class OtherCharacter
         
         CharacterType GetType() const { return ctype; }
         void SetType(CharacterType type) { ctype = type; }
+
+};
+
+//=================================================================Enemy_class================================================================================
+
+class Enemy : public Character
+{
+    protected:
+    std::string name;
+    std::string describtion;
+    int health;
+    int year;
+    int defense;
+    int attack;
+    int gold;
+
+
+    Weapon* equipped_weapon;                //For equipment
+    Armory* equipped_armor;
+    MyInventory* inventory;
+    public: 
+
+    Enemy() : name("Stranger"), describtion("a mysterious stranger") , health(100) , year(25) , defense(15), attack(20), gold(50){};
+    Enemy(std::string name_ , std::string describtion_, int health_, int year_, int defense_, int attack_ , int gold_) {}
+
+    void DisplayStats();
+    void RandomizeStats();
+    void EquipWeapon(Weapon* w); 
+    void EquipArmor(Armory* a); 
+    Weapon* GetEquippedWeapon() const;
+    Armory* GetEquippedArmor() const; 
+    int GetTotalAttack() const; 
+    int GetTotalDefense() const; 
+
+    void GetName() const {std::cout << "Name: " << name<< std::endl;}
+    void GetDescribtion() const {std::cout << "Describtion: " << describtion<< std::endl;}
+    void GetHealth() const {std::cout << "Health: " << health << std::endl;}
+    void GetYear() const {std::cout << "Year: " << year<< std::endl;}
+    void GetDefense() const { std::cout << "Defense: " << defense << std::endl; }
+    void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
+
+
+    void ApplyPotionEffect(int effectType, int potency);
+    void ProcessEffects();
+    void AddEffect(int type, int potency, bool debuff = false);
+
+    void Usage();
 
 };
 
