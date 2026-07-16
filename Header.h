@@ -433,6 +433,7 @@ class Enemy : public Character
     std::string name;
     std::string describtion;
     std::string race;
+    std::string profession;
     int health;
     int year;
     int defense;
@@ -445,8 +446,8 @@ class Enemy : public Character
     MyInventory* inventory;
     public: 
 
-    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"), health(100) , year(25) , defense(15), attack(20), gold(50), level(25){};
-    Enemy(std::string name_ , std::string describtion_, std::string race_, int health_, int year_, int defense_, int attack_ , int gold_, int level_) {}
+    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"),profession("Warrior"),health(100) , year(25) , defense(15), attack(20), gold(50), level(25){};
+    Enemy(std::string name_ , std::string describtion_, std::string race_, std::string profession_,int health_, int year_, int defense_, int attack_ , int gold_, int level_) {}
 
     void DisplayStats();
     void RandomizeStats();

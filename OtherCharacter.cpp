@@ -24,7 +24,8 @@ void Enemy::DisplayStats()
 
 void Enemy::RandomizeStats()
 {
-
+     race = (rand() % 5 == 0) ? "Human" : (rand() % 4 == 0) ? "Elf" : (rand() % 3 == 0) ? "Dwarf" : (rand() % 2 == 0) ? "Orc" : "Goblin";        // Random race
+    
 }
 
 void Enemy::EquipWeapon(Weapon* w)
