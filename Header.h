@@ -402,7 +402,7 @@ public:
 
     int GetItemCount() const { return items.size(); }
     Item* GetItem(int index) const { 
-if (index >= 0 && static_cast<std::vector<Item*>::size_type>(index) < items.size())    return nullptr; 
+    return nullptr; 
 }
 
 ~Chest(){}
@@ -425,59 +425,32 @@ class OtherCharacter
 };
 
 //=================================================================Enemy_class================================================================================
+
+//=================================================================Enemy_class================================================================================
 class Enemy : public Character
 {
-    protected:
-    std::string name;
-    std::string describtion;
-    std::string race;
-    std::string profesion;
-    int strenght;
-    int health;
-    int year;
-    int defense;
-    int attack;
-    int gold;
-    int level;
+public:
+    Enemy() : Character(100, "Stranger", 25, "Human", "Warrior", 1, "a mysterious stranger", 20, 10, 10, 15, 50) {}
 
-    Weapon* equipped_weapon;                //For equipment
-    Armory* equipped_armor;
-    MyInventory* inventory;
-    std::vector<ActiveEffect> activeEffects; 
-
-    public: 
-
-    Enemy() : name("Stranger"), describtion("a mysterious stranger") ,race("Human"),profesion("Warrior"),strenght(20),health(100) 
-    , year(25) , defense(15), attack(20), gold(50), level(25){};
-
-    Enemy(std::string name_ , std::string describtion_, std::string race_, std::string profesion_,int strenght_,
-        int health_, int year_, int defense_, int attack_ , int gold_, int level_):  name(name_), describtion(describtion_), race(race_), profesion(profesion_),
-          strenght(strenght_), health(health_), year(year_), defense(defense_), attack(attack_), gold(gold_), level(level_){}
+    Enemy(std::string name_, std::string description_, std::string race_, std::string profession_,
+          int strength_, int health_, int age_, int defense_, int gold_, int level_)
+        : Character(health_, name_, age_, race_, profession_, level_, description_,
+                    strength_, 10, 10, defense_, gold_) {}
 
     void DisplayStats();
     void RandomizeStats();
-    void EquipWeapon(Weapon* w); 
-    void EquipArmor(Armory* a); 
-
-    void GetName() const {std::cout << "Name: " << name<< std::endl;}
-    void GetDescribtion() const {std::cout << "Describtion: " << describtion<< std::endl;}
-    void GetHealth() const {std::cout << "Health: " << health << std::endl;}
-    void GetYear() const {std::cout << "Year: " << year<< std::endl;}
-    void GetDefense() const { std::cout << "Defense: " << defense << std::endl; }
-    void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
-
-
+    void EquipWeapon(Weapon* w);
+    void EquipArmor(Armory* a);
     void ApplyPotionEffect(int effectType, int potency);
     void ProcessEffects();
-    void AddEffect(int type, int potency, bool debuff= false);
-
+    void AddEffect(int type, int potency, bool debuff = false);
     void Usage();
-
 };
 
 
 
 //==================================================================Other_functions=============================================================================
+ std::string GetEffectName(int type);
 void MainFunction();
 void ChoiceHard();
 void StartGame();

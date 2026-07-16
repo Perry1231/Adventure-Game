@@ -57,6 +57,7 @@ if (equipped_armor) {
 }
 
 
+
 void Enemy::ApplyPotionEffect(int effectType, int potency)
 {
 switch (effectType) {
@@ -89,8 +90,10 @@ void Enemy::AddEffect(int type, int potency, bool debuff)
     eff.potency = potency;
     eff.isDebuff = debuff;
     activeEffects.push_back(eff);
-    std::cout << name << " gained effect: " << GetEffectName(type);
+std::cout << name << " gained effect: " << ::GetEffectName(type);
+
 }
+
 
 void Enemy::ProcessEffects()
 {
@@ -118,5 +121,3 @@ void Enemy::Usage()
 {
 
 }
-
-
