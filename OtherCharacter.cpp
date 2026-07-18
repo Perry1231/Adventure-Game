@@ -26,16 +26,19 @@ void Enemy::DisplayStats()
 
 void Enemy::RandomizeStats()
 {
-    attitude = 1 + rand() % 2;
-    if (attitude == 1) // Bad
+    attitude = -1 + rand() % 2;
+    if (attitude == -1) // Bad
     {
 
     }
-    else 
+    else if(attitude == 0)
     {
 
     }
+    else //
     
+    //=======================================================================Race_randomizer==================================================================
+
     race = (rand() % 5 == 0) ? "Human" : (rand() % 4 == 0) ? "Elf" : (rand() % 3 == 0) ? "Dwarf" : (rand() % 2 == 0) ? "Orc" : "Goblin";        // Random race
     
 }
@@ -131,4 +134,24 @@ void Enemy::ProcessEffects()
 void Enemy::Usage()
 {
 
+}
+
+void Enemy::SetAttitude(int attitude_g)
+{
+ this->attitude = attitude_g;
+}
+
+int Enemy::GetDamage(int damage_g) const
+{
+return damage_g;
+}
+
+int Enemy::GetTotalAttack() const
+{
+    return strength + (equipped_weapon ? equipped_weapon->GetAttack() : 0);
+}
+
+int Enemy::GetTotalDefense() const
+{
+    return defense + (equipped_armor ? equipped_armor->GetDefense() : 0);
 }
