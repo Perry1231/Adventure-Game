@@ -429,14 +429,17 @@ class OtherCharacter
 //=================================================================Enemy_class================================================================================
 class Enemy : public Character
 {
+    protected :
+    bool attitude;
 public:
-    Enemy() : Character(100, "Stranger", 25, "Human", "Warrior", 1, "a mysterious stranger", 20, 10, 10, 15, 50) {}
+    Enemy() : Character(100, "Stranger", 25, "Human", "Warrior", 1, "a mysterious stranger", 20, 10, 10, 15, 50) , attitude(1) {}
 
     Enemy(std::string name_, std::string description_, std::string race_, std::string profession_,
-          int strength_, int health_, int age_, int defense_, int gold_, int level_)
+          int strength_, int health_, int age_, int defense_, int gold_, int level_, bool attitude_)
         : Character(health_, name_, age_, race_, profession_, level_, description_,
-                    strength_, 10, 10, defense_, gold_) {}
+                    strength_, 10, 10, defense_, gold_), attitude(attitude_) {}
 
+    std::string GetEffectName(int type) const;
     void DisplayStats();
     void RandomizeStats();
     void EquipWeapon(Weapon* w);
@@ -456,6 +459,7 @@ void ChoiceHard();
 void StartGame();
 void Help();
 void GetInfo();
+void Interact(Enemy& enemy, Character& hero, MyInventory& inv);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);

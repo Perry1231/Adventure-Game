@@ -11,6 +11,7 @@ void Enemy::DisplayStats()
     std::cout << "Character Stats:" << std::endl;
     std::cout << "Name: " << name << std::endl;
     std::cout << "Age: " << age << std::endl;
+    std::cout << "Attitude: " << attitude << std::endl;
     std::cout << "Race: " << race << std::endl;
     std::cout << "Profession: " << profession << std::endl;
     std::cout << "Level: " << level << std::endl;
@@ -25,7 +26,17 @@ void Enemy::DisplayStats()
 
 void Enemy::RandomizeStats()
 {
-     race = (rand() % 5 == 0) ? "Human" : (rand() % 4 == 0) ? "Elf" : (rand() % 3 == 0) ? "Dwarf" : (rand() % 2 == 0) ? "Orc" : "Goblin";        // Random race
+    attitude = 1 + rand() % 2;
+    if (attitude == 1) // Bad
+    {
+
+    }
+    else 
+    {
+
+    }
+    
+    race = (rand() % 5 == 0) ? "Human" : (rand() % 4 == 0) ? "Elf" : (rand() % 3 == 0) ? "Dwarf" : (rand() % 2 == 0) ? "Orc" : "Goblin";        // Random race
     
 }
 
