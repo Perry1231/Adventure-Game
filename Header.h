@@ -127,7 +127,13 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     std::string GetProfession() const { return profession; };
     void Usage();
     
-    ~Character(){}
+    //Interaction
+    void Trade();
+    void Talk();
+    void Attack();
+    void Defend();
+    void DamageSystem();
+    ~Character(){};
 };
 
 
@@ -476,5 +482,7 @@ void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver();
 void Loader();
+void Menu();
+
 
 #endif
