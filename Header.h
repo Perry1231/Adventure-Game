@@ -91,11 +91,16 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void EquipArmor(Armory* a); 
     Weapon* GetEquippedWeapon() const;
     Armory* GetEquippedArmor() const; 
+
+    //Battling
+    int GetDamage() const;                  //Not finished
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
+    int GetTotalHealth() const;
     void UnequipWeapon(); 
     void UnequipArmor();
 
+    
     void GetHealth() const { std::cout << "Health: " << health << std::endl; }
     void GetLevel() const { std::cout << "Level: " << level << std::endl; }
     void GetDefense() const { std::cout << "Defense: " << defense << std::endl; }
@@ -103,7 +108,6 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
     void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
-
     
     void Take();
     void TakeAll();
@@ -117,6 +121,9 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void ProcessEffects(); 
     void AddEffect(int type, int potency, bool debuff = false);
 
+    std::string GetName() const { return name; }
+    int GetHealthValue() const { return health; }
+    void SetHealth(int value) { health = value; if (health < 0) health = 0; if (health > Shealth) health = Shealth; }
     std::string GetProfession() const { return profession; };
     void Usage();
     
@@ -427,30 +434,34 @@ class OtherCharacter
 //=================================================================Enemy_class================================================================================
 
 //=================================================================Enemy_class================================================================================
+//=================================================================Enemy_class================================================================================
 class Enemy : public Character
 {
-    protected :
-    bool attitude;
+protected:
+	int attitude;
 public:
-    Enemy() : Character(100, "Stranger", 25, "Human", "Warrior", 1, "a mysterious stranger", 20, 10, 10, 15, 50) , attitude(1) {}
+	Enemy() : Character(100, "Stranger", 25, "Human", "Warrior", 1, "a mysterious stranger", 20, 10, 10, 15, 50), attitude(1) {}
 
-    Enemy(std::string name_, std::string description_, std::string race_, std::string profession_,
-          int strength_, int health_, int age_, int defense_, int gold_, int level_, bool attitude_)
-        : Character(health_, name_, age_, race_, profession_, level_, description_,
-                    strength_, 10, 10, defense_, gold_), attitude(attitude_) {}
+	Enemy(std::string name_, std::string description_, std::string race_, std::string profession_, int strength_, int health_, int age_, int defense_, int gold_, int level_, bool attitude_)
+	: Character(health_, name_, age_, race_, profession_, level_, description_, strength_, 10, 10, defense_, gold_), attitude(attitude_) {}
 
-    std::string GetEffectName(int type) const;
-    void DisplayStats();
-    void RandomizeStats();
-    void EquipWeapon(Weapon* w);
-    void EquipArmor(Armory* a);
-    void ApplyPotionEffect(int effectType, int potency);
-    void ProcessEffects();
-    void AddEffect(int type, int potency, bool debuff = false);
-    void Usage();
+	void DisplayStats();
+	void RandomizeStats();
+	void EquipWeapon(Weapon* w);
+	void EquipArmor(Armory* a);
+	void ApplyPotionEffect(int effectType, int potency);
+	void ProcessEffects();
+	void AddEffect(int type, int potency, bool debuff = false);
+	void Usage();
+
+	void SetAttitude(int attitude_g);
+	int GetAttitude() const { return attitude; }
+
+	// Battling
+	int GetTotalAttack() const;
+	int GetTotalDefense() const;
+	int GetDamage(int damage_g) const;
 };
-
-
 
 //==================================================================Other_functions=============================================================================
  std::string GetEffectName(int type);
