@@ -479,29 +479,34 @@ void Character::AddEffect(int type, int potency, bool debuff) {
     std::cout << name << " gained effect: " << GetEffectName(type);
 }
 
-void Character::ProcessEffects() {
-    for (auto it = activeEffects.begin(); it != activeEffects.end(); ) {
-        switch (it->type) {
-            case 0: 
-                if (it->isDebuff) {
-					if (health !=Shealth){
+void Character::ProcessEffects()
+{
+    for (auto it = activeEffects.begin(); it != activeEffects.end(); )
+    {
+        switch (it->type)
+        {
+        case 0: // HEALTH
+            if (it->isDebuff)
+            {
+                if (health != Shealth)
+                {
                     health += it->potency;
                     std::cout << name << " takes " << (-it->potency) << " poison damage! (HP: " << health << ")\n";
-					}
-					else std::cout << name << " is at full health.\n";
-                } else {
-                    // не afford health regen over time from potion (instant only)
                 }
-                break;
+                else
+                    std::cout << name << " is at full health.\n";
+            }
+            // Для HEALTH баффа нічого не робимо, бо зілля миттєві
+            break;
         case 1: defense += it->potency; break;
         case 2: agility += it->potency; break;
         case 3: intelligence += it->potency; break;
         case 4: gold += it->potency; break;
-        case 5: strength += it->potency; break;;
+        case 5: strength += it->potency; break;
         }
+        it = activeEffects.erase(it);
     }
 }
-
 
 
 char Character::GetType(AuraType type)
@@ -511,6 +516,17 @@ std::cout << "Aura: " << auraType << std::endl;
 return auraType;
 }
 
+
+int Character::GetDamage() const
+{
+
+    return 0;
+}
+
+int Character::GetTotalHealth() const
+{
+    return health;
+}
 //============================================================Actions_with_others================================================================================
 
 /*void Attack()
