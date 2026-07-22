@@ -93,7 +93,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     Armory* GetEquippedArmor() const; 
 
     //Battling
-    int GetDamage() const;                  //Not finished
+    int GetDamage() const;                  
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
     int GetTotalHealth() const;
@@ -482,7 +482,5 @@ void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver();
 void Loader();
-
-
 
 #endif

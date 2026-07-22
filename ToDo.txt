@@ -1,0 +1,7 @@
+Implement Talk(Enemy& enemy)
+Implement Trade(Enemy& enemy)
+Implement Attack(Enemy& enemy)
+Implement Enemy::RandomizeStats()
+Implement Character::Attack(Enemy& enemy)
+Implement Character::GetDamage()
+Implement Enemy::Usage()
