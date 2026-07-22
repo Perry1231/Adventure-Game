@@ -540,11 +540,6 @@ void Character::Attack(Character& hero, Enemy& enemy)
         }
 }
 
-void Character::Defend()
-{
-
-}
-
 void Character::DamageSystem(Enemy& enemy)
 {
 
@@ -615,17 +610,36 @@ void Menu(Enemy& enemy , Character& hero)
 
 
 
-void Character::Trade()
+void Character::Trade(Enemy& enemy)
 {
+    Weapon* weapon_2 = new Weapon();
+    weapon_2->RandomizeWeaponStart(enemy.GetProfession());
+
+    Armory* armor_2 = new Armory();
+    armor_2->RandomizeArmorStart();
+
+    Weapon* weapon_2 = new Weapon();
+    weapon_2->RandomizeWeaponSpeacial();
+
+
+    MyInventory inv2;
+    inv2.SetOwner(&enemy);
+    enemy.SetInventory(&inv2);
+
+    inv2.AddItem(weapon_2);             //Added item with ID ---- will be written
+    inv2.AddItem(armor_2);
+    inv2.AddItem(weapon_2);
+//Created inventory of enemy 
+//Implemed creating inventory from enemy profession , role , etc
+
 
 }
 
 
-void Talk()
+void Character::Talk()
 {
+    std::cout << "\n" << name << " says: 'Hello there! I'm ready for adventure.'\n";
 
 }
-
-
 
 
