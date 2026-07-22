@@ -529,30 +529,62 @@ int Character::GetTotalHealth() const
 }
 //============================================================Actions_with_others================================================================================
 
-/*void Attack()
+void Character::Attack()
 {
 
 }
 
-void Defend()
+void Character::Defend()
 {
 
 }
 
-void DamageSystem()
+void Character::DamageSystem()
 {
 
 }
 
 
-void Menu()
+/*void Menu()
 {
-    //ToDo      1 - attack    2 - trade   3 - add to charcter (aura)   4 - talk
+    int choice;
+    std::cout << "\n=== INTERACTION ===" << std::endl;
+    std::cout << "1-Talk \n 2-Attack \n 3-Trade \n4-Leave" << std::endl;
+    std::cin >> choice;
+    switch (choice)
+    {
+    case 1:
+        std::cout << "You talk to the " << enemy.GetName() << "." << std::endl;
+        break;
+    case 2:
+        std::cout << "You attack the " << enemy.GetName() << "!" << std::endl;
+        {
+            int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
+            if (damage < 0) damage = 0;
+            enemy.ApplyPotionEffect(0, -damage);
+            std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealthValue() << ")\n";
+        }
+        break;
+    case 3:
+        std::cout << "You start traiding" << std::endl;
 
+        break;
+
+    case 4:
+        std::cout << "You leave the area." << std::endl;
+        
+        break;
+
+    default:
+        std::cout << "Invalid choice" << std::endl;
+        std::cout << "Make choice once more" << std::endl;
+    }
 }
+    */
 
 
-void Trade()
+
+void Character::Trade()
 {
 
 }
@@ -565,4 +597,4 @@ void Talk()
 
 
 
-*/
+
