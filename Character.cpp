@@ -531,6 +531,8 @@ int Character::GetTotalHealth() const
 
 void Character::Attack(Character& hero, Enemy& enemy)
 {
+    enemy.SetAttitude(-1);
+
  std::cout << "You attack the " << enemy.GetName() << "!" << std::endl;
         {
             int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
@@ -610,15 +612,20 @@ void Menu(Enemy& enemy , Character& hero)
 
 
 
-void Character::Trade(Enemy& enemy)
+int Character::Trade(Enemy& enemy)
 {
+    if(enemy.GetAttitude() < 1)
+    {
+        std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
+        return 0;
+    }
     Weapon* weapon_2 = new Weapon();
     weapon_2->RandomizeWeaponStart(enemy.GetProfession());
 
     Armory* armor_2 = new Armory();
     armor_2->RandomizeArmorStart();
 
-    Weapon* weapon_2 = new Weapon();
+    Weapon* weapon_3 = new Weapon();
     weapon_2->RandomizeWeaponSpeacial();
 
 
@@ -632,14 +639,37 @@ void Character::Trade(Enemy& enemy)
 //Created inventory of enemy 
 //Implemed creating inventory from enemy profession , role , etc
 
+if (enemy.GetProfession() == "Warrior") 
+{
+    // Add warrior-specific items
+} 
+
+else if (enemy.GetProfession() == "Mage")
+{
+    // Add mage-specific items
+}
+
+else if (enemy.GetProfession() == "")
+{
+
+}
+
+else 
+{
+
+}
 
 }
 
 
-void Character::Talk()
+int Character::Talk(Enemy& enemy)
 {
+    if(enemy.GetAttitude() < 1)
+    {
+        std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
+        return 0;
+    }
     std::cout << "\n" << name << " says: 'Hello there! I'm ready for adventure.'\n";
 
 }
-
 

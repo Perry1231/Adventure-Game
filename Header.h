@@ -128,8 +128,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Usage();
     
     //Interaction
-    void Trade(Enemy& enemy);
-    void Talk();
+    int Trade(Enemy& enemy);
+    int Talk(Enemy& enemy);
     void Attack(Character& hero, Enemy& enemy);
     void DamageSystem(Enemy& enemy);
 
