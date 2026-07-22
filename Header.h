@@ -130,9 +130,9 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     //Interaction
     void Trade();
     void Talk();
-    void Attack();
+    void Attack(Character& hero, Enemy& enemy);
     void Defend();
-    void DamageSystem();
+    void DamageSystem(Enemy& enemy);
 
     ~Character(){};
 };

@@ -529,9 +529,15 @@ int Character::GetTotalHealth() const
 }
 //============================================================Actions_with_others================================================================================
 
-void Character::Attack()
+void Character::Attack(Character& hero, Enemy& enemy)
 {
-
+ std::cout << "You attack the " << enemy.GetName() << "!" << std::endl;
+        {
+            int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
+            if (damage < 0) damage = 0;
+            enemy.ApplyPotionEffect(0, -damage);
+            std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealthValue() << ")\n";
+        }
 }
 
 void Character::Defend()
@@ -539,11 +545,42 @@ void Character::Defend()
 
 }
 
-void Character::DamageSystem()
+void Character::DamageSystem(Enemy& enemy)
 {
 
+std::cout << "---------------------------------------------------------" << std::endl;
+std::cout << "|| " << name << "           ||            " << enemy.GetName() << " ||" << std::endl;
+std::cout << "|| " << "Your total attack = " << GetTotalAttack() << "  ||  " << "Enemy total defense = " << enemy.GetTotalDefense() << " ||" << std::endl;
+std::cout << "|| " << "Your total defense = " << GetTotalDefense() << "  ||  " << "Enemy total attack = " << enemy.GetTotalAttack() << " ||" << std::endl;
+std::cout << "||\t\t\t\t\t\t\t\t||" << std::endl;
+std::cout << "||"  << "Attack - 1" << std::endl;
+std::cout << "||"  << "Look in your inventory" << std::endl;
+std::cout << "||"  << "Leave battle - 2" << std::endl;
+int choice ;
+std::cin >> choice;
+switch (choice)
+{
+    case 1:
+        std::cout << "You are going to attack enemy" << std::endl;
+        Attack(*this, enemy);
+        break;
+    case 2:
+        std::cout << "You left the battle!" << std::endl;
+        break;
+    case 3:
+        if (inventory) {
+            inventory->DisplayInventory();
+        } else {
+            std::cout << "Inventory is empty or not linked." << std::endl;
+        }
+        break;
+    default:
+        std::cout << "Invalid choice" << std::endl;
+        break;
 }
 
+
+}
 
 void Menu(Enemy& enemy , Character& hero)
 {
@@ -557,13 +594,7 @@ void Menu(Enemy& enemy , Character& hero)
         std::cout << "You talk to the " << enemy.GetName() << "." << std::endl;
         break;
     case 2:
-        std::cout << "You attack the " << enemy.GetName() << "!" << std::endl;
-        {
-            int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
-            if (damage < 0) damage = 0;
-            enemy.ApplyPotionEffect(0, -damage);
-            std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealthValue() << ")\n";
-        }
+       hero.DamageSystem(enemy);
         break;
     case 3:
         std::cout << "You start traiding" << std::endl;
