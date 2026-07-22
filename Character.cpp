@@ -545,7 +545,7 @@ void Character::DamageSystem()
 }
 
 
-/*void Menu()
+void Menu(Enemy& enemy , Character& hero)
 {
     int choice;
     std::cout << "\n=== INTERACTION ===" << std::endl;
@@ -580,7 +580,7 @@ void Character::DamageSystem()
         std::cout << "Make choice once more" << std::endl;
     }
 }
-    */
+
 
 
 

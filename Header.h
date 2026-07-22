@@ -133,6 +133,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Attack();
     void Defend();
     void DamageSystem();
+
     ~Character(){};
 };
 
@@ -438,9 +439,6 @@ class OtherCharacter
 };
 
 //=================================================================Enemy_class================================================================================
-
-//=================================================================Enemy_class================================================================================
-//=================================================================Enemy_class================================================================================
 class Enemy : public Character
 {
 protected:
@@ -463,10 +461,12 @@ public:
 	void SetAttitude(int attitude_g);
 	int GetAttitude() const { return attitude; }
 
+    std::string GetName() const {return name;}
 	// Battling
 	int GetTotalAttack() const;
 	int GetTotalDefense() const;
 	int GetDamage(int damage_g) const;
+
 };
 
 //==================================================================Other_functions=============================================================================
@@ -476,13 +476,14 @@ void ChoiceHard();
 void StartGame();
 void Help();
 void GetInfo();
-void Interact(Enemy& enemy, Character& hero, MyInventory& inv);
+void Interact();
+void Menu(Enemy& enemy, Character& hero);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver();
 void Loader();
-void Menu();
+
 
 
 #endif
