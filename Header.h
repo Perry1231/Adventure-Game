@@ -14,6 +14,7 @@ class OtInventory;
 class Potion;
 class MyInventory;  
 class Chest; 
+class Enemy;
 
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH }; 
@@ -65,7 +66,6 @@ Weapon* equipped_weapon;                //For equipment
 Armory* equipped_armor;
 MyInventory* inventory;      //Character inventory
 Chest* currentChest;
-
 
 
     public :
@@ -212,10 +212,6 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }
 
-    void Attck();
-    void Defend();
-    void DamageSystem();
-
 
     ~Weapon() {}
 };
@@ -291,9 +287,6 @@ std::string GetType() const override { return "Armor"; }
 
 ~Armory() {};
 };
-
-
-
 
 
 //=======================================================================Inventory_structure===========================================================================
