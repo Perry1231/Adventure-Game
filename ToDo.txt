@@ -1,7 +1,26 @@
-Implement Talk(Enemy& enemy)
-Implement Trade(Enemy& enemy)
-Implement Attack(Enemy& enemy)
-Implement Enemy::RandomizeStats()
+Implement Character::Talk(Enemy& enemy)
+Implement Character::Trade(Enemy& enemy)
 Implement Character::Attack(Enemy& enemy)
 Implement Character::GetDamage()
-Implement Enemy::Usage()
+Implement Character::Menu(function)
+Perfect Character::DmageSystem(function)
+
+Implement Enemy::GetDamage()
+Implement Enemy::RandomizeStats()
+
+Addiction.cpp -> Dificulty
+Addiction.cpp -> dificulty choice (ChoiceHard function)
+
+Create exeptions cauther + bugg errors
+
+Implement Armory.cpp::speacialWeaponRandomizer
+
+Implement Events.cpp
+
+Implement Loader.cpp (read from files that had been created from saver)
+
+Implement OtherRandomizer.cpp
+
+Implement Plot.cpp
+
+Implement Saver.cpp (as file creating and changing things it)
