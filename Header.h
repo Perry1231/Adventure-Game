@@ -448,7 +448,6 @@ public:
 	void ApplyPotionEffect(int effectType, int potency);
 	void ProcessEffects();
 	void AddEffect(int type, int potency, bool debuff = false);
-	void Usage();
 
 	void SetAttitude(int attitude_g);
 	int GetAttitude() const { return attitude; }
