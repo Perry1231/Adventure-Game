@@ -669,7 +669,23 @@ int Character::Talk(Enemy& enemy)
     if(enemy.GetAttitude() < 1)
     {
         std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
+        int choice=0;
+        std::cout << "`Do what you want` ---->" << std::endl;
+        std::cout << "1 - Take task \n2 - Talk about life \n 3 - Leave" << std::endl;
+        std::cin >> choice;
+        switch(choice)
+        {
+            case 1:
+            //TaskGenartor(level , ...);
+            break;
+            case 2:
 
+            break;
+            case 3:
+
+            break;
+            default: std::cout << "Wrong choice !" << std::endl;
+        }
         return 0;
     }
     std::cout << "\n" << name << " says: 'Hello there! I'm ready for adventure.'\n";
