@@ -26,16 +26,9 @@ void Enemy::DisplayStats()
 
 void Enemy::RandomizeStats()
 {
-    attitude = -1 + rand() % 2;
-    if (attitude == -1) // Bad
-    {
-
-    }
-    else if(attitude == 0)
-    {
-
-    }
-    else //
+    attitude = -1 + rand() % 2; 
+    
+    
     
     //=======================================================================Race_randomizer==================================================================
 

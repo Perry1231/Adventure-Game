@@ -27,6 +27,10 @@ void MainFunction() {
     p->RandomizePotion();
     p->SetOwner(&hero); 
     inv1.AddItem(p);
+
+
+    Enemy enemy;
+    enemy.RandomizeStats();
 //====================================================================
     int mainChoice = 0;
     while (true) {

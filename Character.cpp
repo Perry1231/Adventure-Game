@@ -626,7 +626,7 @@ int Character::Trade(Enemy& enemy)
     armor_2->RandomizeArmorStart();
 
     Weapon* weapon_3 = new Weapon();
-    weapon_2->RandomizeWeaponSpeacial();
+    weapon_3->RandomizeWeaponSpeacial();
 
 
     MyInventory inv2;
@@ -651,14 +651,16 @@ else if (enemy.GetProfession() == "Mage")
 
 else if (enemy.GetProfession() == "")
 {
+ return 0;
 
 }
 
 else 
 {
-
+ return 0;
 }
 
+return 0;
 }
 
 
@@ -667,9 +669,10 @@ int Character::Talk(Enemy& enemy)
     if(enemy.GetAttitude() < 1)
     {
         std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
+
         return 0;
     }
     std::cout << "\n" << name << " says: 'Hello there! I'm ready for adventure.'\n";
-
+return 0;
 }
 
