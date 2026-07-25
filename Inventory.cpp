@@ -157,6 +157,9 @@ void MyInventory::Clear()
     items = nullptr;
 }
 
+Item* MyInventory::GetItem(int index) const { 
+    if (index >= 0 && index < count) { return items[index]; } 
+    return nullptr; }
 
 //==============================================For_other_characters================================================================
 

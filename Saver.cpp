@@ -38,18 +38,34 @@ fs << hero.GetDefense() << std::endl;
 fs << hero.GetDescription() << std::endl;
 fs << hero.GetGold() << std::endl;
 
+
 std::cout << "\n\n\n---------Inventory----------" << std::endl;
 fs << inv.GetCount() << std::endl;
-fs << inv.GetCapacity() << std::endl;
+    fs << inv.GetCapacity() << std::endl;
 
+    
+    for (int i = 0; i < inv.GetCount(); ++i) {
+        Item* item = inv.GetItem(i); 
+        if (item) {
+            fs << item->GetType() << " " << item->GetName() << std::endl;
+        }
+    }
 
-std::cout << "\n\n\n---------Armory----------" << std::endl;
+    std::cout << "\n\n\n---------Weapon----------" << std::endl;
+    Weapon* w = hero.GetEquippedWeapon();
+    if (w) {
+        fs << w->GetName() << " " << w->GetAttack() << " " << w->GetDurability() << std::endl;
+    } else {
+        fs << "None" << std::endl;
+    }
 
-
-
-std::cout << "\n\n\n---------Weapon----------" << std::endl;
-
-
+    std::cout << "\n\n\n---------Armory----------" << std::endl;
+    Armory* a = hero.GetEquippedArmor();
+    if (a) {
+        fs << a->GetName() << " " << a->GetDefense() << " " << a->GetDurability() << std::endl;
+    } else {
+        fs << "None" << std::endl;
+    }
     fs.close();
     std::cout << "Game saved successfully!" << std::endl;
 }

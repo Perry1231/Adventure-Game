@@ -317,7 +317,7 @@ void DisplayInventory() const;
 int GetCount() const { return count;}
 int GetCapacity() const {return capacity;}
 int AddItem(Item* item);
-
+Item* GetItem(int index) const;
 
 void Clear(); //Additional
 int DelItem(int id);
