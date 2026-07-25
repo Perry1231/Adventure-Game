@@ -101,16 +101,17 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void UnequipArmor();
 
     
-    void GetHealth() const { std::cout << "Health: " << health << std::endl; }
-    void GetLevel() const { std::cout << "Level: " << level << std::endl; }
-    void GetDefense() const { std::cout << "Defense: " << defense << std::endl; }
-    void GetStrength() const { std::cout << "Strength: " << strength << std::endl; }
-    void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
-    void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
-    void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
-    void GetAge() const {std::cout << "Age: " << age << std::endl;}
-    void GetRace() const {std::cout << "Race: " << race << std::endl;}
-    void GetDescription() const {std::cout << "Describtion: " << description << std::endl;}
+    int GetHealth() const { return health; }
+    int GetLevel() const { return level; }
+    int GetDefense() const { return defense; }
+    int GetStrength() const { return strength;}
+    int GetAgility() const { return agility; }
+    int GetIntelligence() const { return intelligence;}
+    int GetGold() const { return gold; }
+    int GetAge() const {return age;}
+    std::string GetRace() const {return race;}
+    std::string GetDescription() const {return description;}
+    std::string GetName() const { return name; }
 
 
     void Take();
@@ -125,8 +126,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void ProcessEffects(); 
     void AddEffect(int type, int potency, bool debuff = false);
 
-    std::string GetName() const { return name; }
-    int GetHealthValue() const { return health; }
+    
     void SetHealth(int value) { health = value; if (health < 0) health = 0; if (health > Shealth) health = Shealth; }
     std::string GetProfession() const { return profession; };
     void Usage();
@@ -201,6 +201,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     void Use() override;
     void Reset() override;
 
+    
     int GetAttack() const { return attack_w; };                                                      
     int GetDurability() const{ return durability_w; };  
     int GetValue() const { return value_w; };

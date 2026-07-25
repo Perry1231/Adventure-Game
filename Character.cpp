@@ -538,7 +538,7 @@ void Character::Attack(Character& hero, Enemy& enemy)
             int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
             if (damage < 0) damage = 0;
             enemy.ApplyPotionEffect(0, -damage);
-            std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealthValue() << ")\n";
+            std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealth() << ")\n";
         }
 }
 

@@ -124,10 +124,7 @@ void Enemy::ProcessEffects()
     }
 }
 
-void Enemy::Usage()
-{
 
-}
 
 void Enemy::SetAttitude(int attitude_g)
 {
