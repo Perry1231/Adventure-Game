@@ -5,6 +5,7 @@
 #include <windows.h>
 //This file is for saving game progress
 
+
 void Saver(Character& hero, MyInventory& inv)
 {
 
@@ -52,3 +53,4 @@ std::cout << "\n\n\n---------Weapon----------" << std::endl;
     fs.close();
     std::cout << "Game saved successfully!" << std::endl;
 }
+    
