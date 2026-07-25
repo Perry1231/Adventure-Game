@@ -108,7 +108,11 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void GetAgility() const { std::cout << "Agility: " << agility << std::endl; }
     void GetIntelligence() const { std::cout << "Intelligence: " << intelligence << std::endl; }
     void GetGold() const { std::cout << "Gold: " << gold << std::endl; }
-    
+    void GetAge() const {std::cout << "Age: " << age << std::endl;}
+    void GetRace() const {std::cout << "Race: " << race << std::endl;}
+    void GetDescription() const {std::cout << "Describtion: " << description << std::endl;}
+
+
     void Take();
     void TakeAll();
 
@@ -270,7 +274,7 @@ Armory(std::string name_a,  int defend_, float durability_, int value_, bool isE
 void Use();
 void Reset();
 int GetDefense() const { return defend_a; }
-int GetDurability() const { return durability_a; }
+int GetDurability() const { return durability_a;}
 int GetValue() const { return value_a; }
 bool IsBroken() const { return isBroken_a; }
 bool IsEnchanted() const { return isEnchanted_a; }
@@ -309,7 +313,8 @@ std::string GetType() const override { return "Armor"; }
 
 void SetOwner(Character* c) { owner = c; }
 void DisplayInventory() const;
-int GetCount() const { return count; }
+int GetCount() const { return count;}
+int GetCapacity() const {return capacity;}
 int AddItem(Item* item);
 
 

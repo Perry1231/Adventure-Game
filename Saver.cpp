@@ -20,13 +20,35 @@ if (!fs.is_open()) {
 
 
 fs << hero.GetName() << std::endl;
+fs << hero.GetAge() << std:: endl;
+fs << hero.GetRace() << std::endl;
 fs << hero.GetProfession() << std::endl;
-fs << hero.GetHealthValue() << std::endl;
-fs << hero.GetGold() << std::endl;
+fs << hero.GetLevel() << std::endl;
+fs << hero.GetDescription() << std::endl;
+
+fs << hero.GetDescription() << std::endl;
+fs << hero.GetHealth() << std::endl;
+fs << hero.GetStrength() << std::endl;
+fs << hero.GetAgility() << std::endl;
 fs << hero.GetIntelligence() << std::endl;
-fs << hero.GetEquippedArmor() << hero.GetEquippedWeapon() << std::endl;
+fs << hero.GetDefense() << std::endl;
+fs << hero.GetDescription() << std::endl;
+fs << hero.GetGold() << std::endl;
 
 
+fs << inv.GetCount() << std::endl;
+fs << inv.GetCapacity() << std::endl;
+
+
+for(int i=0; i<)
+
+
+
+ Item** items;
+ int capacity;                  //Capacity of inventory given
+ int count;                     //How many items now
+ int id;
+ Character* owner;
     fs.close();
     std::cout << "Game saved successfully!" << std::endl;
 }
