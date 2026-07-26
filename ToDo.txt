@@ -15,7 +15,7 @@ Create exeptions cauther + bugg errors
 
 Implement Armory.cpp::speacialWeaponRandomizer
 
-Implement Events.cpp
+Implement Events.cpp +-
 
 Implement Loader.cpp (read from files that had been created from saver)
 

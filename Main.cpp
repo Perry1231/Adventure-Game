@@ -8,6 +8,5 @@
 
 int main() {
    MainFunction();
-
     return 0;             
 }
