@@ -63,7 +63,10 @@ void PollenHallucinations ()
 
 }
 
-
+void Earthquake()
+{
+    
+}
 //Man events===========================================
 void EnemyPatrol()
 {

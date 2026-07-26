@@ -480,5 +480,29 @@ void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver();
 void Loader();
-
+//==================================================================Events_functions============================================================================
+void ToxicRain();
+void Rain();
+void VolcanicEruption();
+void FlashFlood();
+void Mudslide();
+void HumidHot();
+void ConstrictorVines();
+void WildMagicWilds();
+void QuickFreezingGlad();
+void WillWispAttraction();
+void DeadMagicZone();
+void PollenHallucinations ();
+void EnemyPatrol();
+void MonsterAmbush();
+void CunningScavengers();
+void StagedAccident();
+void FalseHospitableHost();
+void ThePropheticBeggar();
+void TheShadowingKid();
+void Extortion();
+void TheTurncoatGuide();
+void PoacherTrapTrigger();
+void FakeDistressCal();
+void Earthquake();
 #endif
