@@ -93,7 +93,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     Armory* GetEquippedArmor() const; 
 
     //Battling
-    int GetDamage() const;                  
+    int GetDamage(Character& hero, int damage) const;                  
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
     int GetTotalHealth() const;
@@ -284,7 +284,7 @@ bool IsEnchanted() const { return isEnchanted_a; }
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 void BrokenArmory();
 void ShowInfo() const override;
-std::string RandomizeArmorSpeacial();
+std::string RandomizeArmorSpecial();
 std::string RandomizeArmorStart();
 std::string GetName() const override { return name_a; }
 std::string GetType() const override { return "Armor"; }
