@@ -90,10 +90,36 @@ void Armory::Reset() {
 //==================================================================Special_weapon=========================================================================
 
 
-std::string Armory::RandomizeArmorSpeacial()                                 //===============Not Ready
-{                                                 
-name_a = "Dragon suit";
-    defend_a = 25;
-    value_a = 500;
-    return name_a;
+static std::map<std::string, std::pair<int, int>>& GetWeaponARS() {
+    static std::map<std::string, std::pair<int, int>> db;
+    if (db.empty()) {
+        db = {
+    //              suit name defense cost
+ 
+        {"Spider suit", {17 ,100}}, 
+        {"Dragon suit", {22, 200}}, 
+        {"Yetti suit", {15, 75}},
+
+    
+        {"Hide suit", {14, 55 }}, 
+        {"Spiked suit", {16, 60}},
+        {"Kevlar suit", {20, 140}}, 
+        {"Plate", {26, 250}},
+
+        {"Shield", {6, 70}}};
+        }
+         return db;
 }
+
+std::string Armory::RandomizeArmorSpecial()                                  //Starter pack armor
+{
+    auto& db = GetWeaponARS();
+    int choise = rand ()% 3; 
+
+auto it = db.find(name_a);
+    if (it != db.end()) {
+        value_a  = it->second.second; 
+    }
+return name_a;
+}
+    
