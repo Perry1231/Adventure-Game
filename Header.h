@@ -509,4 +509,5 @@ void Earthquake(Character& hero);
 void MoneyFind(Character& hero);
 void GoodStranger(Character& hero);
 void GoodWeather(Character& hero);
+void RandomizerEvent(Character& hero);
 #endif

@@ -1,7 +1,106 @@
     #include "Header.h"
 //Additional events for game
+enum EventType { 
+    TOXIC_RAIN =0, RAIN=1, VOLCANIC_ERUPTION=2, FLASH_FLOOD=3, MUDSLIDE=4, HUMID_HOT=5, CONSTRICTOR_VINES=6, WILD_MAGIC_WILDS=7, QUICK_FREEZING_GLAD=8,
+    WILL_WISP_ATTRACTION=9, DEAD_MAGIC_ZONE=10, POLLEN_HALLUCINATIONS=11,
+    ENEMY_PATROL=12, MONSTER_AMBUSH=13, CUNNING_SCAVENGERS=14, STAGED_ACCIDENT=15, FALSE_HOSPITABLE_HOST=16,
+    THE_PROPHETIC_BEGGAR=17, THE_SHADOWING_KID=18, EXTORTION=19, THE_TURNCOAT_GUIDE=20,
+    POACHER_TRAP_TRIGGER=21, FAKE_DISTRESS_CALL=22,
+    MONEY_FIND=23, GOOD_STRANGER=24, GOOD_WEATHER=25, GOOD_REST=26
+};
 
 
+void RandomizerEvent(Character& hero)
+{
+    int eventType = rand() % 27; //From 0 to 26
+
+    switch (eventType) {
+        case TOXIC_RAIN:
+            ToxicRain(hero);
+            break;
+        case RAIN:
+            Rain(hero);
+            break;
+        case VOLCANIC_ERUPTION:
+            VolcanicEruption(hero);
+            break;
+        case FLASH_FLOOD:
+            FlashFlood(hero);
+            break;
+        case MUDSLIDE:
+            Mudslide(hero);
+            break;
+        case HUMID_HOT:
+            HumidHot(hero);
+            break;
+        case CONSTRICTOR_VINES:
+            ConstrictorVines(hero);
+            break;
+        case WILD_MAGIC_WILDS:
+            WildMagicWilds(hero);
+            break;
+        case QUICK_FREEZING_GLAD:
+            QuickFreezingGlad(hero);
+            break;
+        case WILL_WISP_ATTRACTION:
+            WillWispAttraction(hero);
+            break;
+        case DEAD_MAGIC_ZONE:
+            DeadMagicZone(hero);
+            break;
+        case POLLEN_HALLUCINATIONS:
+            PollenHallucinations(hero);
+            break;
+        case ENEMY_PATROL:
+            EnemyPatrol(hero);
+            break;
+        case MONSTER_AMBUSH:
+            MonsterAmbush(hero);
+            break;
+        case CUNNING_SCAVENGERS:
+            CunningScavengers(hero);
+            break;
+        case STAGED_ACCIDENT:
+            StagedAccident(hero);
+            break;
+        case FALSE_HOSPITABLE_HOST:
+            FalseHospitableHost(hero);
+            break;
+        case THE_PROPHETIC_BEGGAR:
+            ThePropheticBeggar(hero);
+            break;
+        case THE_SHADOWING_KID:
+            TheShadowingKid(hero);
+            break;
+        case EXTORTION:
+            Extortion(hero);
+            break;  
+        case THE_TURNCOAT_GUIDE:
+            TheTurncoatGuide(hero);
+            break;
+        case POACHER_TRAP_TRIGGER:
+            PoacherTrapTrigger(hero);
+            break;
+        case FAKE_DISTRESS_CALL:
+            FakeDistressCal(hero);
+            break;
+        case MONEY_FIND:
+            MoneyFind(hero);
+            break;
+        case GOOD_STRANGER:
+            GoodStranger(hero);
+            break;
+        case GOOD_WEATHER:
+            GoodWeather(hero);
+            break;
+        case GOOD_REST:
+            GoodRest(hero);
+            break;
+        default:
+            std::cout << "Unknown event type!" << std::endl;
+            break;
+    }
+}
 //Nature events========================================
 void ToxicRain(Character& hero)
 {
