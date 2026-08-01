@@ -93,7 +93,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     Armory* GetEquippedArmor() const; 
 
     //Battling
-    int GetDamage(Character& hero, int damage) const;                  
+    int GetDamage(Character& hero, int damage, MyInventory& inv) const;                  
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
     int GetTotalHealth() const;
