@@ -125,15 +125,25 @@ void Enemy::ProcessEffects()
 }
 
 
+int Enemy::GetDamage(Character& enemy, int damage) const
+{
+int damage = enemy.GetTotalDefense() - damage;  
+if (damage < GetTotalDefense())
+{
+    std::cout << "Enemy take " << damage << " damage! (HP: " << health << ")\n";
+}
+else if (damage >= GetTotalDefense())
+{
+    std::cout << "Too much damage! Enemy take " << damage << ")\n";
+    std::cout << "Enemy is dead! Game over!" << std::endl;
+    
+}
+  return damage;
+}
 
 void Enemy::SetAttitude(int attitude_g)
 {
  this->attitude = attitude_g;
-}
-
-int Enemy::GetDamage(int damage_g) const
-{
-return damage_g;
 }
 
 int Enemy::GetTotalAttack() const

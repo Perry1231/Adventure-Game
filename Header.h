@@ -463,7 +463,7 @@ public:
 	// Battling
 	int GetTotalAttack() const;
 	int GetTotalDefense() const;
-	int GetDamage(int damage_g) const;
+	int GetDamage(Character& enemy, int damage_g) const;
 
 };
 
