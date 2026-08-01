@@ -127,12 +127,12 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void ProcessEffects(); 
     void AddEffect(int type, int potency, bool debuff = false);
 
-    
     void SetHealth(int value) { health = value; if (health < 0) health = 0; if (health > Shealth) health = Shealth; }
     std::string GetProfession() const { return profession; };
     void Usage();
     
     //Interaction
+    void Character::Fight(Enemy& enemy);
     int Trade(Enemy& enemy);
     int Talk(Enemy& enemy);
     void Attack(Character& hero, Enemy& enemy);

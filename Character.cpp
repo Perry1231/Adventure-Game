@@ -545,7 +545,7 @@ void Character::Attack(Character& hero, Enemy& enemy)
 
  std::cout << "You attack the " << enemy.GetName() << "!" << std::endl;
         {
-            int damage = hero.GetTotalAttack() - enemy.GetTotalDefense();
+            int damage =  enemy.GetTotalDefense()- hero.GetTotalAttack();
             if (damage < 0) damage = 0;
             enemy.ApplyPotionEffect(0, -damage);
             std::cout << enemy.GetName() << " takes " << damage << " damage! (HP: " << enemy.GetHealth() << ")\n";
@@ -702,3 +702,24 @@ int Character::Talk(Enemy& enemy)
 return 0;
 }
 
+
+void Character::Fight(Enemy& enemy)
+{
+    std::cout << "You engage in combat with " << enemy.GetName() << "!" << std::endl;
+    while (health > 0 && enemy.GetHealth() > 0) {
+        DamageSystem(enemy);
+        if (enemy.GetHealth() <= 0) {
+            std::cout << "You have defeated " << enemy.GetName() << "!" << std::endl;
+            break;
+        }
+        // Enemy's turn to attack
+        int damage = GetTotalAttack() - enemy.GetTotalDefense();
+        if (damage < 0) damage = 0;
+        health -= damage;
+        std::cout << enemy.GetName() << " attacks you for " << damage << " damage! (HP: " << health << ")\n";
+        if (health <= 0) {
+            std::cout << "You have been defeated by " << enemy.GetName() << "! Game over!" << std::endl;
+            std::exit(0);
+        }
+    }
+}
