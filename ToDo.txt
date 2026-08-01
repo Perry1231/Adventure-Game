@@ -4,7 +4,6 @@ Implement Character::Attack(Enemy& enemy)
 Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)
 
-Implement Enemy::GetDamage()
 Implement Enemy::RandomizeStats()
 
 Addiction.cpp -> Dificulty
