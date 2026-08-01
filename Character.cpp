@@ -517,10 +517,20 @@ return auraType;
 }
 
 
-int Character::GetDamage() const
+int Character::GetDamage(Character& hero, int damage) const
 {
-
-    return 0;
+int damage = hero.GetTotalDefense() - damage;  
+if (damage < GetTotalDefense())
+{
+    std::cout << "You take " << damage << " damage! (HP: " << health << ")\n";
+}
+else if (damage >= GetTotalDefense())
+{
+    std::cout << "Too much damage! You take " << damage << ")\n";
+    std::cout << "You are dead! Game over!" << std::endl;
+    std::exit(0);
+}
+  return damage;
 }
 
 int Character::GetTotalHealth() const

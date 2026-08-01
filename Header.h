@@ -100,7 +100,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void UnequipWeapon(); 
     void UnequipArmor();
 
-    
+    int GetGold() const { return gold; }
     int GetHealth() const { return health; }
     int GetLevel() const { return level; }
     int GetDefense() const { return defense; }
@@ -117,6 +117,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Take();
     void TakeAll();
 
+    void SetGold(int value) { gold = value; if (gold < 0) gold = 0; }
     void SetInventory(MyInventory* inv) { inventory = inv; }
     void SetCurrentChest(Chest* chest) { currentChest = chest; }
     Chest* GetCurrentChest() const { return currentChest; }
@@ -481,28 +482,31 @@ void Reseter (Character& hero, MyInventory& inv);
 void Saver();
 void Loader();
 //==================================================================Events_functions============================================================================
-void ToxicRain();
-void Rain();
-void VolcanicEruption();
-void FlashFlood();
-void Mudslide();
-void HumidHot();
-void ConstrictorVines();
-void WildMagicWilds();
-void QuickFreezingGlad();
-void WillWispAttraction();
-void DeadMagicZone();
-void PollenHallucinations ();
-void EnemyPatrol();
-void MonsterAmbush();
-void CunningScavengers();
-void StagedAccident();
-void FalseHospitableHost();
-void ThePropheticBeggar();
-void TheShadowingKid();
-void Extortion();
-void TheTurncoatGuide();
-void PoacherTrapTrigger();
-void FakeDistressCal();
-void Earthquake();
+void ToxicRain(Character& hero);
+void Rain(Character& hero);
+void VolcanicEruption(Character& hero);
+void FlashFlood(Character& hero);
+void Mudslide(Character& hero);
+void HumidHot(Character& hero);
+void ConstrictorVines(Character& hero);
+void WildMagicWilds(Character& hero);
+void QuickFreezingGlad(Character& hero);
+void WillWispAttraction(Character& hero);
+void DeadMagicZone(Character& hero);
+void PollenHallucinations (Character& hero);
+void EnemyPatrol(Character& hero);
+void MonsterAmbush(Character& hero);
+void CunningScavengers(Character& hero);
+void StagedAccident(Character& hero);
+void FalseHospitableHost(Character& hero);
+void ThePropheticBeggar(Character& hero);
+void TheShadowingKid(Character& hero);
+void Extortion(Character& hero);
+void TheTurncoatGuide(Character& hero);
+void PoacherTrapTrigger(Character& hero);
+void FakeDistressCal(Character& hero);
+void Earthquake(Character& hero);
+void MoneyFind(Character& hero);
+void GoodStranger(Character& hero);
+void GoodWeather(Character& hero);
 #endif

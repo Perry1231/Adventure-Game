@@ -161,7 +161,7 @@ void MoneyFind(Character& hero)
 {
     int gold = rand() % 100 + 1; // Random gold between 1 and 100
     hero.SetGold(hero.GetGold() + gold); // Increase the hero's gold by the
-    std::cout s< "You found some money! Your gold increases by " << gold << std::endl;
+    std::cout << "You found some money! Your gold increases by " << gold << std::endl;
 }
 
 void GoodStranger(Character& hero)
