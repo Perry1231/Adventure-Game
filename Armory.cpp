@@ -100,6 +100,7 @@ static std::map<std::string, std::pair<int, int>>& GetWeaponARS() {
             {"Hide suit", {14, 55 }},
             {"Spiked suit", {16, 60}},
             {"Kevlar suit", {20, 140}},
+            {"Adamantium suit", {22, 180}},
             {"Plate", {26, 250}}};
     }
     return db;  // ← тепер завжди повертає

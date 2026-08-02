@@ -13,24 +13,29 @@ void HelpFunction()
 
 void ChoiceHard()
 {
+    std::cout <<"\n\n" ;
     int difil = 0;
     std::cout << "Choose difficulty level first" << std::endl;
     std::cout << "Be prepared for tougher enemies and more challenging puzzles." << std::endl;
     std::cout << "Good luck on your adventure!" << std::endl;
+    std::cout << "1. Easy" << std::endl;
+    std::cout << "2. Medium" << std::endl;
+    std::cout << "3. Hard" << std::endl;
     std::cout << "Enter dificulty level : "  ;
     std::cin >> difil;
+    std::cout << "\n\n" ;
     if (difil == 1) {
         std::cout << "You have chosen the easy difficulty level!" << std::endl;
         std::cout << "Enemies will be weaker and puzzles will be simpler." << std::endl;
-        std::cout << "Enjoy your adventure!" << std::endl;
+
     } else if (difil == 2) {
         std::cout << "You have chosen the medium difficulty level!" << std::endl;
         std::cout << "Enemies will be moderately challenging and puzzles will require some thought." << std::endl;
-        std::cout << "Have fun on your adventure!" << std::endl;
+
     } else if (difil == 3) {
         std::cout << "You have chosen the hard difficulty level!" << std::endl;
         std::cout << "Enemies will be tough and puzzles will require careful planning." << std::endl;
-        std::cout << "Good luck on your adventure!" << std::endl;
+
     } else {
         std::cout << "Invalid choice. Please select a valid difficulty level." << std::endl;
     }
@@ -44,9 +49,16 @@ void ChoiceHard()
 
 void StartGame()
 {
+
+    std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
+
+
     ChoiceHard();
     //Additional will be soon
     std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
+
+    //Continue
+    //Plot cont
 }
 
 void GetInfo()
