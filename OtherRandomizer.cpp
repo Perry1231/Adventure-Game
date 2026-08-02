@@ -7,3 +7,10 @@
 }
 
 */
+
+
+void TurnRandomizer()
+{
+   std::cout << "Make move"<< std::endl;
+    
+}

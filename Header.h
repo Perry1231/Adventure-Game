@@ -512,4 +512,7 @@ void GoodStranger(Character& hero);
 void GoodWeather(Character& hero);
 void RandomizerEvent(Character& hero);
 void GoodRest(Character& hero);
+
+
+void TurnRandomizer();
 #endif
