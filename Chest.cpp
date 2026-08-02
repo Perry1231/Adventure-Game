@@ -96,7 +96,7 @@ void Chest::RandomizeChest()
                 newItem = w;
             } else if (roll < 70) {
                 Armory* a = new Armory();
-                a->RandomizeArmorSpeacial();
+                a->RandomizeArmorSpecial();
                 newItem = a;
             } else {
                 Potion* p = new Potion();
@@ -112,7 +112,7 @@ void Chest::RandomizeChest()
                 newItem = w;
             } else if (roll < 70) {
                 Armory* a = new Armory();
-                a->RandomizeArmorSpeacial();
+                a->RandomizeArmorSpecial();
                 newItem = a;
             } else {
                 Potion* p = new Potion();
