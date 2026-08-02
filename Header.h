@@ -107,7 +107,6 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     int GetStrength() const { return strength;}
     int GetAgility() const { return agility; }
     int GetIntelligence() const { return intelligence;}
-    int GetGold() const { return gold; }
     int GetAge() const {return age;}
     std::string GetRace() const {return race;}
     std::string GetDescription() const {return description;}
@@ -132,7 +131,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Usage();
     
     //Interaction
-    void Character::Fight(Enemy& enemy);
+    void TakeDamage(int dmg);
+    void Fight(Enemy& enemy);
     int Trade(Enemy& enemy);
     int Talk(Enemy& enemy);
     void Attack(Character& hero, Enemy& enemy);
@@ -479,7 +479,7 @@ void Menu(Enemy& enemy, Character& hero);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
-void Saver();
+void Saver(Character& hero, MyInventory& inv);
 void Loader();
 //==================================================================Events_functions============================================================================
 void ToxicRain(Character& hero);
@@ -488,6 +488,7 @@ void VolcanicEruption(Character& hero);
 void FlashFlood(Character& hero);
 void Mudslide(Character& hero);
 void HumidHot(Character& hero);
+
 void ConstrictorVines(Character& hero);
 void WildMagicWilds(Character& hero);
 void QuickFreezingGlad(Character& hero);
@@ -510,4 +511,5 @@ void MoneyFind(Character& hero);
 void GoodStranger(Character& hero);
 void GoodWeather(Character& hero);
 void RandomizerEvent(Character& hero);
+void GoodRest(Character& hero);
 #endif
