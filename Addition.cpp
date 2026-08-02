@@ -3,10 +3,12 @@
 
 void HelpFunction() 
 {
+    std::cout << "\n\n" ;
     std::cout << "This is a helper function that can be used for various purposes in the game." << std::endl;
     std::cout << "You can use this function to display help information and game instructions." << std::endl;
     std::cout << "This program shows how to structure a simple adventure game using C++." << std::endl;
     std::cout << "This program is written by Vladyslav Vytrykush to show the knowledge of C++ programming." << std::endl;
+    std::cout << "\n\n" ;
 }
 
 
@@ -49,7 +51,7 @@ void ChoiceHard()
 
 void StartGame()
 {
-
+    std::cout << "\n\n" ;
     std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
 
 
@@ -63,17 +65,20 @@ void StartGame()
 
 void GetInfo()
 {
+        std::cout << "\n\n" ;
         std::cout << "\n=== INFO ===" << std::endl;
         std::cout << "This is a simple adventure game written in C++." << std::endl;
         std::cout << "You can explore the world, fight enemies, and collect items." << std::endl;
         std::cout << "Use the main menu to navigate through the game." << std::endl;
         std::cout << "Have fun and enjoy your adventure!" << std::endl;
         std::cout << "PS. This program is written by Vladyslav Vytrykush." << std::endl;
+        std::cout << "\n\n" ;
 }
 
 
 void Help()
 {
+            std::cout << "\n\n" ;
             std::cout << "\n=== HELP ===" << std::endl;
             std::cout << "1. Show character stats - Displays current character statistics" << std::endl;
             std::cout << "2. Show your inventory - Lists all items in your inventory" << std::endl;
@@ -81,6 +86,7 @@ void Help()
             std::cout << "4. Get info - Display help information" << std::endl;
             std::cout << "5. Help - Shows this help menu" << std::endl;
             std::cout << "0. Exit - Quit the program" << std::endl;
+            std::cout << "\n\n" ;
 }
 
 void Reseter(Character& hero, MyInventory& inv)
@@ -118,6 +124,7 @@ void Reseter(Character& hero, MyInventory& inv)
 
 void Settings(Character& hero, MyInventory& inv)
 {
+    std::cout << "\n\n" ;
     std::cout << "\n=== SETTINGS ===" << std::endl;
     std::cout << "1. Change difficulty level" << std::endl;
     std::cout << "2. --------" << std::endl;                                //Not implemended     
@@ -155,11 +162,15 @@ void Settings(Character& hero, MyInventory& inv)
 
         default: std::cout<< "Invalid choice" << std::endl;
     }
-
+    std::cout << "\n\n" ;
 }
 
 
-void Interact()
+void BugReport()
 {
-   void Menu();
+    std::cout << "\n\n" ;
+    std::cout << "\n=== BUG REPORT ===" << std::endl;
+    std::cout << "If you encounter any bugs or issues while playing the game, please report them." << std::endl;
+    std::cout << "You can contact the developer at GitHub." << std::endl;
+    std::cout << "\n\n" ;
 }

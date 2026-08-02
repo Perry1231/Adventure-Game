@@ -44,6 +44,7 @@ void MainFunction() {
         std::cout << "5. Manage your Inventory" << std::endl;
         std::cout << "6. Settings " << std::endl;
         std::cout << "7. Help" << std::endl;
+        std::cout << "8. Repport bug" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Choice: ";
         std::cin >> mainChoice;                                                                     
@@ -85,10 +86,12 @@ void MainFunction() {
             } else {
                 std::cout << "Invalid choice!" << std::endl;
             }
-        } else if (mainChoice == 4) {
+        } else if (mainChoice == 6) {
             Settings(hero , inv1);                                                                              //Settings
-        } else if (mainChoice == 5) {
+        } else if (mainChoice == 7) {
             Help();                                                                                             //Help
+        } else if (mainChoice == 8) {
+            BugReport() ;
         } else if (mainChoice == 0) {
             break;
         } else {
