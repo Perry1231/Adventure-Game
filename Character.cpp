@@ -517,9 +517,11 @@ return auraType;
 }
 
 
-int Character::GetDamage(Character& hero, int damage, MyInventory& inv) const
+void Character::TakeDamage(int dmg) { health -= dmg; if (health < 0) health = 0; }
+
+int Character::GetDamage(Character& hero, int damage, MyInventory& inv1) const
 {
-int damage = hero.GetTotalDefense() - damage;  
+damage = hero.GetTotalDefense() - damage;  
 if (damage < GetTotalDefense())
 {
     std::cout << "You take " << damage << " damage! (HP: " << health << ")\n";
@@ -534,7 +536,7 @@ else if (damage >= GetTotalDefense())
     std::cin >> ch;
     if(ch == 1) {
         std::cout << "Restarting the game..." << std::endl;
-        Reseter(hero, inv); // Exit the program to allow for a restart
+        Reseter(hero, inv1); // Exit the program to allow for a restart
     } else {
         std::cout << "Exiting the game. Goodbye!" << std::endl;
     std::exit(0);

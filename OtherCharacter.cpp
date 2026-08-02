@@ -127,7 +127,7 @@ void Enemy::ProcessEffects()
 
 int Enemy::GetDamage(Character& enemy, int damage) const
 {
-int damage = enemy.GetTotalDefense() - damage;  
+damage = enemy.GetTotalDefense() - damage;  
 if (damage < GetTotalDefense())
 {
     std::cout << "Enemy take " << damage << " damage! (HP: " << health << ")\n";
