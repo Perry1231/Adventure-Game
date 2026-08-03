@@ -16,5 +16,9 @@ Implement Loader.cpp (read from files that had been created from saver)
 Implement OtherRandomizer.cpp
 
 Implement Plot.cpp
+Plot.cpp turn function
+turn randomizer
+turn menu
 
 Add more weapon and armor (future)
+
