@@ -17,6 +17,11 @@ void StartGame()
 }
 
 
+void Story()
+{
+
+}
+
 void Turn(Character& hero)
 {
     std::cout << "\n\n" ;
