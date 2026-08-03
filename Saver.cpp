@@ -2,7 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
+
+#ifdef _WIN32
 #include <windows.h>
+#else
+#include <thread>
+#include <chrono>
+#endif
 //This file is for saving game progress
 
 
