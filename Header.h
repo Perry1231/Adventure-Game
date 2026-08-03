@@ -513,7 +513,8 @@ void GoodWeather(Character& hero);
 void RandomizerEvent(Character& hero);
 void GoodRest(Character& hero);
 
-void Turn();
+void Story();
+void Turn(Character& hero);
 void BugReport();
 void TurnRandomizer();
 #endif

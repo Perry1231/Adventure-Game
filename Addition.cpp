@@ -49,19 +49,6 @@ void ChoiceHard()
 }
 
 
-void StartGame()
-{
-    std::cout << "\n\n" ;
-    std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
-
-
-    ChoiceHard();
-    //Additional will be soon
-    std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
-
-    //Continue
-    //Plot cont
-}
 
 void GetInfo()
 {
