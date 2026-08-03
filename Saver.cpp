@@ -22,8 +22,10 @@ std::fstream fs;
 fs.open(path, std::fstream::in | std::fstream::out | std::fstream::app);
 
 if (!fs.is_open()) {
-CreateDirectoryA("Saves.txt", NULL);     
-}
+        std::cout << "Error: failed to open or create save file: " << path << std::endl;
+        return; 
+    }
+
 
 fs.open(path, std::fstream::in | std::fstream::out | std::fstream::app);
 
