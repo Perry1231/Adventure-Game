@@ -15,9 +15,19 @@
 
 void Saver(Character& hero, MyInventory& inv)
 {
-std::string name;
-std::cout << "Enter a name for your save: ";
-std::cin >> name;
+
+    std::cout << "Enter save filename (e.g. MySave): ";
+    std::string name;
+    std::getline(std::cin, name);
+
+    if (name.empty()) name = "Saves";
+
+    std::string path = name + ".txt";
+
+    std::ofstream fs(path);
+    if (!fs.is_open()) {
+        std::cout << "Error: failed to open/create save file!\n";
+        return;
 std::string path = "Saves.txt";
 std::fstream fs;
 
@@ -127,4 +137,5 @@ time_t now = time(0);
 
     fs.close();
     std::cout << "Game saved successfully to Saves.txt!\n";
+}
 }
