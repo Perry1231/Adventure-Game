@@ -16,7 +16,6 @@ void Loader(Character& hero, MyInventory& inv) {
     std::cout << "Enter save filename (without .txt, default Saves): ";
     
     std::string name;
-    // Очищаємо буфер вводу, щоб getline працював коректно після cin
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, name);
     

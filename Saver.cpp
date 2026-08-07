@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <limits>
 
 
 #ifdef _WIN32
@@ -16,18 +17,20 @@
 void Saver(Character& hero, MyInventory& inv)
 {
 
-    std::cout << "Enter save filename (e.g. MySave): ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    std::cout << "Enter save filename (without .txt, default Saves): ";
     std::string name;
     std::getline(std::cin, name);
-
     if (name.empty()) name = "Saves";
-
     std::string path = name + ".txt";
-
+    
     std::ofstream fs(path);
     if (!fs.is_open()) {
         std::cout << "Error: failed to open/create save file!\n";
         return;
+    }
+
 std::string path = "Saves.txt";
 std::fstream fs;
 
@@ -139,5 +142,4 @@ time_t now = time(0);
     //Add here potential saving data for enemies, quests, and other game states as needed.
     fs.close();
     std::cout << "Game saved successfully to Saves.txt!\n";
-}
 }
