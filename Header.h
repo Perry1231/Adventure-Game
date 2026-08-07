@@ -116,6 +116,16 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Take();
     void TakeAll();
 
+    void SetName(const std::string& n) { name = n; }
+    void SetAge(int a) { age = a; }
+    void SetRace(const std::string& r) { race = r; }
+    void SetProfession(const std::string& p) { profession = p; }
+    void SetLevel(int l) { level = l; }
+    void SetDescription(const std::string& d) { description = d; }
+    void SetStrength(int s) { strength = s; }
+    void SetAgility(int a) { agility = a; }
+    void SetIntelligence(int i) { intelligence = i; }
+    void SetDefense(int d) { defense = d; }
     void SetGold(int value) { gold = value; if (gold < 0) gold = 0; }
     void SetInventory(MyInventory* inv) { inventory = inv; }
     void SetCurrentChest(Chest* chest) { currentChest = chest; }

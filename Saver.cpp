@@ -135,6 +135,8 @@ time_t now = time(0);
     fs << "           END OF SAVE FILE            \n";
     fs << "========================================\n";
 
+
+    //Add here potential saving data for enemies, quests, and other game states as needed.
     fs.close();
     std::cout << "Game saved successfully to Saves.txt!\n";
 }
