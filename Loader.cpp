@@ -9,9 +9,11 @@
 #include <thread>
 #include <chrono>
 #endif
+
 //This programm is for loading saves
 
 void Loader()
 {
-    
+    std::string path = "Saves.txt";
+    std::ifstream fs(path);
 }
