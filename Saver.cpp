@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <limits>
-
+#include <iomanip>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -14,20 +14,50 @@
 //This file is for saving game progress
 
 
-void Saver(Character& hero, MyInventory& inv)
-{
 
+
+void ListSaveFiles() {
+    std::cout << "\n=== Existing saves ===\n";
+    WIN32_FIND_DATA findFileData;
+    HANDLE hFind = FindFirstFile("*.txt", &findFileData);
+    
+    if (hFind == INVALID_HANDLE_VALUE) {
+        std::cout << "No saves found.\n";
+        return;
+    }
+    
+    bool found = false;
+    do {
+        if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
+            std::cout << " - " << findFileData.cFileName << "\n";
+            found = true;
+        }
+    } while (FindNextFile(hFind, &findFileData) != 0);
+    
+    FindClose(hFind);
+    
+    if (!found) {
+        std::cout << "No saves found.\n";
+    }
+}
+
+
+void Saver(Character& hero, MyInventory& inv) {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
-    std::cout << "Enter save filename (without .txt, default Saves): ";
+    // Показуємо існуючі сейви
+    ListSaveFiles();
+    
+    std::cout << "\nEnter save filename (without .txt, default Saves): ";
     std::string name;
     std::getline(std::cin, name);
+    
     if (name.empty()) name = "Saves";
     std::string path = name + ".txt";
-    
     std::ofstream fs(path);
+    
     if (!fs.is_open()) {
-        std::cout << "Error: failed to open/create save file!\n";
+        std::cout << "Error: failed to create save file!\n";
         return;
     }
 
