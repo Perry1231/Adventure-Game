@@ -490,7 +490,7 @@ void Menu(Enemy& enemy, Character& hero);
 void Settings(Character& hero, MyInventory& inv);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver(Character& hero, MyInventory& inv);
-void Loader();
+void Loader(Character& hero, MyInventory& inv);
 //==================================================================Events_functions============================================================================
 void ToxicRain(Character& hero);
 void Rain(Character& hero);

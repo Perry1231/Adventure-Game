@@ -51,7 +51,7 @@ void MainFunction() {
         if (mainChoice == 1) {
             StartGame();
         } else if (mainChoice == 2) {
-           Loader();                                                                              //Load game
+           Loader(hero, inv1);                                                                              //Load game
         } else if (mainChoice == 3) {
             Saver(hero, inv1);                                                                              //Save game
         } else if (mainChoice == 4) {
