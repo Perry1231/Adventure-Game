@@ -12,15 +12,41 @@
 #include <chrono>
 #endif
 
+void ListSaveFiles() {
+    std::cout << "\n=== Available saves ===\n";
+    WIN32_FIND_DATAA findFileData;
+    HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
+    if (hFind == INVALID_HANDLE_VALUE) {
+        std::cout << "No saves found.\n";
+        return;
+    }
+    bool found = false;
+    int count = 0;
+    do {
+        if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
+            std::cout << " " << (++count) << ". " << findFileData.cFileName << "\n";
+            found = true;
+        }
+    } while (FindNextFileA(hFind, &findFileData) != 0);
+    FindClose(hFind);
+    if (!found) {
+        std::cout << "No saves found.\n";
+    }
+}
+
 void Loader(Character& hero, MyInventory& inv) {
-    std::cout << "\n=== LOAD GAME ===\n";
-    std::cout << "Enter save filename (without .txt, default Saves): ";
-    
-    std::string name;
+   
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::getline(std::cin, name);
     
-    if (name.empty()) name = "Saves";
+    
+    ListSaveFiles();
+    
+    std::cout << "\nEnter save filename to load (without .txt, default Saves): ";
+    std::string name;
+    std::getline(std::cin, name);
+    if (name.empty()) {
+        name = "Saves";
+    }
     std::string path = name + ".txt";
     
     std::ifstream fs(path);
@@ -31,19 +57,21 @@ void Loader(Character& hero, MyInventory& inv) {
     }
     
     std::cout << "Loading from '" << path << "'...\n";
-    
     std::string line;
     std::string currentSection;
+    
     
     inv.Clear();
     
     while (std::getline(fs, line)) {
+        
         if (line.empty()) continue;
         
         char first = line[0];
-        if (first == '=' || first == '╔' || first == '╚' || 
-            first == '┌' || first == '│' || first == '└' || 
-            first == '─' || first == '┐') continue;
+        if (first == '=' || first == '╔' || first == '╚' || first == '┌' || 
+            first == '│' || first == '└' || first == '─' || first == '┐' || 
+            first == '║') continue;
+        
         
         if (line.find("[HERO]") != std::string::npos) {
             currentSection = "HERO";
@@ -66,17 +94,20 @@ void Loader(Character& hero, MyInventory& inv) {
             continue;
         }
         
+        
         size_t colonPos = line.find(":");
         if (colonPos == std::string::npos) continue;
         
         std::string key = line.substr(0, colonPos);
         std::string value = line.substr(colonPos + 1);
         
+        // Прибираємо пробіли
         key.erase(0, key.find_first_not_of(" \t"));
         key.erase(key.find_last_not_of(" \t") + 1);
         value.erase(0, value.find_first_not_of(" \t"));
         value.erase(value.find_last_not_of(" \t") + 1);
         
+       
         if (currentSection == "HERO") {
             if (key == "Name") hero.SetName(value);
             else if (key == "Age") hero.SetAge(std::stoi(value));
@@ -93,24 +124,29 @@ void Loader(Character& hero, MyInventory& inv) {
         }
         
         else if (currentSection == "INVENTORY") {
-            // Поки що пропускаємо детальний парсинг предметів,
-            // бо формат Saver'а складний для парсингу рядок за рядком
-            // Просто підраховуємо кількість, якщо є
             if (key == "Items count" || key == "InventorySize") {
-                std::cout << "  Inventory has " << value << " items (full loading coming soon)\n";
+                std::cout << " Inventory loaded: " << value << " items\n";
             }
+            
         }
         
-        else if (currentSection == "EQUIPMENT" || currentSection == "WEAPON" || currentSection == "ARMOR") {
+        else if (currentSection == "EQUIPMENT" || currentSection == "WEAPON") {
             if (key == "Weapon") {
                 if (value != "None" && !value.empty()) {
-                    std::cout << "  Equipping weapon: " << value << "\n";
+                    std::cout << " Equipped weapon: " << value << "\n";
                     
+                } else {
+                    std::cout << " No weapon equipped\n";
                 }
             }
+        }
+        else if (currentSection == "EQUIPMENT" || currentSection == "ARMOR") {
             if (key == "Armor") {
                 if (value != "None" && !value.empty()) {
-                    std::cout << "  Equipping armor: " << value << "\n";
+                    std::cout << " Equipped armor: " << value << "\n";
+                    
+                } else {
+                    std::cout << " No armor equipped\n";
                 }
             }
         }
@@ -118,6 +154,5 @@ void Loader(Character& hero, MyInventory& inv) {
     
     fs.close();
     std::cout << "\nGame loaded successfully!\n";
-    std::cout << "Press Enter to continue...";
-    std::cin.get();
+    hero.DisplayStats();
 }
