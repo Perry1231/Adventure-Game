@@ -15,7 +15,9 @@
 
 void Saver(Character& hero, MyInventory& inv)
 {
-
+std::string name;
+std::cout << "Enter a name for your save: ";
+std::cin >> name;
 std::string path = "Saves.txt";
 std::fstream fs;
 
@@ -26,67 +28,103 @@ if (!fs.is_open()) {
         return; 
     }
 
-
-std::cout << "\n\n\n---------Hero----------" << std::endl;
-std::cout << "Your hero saved successfully!" << std::endl;
-
-fs << hero.GetName() << std::endl;
-fs << hero.GetAge() << std:: endl;
-fs << hero.GetRace() << std::endl;
-fs << hero.GetProfession() << std::endl;
-fs << hero.GetLevel() << std::endl;
-fs << hero.GetDescription() << std::endl;
-
-fs << hero.GetDescription() << std::endl;
-fs << hero.GetHealth() << std::endl;
-fs << hero.GetStrength() << std::endl;
-fs << hero.GetAgility() << std::endl;
-fs << hero.GetIntelligence() << std::endl;
-fs << hero.GetDefense() << std::endl;
-fs << hero.GetDescription() << std::endl;
-fs << hero.GetGold() << std::endl;
-
-
-std::cout << "\n---------Inventory----------" << std::endl;
-fs << inv.GetCount() << std::endl;
-    fs << inv.GetCapacity() << std::endl;
-
     
-    for (int i = 0; i < inv.GetCount(); ++i) {
-        Item* item = inv.GetItem(i); 
-        if (item) {
-            fs << item->GetType() << " " << item->GetName() << std::endl;
-        }
-    }
-    std::cout << "Inventory saved successfully!" << std::endl;
-    std::cout << "\n---------Potion----------" << std::endl;
+time_t now = time(0);
+    fs << "========================================\n";
+    fs << "           GAME SAVE FILE              \n";
+    fs << "========================================\n";
+    fs << "Saved at: " << ctime(&now);
+    fs << "========================================\n\n";
+    fs << "save name: " << name << "\n";
+    fs << "========================================\n\n";
+
+ fs << "[HERO]\n";
+ fs << "Name: " << hero.GetName() << "\n";
+    fs << "Age: " << hero.GetAge() << "\n";
+    fs << "Race: " << hero.GetRace() << "\n";
+    fs << "Profession: " << hero.GetProfession() << "\n";
+    fs << "Level: " << hero.GetLevel() << "\n";
+    fs << "Description: " << hero.GetDescription() << "\n";
+    fs << "Health: " << hero.GetHealth() << "\n";
+    fs << "Strength: " << hero.GetStrength() << "\n";
+    fs << "Agility: " << hero.GetAgility() << "\n";
+    fs << "Intelligence: " << hero.GetIntelligence() << "\n";
+    fs << "Defense: " << hero.GetDefense() << "\n";
+    fs << "Gold: " << hero.GetGold() << "\n\n";
+
+    // === ІНВЕНТАР ===
+    fs << "[INVENTORY]\n";
+    fs << "Items count: " << inv.GetCount() << "\n";
+    fs << "Capacity: " << inv.GetCapacity() << "\n";
+    fs << "----------------------------------------\n";
+    
     for (int i = 0; i < inv.GetCount(); ++i) {
         Item* item = inv.GetItem(i);
-        if (item && item->GetType() == "Potion") {
-            fs << item->GetName() << std::endl;
+        if (!item) continue;
+        
+        fs << "Item #" << (i + 1) << ":\n";
+        fs << "  ID: " << item->GetItemId() << "\n";
+        fs << "  Type: " << item->GetType() << "\n";
+        fs << "  Name: " << item->GetName() << "\n";
+        
+        // Додаткові властивості залежно від типу
+        if (item->GetType() == "Weapon") {
+            Weapon* w = dynamic_cast<Weapon*>(item);
+            if (w) {
+                fs << "  Attack: " << w->GetAttack() << "\n";
+                fs << "  Durability: " << w->GetDurability() << "\n";
+                fs << "  Value: " << w->GetValue() << "\n";
+            }
         }
+        else if (item->GetType() == "Armor") {
+            Armory* a = dynamic_cast<Armory*>(item);
+            if (a) {
+                fs << "  Defense: " << a->GetDefense() << "\n";
+                fs << "  Durability: " << a->GetDurability() << "\n";
+                fs << "  Value: " << a->GetValue() << "\n";
+            }
+        }
+        else if (item->GetType() == "Potion") {
+            Potion* p = dynamic_cast<Potion*>(item);
+            if (p) {
+                fs << "  Effect: " << p->GetEffectType() << "\n";
+                fs << "  Potency: " << p->GetPotency() << "\n";
+                fs << "  Value: " << p->GetValue() << "\n";
+            }
+        }
+        fs << "----------------------------------------\n";
     }
-    std::cout << "Potions saved successfully!" << std::endl;
+    fs << "\n";
 
-    std::cout << "\n---------Weapon----------" << std::endl;
+
+
+
+    fs << "[EQUIPMENT]\n";
+    
     Weapon* w = hero.GetEquippedWeapon();
     if (w) {
-        fs << w->GetName() << " " << w->GetAttack() << " " << w->GetDurability() << std::endl;
+        fs << "Weapon: " << w->GetName() << "\n";
+        fs << "  Attack: " << w->GetAttack() << "\n";
+        fs << "  Durability: " << w->GetDurability() << "\n";
+        fs << "  Value: " << w->GetValue() << "\n";
     } else {
-        fs << "None" << std::endl;
+        fs << "Weapon: None\n";
     }
-    std::cout << "Weapons saved successfully!" << std::endl;
-
-    std::cout << "\n---------Armory----------" << std::endl;
+    
     Armory* a = hero.GetEquippedArmor();
     if (a) {
-        fs << a->GetName() << " " << a->GetDefense() << " " << a->GetDurability() << std::endl;
+        fs << "Armor: " << a->GetName() << "\n";
+        fs << "  Defense: " << a->GetDefense() << "\n";
+        fs << "  Durability: " << a->GetDurability() << "\n";
+        fs << "  Value: " << a->GetValue() << "\n";
     } else {
-        fs << "None" << std::endl;
+        fs << "Armor: None\n";
     }
-    std::cout << "Armory saved successfully!" << std::endl;
+
+    fs << "\n========================================\n";
+    fs << "           END OF SAVE FILE            \n";
+    fs << "========================================\n";
 
     fs.close();
-    std::cout << "\nGame saved successfully!" << std::endl;
+    std::cout << "Game saved successfully to Saves.txt!\n";
 }
-    
