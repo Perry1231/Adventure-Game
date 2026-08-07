@@ -27,10 +27,9 @@ if (!fs.is_open()) {
     }
 
 
-fs.open(path, std::fstream::in | std::fstream::out | std::fstream::app);
-
-
 std::cout << "\n\n\n---------Hero----------" << std::endl;
+std::cout << "Your hero saved successfully!" << std::endl;
+
 fs << hero.GetName() << std::endl;
 fs << hero.GetAge() << std:: endl;
 fs << hero.GetRace() << std::endl;
@@ -48,7 +47,7 @@ fs << hero.GetDescription() << std::endl;
 fs << hero.GetGold() << std::endl;
 
 
-std::cout << "\n\n\n---------Inventory----------" << std::endl;
+std::cout << "\n---------Inventory----------" << std::endl;
 fs << inv.GetCount() << std::endl;
     fs << inv.GetCapacity() << std::endl;
 
@@ -59,23 +58,35 @@ fs << inv.GetCount() << std::endl;
             fs << item->GetType() << " " << item->GetName() << std::endl;
         }
     }
+    std::cout << "Inventory saved successfully!" << std::endl;
+    std::cout << "\n---------Potion----------" << std::endl;
+    for (int i = 0; i < inv.GetCount(); ++i) {
+        Item* item = inv.GetItem(i);
+        if (item && item->GetType() == "Potion") {
+            fs << item->GetName() << std::endl;
+        }
+    }
+    std::cout << "Potions saved successfully!" << std::endl;
 
-    std::cout << "\n\n\n---------Weapon----------" << std::endl;
+    std::cout << "\n---------Weapon----------" << std::endl;
     Weapon* w = hero.GetEquippedWeapon();
     if (w) {
         fs << w->GetName() << " " << w->GetAttack() << " " << w->GetDurability() << std::endl;
     } else {
         fs << "None" << std::endl;
     }
+    std::cout << "Weapons saved successfully!" << std::endl;
 
-    std::cout << "\n\n\n---------Armory----------" << std::endl;
+    std::cout << "\n---------Armory----------" << std::endl;
     Armory* a = hero.GetEquippedArmor();
     if (a) {
         fs << a->GetName() << " " << a->GetDefense() << " " << a->GetDurability() << std::endl;
     } else {
         fs << "None" << std::endl;
     }
+    std::cout << "Armory saved successfully!" << std::endl;
+
     fs.close();
-    std::cout << "Game saved successfully!" << std::endl;
+    std::cout << "\nGame saved successfully!" << std::endl;
 }
     
