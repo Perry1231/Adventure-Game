@@ -477,9 +477,6 @@ public:
 	int GetTotalAttack() const;
 	int GetTotalDefense() const;
 	int GetDamage(Character& enemy, int damage_g) const;
-
-    //other getters
-    std::string GetName() const { return name; }
     std::string GetProfession() const { return profession; }
     std::string GetRace() const { return race;}
     std::string GetDescription() const { return description; }

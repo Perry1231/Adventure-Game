@@ -49,7 +49,7 @@ void MainFunction() {
         std::cout << "Choice: ";
         std::cin >> mainChoice;                                                                     
         if (mainChoice == 1) {
-            StartGame();
+            StartGame(enemy);
         } else if (mainChoice == 2) {
            Loader(hero, inv1);                                                                              //Load game
         } else if (mainChoice == 3) {
@@ -87,7 +87,7 @@ void MainFunction() {
                 std::cout << "Invalid choice!" << std::endl;
             }
         } else if (mainChoice == 6) {
-            Settings(hero , inv1);                                                                              //Settings
+            Settings(hero , inv1, enemy);                                                                              //Settings
         } else if (mainChoice == 7) {
             Help();                                                                                             //Help
         } else if (mainChoice == 8) {
