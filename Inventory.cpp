@@ -38,7 +38,6 @@ int MyInventory::AddItem(Item* item) {
     if (count >= capacity) ResizeInventoryBig();
     item->SetItemId(id);   
     items[count++] = item;
-    std::cout << "Added item with ID: " << id << std::endl;
     id++;
     return 0;
 }
