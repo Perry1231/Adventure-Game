@@ -547,6 +547,12 @@ void Bastion(Character& hero);
 void Tower(Character& hero);
 void SimpleHouse(Character& hero);
 void GoodPlace(Character& hero);
+//==================================================================GameIn_Functions============================================================================
+void DiceRoll();
+void BoardGame();
+void MusicChallenge();
+void FistFight();
+void DrinkingContest();
 //==================================================================Story_and_Turn_Functions=============================================================================
 void Story();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
