@@ -187,12 +187,69 @@ void GoodRest(Character& hero) {
 
 void Tavern(Character& hero)
 {
+std::cout << "You enter a cozy tavern. The smell of food and ale fills the air." << std::endl;
+std::cout << "You can rest here and regain some health." << std::endl;
+std::cout << "Or you can talk to the locals and gather information about your next adventure." << std::endl;
+std::cout << "You can also play a game of chance with the tavern patrons." << std::endl;
 
+std::cout << "What would you like to do?" << std::endl;
+std::cout << "1. Rest and regain health" << std::endl;
+std::cout << "2. Talk to the locals" << std::endl;
+std::cout << "3. Play a game of chance" << std::endl;
+std::cout << "4. Leave the tavern" << std::endl;
+
+int choice;
+std::cin>> choice;
+switch (choice) {
+    case 1:
+        std::cout << "You rest and regain some health." << std::endl;
+        hero.SetHealth(hero.GetHealth() + 20);
+        break;
+    case 2:
+        std::cout << "You talk to the locals and gather information about your next adventure." << std::endl;//!!!!!!
+        break;
+    case 3:
+        std::cout << "You play a game of chance with the tavern patrons." << std::endl;//!!!!!!
+        DiceRoll();
+        break;
+    case 4:
+        std::cout << "You leave the tavern and continue your adventure." << std::endl;//!!!!!!
+        break;
+    default:
+        std::cout << "Invalid choice. You leave the tavern." << std::endl;
+        break;
+}
 }
 
 void Hostel(Character& hero)
 {
+std::cout << "You enter a small hostel. The atmosphere is quiet and peaceful." << std::endl;
+std::cout << "You can rest here and regain some health." << std::endl;
+std::cout << "Or you can talk to the other travelers and gather information about your next adventure." << std::endl;
+std::cout << "What would you like to do?" << std::endl;
 
+std::cout <<"1. Rest and regain health" << std::endl;
+std::cout <<"2. Talk to the other travelers" << std::endl;
+std::cout <<"3. Leave the hostel" << std::endl;
+
+int choice;
+std::cin>> choice;
+
+switch (choice) {
+    case 1:
+        std::cout << "You rest and regain some health." << std::endl;
+        hero.SetHealth(hero.GetHealth() + 15);
+        break;
+    case 2:
+        std::cout << "You talk to the other travelers and gather information about your next adventure." << std::endl;//!!!!!!
+        break;
+    case 3:
+        std::cout << "You leave the hostel and continue your adventure." << std::endl;//!!!!!!
+        break;
+    default:
+        std::cout << "Invalid choice. You leave the hostel." << std::endl;
+        break;
+}
 }
 
 void Castle(Character& hero)

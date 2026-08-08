@@ -20,5 +20,6 @@ turn randomizer
 turn menu
 
 Add more weapon and armor (future)
-
+Add more events
+s
 Chest randomizer

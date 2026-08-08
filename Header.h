@@ -535,6 +535,18 @@ void GoodStranger(Character& hero);
 void GoodWeather(Character& hero);
 void RandomizerEvent(Character& hero);
 void GoodRest(Character& hero);
+void Tavern(Character& hero);
+void Hostel(Character& hero);
+void Castle(Character& hero);
+void Dungeon(Character& hero);
+void Cave(Character& hero);
+void Forest(Character& hero);
+void Desert(Character& hero);
+void Village(Character& hero);
+void Bastion(Character& hero);
+void Tower(Character& hero);
+void SimpleHouse(Character& hero);
+void GoodPlace(Character& hero);
 //==================================================================Story_and_Turn_Functions=============================================================================
 void Story();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
