@@ -547,6 +547,9 @@ void Bastion(Character& hero);
 void Tower(Character& hero);
 void SimpleHouse(Character& hero);
 void GoodPlace(Character& hero);
+void FishingChallenge(Character& hero);
+void ArcheryContest(Character& hero);
+void StrangeStone(Character& hero);
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll();
 void BoardGame();
