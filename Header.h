@@ -558,4 +558,5 @@ void Story();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
 void BugReport();           //addition.cpp
 void DiceRoll();            //OtherRandomizer.cpp
+
 #endif

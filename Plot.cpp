@@ -57,11 +57,3 @@ void Turn(Character& hero)
     std::cout << "\n\n" ;
 }
 }
-
-
-
-void DiceRoll()
-{
-    int roll = rand() % 10 + 1; // Roll a ten-sided die
-    std::cout << "You rolled a " << roll << "!" << std::endl;
-}

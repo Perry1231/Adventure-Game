@@ -12,7 +12,9 @@
 #include <chrono>
 #endif
 
-void ListSaveFiles() {
+
+
+void ListSaveFilesLoader() {
     std::cout << "\n=== Available saves ===\n";
     WIN32_FIND_DATAA findFileData;
     HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
@@ -39,7 +41,7 @@ void Loader(Character& hero, MyInventory& inv) {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     
-    ListSaveFiles();
+    ListSaveFilesLoader();
     
     std::cout << "\nEnter save filename to load (without .txt, default Saves): ";
     std::string name;

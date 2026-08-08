@@ -13,13 +13,10 @@
 #endif
 //This file is for saving game progress
 
-
-
-
-void ListSaveFiles() {
+inline void ListSaveFiles() {
     std::cout << "\n=== Existing saves ===\n";
-    WIN32_FIND_DATAA findFileData; // ← A в кінці для ANSI
-    HANDLE hFind = FindFirstFileA("*.txt", &findFileData); // ← A в кінці
+    WIN32_FIND_DATAA findFileData;
+    HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
     if (hFind == INVALID_HANDLE_VALUE) {
         std::cout << "No saves found.\n";
         return;
@@ -31,11 +28,9 @@ void ListSaveFiles() {
             std::cout << " " << (++count) << ". " << findFileData.cFileName << "\n";
             found = true;
         }
-    } while (FindNextFileA(hFind, &findFileData) != 0); // ← A в кінці
+    } while (FindNextFileA(hFind, &findFileData) != 0);
     FindClose(hFind);
-    if (!found) {
-        std::cout << "No saves found.\n";
-    }
+    if (!found) std::cout << "No saves found.\n";
 }
 
 void Saver(Character& hero, MyInventory& inv) {
