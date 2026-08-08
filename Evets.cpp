@@ -7,7 +7,8 @@ enum EventType {
     ENEMY_PATROL=12, MONSTER_AMBUSH=13, CUNNING_SCAVENGERS=14, STAGED_ACCIDENT=15,
     FALSE_HOSPITABLE_HOST=16, THE_PROPHETIC_BEGGAR=17, THE_SHADOWING_KID=18,
     EXTORTION=19, THE_TURNCOAT_GUIDE=20, POACHER_TRAP_TRIGGER=21, FAKE_DISTRESS_CALL=22,
-    MONEY_FIND=23, GOOD_STRANGER=24, GOOD_WEATHER=25, GOOD_REST=26
+    MONEY_FIND=23, GOOD_STRANGER=24, GOOD_WEATHER=25, GOOD_REST=26 , TAVERN=27, HOSTEL=28, CASTLE=29, DUNGEON=30, CAVE=31, FOREST=32, DESERT=33,
+    VILLAGE=34, BASTION=35, TOWER=36, SIMPLE_HOUSE=37, GOOD_PLACE=38
 };
 
 void RandomizerEvent(Character& hero)
@@ -42,6 +43,18 @@ void RandomizerEvent(Character& hero)
         case GOOD_STRANGER: GoodStranger(hero); break;
         case GOOD_WEATHER: GoodWeather(hero); break;
         case GOOD_REST: GoodRest(hero); break;
+        case TAVERN: Tavern(hero); break;
+        case HOSTEL: Hostel(hero); break;
+        case CASTLE: Castle(hero); break;
+        case DUNGEON: Dungeon(hero); break;
+        case CAVE: Cave(hero); break;
+        case FOREST: Forest(hero); break;
+        case DESERT: Desert(hero); break;
+        case VILLAGE: Village(hero); break;
+        case BASTION: Bastion(hero); break;
+        case TOWER: Tower(hero); break;
+        case SIMPLE_HOUSE: SimpleHouse(hero); break;
+        case GOOD_PLACE: GoodPlace(hero); break;
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
@@ -169,4 +182,66 @@ void GoodRest(Character& hero) {
     int health = rand() % 20 + 10;
     hero.SetHealth(hero.GetHealth() + health);
     std::cout << "You found a safe place to rest. " << health << " health restored.\n";
+}
+
+
+void Tavern(Character& hero)
+{
+
+}
+
+void Hostel(Character& hero)
+{
+
+}
+
+void Castle(Character& hero)
+{
+
+}
+
+void Dungeon(Character& hero)
+{
+
+}
+
+void Cave(Character& hero)//goblin cave, dragon or simple cave
+{
+
+}
+
+void Forest(Character& hero)
+{
+
+}
+
+void Desert(Character& hero)
+{
+
+}
+
+void Village(Character& hero)
+{
+
+}
+
+void Bastion(Character& hero)
+{
+
+}
+
+void Tower(Character& hero)//evil tower , mage tower
+{
+
+}
+
+void SimpleHouse(Character& hero)//evil mage , witch , friendly house
+{
+
+}
+
+
+void GoodPlace(Character& hero)//good place for rest and food
+{
+
 }
