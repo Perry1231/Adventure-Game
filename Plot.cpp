@@ -39,7 +39,8 @@ void Turn(Character& hero)
     {
         case 1:
             std::cout << "You have chosen to make a turn." << std::endl;
-            // Implement turn logic here
+            
+            TurnRandomizer();
             break;
         case 2:
             std::cout << "You have chosen to look in your inventory." << std::endl;
@@ -62,4 +63,10 @@ void TurnRandomizer()
 {
    std::cout << "Make move"<< std::endl;
     
+}
+
+void DiceRoll()
+{
+    int roll = rand() % 10 + 1; // Roll a ten-sided die
+    std::cout << "You rolled a " << roll << "!" << std::endl;
 }
