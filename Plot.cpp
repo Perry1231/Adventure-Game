@@ -38,9 +38,9 @@ void Turn(Character& hero)
     switch(choice)
     {
         case 1:
-            std::cout << "You have chosen to make a turn." << std::endl;
+            std::cout << "You make a turn." << std::endl;
             
-            TurnRandomizer();
+            RandomizerEvent(hero); 
             break;
         case 2:
             std::cout << "You have chosen to look in your inventory." << std::endl;
@@ -54,16 +54,11 @@ void Turn(Character& hero)
             std::cout << "Invalid choice. Please select a valid option." << std::endl;
             break;
     }
-    //events % randomizer
     std::cout << "\n\n" ;
 }
 }
 
-void TurnRandomizer()
-{
-   std::cout << "Make move"<< std::endl;
-    
-}
+
 
 void DiceRoll()
 {
