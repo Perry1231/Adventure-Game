@@ -468,6 +468,9 @@ public:
 
 	void SetAttitude(int attitude_g);
 	int GetAttitude() const { return attitude; }
+    void SetHealth(int value) { health = value; if (health < 0) health = 0; if (health > Shealth) health = Shealth; }
+    void SetStrength(int value) { strength = value; if (strength < 0) strength = 0; }
+
 
     std::string GetName() const {return name;}
 	// Battling
@@ -475,19 +478,29 @@ public:
 	int GetTotalDefense() const;
 	int GetDamage(Character& enemy, int damage_g) const;
 
+    //other getters
+    std::string GetName() const { return name; }
+    std::string GetProfession() const { return profession; }
+    std::string GetRace() const { return race;}
+    std::string GetDescription() const { return description; }
+    int GetStrength() const { return strength; }
+    int GetHealth() const { return health; }
+    int GetLevel() const { return level; }
+    int GetDefense() const { return defense; }
+    int GetGold() const { return gold; }
+
 };
 
 //==================================================================Other_functions=============================================================================
  std::string GetEffectName(int type);
 void MainFunction();
-void ChoiceHard();
+void ChoiceHard(Enemy& enemy);
 void StartGame();
 void Help();
 void GetInfo();
-void Interact();
 void Menu(Enemy& enemy, Character& hero);
 //==================================================================Main_Menu_Functions=========================================================================
-void Settings(Character& hero, MyInventory& inv);
+void Settings(Character& hero, MyInventory& inv, Enemy& enemy);
 void Reseter (Character& hero, MyInventory& inv);
 void Saver(Character& hero, MyInventory& inv);
 void Loader(Character& hero, MyInventory& inv);

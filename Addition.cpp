@@ -13,7 +13,7 @@ void HelpFunction()
 
 
 
-void ChoiceHard()
+void ChoiceHard(Enemy& enemy)
 {
     std::cout <<"\n\n" ;
     int difil = 0;
@@ -29,23 +29,23 @@ void ChoiceHard()
     if (difil == 1) {
         std::cout << "You have chosen the easy difficulty level!" << std::endl;
         std::cout << "Enemies will be weaker and puzzles will be simpler." << std::endl;
+        enemy.SetHealth(enemy.GetHealth()); 
+        enemy.SetStrength(enemy.GetStrength());
 
     } else if (difil == 2) {
         std::cout << "You have chosen the medium difficulty level!" << std::endl;
         std::cout << "Enemies will be moderately challenging and puzzles will require some thought." << std::endl;
-
+        enemy.SetHealth(enemy.GetHealth() + (enemy.GetHealth() / 2)); 
+        enemy.SetStrength(enemy.GetStrength() + (enemy.GetStrength() / 2)); 
     } else if (difil == 3) {
         std::cout << "You have chosen the hard difficulty level!" << std::endl;
         std::cout << "Enemies will be tough and puzzles will require careful planning." << std::endl;
+        enemy.SetHealth(enemy.GetHealth() + enemy.GetHealth()); 
+        enemy.SetStrength(enemy.GetStrength() + enemy.GetStrength()); 
 
     } else {
         std::cout << "Invalid choice. Please select a valid difficulty level." << std::endl;
     }
-              
-
-    // Increase enemy health and damage
-    // Decrease item drop rates
-    // Add additional obstacles or enemies
 }
 
 
@@ -109,7 +109,7 @@ void Reseter(Character& hero, MyInventory& inv)
 
 
 
-void Settings(Character& hero, MyInventory& inv)
+void Settings(Character& hero, MyInventory& inv, Enemy& enemy)
 {
     std::cout << "\n\n" ;
     std::cout << "\n=== SETTINGS ===" << std::endl;
@@ -126,7 +126,7 @@ void Settings(Character& hero, MyInventory& inv)
     switch (choice)
     {
          case 1://Dificulty 
-         ChoiceHard();
+         ChoiceHard(enemy);
          break;
         case 2:
 
