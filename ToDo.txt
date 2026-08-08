@@ -6,7 +6,7 @@ Perfect Character::DmageSystem(function)            +-
 
 Implement Enemy::RandomizeStats()
 
-Addiction.cpp -> Dificulty
+
 Addiction.cpp -> dificulty choice (ChoiceHard function)
 
 Implement Events.cpp +-
@@ -15,10 +15,10 @@ Implement Loader.cpp (read from files that had been created from saver) +- Only 
 
 Implement OtherRandomizer.cpp
 
-Implement Plot.cpp
-Plot.cpp turn function
+
 turn randomizer
 turn menu
 
 Add more weapon and armor (future)
 
+Chest randomizer

@@ -2,13 +2,13 @@
 #include <iostream>
 //For main events and plot
 
-void StartGame()
+void StartGame(Enemy& enemy)
 {
     std::cout << "\n\n" ;
     std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
 
 
-    ChoiceHard();
+    ChoiceHard(enemy);
     //Additional will be soon
     std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
 
@@ -56,4 +56,10 @@ void Turn(Character& hero)
     //events % randomizer
     std::cout << "\n\n" ;
 }
+}
+
+void TurnRandomizer()
+{
+   std::cout << "Make move"<< std::endl;
+    
 }
