@@ -46,7 +46,7 @@ void RandomizerEvent(Character& hero)
     }
 }
 
-// ============ ЗАГЛУШКИ ПОДІЙ (всі приймають тільки Character&) ============
+
 void ToxicRain(Character& hero) {
     std::cout << "Event: Toxic Rain! You take 5 damage.\n";
     hero.SetHealth(hero.GetHealth() - 5);

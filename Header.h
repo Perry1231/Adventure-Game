@@ -495,7 +495,7 @@ public:
  std::string GetEffectName(int type);
 void MainFunction();
 void ChoiceHard(Enemy& enemy);
-void StartGame();
+void StartGame(Enemy& enemy);
 void Help();
 void GetInfo();
 void Menu(Enemy& enemy, Character& hero);
@@ -512,7 +512,7 @@ void FlashFlood(Character& hero);
 void Mudslide(Character& hero);
 void HumidHot(Character& hero);
 
-void ConstrictorVines(Character& hero);
+void ConstrictorVines(Character& hero);     //Events.cpp and all down
 void WildMagicWilds(Character& hero);
 void QuickFreezingGlad(Character& hero);
 void WillWispAttraction(Character& hero);
@@ -535,9 +535,9 @@ void GoodStranger(Character& hero);
 void GoodWeather(Character& hero);
 void RandomizerEvent(Character& hero);
 void GoodRest(Character& hero);
-
-void Story();
-void Turn(Character& hero);
-void BugReport();
-void TurnRandomizer();
+//==================================================================Story_and_Turn_Functions=============================================================================
+void Story();               //Plot.cpp
+void Turn(Character& hero); //Plot.cpp
+void BugReport();           //addition.cpp
+void TurnRandomizer();      //OtherRandomizer.cpp
 #endif
