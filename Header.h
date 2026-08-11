@@ -556,7 +556,10 @@ void DrinkingContest();
 //==================================================================Story_and_Turn_Functions=============================================================================
 void Story();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
-void BugReport();           //addition.cpp
-void DiceRoll();            //OtherRandomizer.cpp
+void BugReport();           //Addition.cpp
+void DiceRoll(Character& hero); //OtherRandomizer.cpp
+//==================================================================Additional_functions================================================================================
+void HowToPlayRollDiceFunction();
+
 
 #endif
