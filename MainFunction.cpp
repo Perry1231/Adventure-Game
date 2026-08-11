@@ -91,7 +91,7 @@ void MainFunction() {
         } else if (mainChoice == 7) {
             Help();                                                                                             //Help
         } else if (mainChoice == 8) {
-            BugReport() ;
+            BugReportFunction() ;
         } else if (mainChoice == 0) {
             break;
         } else {

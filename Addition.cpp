@@ -153,7 +153,7 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy)
 }
 
 
-void BugReport()
+void BugReportFunction()
 {
     std::cout << "\n\n" ;
     std::cout << "\n=== BUG REPORT ===" << std::endl;

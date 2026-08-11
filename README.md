@@ -8,7 +8,7 @@ Text-based RPG written in C++17. Manage your character, collect weapons and armo
 - **Inventory Management**: Add, remove, resize, and manage weapons, armor, and potions.
 - **Equipment**: Equip and unequip weapons and armor to modify attack and defense values.
 - **Potion Effects**: Apply active buffs/debuffs with different potencies and durations.
-- **Dynamic Events**: Randomized encounters, traders, and story-driven plot points.
+- **Dynamic Events**: Randomized encounters, traders, and StoryFunction-driven plot points.
 - **Combat & Stats**: Real-time stat display with active effect processing.
 - **Cross-platform**: Compiles on Windows (MinGW/MSVC), Linux, and macOS.
 
@@ -25,7 +25,7 @@ Text-based RPG written in C++17. Manage your character, collect weapons and armo
 | `Potion.cpp` | Potion effects, database, usage. |
 | `Inventory.cpp` | Inventory array management, display, add/delete/resize. |
 | `Addition.cpp` | Startup (`StartGame`), difficulty choice (`ChoiceHard`), help text. |
-| `Plot.cpp` | Story/lore events. |
+| `Plot.cpp` | StoryFunction/lore events. |
 | `Action.cpp` | Combat/action logic. |
 | `OtherCharacter.cpp` | NPC and trader logic. |
 | `OtherRandomizer.cpp` | Shared randomization helpers. |

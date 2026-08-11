@@ -8,7 +8,7 @@ enum EventType {
     FALSE_HOSPITABLE_HOST=16, THE_PROPHETIC_BEGGAR=17, THE_SHADOWING_KID=18,
     EXTORTION=19, THE_TURNCOAT_GUIDE=20, POACHER_TRAP_TRIGGER=21, FAKE_DISTRESS_CALL=22,
     MONEY_FIND=23, GOOD_STRANGER=24, GOOD_WEATHER=25, GOOD_REST=26 , TAVERN=27, HOSTEL=28, CASTLE=29, DUNGEON=30, CAVE=31, FOREST=32, DESERT=33,
-    VILLAGE=34, BASTION=35, TOWER=36, SIMPLE_HOUSE=37, GOOD_PLACE=38 , FISHING_CHALLENGE=39, ARCHERY_CONTEST=40, STRANGE_STONE=41
+    VILLAGE=34, BASTION=35, TOWERPLACE=36, SIMPLE_HOUSE=37, GOOD_PLACE=38 , FISHING_CHALLENGE=39, ARCHERY_CONTEST=40, STRANGE_STONE=41
     
 };
 
@@ -53,7 +53,7 @@ void RandomizerEvent(Character& hero)
         case DESERT: Desert(hero); break;
         case VILLAGE: Village(hero); break;
         case BASTION: Bastion(hero); break;
-        case TOWER: Tower(hero); break;
+        case TOWERPLACE: TowerPlace(hero); break;
         case SIMPLE_HOUSE: SimpleHouse(hero); break;
         case GOOD_PLACE: GoodPlace(hero); break;
         case FISHING_CHALLENGE: FishingChallenge(hero); break;
@@ -214,7 +214,8 @@ switch (choice) {
         break;
     case 3:
         std::cout << "You play a game of chance with the tavern patrons." << std::endl;//!!!!!!
-        DiceRoll();
+        
+        DiceRoll(hero);
         break;
     case 4:
         std::cout << "You leave the tavern and continue your adventure." << std::endl;//!!!!!!
@@ -291,7 +292,7 @@ void Bastion(Character& hero)
 
 }
 
-void Tower(Character& hero)//evil tower , mage tower
+void TowerPlace(Character& hero)//evil TowerPlace , mage TowerPlace
 {
 
 }

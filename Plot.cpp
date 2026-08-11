@@ -17,7 +17,7 @@ void StartGame(Enemy& enemy)
 }
 
 
-void Story()
+void StoryFunction()
 {
 
 }
