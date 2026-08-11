@@ -541,23 +541,22 @@ void Forest(Character& hero);
 void Desert(Character& hero);
 void Village(Character& hero);
 void Bastion(Character& hero);
-void Tower(Character& hero);
+void TowerPlace(Character& hero);
 void SimpleHouse(Character& hero);
 void GoodPlace(Character& hero);
 void FishingChallenge(Character& hero);
 void ArcheryContest(Character& hero);
 void StrangeStone(Character& hero);
 //==================================================================GameIn_Functions============================================================================
-void DiceRoll();
+void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void BoardGame();
 void MusicChallenge();
 void FistFight();
 void DrinkingContest();
-//==================================================================Story_and_Turn_Functions=============================================================================
-void Story();               //Plot.cpp
+//==================================================================StoryFunction_and_Turn_Functions=============================================================================
+void StoryFunction();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
-void BugReport();           //Addition.cpp
-void DiceRoll(Character& hero); //OtherRandomizer.cpp
+void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();
 

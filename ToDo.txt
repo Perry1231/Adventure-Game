@@ -15,7 +15,6 @@ Implement Loader.cpp (read from files that had been created from saver) +- Only 
 
 Implement OtherRandomizer.cpp
 
-
 turn randomizer
 turn menu
 
@@ -25,3 +24,5 @@ Add more events
 Chest randomizer
 
 Better function / variables other (readable and view)
+
+Tavern in Events.cpp
