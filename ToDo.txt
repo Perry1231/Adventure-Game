@@ -26,5 +26,3 @@ Chest randomizer
 Better function / variables other (readable and view)
 
 Tavern in Events.cpp
-
-Check all switch and cases
