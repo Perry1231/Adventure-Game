@@ -39,7 +39,6 @@ void Turn(Character& hero)
     {
         case 1:
             std::cout << "You make a turn." << std::endl;
-            
             RandomizerEvent(hero); 
             break;
         case 2:

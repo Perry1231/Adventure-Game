@@ -26,3 +26,4 @@ Chest randomizer
 Better function / variables other (readable and view)
 
 Tavern in Events.cpp
+Events.cpp end functions

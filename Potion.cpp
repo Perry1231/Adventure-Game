@@ -32,13 +32,13 @@ static std::map<std::string, std::tuple<int, int, int, int>>& GetPotionPO() { //
 
 static std::string EffectTypeToString(int type) {
     switch (type) {
-        case 0: return "Health";
-        case 1: return "Defense";
-        case 2: return "Agility";
-        case 3: return "Intelligence";
-        case 4: return "Gold";
-        case 5: return "Strength";
-        default: return "Unknown";
+        case 0: return "Health"; break;
+        case 1: return "Defense";break;
+        case 2: return "Agility";break;
+        case 3: return "Intelligence";break;
+        case 4: return "Gold";break;
+        case 5: return "Strength";break;
+        default: return "Unknown";break;
     }
 }
 

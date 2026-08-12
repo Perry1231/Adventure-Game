@@ -168,6 +168,7 @@ void PoacherTrapTrigger(Character& hero) {
 }
 void FakeDistressCal(Character& hero) {
     std::cout << "Event: Fake Distress Call!\n";
+    //Fintion !!!!!!!
 }
 void MoneyFind(Character& hero) {
     int gold = rand() % 100 + 1;
@@ -176,6 +177,7 @@ void MoneyFind(Character& hero) {
 }
 void GoodStranger(Character& hero) {
     std::cout << "Event: Good Stranger! You feel refreshed.\n";
+    std::cout << "Your health + 5" << std::endl;
     hero.SetHealth(hero.GetHealth() + 5);
 }
 void GoodWeather(Character& hero) {
