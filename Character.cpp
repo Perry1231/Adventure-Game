@@ -516,9 +516,6 @@ std::cout << "Aura: " << auraType << std::endl;
 return auraType;
 }
 
-
-void Character::TakeDamage(int dmg) { health -= dmg; if (health < 0) health = 0; }
-
 int Character::GetDamage(Character& hero, int damage, MyInventory& inv1) const
 {
 damage = hero.GetTotalDefense() - damage;  

@@ -126,8 +126,8 @@ else if (choice == 4) {
             if (items[i]->GetType() == "Potion") 
             {
                 Potion* potion = dynamic_cast<Potion*>(items[i]);
-                potion->SetOwner(owner);  // ← Установить владельца
-                potion->Use();             // ✓ Теперь это сработает
+                potion->SetOwner(owner); 
+                potion->Use();             
                 DelItem(itemId);
                 break;
             }
@@ -160,5 +160,4 @@ Item* MyInventory::GetItem(int index) const {
     if (index >= 0 && index < count) { return items[index]; } 
     return nullptr; }
 
-//==============================================For_other_characters================================================================
 

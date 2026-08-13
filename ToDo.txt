@@ -1,31 +1,47 @@
+Charcter.cpp=========================================
 Implement Character::Talk(Enemy& enemy)
 Implement Character::Trade(Enemy& enemy)
 Implement Character::Attack(Enemy& enemy)    +-
 Implement Character::Menu(function)
-Perfect Character::DmageSystem(function)            +-
+Perfect Character::DmageSystem(function)     +-
 
+
+OtherCharacter.cpp===================================
 Implement Enemy::RandomizeStats()
 
 
+Addiction.cpp==========================================
 Addiction.cpp -> dificulty choice (ChoiceHard function)
 
-Implement Events.cpp +-
 
+Loader.cpp============================================
 Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
 
-Implement OtherRandomizer.cpp
 
-turn randomizer
-turn menu
+Plot.cpp=============================================
+StartGame()
+StoryFunction()
+
+
+Chest.cpp============================================
+Chest randomizer
+ShowInfo --> interface
+
+Events.cpp============================================
+Implement Events.cpp +-
+Tavern in Events.cpp
+Events.cpp and functions
+events randomizer
+
+
+AdditionalGames.cpp===================================
+Add functional for games 
+Multiply for HowToPlayFunction()
+
+
+Future==================================================
+Optimize process
+Better function / variables other (readable and view)
 
 Add more weapon and armor (future)
 Add more events
-
-Chest randomizer
-
-Better function / variables other (readable and view)
-
-Tavern in Events.cpp
-Events.cpp end functions
-
-Optimize process
