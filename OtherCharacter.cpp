@@ -4,7 +4,7 @@
 //File for additional characters
 
 
-void Enemy::DisplayStats()
+void Enemy::DisplayStatsEnemy()
 {
     std::cout << "\n\n" << std::endl;
     std::cout <<"============================================="<< std::endl;

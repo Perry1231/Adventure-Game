@@ -457,7 +457,7 @@ public:
 	Enemy(std::string name_, std::string description_, std::string race_, std::string profession_, int strength_, int health_, int age_, int defense_, int gold_, int level_, bool attitude_)
 	: Character(health_, name_, age_, race_, profession_, level_, description_, strength_, 10, 10, defense_, gold_), attitude(attitude_) {}
 
-	void DisplayStats();
+	void DisplayStatsEnemy();
 	void RandomizeStats();
 	void EquipWeapon(Weapon* w);
 	void EquipArmor(Armory* a);
