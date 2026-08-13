@@ -14,7 +14,7 @@ enum EventType {
 
 void RandomizerEvent(Character& hero)
 {
-    int eventType = rand() % 27; //From 0 to 26
+    int eventType = rand() % 27; //From 0 to 41
 
     switch (eventType) {
         case TOXIC_RAIN: ToxicRain(hero); break;
