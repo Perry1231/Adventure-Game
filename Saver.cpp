@@ -49,7 +49,7 @@ void Saver(Character& hero, MyInventory& inv) {
     std::string path = name + ".txt";
     std::ofstream fs(path);
     
-    Fail_To_Open_File(fs);//Checker
+    Fail_To_Open_File(fs);
 
     std::cout << "\nSaving to '" << path << "'...\n";
     
@@ -150,7 +150,7 @@ void Saver(Character& hero, MyInventory& inv) {
     fs << "╚══════════════════════════════════════════════════════════════╝\n";
     
     fs.close();
-    std::cout << "\nGame saved successfully to '" << path << "'!\n";
+    Fail_To_Close_File(fs);
+    Check_Save_Status(fs, path);
 
-    All_Error_Detector_Check(fs);//Check for errors
 }
