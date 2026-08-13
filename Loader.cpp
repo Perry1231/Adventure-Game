@@ -52,8 +52,8 @@ void Loader(Character& hero, MyInventory& inv) {
     std::string path = name + ".txt";
     
     std::ifstream fs(path);
+    Fail_To_Open_File(fs);
 
-    Fail_To_Open_File(fs);//Checker
     
     std::cout << "Loading from '" << path << "'...\n";
     std::string line;
@@ -153,7 +153,7 @@ void Loader(Character& hero, MyInventory& inv) {
     
     fs.close();
     
-    Fail_To_Close_File(fs);//Checker
+    Fail_To_Close_File(fs);
     std::cout << "\nGame loaded successfully!\n";
     hero.DisplayStats();
 }

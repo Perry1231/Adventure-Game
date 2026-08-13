@@ -561,9 +561,10 @@ void HowToPlayRollDiceFunction();
 //==================================================================Error_catcher==================================================
 void ListSaveFiles(); 
 void ListSaveFilesLoader();
-void All_Error_Detector_Check(std::ofstream& fs);
+void Fail_To_Open_File(std::ifstream& fs);
+void Fail_To_Close_File(std::ifstream& fs);
 void Fail_To_Open_File(std::ofstream& fs);
 void Fail_To_Close_File(std::ofstream& fs);
-void File_Is_Empty(std::ofstream& fs);
+std::string Check_Save_Status(std::ofstream& fs, std::string path); //ifstream -> loader || ofstream -> saver
 
 #endif
