@@ -49,3 +49,5 @@ Better function / variables other (readable and view)
 Add more weapon and armor (future)
 Add more events
 Check Invenctory.cpp
+
+Checker + tests
