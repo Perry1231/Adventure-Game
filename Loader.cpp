@@ -52,11 +52,8 @@ void Loader(Character& hero, MyInventory& inv) {
     std::string path = name + ".txt";
     
     std::ifstream fs(path);
-    if (!fs.is_open()) {
-        std::cout << "Error: cannot open file '" << path << "'\n";
-        std::cout << "Make sure the file exists in the game folder.\n";
-        return;
-    }
+
+    Fail_To_Open_File(fs);//Checker
     
     std::cout << "Loading from '" << path << "'...\n";
     std::string line;
@@ -155,6 +152,8 @@ void Loader(Character& hero, MyInventory& inv) {
     }
     
     fs.close();
+    
+    Fail_To_Close_File(fs);//Checker
     std::cout << "\nGame loaded successfully!\n";
     hero.DisplayStats();
 }

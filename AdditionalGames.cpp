@@ -15,7 +15,7 @@ std::cout << "Choose option "<<
              std::cin>> choice;
 switch(choice)
 {
-case 1:
+case '1':{
     std::cout << "You sat near strangers to play DiceRoll game " << std::endl;
     std::cout << "You roll the die" << std::endl;
     int roll1 = rand() % 10 + 1; // Roll a ten-sided die 
@@ -28,13 +28,17 @@ case 1:
 
     if(roll1 <= roll2) hero.SetGold(hero.GetGold() + 10);
     break;
-
-    case 2:
+}
+    case '2':
     HowToPlayRollDiceFunction();
-    case 3:
     break;
 
-    default : std::cout << "You eneteed wrong choice. Enter again "<< std::endl;
+    case '3': 
+    return ;
+    break;
+
+    default : 
+    std::cout << "You eneteed wrong choice. Enter again "<< std::endl;
 }
 }
 while(choice != 2);
