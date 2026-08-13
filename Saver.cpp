@@ -34,7 +34,6 @@ inline void ListSaveFiles() {
 }
 
 void Saver(Character& hero, MyInventory& inv) {
-    // Очищаємо буфер вводу
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     ListSaveFiles();
@@ -50,11 +49,8 @@ void Saver(Character& hero, MyInventory& inv) {
     std::string path = name + ".txt";
     std::ofstream fs(path);
     
-    if (!fs.is_open()) {
-        std::cout << "Error: failed to create save file!\n";
-        return;
-    }
-    
+    Fail_To_Open_File(fs);//Checker
+
     std::cout << "\nSaving to '" << path << "'...\n";
     
     fs << "╔══════════════════════════════════════════════════════════════╗\n";
@@ -155,4 +151,6 @@ void Saver(Character& hero, MyInventory& inv) {
     
     fs.close();
     std::cout << "\nGame saved successfully to '" << path << "'!\n";
+
+    All_Error_Detector_Check(fs);//Check for errors
 }

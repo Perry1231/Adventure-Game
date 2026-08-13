@@ -558,6 +558,12 @@ void Turn(Character& hero); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();
-
+//==================================================================Error_catcher==================================================
+void ListSaveFiles(); 
+void ListSaveFilesLoader();
+void All_Error_Detector_Check(std::ofstream& fs);
+void Fail_To_Open_File(std::ofstream& fs);
+void Fail_To_Close_File(std::ofstream& fs);
+void File_Is_Empty(std::ofstream& fs);
 
 #endif
