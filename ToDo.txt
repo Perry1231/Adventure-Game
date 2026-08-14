@@ -6,9 +6,6 @@ Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
 
-OtherCharacter.cpp===================================
-Implement Enemy::RandomizeStats()
-
 
 Addiction.cpp==========================================
 Addiction.cpp -> dificulty choice (ChoiceHard function)

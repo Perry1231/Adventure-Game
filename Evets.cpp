@@ -168,7 +168,11 @@ void PoacherTrapTrigger(Character& hero) {
 }
 void FakeDistressCal(Character& hero) {
     std::cout << "Event: Fake Distress Call!\n";
-    //Fintion !!!!!!!
+    //Funtion !!!!!!!
+}
+void Earthquake(Character& hero)
+{
+    
 }
 void MoneyFind(Character& hero) {
     int gold = rand() % 100 + 1;
