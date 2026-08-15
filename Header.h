@@ -491,7 +491,7 @@ public:
  std::string GetEffectName(int type);
 void MainFunction();
 void ChoiceHard(Enemy& enemy);
-void StartGame(Enemy& enemy);
+void StartGame(Enemy& enemy, Character& hero);
 void Help();
 void GetInfo();
 void Menu(Enemy& enemy, Character& hero);
@@ -553,7 +553,6 @@ void MusicChallenge();
 void FistFight();
 void DrinkingContest();
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
-void StoryFunction();               //Plot.cpp
 void Turn(Character& hero); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================

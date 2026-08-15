@@ -2,25 +2,18 @@
 #include <iostream>
 //For main events and plot
 
-void StartGame(Enemy& enemy)
+void StartGame(Enemy& enemy, Character& hero)
 {
     std::cout << "\n\n" ;
     std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
 
 
     ChoiceHard(enemy);
-    //Additional will be soon
     std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
-
-    //Continue
-    //Plot cont
+    std::cout <<"\n\n";
+    Turn(hero);
 }
 
-
-void StoryFunction()
-{
-
-}
 
 void Turn(Character& hero)
 {
