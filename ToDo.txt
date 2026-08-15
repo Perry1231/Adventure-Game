@@ -15,10 +15,6 @@ Loader.cpp============================================
 Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
 
 
-Plot.cpp=============================================
-StartGame()
-StoryFunction()
-
 
 Chest.cpp============================================
 Chest randomizer
@@ -28,7 +24,8 @@ Events.cpp============================================
 Implement Events.cpp +-
 Tavern in Events.cpp
 Events.cpp and functions
-events randomizer
+Events randomizer +-
+Add more events
 
 
 AdditionalGames.cpp===================================
