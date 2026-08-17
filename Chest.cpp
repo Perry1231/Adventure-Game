@@ -275,14 +275,27 @@ void Chest::Close() {
 
 void Chest::ShowInfo() const 
 {
-    std::cout << "Chest Type: ";
+    std::string typeStr;
+    std::string colorCode;
+
     switch (chestType) {
-        case COMMON: std::cout << "Common"; break;
-        case RARE: std::cout << "Rare"; break;
-        case EPIC: std::cout << "Epic"; break;
-        case LEGENDARY: std::cout << "Legendary"; break;
+        case COMMON:    typeStr = "Common";    colorCode = "\033[37m"; break; // grey clr
+        case RARE:      typeStr = "Rare";      colorCode = "\033[34m"; break; // blue clr
+        case EPIC:      typeStr = "Epic";      colorCode = "\033[35m"; break; // violet clr
+        case LEGENDARY: typeStr = "Legendary"; colorCode = "\033[33m"; break; // gold color
+        default:        typeStr = "Unknown";   colorCode = "\033[0m";  break;
     }
-    std::cout << "\nCapacity: " << capacity << "\nIs Open: " << (isOpen ? "Yes" : "No") << std::endl;
+
+    const std::string reset = "\033[0m";
+
+    std::cout << colorCode
+              << "==============================\n"
+              << "          CHEST INFO          \n"
+              << "==============================\n" << reset
+              << " Type:     " << colorCode << typeStr << reset << "\n"
+              << " Capacity: " << capacity << "\n"
+              << " Status:   " << (isOpen ? "Open" : "Closed") << "\n"
+              << colorCode << "==============================" << reset << "\n";
 }
 
 
