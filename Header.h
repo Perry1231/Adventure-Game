@@ -401,7 +401,26 @@ description_p(description_), isEquipped_p(false), value_p(value_) {}
     Character* GetOwner() const { return owner_p; } 
     void SetOwner(Character* c) { owner_p = c; }   
 };
+//==================================================================Artifact_structure======================================================================================
+class Artifact : public Item
+{
+    protected:
+        std::string name;
+        std::string description;
+        int value;
+        Character* owner_p;
+    public:
 
+Artifact() : name(""), description(""), value(0) {}
+
+    Artifact (std::string name_, std::string description_, int value_)
+: name(name_), description(description_), value(value_) {}s
+
+    int GetValue() const { return value; }
+    std::string GetName() const override { return name; }
+    std::string GetDescription() const { return description; }
+
+};
 //==================================================================Chest_structure=========================================================================================
 class Chest
 {
