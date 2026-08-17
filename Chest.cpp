@@ -2,17 +2,17 @@
 #include "Header.h"
 
 
-void Chest::ChestCreate(ChestType type) {
+void Chest::ChestCreate(ChestType type, Character& hero) {
     this->chestType = type;
     this->isOpen = false;
     this->capacity =0;
     items.clear();                                    
-    RandomizeChest();
+    RandomizeChest(hero);
 }
  
 
 
-void Chest::RandomizeChest()
+void Chest::RandomizeChest(Character& hero)
 {
         int proc = rand() % 100 + 1;     
         if(proc <= 52)
@@ -20,7 +20,29 @@ void Chest::RandomizeChest()
             capacity = rand() % 4 + 1; // Random capacity between 1 and 4
             this->chestType = COMMON;
             this->isOpen = false;
-            this->capacity =capacity;
+            for(int i=0; i<capacity; i++)
+            {
+                int ite = rand() % 3 +1;
+                if(ite == 1) 
+                {
+                Weapon* weapon_1 = new Weapon();
+                weapon_1->RandomizeWeaponStart(hero.GetProfession());
+                this->items.push_back(weapon_1);
+                }
+                else if(ite ==2)
+                {
+                Armory* armor_1 = new Armory();
+                    armor_1->RandomizeArmorStart(); 
+                    this->items.push_back(armor_1);
+                }
+                else
+                {
+                    Potion* potion = new Potion();
+                    potion->RandomizePotion();
+                    this->items.push_back(potion);
+                }
+                
+            }
         }   
         else if (proc >52 && proc <=80)
         {

@@ -413,8 +413,8 @@ protected :
     Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
 
 public:
-    void ChestCreate(ChestType type);
-    void RandomizeChest();
+    void ChestCreate(ChestType type, Character& hero);
+    void RandomizeChest(Character& hero);
     void Open(Character* target);
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
