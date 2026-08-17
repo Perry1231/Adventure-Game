@@ -1,5 +1,6 @@
 #include "Header.h"
-
+#include <iostream>
+#include <iomanip>
 //====================================================Inventory_functions=======================================================================================================
 
 int MyInventory::ResizeInventoryBig()
@@ -14,9 +15,6 @@ int MyInventory::ResizeInventoryBig()
     return 0;
 }
 
-
-#include <iostream>
-#include <iomanip>
 
 void MyInventory::DisplayInventory() const 
 {
