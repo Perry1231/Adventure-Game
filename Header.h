@@ -294,6 +294,7 @@ bool IsEnchanted() const { return isEnchanted_a; }
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 void BrokenArmory();
 void ShowInfo() const override;
+std::string RandomizeArmor();
 std::string RandomizeArmorSpecial();
 std::string RandomizeArmorStart();
 std::string GetName() const override { return name_a; }

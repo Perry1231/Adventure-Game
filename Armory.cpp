@@ -35,6 +35,16 @@
 }
 
 
+std::string Armory::RandomizeArmor()   
+{
+auto& db = GetWeaponAR();
+    int randomIndex = rand() % db.size();
+    auto it = db.begin();
+    std::advance(it, randomIndex);
+    return it->first;
+}
+
+
 std::string Armory::RandomizeArmorStart()                                  //Starter pack armor
 {
     auto& db = GetWeaponAR();
@@ -86,6 +96,10 @@ void Armory::Reset() {
     isEquipped_a = false;
     std::cout << name_a << " unequipped." << std::endl;
 }
+
+
+
+
 
 //==================================================================Special_weapon=========================================================================
 
