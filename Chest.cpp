@@ -48,22 +48,100 @@ void Chest::RandomizeChest(Character& hero)
         {
             this->chestType = RARE;
             this->isOpen = false;
-            this->capacity =capacity;
             capacity = rand() % 6 + 1; 
+            for(int i=0; i<capacity; i++)
+            {
+                int ite = rand() % 3 +1;
+                if(ite == 1) 
+                {
+                Weapon* weapon_1 = new Weapon();
+                weapon_1->RandomizeWeaponStart(hero.GetProfession());
+                this->items.push_back(weapon_1);
+                }
+                else if(ite ==2)
+                {
+                Armory* armor_1 = new Armory();
+                    armor_1->RandomizeArmorStart(); 
+                    this->items.push_back(armor_1);
+                }
+                else
+                {
+                    Potion* potion = new Potion();
+                    potion->RandomizePotion();
+                    this->items.push_back(potion);
+                }
+                
+            }
         }
         else if (proc > 80 && proc <= 95)
         {
             this->chestType = EPIC;
             this->isOpen = false;
-            this->capacity =capacity;
             capacity = rand() % 8 + 2;
+            for(int i=0; i<capacity; i++)
+            {
+                int ite = rand() % 3 +1;
+                if(ite == 1) 
+                {
+                Weapon* weapon_1 = new Weapon();
+                weapon_1->RandomizeWeaponStart(hero.GetProfession());
+                this->items.push_back(weapon_1);
+                }
+                else if(ite ==2)
+                {
+                Armory* armor_1 = new Armory();
+                    armor_1->RandomizeArmorStart(); 
+                    this->items.push_back(armor_1);
+                }
+                else
+                {
+                    Potion* potion = new Potion();
+                    potion->RandomizePotion();
+                    this->items.push_back(potion);
+                }
+                
+            }
         }
         else 
         {
             this->chestType = LEGENDARY;
             this->isOpen = false;
-            this->capacity =capacity;
             capacity = rand() % 10 + 3;
+            for(int i=0; i<capacity; i++)
+            {
+                int ite = rand() % 5 +1;
+                if(ite == 1) 
+                {
+                Weapon* weapon_1 = new Weapon();
+                weapon_1->RandomizeWeapon();
+                this->items.push_back(weapon_1);
+                }
+                else if(ite ==2)
+                {
+                Armory* armor_1 = new Armory();
+                    armor_1->RandomizeArmorStart(); 
+                    this->items.push_back(armor_1);
+                }
+                else if(ite == 3)
+                {
+                    Potion* potion = new Potion();
+                    potion->RandomizePotion();
+                    this->items.push_back(potion);
+                }
+                else if(ite == 4)
+                {
+                    Weapon* weapon_2 = new Weapon();
+                    weapon_2->RandomizeWeaponSpeacial();
+                    this->items.push_back(weapon_2);
+                }
+                else 
+                {
+                    Armory* armor_2 = new Armory();
+                    armor_2->RandomizeArmorSpecial();
+                    this->items.push_back(armor_2);
+                }
+                
+            }
         }
          for (auto item : items) {
         delete item;
