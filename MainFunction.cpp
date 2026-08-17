@@ -49,7 +49,7 @@ void MainFunction() {
         std::cout << "Choice: ";
         std::cin >> mainChoice;                                                                     
         if (mainChoice == 1) {
-            StartGame(enemy);
+            StartGame(enemy, hero);
         } else if (mainChoice == 2) {
            Loader(hero, inv1);                                                                              //Load game
         } else if (mainChoice == 3) {
