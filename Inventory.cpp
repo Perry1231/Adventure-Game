@@ -15,23 +15,42 @@ int MyInventory::ResizeInventoryBig()
 }
 
 
-void MyInventory::DisplayInventory() const                                            //Shows items in inventory
+#include <iostream>
+#include <iomanip>
+
+void MyInventory::DisplayInventory() const 
 {
-     if (count == 0)
+    constexpr const char* CYAN = "\033[36m";
+    constexpr const char* YELLOW = "\033[33m";
+    constexpr const char* GRAY = "\033[90m";
+    constexpr const char* RED = "\033[31m";
+    constexpr const char* RESET = "\033[0m";
+
+    if (count == 0)
     {
-        std::cout << "\nInventory is empty!" << std::endl;
+        std::cout << RED << "\n[!] Inventory is completely empty.\n" << RESET;
         return;
     }
 
-    std::cout << "\n\n=== Your Inventory ================" << std::endl;
-    for (int i = 0; i < count; i++)
-    {
-        std::cout << "\nID: " << items[i]->GetItemId() << "\nName: " <<items[i]->GetName() << " (Type: " << items[i]->GetType() << ")" << std::endl;
-        items[i]->ShowInfo();
-    }
-    std::cout << "\n==================================" << std::endl;
-}
+    std::cout << CYAN << "\n================ INVENTORY (" << count << " items) ================\n" << RESET;
 
+    for (int i = 0; i < count; ++i)
+    {
+        std::cout << YELLOW << "#" << (i + 1) << " " << RESET
+                  << items[i]->GetName() 
+                  << GRAY << " [ID: " << items[i]->GetItemId() 
+                  << " | Type: " << items[i]->GetType() << "]" << RESET << "\n";
+
+  
+        items[i]->ShowInfo();//Details here are
+
+        if (i < count - 1) {
+            std::cout << GRAY << "--------------------------------------------------\n" << RESET;
+        }
+    }
+
+    std::cout << CYAN << "====================================================\n\n" << RESET;
+}
 
 
 int MyInventory::AddItem(Item* item) {
