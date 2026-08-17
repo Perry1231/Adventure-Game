@@ -408,17 +408,25 @@ class Artifact : public Item
         std::string name;
         std::string description;
         int value;
+        int power;
         Character* owner_p;
     public:
 
-Artifact() : name(""), description(""), value(0) {}
+Artifact() : name(""), description(""), value(0) , power(0){}
 
-    Artifact (std::string name_, std::string description_, int value_)
-: name(name_), description(description_), value(value_) {}s
+    Artifact (std::string name_, std::string description_, int value_, int power_)
+: name(name_), description(description_), value(value_), power(power_) {}
 
     int GetValue() const { return value; }
+    int GetPower() const { return power; }
     std::string GetName() const override { return name; }
     std::string GetDescription() const { return description; }
+
+    std::string GetType() const override { return "Artifact"; }
+    void ShowInfo() const override ;
+    void Use() override;
+    void Reset() override;
+    std::string RandomizeArtifact();
 
 };
 //==================================================================Chest_structure=========================================================================================

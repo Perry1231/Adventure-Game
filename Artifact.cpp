@@ -34,7 +34,7 @@
 
 
 
-std::string  Weapon::RandomizeWeaponSpeacial()                                                            
+std::string  Artifact::RandomizeArtifact()                                                            
 { 
     auto& ar = GetWeaponArtifactDB();
                                                                   //Special_weapon
@@ -45,9 +45,27 @@ std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus"
         chosen_name = weapon_ar[rand() % 17];
         auto it = ar.find(chosen_name);
         if (it != ar.end()) {
-            attack_w = it->second.first;
-            value_w = it->second.second;
+            power = it->second.first;
+            value = it->second.second;
         }  
-    name_w = chosen_name;
-    return name_w;
+    name = chosen_name;
+    return name;
+}
+
+
+void ShowInfo() 
+{
+
+}
+
+
+void Use() 
+{
+
+}
+
+
+void Reset() 
+{
+
 }
