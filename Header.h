@@ -409,13 +409,14 @@ class Artifact : public Item
         std::string description;
         int value;
         int power;
+        bool isEquipped;
         Character* owner_p;
     public:
 
-Artifact() : name(""), description(""), value(0) , power(0){}
+Artifact() : name(""), description(""), value(0) , power(0), isEquipped(false){}
 
-    Artifact (std::string name_, std::string description_, int value_, int power_)
-: name(name_), description(description_), value(value_), power(power_) {}
+    Artifact (std::string name_, std::string description_, int value_, int power_, bool isEquipped)
+: name(name_), description(description_), value(value_), power(power_), isEquipped(isEquipped) {}
 
     int GetValue() const { return value; }
     int GetPower() const { return power; }

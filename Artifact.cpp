@@ -53,19 +53,23 @@ std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus"
 }
 
 
-void ShowInfo() 
+void Artifact::ShowInfo()  const
 {
-
+std::cout << "\n===Your Artifact characteristic=== "<< std::endl;
+std::cout << "Name : " << name <<  "\nDescription : " << description <<"\nValue : "<< value <<"\nPower : "<< power << std::endl;
 }
 
 
-void Use() 
-{
 
+void Artifact::Use() 
+{
+    isEquipped = true;
+    std::cout << name << " equipped!" << std::endl;
 }
 
 
-void Reset() 
+void Artifact::Reset() 
 {
-
+    isEquipped = false;
+    std::cout << name << " unequipped." << std::endl;
 }
