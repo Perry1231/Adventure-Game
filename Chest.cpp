@@ -109,7 +109,7 @@ void Chest::RandomizeChest(Character& hero)
             capacity = rand() % 10 + 3;
             for(int i=0; i<capacity; i++)
             {
-                int ite = rand() % 5 +1;
+                int ite = rand() % 6 +1;
                 if(ite == 1) 
                 {
                 Weapon* weapon_1 = new Weapon();
@@ -134,11 +134,17 @@ void Chest::RandomizeChest(Character& hero)
                     weapon_2->RandomizeWeaponSpeacial();
                     this->items.push_back(weapon_2);
                 }
-                else 
+                else if(ite == 5)
                 {
                     Armory* armor_2 = new Armory();
                     armor_2->RandomizeArmorSpecial();
                     this->items.push_back(armor_2);
+                }
+                else 
+                {
+                    Artifact* artifact_2 = new Artifact();
+                    artifact_2->RandomizeArtifact();
+                    this->items.push_back(artifact_2);
                 }
                 
             }
