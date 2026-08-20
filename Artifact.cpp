@@ -2,8 +2,17 @@
 #include <map> 
 //File for artifacts
 
-
-
+static std::string EffectTypeToString(int type) {
+    switch (type) {
+        case 0: return "Health"; break;
+        case 1: return "Defense";break;
+        case 2: return "Agility";break;
+        case 3: return "Intelligence";break;
+        case 4: return "Gold";break;
+        case 5: return "Strength";break;
+        default: return "Unknown";break;
+    }
+}
 
  static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {                 //For artifacts list
     static std::map<std::string, std::pair<int, int>> ar;
@@ -29,9 +38,6 @@
     }
     return ar;
 }
-
-
-
 
 
 std::string  Artifact::RandomizeArtifact()                                                            
@@ -72,4 +78,18 @@ void Artifact::Reset()
 {
     isEquipped = false;
     std::cout << name << " unequipped." << std::endl;
+}
+
+
+void Artifact::ApplyEffect(Character* character) {
+	isEquipped = true;
+	if (!character) {
+		std::cout << "No character to apply the potion effect!" << std::endl;
+		return;
+	}
+	else
+	{
+	character->ApplyArtifactEffect(GetEffectType(), GetArtifactPower());
+	std::cout << "Used " << GetName() << "." << std::endl;
+	}
 }
