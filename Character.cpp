@@ -464,6 +464,10 @@ void Character::ApplyPotionEffect(int effectType, int potency) {
     }
 }
 
+void Character::ApplyArtifactEffect(int effectType, int potency)
+{
+
+}
 
 Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 
 Armory* Character::GetEquippedArmor() const { return equipped_armor; } 

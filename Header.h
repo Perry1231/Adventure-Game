@@ -133,6 +133,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     MyInventory* GetInventory() const { return inventory; } 
 
     void ApplyPotionEffect(int effectType, int potency);
+    void ApplyArtifactEffect(int effectType, int power);
+
     void ProcessEffects(); 
     void AddEffect(int type, int potency, bool debuff = false);
 
@@ -407,28 +409,30 @@ class Artifact : public Item
     protected:
         std::string name;
         std::string description;
+        int effectType; 
         int value;
         int power;
         bool isEquipped;
         Character* owner_p;
     public:
 
-Artifact() : name(""), description(""), value(0) , power(0), isEquipped(false){}
+Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEquipped(false){}
 
-    Artifact (std::string name_, std::string description_, int value_, int power_, bool isEquipped)
-: name(name_), description(description_), value(value_), power(power_), isEquipped(isEquipped) {}
+    Artifact (std::string name_, std::string description_,int EffectType_ ,int value_, int power_, bool isEquipped)
+: name(name_), description(description_), effectType(EffectType_),value(value_), power(power_), isEquipped(isEquipped) {}
 
-    int GetValue() const { return value; }
-    int GetPower() const { return power; }
+    int GetArtifactValue() const { return value; }
+    int GetArtifactPower() const { return power; }
     std::string GetName() const override { return name; }
-    std::string GetDescription() const { return description; }
+    std::string GetArtifactDescription() const { return description; }
+    int GetEffectType() const { return effectType; }
 
     std::string GetType() const override { return "Artifact"; }
     void ShowInfo() const override ;
     void Use() override;
     void Reset() override;
     std::string RandomizeArtifact();
-
+    void Artifact::ApplyEffect(Character* character);
 
     Character* GetOwner() const { return owner_p; } 
     void SetOwner(Character* c) { owner_p = c; } 

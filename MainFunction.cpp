@@ -14,6 +14,11 @@ void MainFunction() {
     Weapon* weapon_2 = new Weapon();
     weapon_2->RandomizeWeaponSpeacial();
 
+    Potion* potion = new Potion();
+    potion->RandomizePotion();
+
+    Artifact* artif = new Artifact();       //Adding artifact for test in inventory
+    artif->RandomizeArtifact();
 
     MyInventory inv1;
     inv1.SetOwner(&hero);
@@ -22,11 +27,12 @@ void MainFunction() {
     inv1.AddItem(weapon_1);             //Added item with ID ---- will be written
     inv1.AddItem(armor_1);
     inv1.AddItem(weapon_2);
-
-    Potion* p = new Potion();
-    p->RandomizePotion();
-    p->SetOwner(&hero); 
-    inv1.AddItem(p);
+    inv1.AddItem(potion);
+    inv1.AddItem(artif);
+    
+    potion->SetOwner(&hero); 
+    artif->SetOwner(&hero);
+    
 
 
     Enemy enemy;
