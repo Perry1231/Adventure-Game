@@ -429,6 +429,10 @@ Artifact() : name(""), description(""), value(0) , power(0), isEquipped(false){}
     void Reset() override;
     std::string RandomizeArtifact();
 
+
+    Character* GetOwner() const { return owner_p; } 
+    void SetOwner(Character* c) { owner_p = c; } 
+
 };
 //==================================================================Chest_structure=========================================================================================
 class Chest
