@@ -16,7 +16,7 @@ Add artifacts and other lists
 
 
 Artifact.cpp==========================================
-realize full structure and methods 
+realize full structure and methods          +-
 
 
 Loader.cpp============================================

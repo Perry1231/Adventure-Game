@@ -39,38 +39,87 @@ static std::string EffectTypeToString(int type) {
     return ar;
 }
 
-
 std::string  Artifact::RandomizeArtifact()                                                            
 { 
     auto& ar = GetWeaponArtifactDB();
-                                                                  //Special_weapon
-std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", "Windvane",  "Spear of Heliod",  "Ephixis",  "Two-Birds Sling",  "Axe of the Dwarvish Lords", 
-                           "Gambler's Blade", "Orcsplitter ","Sword of Sharpness", "Vorpal Sword", "Acheron Blade","Luck Blade", "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"}; //For_artifacts
+    
+    std::string weapon_ar[] = {"Midas arm", "Javelin of Backbiting", "Wand of Orcus", 
+                               "Windvane", "Spear of Heliod", "Ephixis", 
+                               "Two-Birds Sling", "Axe of the Dwarvish Lords", 
+                               "Gambler's Blade", "Orcsplitter ", "Sword of Sharpness", 
+                               "Vorpal Sword", "Acheron Blade", "Luck Blade", 
+                               "Sword of Life Stealing", "Mind Lash", "Dragon Slayer"};
 
- std::string chosen_name; 
-        chosen_name = weapon_ar[rand() % 17];
-        auto it = ar.find(chosen_name);
-        if (it != ar.end()) {
-            power = it->second.first;
-            value = it->second.second;
-        }  
+    std::string chosen_name; 
+    chosen_name = weapon_ar[rand() % 17];
+    
+    // Effect mapping: artifact_name -> {effectType, potency}
+    static std::map<std::string, std::pair<int, int>> artifactEffects = {
+        {"Midas arm", {GOLD, 500}},                    // +500 gold
+        {"Javelin of Backbiting", {STRENGTH, 50}},     // +50 strength
+        {"Wand of Orcus", {INTELLIGENCE, 40}},         // +40 intelligence
+        {"Windvane", {AGILITY, 45}},                   // +45 agility
+        {"Spear of Heliod", {STRENGTH, 35}},           // +35 strength
+        {"Ephixis", {DEFENSE, 30}},                    // +30 defense
+        {"Two-Birds Sling", {AGILITY, 25}},            // +25 agility
+        {"Axe of the Dwarvish Lords", {STRENGTH, 60}}, // +60 strength
+        {"Gambler's Blade", {GOLD, 1000}},             // +1000 gold (risk/reward)
+        {"Orcsplitter ", {DEFENSE, 40}},               // +40 defense
+        {"Sword of Sharpness", {STRENGTH, 45}},        // +45 strength
+        {"Vorpal Sword", {STRENGTH, 55}},              // +55 strength
+        {"Acheron Blade", {INTELLIGENCE, 35}},         // +35 intelligence
+        {"Luck Blade", {GOLD, 750}},                   // +750 gold
+        {"Sword of Life Stealing", {HEALTH, 100}},     // +100 health
+        {"Mind Lash", {INTELLIGENCE, 50}},             // +50 intelligence
+        {"Dragon Slayer", {STRENGTH, 70}}              // +70 strength
+    };
+
+    auto it = ar.find(chosen_name);
+    if (it != ar.end()) {
+        power = it->second.first;
+        value = it->second.second;
+    }  
+    
+    auto ef_it = artifactEffects.find(chosen_name);
+    if (ef_it != artifactEffects.end()) {
+        effectType = ef_it->second.first;
+        power = ef_it->second.second;
+    }
+    
     name = chosen_name;
     return name;
 }
 
-
-void Artifact::ShowInfo()  const
+void Artifact::ShowInfo() const 
 {
-std::cout << "\n===Your Artifact characteristic=== "<< std::endl;
-std::cout << "Name : " << name <<  "\nDescription : " << description <<"\nValue : "<< value <<"\nPower : "<< power << std::endl;
+    std::cout << "Artifact: " << name << std::endl;
+    std::cout << "Type: " << GetType() << std::endl;
+    std::cout << "Power: " << power << std::endl;
+    std::cout << "Value: " << value << " gold" << std::endl;
+    std::cout << "Effect: ";
+    
+    switch (effectType) {
+        case 0: std::cout << "Health +" << power; break;
+        case 1: std::cout << "Defense +" << power; break;
+        case 2: std::cout << "Agility +" << power; break;
+        case 3: std::cout << "Intelligence +" << power; break;
+        case 4: std::cout << "Gold +" << power; break;
+        case 5: std::cout << "Strength +" << power; break;
+    }
+    std::cout << std::endl;
 }
-
 
 
 void Artifact::Use() 
 {
-    isEquipped = true;
-    std::cout << name << " equipped!" << std::endl;
+    if (!owner_p) {
+        std::cout << "Artifact " << name << " has no owner!" << std::endl;
+        return;
+    }
+    
+    std::cout << "Using artifact: " << name << "!" << std::endl;
+    owner_p->ApplyPotionEffect(effectType, power);
+    std::cout << "Effect applied!" << std::endl;
 }
 
 
@@ -78,18 +127,4 @@ void Artifact::Reset()
 {
     isEquipped = false;
     std::cout << name << " unequipped." << std::endl;
-}
-
-
-void Artifact::ApplyEffect(Character* character) {
-	isEquipped = true;
-	if (!character) {
-		std::cout << "No character to apply the potion effect!" << std::endl;
-		return;
-	}
-	else
-	{
-	character->ApplyArtifactEffect(GetEffectType(), GetArtifactPower());
-	std::cout << "Used " << GetName() << "." << std::endl;
-	}
 }
