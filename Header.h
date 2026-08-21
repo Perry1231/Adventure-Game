@@ -432,7 +432,7 @@ Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEqui
     void Use() override;
     void Reset() override;
     std::string RandomizeArtifact();
-    void Artifact::ApplyEffect(Character* character);
+    void ApplyEffect(Character* character);
 
     Character* GetOwner() const { return owner_p; } 
     void SetOwner(Character* c) { owner_p = c; } 

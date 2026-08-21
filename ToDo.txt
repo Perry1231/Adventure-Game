@@ -11,10 +11,6 @@ Addiction.cpp==========================================
 Addiction.cpp -> dificulty choice (ChoiceHard function) +-
 
 
-Weapon.cpp============================================
-Add artifacts and other lists 
-
-
 Artifact.cpp==========================================
 realize full structure and methods          +-
 

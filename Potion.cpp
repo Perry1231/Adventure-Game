@@ -49,7 +49,7 @@ void Potion::ShowInfo() const //Count is weapon broken
 		<< "\nPotency : "<< potency 
 		<< "\nDescribtion : " << description_p
 		<< "\nValue : " << value_p
-		<< "\n Duration : " << std::get<3>(GetPotionPO()[name_p]) 
+		<< "\nDuration : " << std::get<3>(GetPotionPO()[name_p]) 
 		<< "\nIs equipped : " << (isEquipped_p ? "Yes" : "No") << std::endl;
 	std::cout << "\n\n" << std::endl;
 }
