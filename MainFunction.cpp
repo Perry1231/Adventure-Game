@@ -38,70 +38,76 @@ void MainFunction() {
     Enemy enemy;
     enemy.RandomizeStats();
 //====================================================================
-    int mainChoice = 0;
-    while (true) {
-        std::cout << "\n=== MAIN MENU ===" << std::endl;                                            //Main functions (*Main menu*)
-        std::cout << "1. Start game" << std::endl;
+  int mainChoice = 0;
+while (true) {
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                     MAIN MENU                     │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  1. Start game                                    │\n";
+    std::cout << "│  2. Load game                                     │\n";
+    std::cout << "│  3. Save game                                     │\n";
+    std::cout << "│  4. Show character stats                          │\n";
+    std::cout << "│  5. Manage your Inventory                         │\n";
+    std::cout << "│  6. Settings                                      │\n";
+    std::cout << "│  7. Help                                          │\n";
+    std::cout << "│  8. Report bug                                    │\n";
+    std::cout << "│  0. Exit                                          │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
+    std::cout << "Choice: ";
+    std::cin >> mainChoice;                                                                                             
 
-        std::cout << "2. Load game" << std::endl;
-        std::cout << "3. Save game" << std::endl;
-
-        std::cout << "4. Show character stats" << std::endl;
-        std::cout << "5. Manage your Inventory" << std::endl;
-        std::cout << "6. Settings " << std::endl;
-        std::cout << "7. Help" << std::endl;
-        std::cout << "8. Repport bug" << std::endl;
-        std::cout << "0. Exit" << std::endl;
+    if (mainChoice == 1) {
+        StartGame(enemy, hero);
+    } else if (mainChoice == 2) {
+        Loader(hero, inv1);                                                                                                 //Load game
+    } else if (mainChoice == 3) {
+        Saver(hero, inv1);                                                                                                  //Save game
+    } else if (mainChoice == 4) {
+        hero.DisplayStats();                                                                                               //Display stats
+    } else if (mainChoice == 5) {
+        std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+        std::cout << "│                INVENTORY MANAGEMENT               │\n";
+        std::cout << "├───────────────────────────────────────────────────┤\n";
+        std::cout << "│  1. Display inventory                             │\n";                                           //Sub-main functions act1 (Manage inventory)
+        std::cout << "│  2. Show weapon status                            │\n";
+        std::cout << "│  3. Equip weapon                                  │\n";
+        std::cout << "│  4. Unequip weapon                                │\n";
+        std::cout << "│  5. Show armor stats                              │\n";
+        std::cout << "│  6. Equip armor                                   │\n";
+        std::cout << "│  7. Unequip armor                                 │\n";
+        std::cout << "│  0. Back to main menu                             │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         std::cout << "Choice: ";
-        std::cin >> mainChoice;                                                                     
+        std::cin >> mainChoice;
+
         if (mainChoice == 1) {
-            StartGame(enemy, hero);
+            inv1.DisplayInventory();
         } else if (mainChoice == 2) {
-           Loader(hero, inv1);                                                                              //Load game
+            weapon_1->ShowInfo();
         } else if (mainChoice == 3) {
-            Saver(hero, inv1);                                                                              //Save game
+            weapon_1->Use();
         } else if (mainChoice == 4) {
-            hero.DisplayStats();                                                                     //Display stats
+            weapon_1->Reset();
         } else if (mainChoice == 5) {
-            std::cout << "1. Display inventory" << std::endl;                                        //Sub-main functions act1 (Manage inventory)
-            std::cout << "2. Show weapon status" << std::endl;
-            std::cout << "3. Equip weapon" << std::endl;
-            std::cout << "4. Unequip weapon" << std::endl;
-            std::cout << "5. Show armor stats" << std::endl;
-            std::cout << "6. Equip armor" << std::endl;
-            std::cout << "7. Unquip armor" << std::endl;
-            std::cout << "0. Back to main menu" << std::endl;
-            std::cout << "Choice: ";
-            std::cin >> mainChoice;
-            if (mainChoice == 1) {
-                inv1.DisplayInventory();
-            } else if (mainChoice == 2) {
-                weapon_1->ShowInfo();
-            } else if (mainChoice == 3) {
-                weapon_1->Use();
-            } else if (mainChoice == 4) {
-                weapon_1->Reset();
-            } else if (mainChoice == 5) {
-                armor_1->ShowInfo();
-            } else if (mainChoice == 6) {
-                armor_1->Use();
-            } else if (mainChoice == 7) {
-                armor_1->Reset();
-            } else if (mainChoice == 0) {
-                break;
-            } else {
-                std::cout << "Invalid choice!" << std::endl;
-            }
+            armor_1->ShowInfo();
         } else if (mainChoice == 6) {
-            Settings(hero , inv1, enemy);                                                                              //Settings
+            armor_1->Use();
         } else if (mainChoice == 7) {
-            Help();                                                                                             //Help
-        } else if (mainChoice == 8) {
-            BugReportFunction() ;
+            armor_1->Reset();
         } else if (mainChoice == 0) {
             break;
         } else {
-            std::cout << "Invalid choice!" << std::endl;
+            std::cout << "\n[!] Invalid choice!\n";
         }
+    } else if (mainChoice == 6) {
+        Settings(hero , inv1, enemy);                                                                                             //Settings
+    } else if (mainChoice == 7) {
+        Help();                                                                                                            //Help
+    } else if (mainChoice == 8) {
+        BugReportFunction();
+    } else if (mainChoice == 0) {
+        break;
+    } else {
+        std::cout << "\n[!] Invalid choice!\n";
     }
 }
