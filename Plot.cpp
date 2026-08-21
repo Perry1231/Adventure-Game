@@ -4,48 +4,50 @@
 
 void StartGame(Enemy& enemy, Character& hero)
 {
-    std::cout << "\n\n" ;
-    std::cout <<"\n=== START GAME ===\n\n\n" << std::endl;
-
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                    START GAME                     │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 
     ChoiceHard(enemy);
-    std::cout << "Welcome to the game! Your adventure begins now." << std::endl;
-    std::cout <<"\n\n";
+
+    std::cout << "┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│ Welcome to the game! Your adventure begins now.   │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
+
     Turn(hero);
 }
 
-
 void Turn(Character& hero)
 {
-    std::cout << "\n\n" ;
-    std::cout <<"\n=== TURN ===\n\n\n" << std::endl;
-    std::cout <<"----------------"<< std::endl;
-    std::cout <<"Make turn - 1" << std::endl;
-    std::cout <<"Look in inventory - 2" << std::endl;
-    std::cout <<"Go to main menu - 3" << std::endl;
-    std::cout <<"----------------"<< std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                       TURN                        │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  1. Make turn                                     │\n";
+    std::cout << "│  2. Look in inventory                             │\n";
+    std::cout << "│  3. Go to main menu                               │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 
-    std::cout << "Enter choice : " ;
+    std::cout << "Enter choice : ";
     int choice = 0;
     std::cin >> choice;
+
     switch(choice)
     {
         case 1:
-            std::cout << "You make a turn." << std::endl;
+            std::cout << "\nYou make a turn.\n";
             RandomizerEvent(hero); 
             break;
         case 2:
-            std::cout << "You have chosen to look in your inventory." << std::endl;
-            hero.GetInventory()->DisplayInventory(); {
+            std::cout << "\nYou have chosen to look in your inventory.\n";
+            hero.GetInventory()->DisplayInventory();
             break;
         case 3:
-            std::cout << "Returning to main menu." << std::endl;
+            std::cout << "\nReturning to main menu.\n";
             MainFunction(); 
             break;
         default:
-            std::cout << "Invalid choice. Please select a valid option." << std::endl;
+            std::cout << "\nInvalid choice. Please select a valid option.\n";
             break;
     }
-    std::cout << "\n\n" ;
-}
+    std::cout << "\n\n";
 }
