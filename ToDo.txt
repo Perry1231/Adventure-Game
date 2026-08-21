@@ -11,10 +11,6 @@ Addiction.cpp==========================================
 Addiction.cpp -> dificulty choice (ChoiceHard function) +-
 
 
-Artifact.cpp==========================================
-realize full structure and methods          +-
-
-
 Loader.cpp============================================
 Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
 
