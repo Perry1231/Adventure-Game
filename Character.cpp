@@ -464,9 +464,36 @@ void Character::ApplyPotionEffect(int effectType, int potency) {
     }
 }
 
-void Character::ApplyArtifactEffect(int effectType, int potency)
+void Character::ApplyArtifactEffect(int effectType, int power)
 {
-
+ switch (effectType) {
+        case 0: // HEALTH
+            health += power;
+            std::cout << name << " restored " << power << " HP!" << std::endl;
+            break;
+        case 1: // DEFENSE
+            defense += power;
+            std::cout << name << " defense increased by " << power << std::endl;
+            break;
+        case 2: // AGILITY
+            agility += power;
+            std::cout << name << " agility increased by " << power << std::endl;
+            break;
+        case 3: // INTELLIGENCE
+            intelligence += power;
+            std::cout << name << " intelligence increased by " << power << std::endl;
+            break;
+        case 4: // GOLD
+            gold += power;
+            std::cout << name << " got " << power << " gold!" << std::endl;
+              break;
+             case 5: // STRENGTH
+        strength += power;
+        std::cout << name << " strength increased by " << power << std::endl;
+        break;
+        default:
+            std::cout << "Unknown artifact effect!" << std::endl;
+    }
 }
 
 Weapon* Character::GetEquippedWeapon() const { return equipped_weapon; } 

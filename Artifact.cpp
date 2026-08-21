@@ -12,28 +12,31 @@ static std::string EffectTypeToString(int type) {
         default: return "Unknown"; break;
     }
 }
-
+//Name + power + cost
 static std::map<std::string, std::pair<int, int>>& GetWeaponArtifactDB() {
     static std::map<std::string, std::pair<int, int>> ar;
     if (ar.empty()) {
         ar = {
-            {"Midas arm", {10, 10}},
-            {"Javelin of Backbiting", {10, 10}},
-            {"Wand of Orcus", {10, 10}},
-            {"Windvane", {10, 10}},
-            {"Spear of Heliod", {10, 10}},
-            {"Ephixis", {10, 10}},
-            {"Two-Birds Sling", {10, 10}},
-            {"Axe of the Dwarvish Lords", {10, 10}},
-            {"Gambler's Blade", {10, 10}},
-            {"Orcsplitter ", {10, 10}},
-            {"Sword of Sharpness", {10, 10}},
-            {"Vorpal Sword", {10, 10}},
-            {"Acheron Blade", {10, 10}},
-            {"Luck Blade", {10, 10}},
-            {"Sword of Life Stealing", {10, 10}},
-            {"Mind Lash", {10, 10}},
-            {"Dragon Slayer", {10, 10}}
+    {"Midas arm", {1, 15}},
+    {"Orcsplitter ", {1, 12}},
+    {"Two-Birds Sling", {1, 10}},
+
+    //Rare
+    {"Windvane", {2, 35}},
+    {"Spear of Heliod", {2, 40}},
+    {"Sword of Sharpness", {2, 45}},
+    {"Acheron Blade", {2, 38}},
+    {"Mind Lash", {2, 42}},
+
+    //legendary/Epic
+    {"Javelin of Backbiting", {3, 70}},
+    {"Wand of Orcus", {3, 85}},
+    {"Axe of the Dwarvish Lords", {3, 90}},
+    {"Gambler's Blade", {3, 100}},
+    {"Vorpal Sword", {3, 95}},
+    {"Luck Blade", {3, 80}},
+    {"Sword of Life Stealing", {3, 75}},
+    {"Dragon Slayer", {3, 110}}
         };
     }
     return ar;
@@ -80,6 +83,7 @@ std::string Artifact::RandomizeArtifact() {
     if (it != ar.end()) {
         power = it->second.first;
         value = it->second.second;
+        value = value * power + (rand() % 15);
     }
 
     effectType = GetArtifactEffectType(chosen_name);
