@@ -1,80 +1,105 @@
 #include "Header.h"
-//Here is additional functions for game / settings
+#include <iostream>
+#include <string>
+#include <limits>
+
 
 void HelpFunction() 
 {
-    std::cout << "\n\n" ;
-    std::cout << "This is a helper function that can be used for various purposes in the game." << std::endl;
-    std::cout << "You can use this function to display help information and game instructions." << std::endl;
-    std::cout << "This program shows how to structure a simple adventure game using C++." << std::endl;
-    std::cout << "This program is written by Vladyslav Vytrykush to show the knowledge of C++ programming." << std::endl;
-    std::cout << "\n\n" ;
+    // ANSI Color Codes
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+
+    std::cout << "\n" << CYAN << "┌─────────────────────────────────────────────────────────┐\n";
+    std::cout << "│ " << BOLD << YELLOW << "                    GAME HELP MENU                       " << RESET << CYAN << "│\n";
+    std::cout << "├─────────────────────────────────────────────────────────┤" << RESET << "\n";
+    std::cout << "  " << GREEN << "[INFO]" << RESET << " Used to display help information and game instructions.\n";
+    std::cout << "  " << GREEN << "[GAME]" << RESET << " Shows how to structure a C++ adventure game.\n";
+    std::cout << "  " << GREEN << "[DEV ]" << RESET << " Developed by: " << BOLD << "Vladyslav Vytrykush" << RESET << "\n";
+    std::cout << CYAN << "└─────────────────────────────────────────────────────────┘" << RESET << "\n\n";
 }
 
 
-
-void ChoiceHard(Enemy& enemy)
+void ChoiceHard(Enemy& enemy) 
 {
-    std::cout <<"\n\n" ;
-    int difil = 0;
-    std::cout << "Choose difficulty level first" << std::endl;
-    std::cout << "Be prepared for tougher enemies and more challenging puzzles." << std::endl;
-    std::cout << "Good luck on your adventure!" << std::endl;
-    std::cout << "1. Easy" << std::endl;
-    std::cout << "2. Medium" << std::endl;
-    std::cout << "3. Hard" << std::endl;
-    std::cout << "Enter dificulty level : "  ;
-    std::cin >> difil;
-    std::cout << "\n\n" ;
-    if (difil == 1) {
-        std::cout << "You have chosen the easy difficulty level!" << std::endl;
-        std::cout << "Enemies will be weaker and puzzles will be simpler." << std::endl;
-        enemy.SetHealth(enemy.GetHealth()); 
-        enemy.SetStrength(enemy.GetStrength());
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+    const std::string RED     = "\033[31m";
 
-    } else if (difil == 2) {
-        std::cout << "You have chosen the medium difficulty level!" << std::endl;
-        std::cout << "Enemies will be moderately challenging and puzzles will require some thought." << std::endl;
-        enemy.SetHealth(enemy.GetHealth() + (enemy.GetHealth() / 2)); 
-        enemy.SetStrength(enemy.GetStrength() + (enemy.GetStrength() / 2)); 
-    } else if (difil == 3) {
-        std::cout << "You have chosen the hard difficulty level!" << std::endl;
-        std::cout << "Enemies will be tough and puzzles will require careful planning." << std::endl;
-        enemy.SetHealth(enemy.GetHealth() + enemy.GetHealth()); 
-        enemy.SetStrength(enemy.GetStrength() + enemy.GetStrength()); 
+    std::cout << "\n" << CYAN << "┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│ " << BOLD << YELLOW << "             SELECT DIFFICULTY LEVEL               " << RESET << CYAN << "│\n";
+    std::cout << "├───────────────────────────────────────────────────┤" << RESET << "\n";
+    std::cout << "  " << GREEN  << "1. Easy"   << RESET << "   - Base enemy stats\n";
+    std::cout << "  " << YELLOW << "2. Medium" << RESET << " - 1.5x enemy stats\n";
+    std::cout << "  " << RED    << "3. Hard"   << RESET << "   - 2.0x enemy stats\n";
+    std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n";
+    std::cout << "Select option (1-3): ";
 
-    } else {
-        std::cout << "Invalid choice. Please select a valid difficulty level." << std::endl;
+    int choice = 0;
+    while (!(std::cin >> choice) || choice < 1 || choice > 3) {
+        std::cout << RED << "Invalid choice! Enter 1, 2, or 3: " << RESET;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-}
 
+    float multiplier = 1.0f;
+    if (choice == 1) multiplier = 1.0f;
+    else if (choice == 2) multiplier = 1.5f;
+    else if (choice == 3) multiplier = 2.0f;
+
+    enemy.SetHealth(static_cast<int>(enemy.GetHealth() * multiplier));
+    enemy.SetStrength(static_cast<int>(enemy.GetStrength() * multiplier));
+
+    std::cout << "\n" << GREEN << "[SUCCESS]" << RESET << " Game difficulty configured!\n\n";
+}
 
 
 void GetInfo()
 {
-        std::cout << "\n\n" ;
-        std::cout << "\n=== INFO ===" << std::endl;
-        std::cout << "This is a simple adventure game written in C++." << std::endl;
-        std::cout << "You can explore the world, fight enemies, and collect items." << std::endl;
-        std::cout << "Use the main menu to navigate through the game." << std::endl;
-        std::cout << "Have fun and enjoy your adventure!" << std::endl;
-        std::cout << "PS. This program is written by Vladyslav Vytrykush." << std::endl;
-        std::cout << "\n\n" ;
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+
+    std::cout << "\n" << CYAN << "┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│ " << BOLD << YELLOW << "                 GAME INFORMATION                 " << RESET << CYAN << "│\n";
+    std::cout << "├───────────────────────────────────────────────────┤" << RESET << "\n";
+    std::cout << "  " << GREEN << "[GENRE]" << RESET << " Text-Based C++ Adventure Game\n";
+    std::cout << "  " << GREEN << "[FEATURES]" << RESET << " Explore locations, battle foes & gather loot\n";
+    std::cout << "  " << GREEN << "[NAVIGATE]" << RESET << " Use the main menu to make your choices\n";
+    std::cout << "  " << GREEN << "[AUTHOR]" << RESET << " Developed by " << BOLD << "Vladyslav Vytrykush" << RESET << "\n";
+    std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n\n";
 }
 
 
 void Help()
 {
-            std::cout << "\n\n" ;
-            std::cout << "\n=== HELP ===" << std::endl;
-            std::cout << "1. Show character stats - Displays current character statistics" << std::endl;
-            std::cout << "2. Show your inventory - Lists all items in your inventory" << std::endl;
-            std::cout << "3. Manage your Inventory - Access inventory management functions" << std::endl;
-            std::cout << "4. Get info - Display help information" << std::endl;
-            std::cout << "5. Help - Shows this help menu" << std::endl;
-            std::cout << "0. Exit - Quit the program" << std::endl;
-            std::cout << "\n\n" ;
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+    const std::string RED     = "\033[31m";
+
+    std::cout << "\n" << CYAN << "┌─────────────────────────────────────────────────────────┐\n";
+    std::cout << "│ " << BOLD << YELLOW << "                  COMMAND REFERENCE MENU                 " << RESET << CYAN << "│\n";
+    std::cout << "├─────────────────────────────────────────────────────────┤" << RESET << "\n";
+    std::cout << "  " << GREEN << "[1]" << RESET << " Character Stats  - View current character statistics\n";
+    std::cout << "  " << GREEN << "[2]" << RESET << " View Inventory   - List all items in your bag\n";
+    std::cout << "  " << GREEN << "[3]" << RESET << " Manage Inventory - Equip, consume, or drop items\n";
+    std::cout << "  " << GREEN << "[4]" << RESET << " Game Info        - Display game overview & author info\n";
+    std::cout << "  " << GREEN << "[5]" << RESET << " Help Menu        - Display this menu again\n";
+    std::cout << "  " << RED   << "[0]" << RESET << " Exit Game        - Quit the application\n";
+    std::cout << CYAN << "└─────────────────────────────────────────────────────────┘" << RESET << "\n\n";
 }
+
 
 void Reseter(Character& hero, MyInventory& inv)
 {
@@ -108,56 +133,90 @@ void Reseter(Character& hero, MyInventory& inv)
 }
 
 
-
 void Settings(Character& hero, MyInventory& inv, Enemy& enemy)
 {
-    std::cout << "\n\n" ;
-    std::cout << "\n=== SETTINGS ===" << std::endl;
-    std::cout << "1. Change difficulty level" << std::endl;
-    std::cout << "2. --------" << std::endl;                                //Not implemended     
-    std::cout << "3. --------" << std::endl;                                //Not implemended     
-    std::cout << "4. Reset game progress" << std::endl;
-    std::cout << "0. Back to main menu" << std::endl;
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+    const std::string RED     = "\033[31m";
+    const std::string GRAY    = "\033[90m";
 
-    int choice=0;
-    std::cout << "Enter choice : " ;
-    std::cin>> choice;
-    
-    switch (choice)
+    int choice = -1;
+
+    while (choice != 0)
     {
-         case 1://Dificulty 
-         ChoiceHard(enemy);
-         break;
-        case 2:
+        std::cout << "\n" << CYAN << "┌───────────────────────────────────────────────────┐\n";
+        std::cout << "│ " << BOLD << YELLOW << "                   GAME SETTINGS                   " << RESET << CYAN << "│\n";
+        std::cout << "├───────────────────────────────────────────────────┤" << RESET << "\n";
+        std::cout << "  " << GREEN << "[1]" << RESET << " Difficulty Level  - Change enemy scaling\n";
+        std::cout << "  " << GRAY  << "[2] Sound Options     - (Not Available)" << RESET << "\n";
+        std::cout << "  " << GRAY  << "[3] Display Settings  - (Not Available)" << RESET << "\n";
+        std::cout << "  " << RED   << "[4]" << RESET << " Reset Progress    - Reset hero & inventory\n";
+        std::cout << "  " << GREEN << "[0]" << RESET << " Return            - Back to Main Menu\n";
+        std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n";
+        std::cout << "Select option: ";
 
-        break;
-        case 3:
+        if (!(std::cin >> choice)) {
+            std::cout << RED << "\nInvalid input! Enter a valid number." << RESET << "\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
 
-        break;
-        case 4:
-         std::cout << "\n=== RESET GAME ===" << std::endl;
-    std::cout << "All progress will be lost. Continue? (y/n): ";
-    char confirm;
-    std::cin >> confirm;
-    if (confirm == 'y' || confirm == 'Y') {
-        Reseter(hero, inv);
+        switch (choice)
+        {
+            case 1:
+                ChoiceHard(enemy);
+                break;
+
+            case 2:
+            case 3:
+                std::cout << YELLOW << "\n[NOTICE] Option not implemented yet." << RESET << "\n";
+                break;
+
+            case 4: {
+                std::cout << "\n" << RED << "=== RESET GAME PROGRESS ===" << RESET << "\n";
+                std::cout << "All current progress will be lost. Confirm? (y/n): ";
+
+                char confirm;
+                std::cin >> confirm;
+
+                if (confirm == 'y' || confirm == 'Y') {
+                    Reseter(hero, inv);
+                    std::cout << GREEN << "[SUCCESS] Game progress reset to defaults." << RESET << "\n";
+                } else {
+                    std::cout << YELLOW << "[CANCELLED] Action aborted." << RESET << "\n";
+                }
+                break;
+            }
+
+            case 0:
+                break;
+
+            default:
+                std::cout << RED << "\nInvalid choice. Try again." << RESET << "\n";
+                break;
+        }
     }
-    break;
-        case 0:
-
-        break;
-
-        default: std::cout<< "Invalid choice" << std::endl;
-    }
-    std::cout << "\n\n" ;
 }
 
 
 void BugReportFunction()
 {
-    std::cout << "\n\n" ;
-    std::cout << "\n=== BUG REPORT ===" << std::endl;
-    std::cout << "If you encounter any bugs or issues while playing the game, please report them." << std::endl;
-    std::cout << "You can contact the developer at GitHub." << std::endl;
-    std::cout << "\n\n" ;
+    const std::string RESET   = "\033[0m";
+    const std::string BOLD    = "\033[1m";
+    const std::string CYAN    = "\033[36m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+
+    std::cout << "\n" << CYAN << "┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│ " << BOLD << YELLOW << "                    BUG REPORT                     " << RESET << CYAN << "│\n";
+    std::cout << "├───────────────────────────────────────────────────┤" << RESET << "\n";
+    std::cout << "  " << GREEN << "[ISSUE]" << RESET << " Found a bug or glitch during gameplay?\n";
+    std::cout << "  " << GREEN << "[HELP ]" << RESET << " Please report issues on GitHub to help improve\n";
+    std::cout << "           the game for everyone!\n\n";
+    std::cout << "  " << GREEN << "[LINK ]" << RESET << " GitHub: " << BOLD << "github.com/VladyslavVytrykush" << RESET << "\n";
+    std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n\n";
 }
