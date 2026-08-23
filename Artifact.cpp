@@ -93,28 +93,35 @@ std::string Artifact::RandomizeArtifact() {
 }
 
 void Artifact::ShowInfo() const {
-    std::cout << "Artifact: " << name << std::endl;
-    std::cout << "Type: " << GetType() << std::endl;
-    std::cout << "Power: " << power << std::endl;
-    std::cout << "Value: " << value << " gold" << std::endl;
-    std::cout << "Effect: ";
-    std::cout << EffectTypeToString(effectType) << " +" << power;
-    std::cout << std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│              ARTIFACT CHARACTERISTICS             │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  Artifact : " << name << "\n";
+    std::cout << "│  Type     : " << GetType() << "\n";
+    std::cout << "│  Power    : " << power << "\n";
+    std::cout << "│  Value    : " << value << " gold\n";
+    std::cout << "│  Effect   : " << EffectTypeToString(effectType) << " +" << power << "\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
 void Artifact::Use() {
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     if (!owner_p) {
-        std::cout << "Artifact " << name << " has no owner!" << std::endl;
+        std::cout << "│  Artifact " << name << " has no owner!\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         return;
     }
 
-    std::cout << "Using artifact: " << name << "!" << std::endl;
+    std::cout << "│  Using artifact: " << name << "!\n";
     owner_p->ApplyPotionEffect(effectType, power);
-    std::cout << "Effect applied!" << std::endl;
+    std::cout << "│  Effect applied!\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
 void Artifact::Reset() {
     isEquipped = false;
     owner_p = nullptr;
-    std::cout << name << " unequipped." << std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│  " << name << " unequipped.\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
