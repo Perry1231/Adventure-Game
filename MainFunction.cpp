@@ -39,18 +39,17 @@ void MainFunction() {
     enemy.RandomizeStats();
 //====================================================================
   int mainChoice = 0;
-while (true) {
+    while (true) {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                     MAIN MENU                     │\n";
     std::cout << "├───────────────────────────────────────────────────┤\n";
     std::cout << "│  1. Start game                                    │\n";
-    std::cout << "│  2. Load game                                     │\n";
-    std::cout << "│  3. Save game                                     │\n";
-    std::cout << "│  4. Show character stats                          │\n";
-    std::cout << "│  5. Manage your Inventory                         │\n";
-    std::cout << "│  6. Settings                                      │\n";
-    std::cout << "│  7. Help                                          │\n";
-    std::cout << "│  8. Report bug                                    │\n";
+    std::cout << "│  2. Manage game saves                             │\n";
+    std::cout << "│  3. Show character stats                          │\n";
+    std::cout << "│  4. Manage your Inventory                         │\n";
+    std::cout << "│  5. Settings                                      │\n";
+    std::cout << "│  6. Help                                          │\n";
+    std::cout << "│  7. Report bug                                    │\n";
     std::cout << "│  0. Exit                                          │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
     std::cout << "Choice: ";
@@ -59,12 +58,10 @@ while (true) {
     if (mainChoice == 1) {
         StartGame(enemy, hero);
     } else if (mainChoice == 2) {
-        Loader(hero, inv1);                                                                                                 //Load game
+        ManageGameSaves(hero, inv1);                                                                                                 //Load game                                                                                                //Save game
     } else if (mainChoice == 3) {
-        Saver(hero, inv1);                                                                                                  //Save game
-    } else if (mainChoice == 4) {
         hero.DisplayStats();                                                                                               //Display stats
-    } else if (mainChoice == 5) {
+    } else if (mainChoice == 4) {
         std::cout << "\n┌───────────────────────────────────────────────────┐\n";
         std::cout << "│                INVENTORY MANAGEMENT               │\n";
         std::cout << "├───────────────────────────────────────────────────┤\n";
@@ -99,11 +96,11 @@ while (true) {
         } else {
             std::cout << "\n[!] Invalid choice!\n";
         }
-    } else if (mainChoice == 6) {
+    } else if (mainChoice == 5) {
         Settings(hero , inv1, enemy);                                                                                             //Settings
-    } else if (mainChoice == 7) {
+    } else if (mainChoice == 6) {
         Help();                                                                                                            //Help
-    } else if (mainChoice == 8) {
+    } else if (mainChoice == 7) {
         BugReportFunction();
     } else if (mainChoice == 0) {
         break;

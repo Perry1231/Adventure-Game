@@ -595,8 +595,10 @@ void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();
 //==================================================================Error_catcher==================================================
+void ManageGameSaves(Character& hero, MyInventory& inv);
 void ListSaveFiles(); 
 void ListSaveFilesLoader();
+void Deleter();
 void Fail_To_Open_File(std::ifstream& fs);
 void Fail_To_Close_File(std::ifstream& fs);
 void Fail_To_Open_File(std::ofstream& fs);
