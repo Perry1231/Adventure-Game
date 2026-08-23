@@ -4,6 +4,7 @@
 #include <string>
 #include <limits>
 #include <iomanip>
+#include <filesystem>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -32,7 +33,7 @@ inline void ListSaveFiles() {
     
     do {
         if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
-            std::cout << "│  " << (++count) << ". " << findFileData.cFileName << "\n";
+            std::cout << "│  " << (++count) << ". " << findFileData.cFileName << "Delete ?"<<"\n";
             found = true;
         }
     } while (FindNextFileA(hFind, &findFileData) != 0);
@@ -44,4 +45,37 @@ inline void ListSaveFiles() {
     }
     
     std::cout << "└───────────────────────────────────────────────────┘\n";
+}
+
+
+void Deleter()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    ListSaveFiles();
+    
+    std::cout << "\nEnter save number to delete it ";
+    std::string num_delete_save;
+    std::getline(std::cin, num_delete_save);
+    
+    if (num_delete_save.empty()) {
+        num_delete_save = "Saves";
+    }
+
+    std::string path = num_delete_save; + ".txt";
+    std::ofstream fs(path);
+    
+    Fail_To_Open_File(fs);
+
+    std::error_code ec;    
+    if (std::filesystem::remove(num_delete_save, ec)) {
+        std::cout << "File deleted successfully!\n";
+    } else {
+        std::cout << "Error to delete file " << ec.message() << '\n';
+    }
+
+    fs.close();
+    Fail_To_Close_File(fs);
+    Check_Save_Status(fs, path);
+
 }
