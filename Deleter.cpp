@@ -57,8 +57,13 @@ void Deleter() {
     WIN32_FIND_DATAA findFileData;
     HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
     
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                    DELETE SAVE                    │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cout << "No saves found.\n";
+        std::cout << "│  No saves found.                                  │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         return;
     }
 
@@ -66,28 +71,31 @@ void Deleter() {
     do {
         if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
             saveFiles.push_back(findFileData.cFileName);
-            std::cout << ++count << ". " << findFileData.cFileName << "\n";
+            std::cout << "│  " << ++count << ". " << findFileData.cFileName << "\n";
         }
     } while (FindNextFileA(hFind, &findFileData) != 0);
     FindClose(hFind);
 
     if (saveFiles.empty()) {
-        std::cout << "No saves found.\n";
+        std::cout << "│  No saves found.                                  │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         return;
     }
 
-    std::cout << "\nEnter save number to delete it: ";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
+
+    std::cout << "Enter save number to delete it: ";
     std::string num_delete_save;
     std::getline(std::cin, num_delete_save);
 
     if (num_delete_save.empty()) {
-        std::cout << "Cancelled.\n";
+        std::cout << "\n[!] Cancelled.\n";
         return;
     }
 
     int index = std::stoi(num_delete_save) - 1;
     if (index < 0 || index >= saveFiles.size()) {
-        std::cout << "Invalid number!\n";
+        std::cout << "\n[!] Invalid number!\n";
         return;
     }
 
@@ -95,8 +103,8 @@ void Deleter() {
     
     std::error_code ec;
     if (std::filesystem::remove(filename, ec)) {
-        std::cout << "File '" << filename << "' deleted successfully!\n";
+        std::cout << "\n[SUCCESS] File '" << filename << "' deleted successfully!\n";
     } else {
-        std::cout << "Error deleting file: " << ec.message() << '\n';
+        std::cout << "\n[ERROR] Error deleting file: " << ec.message() << '\n';
     }
 }
