@@ -15,25 +15,36 @@
 
 
 void ListSaveFilesLoader() {
-    std::cout << "\n=== Available saves ===\n";
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                  AVAILABLE SAVES                  │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    
     WIN32_FIND_DATAA findFileData;
     HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
+    
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cout << "No saves found.\n";
+        std::cout << "│  No saves found.                                  │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         return;
     }
+
     bool found = false;
     int count = 0;
+    
     do {
         if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
-            std::cout << " " << (++count) << ". " << findFileData.cFileName << "\n";
+            std::cout << "│  " << (++count) << ". " << findFileData.cFileName << "\n";
             found = true;
         }
     } while (FindNextFileA(hFind, &findFileData) != 0);
+    
     FindClose(hFind);
+
     if (!found) {
-        std::cout << "No saves found.\n";
+        std::cout << "│  No saves found.                                  │\n";
     }
+    
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
 void Loader(Character& hero, MyInventory& inv) {

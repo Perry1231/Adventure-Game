@@ -14,23 +14,36 @@
 //This file is for saving game progress
 
 inline void ListSaveFiles() {
-    std::cout << "\n=== Existing saves ===\n";
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                  EXISTING SAVES                   │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    
     WIN32_FIND_DATAA findFileData;
     HANDLE hFind = FindFirstFileA("*.txt", &findFileData);
+    
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cout << "No saves found.\n";
+        std::cout << "│  No saves found.                                  │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
         return;
     }
+
     bool found = false;
     int count = 0;
+    
     do {
         if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
-            std::cout << " " << (++count) << ". " << findFileData.cFileName << "\n";
+            std::cout << "│  " << (++count) << ". " << findFileData.cFileName << "\n";
             found = true;
         }
     } while (FindNextFileA(hFind, &findFileData) != 0);
+    
     FindClose(hFind);
-    if (!found) std::cout << "No saves found.\n";
+
+    if (!found) {
+        std::cout << "│  No saves found.                                  │\n";
+    }
+    
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
 void Saver(Character& hero, MyInventory& inv) {
