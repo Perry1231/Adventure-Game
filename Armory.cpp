@@ -72,29 +72,40 @@ return name_a;
 
 void Armory::ShowInfo() const                                                                                          //Show armor characteristics
 {
-std::cout << "\n===Your armor characteristic=== "<< std::endl;
-std::cout << "Name : " << name_a << "\nDefend : " << defend_a << "\nDurability : " 
-            << durability_a << "\nValue : " << value_a <<"\nIs enchanted : " << (isEnchanted_a ? "Yes" : "No") <<"\n"<< std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│              ARMOR CHARACTERISTICS                │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  Name         : " << name_a << "\n";
+    std::cout << "│  Defense      : " << defend_a << "\n";
+    std::cout << "│  Durability   : " << durability_a << "\n";
+    std::cout << "│  Value        : " << value_a << "\n";
+    std::cout << "│  Is Enchanted : " << (isEnchanted_a ? "Yes" : "No") << "\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
 
-void Armory::BrokenArmory()                                                                                                   //Count is armor broken
+void Armory::BrokenArmory()                                                                                                //Count is armor broken
 {
     isBroken_a = true;
     durability_a = 0;
-    std::cout << (IsUsable() ? "Usable" : "Broken") << std::endl;
+    
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│  Status: " << (IsUsable() ? "Usable" : "Broken") << "\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
-
-
 
 void Armory::Use() {
     isEquipped_a = true;
-    std::cout << name_a << " equipped! Defense: +" << defend_a << std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│  " << name_a << " equipped! Defense: +" << defend_a << "\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
 void Armory::Reset() {
     isEquipped_a = false;
-    std::cout << name_a << " unequipped." << std::endl;
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│  " << name_a << " unequipped.\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
 
