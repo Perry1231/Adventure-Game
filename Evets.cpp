@@ -1,4 +1,9 @@
 #include "Header.h"
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <thread>
+#include <chrono>
 //Additional events for game
 enum EventType {
     TOXIC_RAIN =0, RAIN=1, VOLCANIC_ERUPTION=2, FLASH_FLOOD=3, MUDSLIDE=4, HUMID_HOT=5,
@@ -62,110 +67,142 @@ void RandomizerEvent(Character& hero)
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
+// ANSI Colors for Console
+namespace Color {
+    const std::string RESET   = "\033[0m";
+    const std::string RED     = "\033[31m";
+    const std::string GREEN   = "\033[32m";
+    const std::string YELLOW  = "\033[33m";
+    const std::string BLUE    = "\033[34m";
+    const std::string MAGENTA = "\033[35m";
+    const std::string CYAN    = "\033[36m";
+    const std::string BOLD    = "\033[1m";
+}
 
+// Helper function to render formatted Event Cards
+void PrintEventCard(const std::string& icon, const std::string& title, const std::string& description, const std::string& effectColor = Color::RED) {
+    std::cout << "\n" << Color::BOLD << Color::CYAN << "┌──────────────────────────────────────────────┐\n" << Color::RESET;
+    std::cout << Color::BOLD << Color::CYAN << "│ " << Color::YELLOW << icon << "  " << title;
+    
+    // Padding spaces for border alignment
+    int padding = 43 - (title.length() + 4); 
+    for (int i = 0; i < padding; ++i) std::cout << " ";
+    std::cout << Color::CYAN << "│\n" << Color::RESET;
+    
+    std::cout << Color::BOLD << Color::CYAN << "├──────────────────────────────────────────────┤\n" << Color::RESET;
+    std::cout << Color::CYAN << "│ " << effectColor << description;
+    
+    std::cout << Color::RESET << "\n";
+    std::cout << Color::BOLD << Color::CYAN << "└──────────────────────────────────────────────┘\n" << Color::RESET;
+
+    // Short delay for better visual pacing
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
+}
+
+// Helper function for damage logging
+void DamageHero(Character& hero, int amount) {
+    hero.SetHealth(hero.GetHealth() - amount);
+    std::cout << Color::RED << Color::BOLD << "   [ - " << amount << " HP ] " 
+              << Color::RESET << "Current Health: " << Color::GREEN << hero.GetHealth() << Color::RESET << "\n";
+}
+
+// Helper function for gold loss logging
+void LoseGold(Character& hero, int amount) {
+    hero.SetGold(hero.GetGold() - amount);
+    std::cout << Color::YELLOW << Color::BOLD << "   [ - " << amount << " Gold ] " 
+              << Color::RESET << "Current Gold: " << Color::YELLOW << hero.GetGold() << Color::RESET << "\n";
+}
+
+// ---------------- EVENTS ----------------
 
 void ToxicRain(Character& hero) {
-    std::cout << "Event: Toxic Rain! You take 5 damage.\n";
-    hero.SetHealth(hero.GetHealth() - 5);
+    PrintEventCard("☣️", "TOXIC RAIN", "Acidic rain burns your skin!");
+    DamageHero(hero, 5);
 }
+
 void Rain(Character& hero) {
     int rainType = rand() % 2;
     if (rainType == 0) {
-        std::cout << "Light rain is falling.\n";
-        hero.SetHealth(hero.GetHealth() - 2);
+        PrintEventCard("🌧️", "LIGHT RAIN", "Light rain falls. It is chilly and uncomfortable.", Color::YELLOW);
+        DamageHero(hero, 2);
     } else {
-        std::cout << "Heavy rain is falling! You take 5 damage.\n";
-        hero.SetHealth(hero.GetHealth() - 5);
+        PrintEventCard("⛈️", "HEAVY RAIN", "Heavy rain pours down! You take damage from exposure.");
+        DamageHero(hero, 5);
     }
 }
+
 void VolcanicEruption(Character& hero) {
-    int random = rand() % 2;
-    if (random == 0) {
-        std::cout << "A volcanic eruption occurs! You run away safely.\n";
+    if (rand() % 2 == 0) {
+        PrintEventCard("🌋", "VOLCANIC ERUPTION", "The ground shakes! You manage to escape safely.", Color::GREEN);
     } else {
-        std::cout << "A volcanic eruption occurs! You take 10 damage.\n";
-        hero.SetHealth(hero.GetHealth() - 10);
+        PrintEventCard("🌋", "VOLCANIC ERUPTION", "Hot ash and lava burn you as you run!");
+        DamageHero(hero, 10);
     }
 }
+
 void FlashFlood(Character& hero) {
-    int random = rand() % 2;
-    if (random == 0) {
-        std::cout << "A flood occurs! You run away safely.\n";
+    if (rand() % 2 == 0) {
+        PrintEventCard("🌊", "FLASH FLOOD", "Water rises fast, but you climb to high ground safely.", Color::GREEN);
     } else {
-        std::cout << "A flood occurs! You take 10 damage.\n";
-        hero.SetHealth(hero.GetHealth() - 10);
+        PrintEventCard("🌊", "FLASH FLOOD", "A sudden wave sweeps you away into sharp rocks!");
+        DamageHero(hero, 10);
     }
 }
+
 void Mudslide(Character& hero) {
-    int random = rand() % 2;
-    if (random == 0) {
-        std::cout << "A mudslide occurs! You run away safely.\n";
+    if (rand() % 2 == 0) {
+        PrintEventCard("⛰️", "MUDSLIDE", "A torrent of mud sweeps past you closely.", Color::GREEN);
     } else {
-        std::cout << "A mudslide occurs! You take 5 damage.\n";
-        hero.SetHealth(hero.GetHealth() - 5);
+        PrintEventCard("⛰️", "MUDSLIDE", "You get caught in a dangerous mudslide!");
+        DamageHero(hero, 5);
     }
 }
+
 void HumidHot(Character& hero) {
-    int random = rand() % 2;
-    if (random == 0) {
-        std::cout << "It's humid and hot, but you manage fine.\n";
+    if (rand() % 2 == 0) {
+        PrintEventCard("☀️", "HUMID & HOT", "It's humid and hot, but you manage fine.", Color::YELLOW);
     } else {
-        std::cout << "All water dried up! You take 5 damage.\n";
-        hero.SetHealth(hero.GetHealth() - 5);
+        PrintEventCard("🏜️", "HUMID & HOT", "All water dried up! You suffer from severe heat exhaustion.");
+        DamageHero(hero, 5);
     }
 }
+
 void ConstrictorVines(Character& hero) {
-    std::cout << "Event: Constrictor Vines! You take 3 damage.\n";
-    hero.SetHealth(hero.GetHealth() - 3);
+    PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you!");
+    DamageHero(hero, 3);
 }
-void WildMagicWilds(Character& hero) {
-    std::cout << "Event: Wild Magic in the Wilds!\n";
+
+void QuickFreezingGlade(Character& hero) {
+    PrintEventCard("❄️", "QUICK FREEZING GLADE", "The temperature plummets. Frostbite sets in!");
+    DamageHero(hero, 4);
 }
-void QuickFreezingGlad(Character& hero) {
-    std::cout << "Event: Quick Freezing Glad! You take 4 damage.\n";
-    hero.SetHealth(hero.GetHealth() - 4);
-}
-void WillWispAttraction(Character& hero) {
-    std::cout << "Event: Will-o'-Wisp Attraction!\n";
-}
-void DeadMagicZone(Character& hero) {
-    std::cout << "Event: Dead Magic Zone!\n";
-}
-void PollenHallucinations(Character& hero) {
-    std::cout << "Event: Pollen Hallucinations!\n";
-}
-void EnemyPatrol(Character& hero) {
-    std::cout << "Event: Enemy Patrol!\n";
-}
-void MonsterAmbush(Character& hero) {
-    std::cout << "Event: Monster Ambush!\n";
-}
-void CunningScavengers(Character& hero) {
-    std::cout << "Event: Cunning Scavengers!\n";
-}
-void StagedAccident(Character& hero) {
-    std::cout << "Event: Staged Accident!\n";
-}
-void FalseHospitableHost(Character& hero) {
-    std::cout << "Event: False Hospitable Host!\n";
-}
-void ThePropheticBeggar(Character& hero) {
-    std::cout << "Event: The Prophetic Beggar!\n";
-}
-void TheShadowingKid(Character& hero) {
-    std::cout << "Event: The Shadowing Kid!\n";
-}
+
 void Extortion(Character& hero) {
-    std::cout << "Event: Extortion! You lose 10 gold.\n";
-    hero.SetGold(hero.GetGold() - 10);
+    PrintEventCard("💰", "EXTORTION", "Local bandits force you to hand over some coin!");
+    LoseGold(hero, 10);
 }
-void TheTurncoatGuide(Character& hero) {
-    std::cout << "Event: The Turncoat Guide!\n";
-}
+
 void PoacherTrapTrigger(Character& hero) {
-    std::cout << "Event: Poacher Trap Trigger! You take 6 damage.\n";
-    hero.SetHealth(hero.GetHealth() - 6);
+    PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
+    DamageHero(hero, 6);
 }
+
+// Narrative Events (No stat loss)
+void WildMagicWilds(Character& hero)       { PrintEventCard("✨", "WILD MAGIC WILDS", "Raw magical energy crackles through the air.", Color::MAGENTA); }
+void WillWispAttraction(Character& hero)   { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); }
+void DeadMagicZone(Character& hero)        { PrintEventCard("🚫", "DEAD MAGIC ZONE", "All magic in this area completely vanishes.", Color::CYAN); }
+void PollenHallucinations(Character& hero) { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA); }
+void EnemyPatrol(Character& hero)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
+void MonsterAmbush(Character& hero)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
+void CunningScavengers(Character& hero)    { PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
+void StagedAccident(Character& hero)       { PrintEventCard("🎭", "STAGED ACCIDENT", "A traveler cries for help, but it feels like a trap.", Color::YELLOW); }
+void FalseHospitableHost(Character& hero)  { PrintEventCard("🏡", "FALSE HOSPITABLE HOST", "Your host offers food, but their smile feels unnatural.", Color::YELLOW); }
+void ThePropheticBeggar(Character& hero)   { PrintEventCard("🔮", "PROPHETIC BEGGAR", "An old beggar whispers an ominous prophecy.", Color::CYAN); }
+void TheShadowingKid(Character& hero)      { PrintEventCard("👀", "SHADOWING KID", "A young child stalks you quietly from behind.", Color::CYAN); }
+void TheTurncoatGuide(Character& hero)     { PrintEventCard("🗺️", "TURNCOAT GUIDE", "Your guide seems to be leading you off course...", Color::YELLOW); }
+
+
+
 void FakeDistressCal(Character& hero) {
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
     int choice=0;
