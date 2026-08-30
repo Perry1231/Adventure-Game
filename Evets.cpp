@@ -253,19 +253,19 @@ switch (choice) {
         hero.SetHealth(hero.GetHealth() + 20);
         break;
     case 2:
-        std::cout << "You talk to the locals and gather information about your next adventure." << std::endl;//!!!!!!
+        std::cout << "You talk to the locals and gather information about your next adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         break;
     case 3:
-        std::cout << "You play a game of chance with the tavern patrons." << std::endl;//!!!!!!
+        std::cout << "You play a game of chance with the tavern patrons." << std::endl;
         
         DiceRoll(hero);
         break;
     case 4:
-        std::cout << "You leave the tavern and continue your adventure." << std::endl;//!!!!!!
+        std::cout << "You leave the tavern and continue your adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         break;
     default:
         std::cout << "Invalid choice. You leave the tavern." << std::endl;
-        break;
 }
 }
 
@@ -289,10 +289,16 @@ switch (choice) {
         hero.SetHealth(hero.GetHealth() + 15);
         break;
     case 2:
-        std::cout << "You talk to the other travelers and gather information about your next adventure." << std::endl;//!!!!!!
+        std::cout << "You talk to the other travelers and gather information about your next adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        std::cout << "1. Gain some info about tresures" << std::endl;
+        std::cout << "2. What is going here ?" << std::endl;
+        std::cout << "3. Where I can find job ?" << std::endl;
+        std::cout << "4.                       " << std::endl;
+
         break;
     case 3:
-        std::cout << "You leave the hostel and continue your adventure." << std::endl;//!!!!!!
+        std::cout << "You leave the hostel and continue your adventure." << std::endl;
         break;
     default:
         std::cout << "Invalid choice. You leave the hostel." << std::endl;
