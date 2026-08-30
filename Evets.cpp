@@ -167,9 +167,46 @@ void PoacherTrapTrigger(Character& hero) {
     hero.SetHealth(hero.GetHealth() - 6);
 }
 void FakeDistressCal(Character& hero) {
+    std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
+    int choice=0;
+
+    if(choice == 1)
+    {
+
+    
     std::cout << "Event: Fake Distress Call!\n";
-    //Funtion !!!!!!!
+    int event_fake_diss_call = rand() % 4 +1;
+
+    switch(event_fake_diss_call)
+    {
+case 1:
+std::cout << "It's only your tired imagination" << std::endl;
+
+break;
+case 2:
+std::cout << "It's only tired old granny" << std::endl;
+
+break;
+case 3:
+std::cout << "IT'S WENDIGO RUN !!!" << std::endl;
+
+break;
+case 4:
+std::cout << "You enter big forest" << std::endl;
+
+break;
+    }
 }
+
+
+    else if (choice == 2)
+    {
+        std::cout << "You go away" << std::endl;
+        exit;
+    }
+    else {std::cout << "You entere wrong answer !";}
+}
+
 void Earthquake(Character& hero)
 {
     
