@@ -18,6 +18,18 @@ Events randomizer +-
 Add more events
 
 
+Saver.cpp============================================
+Add game dificult to save + in Header
+
+
+Loader.cpp===========================================
+Add game dificult load + in Header
+
+
+Addition.cpp==========================================
+End Setiings function
+
+
 AdditionalGames.cpp===================================
 Add functional for games 
 Multiply for HowToPlayFunction()

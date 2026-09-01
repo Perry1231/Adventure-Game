@@ -541,13 +541,13 @@ class GameHard
  std::string GetEffectName(int type);
 void MainFunction();
 
-void StartGame(Enemy& enemy, Character& hero);
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty);
 void Help();
 void GetInfo();
-void Menu(Enemy& enemy, Character& hero);
+void Menu(Enemy& enemy, Character& hero, GameHard& levelDificulty);
 //==================================================================Main_Menu_Functions=========================================================================
-void Settings(Character& hero, MyInventory& inv, Enemy& enemy);
-void Reseter (Character& hero, MyInventory& inv);
+void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& levelDificulty);
+void Reseter (Character& hero, MyInventory& inv, GameHard& levelDificulty);
 void Saver(Character& hero, MyInventory& inv);
 void Loader(Character& hero, MyInventory& inv);
 //==================================================================Events_functions============================================================================
@@ -603,7 +603,7 @@ void MusicChallenge();
 void FistFight();
 void DrinkingContest();
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
-void Turn(Character& hero); //Plot.cpp
+void Turn(Character& hero, GameHard& levelDificulty); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();

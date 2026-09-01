@@ -2,22 +2,22 @@
 #include <iostream>
 //For main events and plot
 
-void StartGame(Enemy& enemy, Character& hero)
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                    START GAME                     │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
 
-    ChoiceHard(enemy);
+    GameHard::ChoiceHard(enemy);
 
     std::cout << "┌───────────────────────────────────────────────────┐\n";
     std::cout << "│ Welcome to the game! Your adventure begins now.   │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 
-    Turn(hero);
+    Turn(hero, levelDificulty);
 }
 
-void Turn(Character& hero)
+void Turn(Character& hero, GameHard& levelDificulty)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                       TURN                        │\n";
@@ -35,7 +35,7 @@ void Turn(Character& hero)
     {
         case 1:
             std::cout << "\nYou make a turn.\n";
-            RandomizerEvent(hero); 
+            RandomizerEvent(hero, levelDificulty); // Assuming you have a GameHard object to pass
             break;
         case 2:
             std::cout << "\nYou have chosen to look in your inventory.\n";

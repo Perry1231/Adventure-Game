@@ -101,7 +101,7 @@ void Help()
 }
 
 
-void Reseter(Character& hero, MyInventory& inv)
+void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty)
 {
     hero = Character(); 
     
@@ -112,6 +112,7 @@ void Reseter(Character& hero, MyInventory& inv)
     // Clear inventory
     inv.Clear();
     
+    levelDificulty.SetDifficultyLevel(1);
     Weapon* weapon_1 = new Weapon();
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
     
@@ -174,6 +175,8 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
                 break;
 
             case 2:
+                std::cout << YELLOW << "\n[NOTICE] Option not implemented yet." << RESET << "\n";
+                break;
             case 3:
                 std::cout << YELLOW << "\n[NOTICE] Option not implemented yet." << RESET << "\n";
                 break;
@@ -186,7 +189,7 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
                 std::cin >> confirm;
 
                 if (confirm == 'y' || confirm == 'Y') {
-                    Reseter(hero, inv);
+                    Reseter(hero, inv, levelDificulty);
                     std::cout << GREEN << "[SUCCESS] Game progress reset to defaults." << RESET << "\n";
                 } else {
                     std::cout << YELLOW << "[CANCELLED] Action aborted." << RESET << "\n";
