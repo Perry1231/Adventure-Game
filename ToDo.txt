@@ -26,6 +26,7 @@ Multiply for HowToPlayFunction()
 Armory.cpp============================================
 RandomizeArmorSpecial() not ended
 
+
 Future==================================================
 Optimize process
 Better function / variables other (readable and view)

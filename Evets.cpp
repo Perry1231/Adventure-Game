@@ -17,34 +17,34 @@ enum EventType {
     
 };
 
-void RandomizerEvent(Character& hero)
+void RandomizerEvent(Character& hero, GameHard& levelDificulty)
 {
     int eventType = rand() % 27; //From 0 to 41
 
     switch (eventType) {
-        case TOXIC_RAIN: ToxicRain(hero); break;
-        case RAIN: Rain(hero); break;
-        case VOLCANIC_ERUPTION: VolcanicEruption(hero); break;
-        case FLASH_FLOOD: FlashFlood(hero); break;
-        case MUDSLIDE: Mudslide(hero); break;
-        case HUMID_HOT: HumidHot(hero); break;
-        case CONSTRICTOR_VINES: ConstrictorVines(hero); break;
-        case WILD_MAGIC_WILDS: WildMagicWilds(hero); break;
-        case QUICK_FREEZING_GLAD: QuickFreezingGlad(hero); break;
-        case WILL_WISP_ATTRACTION: WillWispAttraction(hero); break;
-        case DEAD_MAGIC_ZONE: DeadMagicZone(hero); break;
-        case POLLEN_HALLUCINATIONS: PollenHallucinations(hero); break;
-        case ENEMY_PATROL: EnemyPatrol(hero); break;
-        case MONSTER_AMBUSH: MonsterAmbush(hero); break;
-        case CUNNING_SCAVENGERS: CunningScavengers(hero); break;
-        case STAGED_ACCIDENT: StagedAccident(hero); break;
-        case FALSE_HOSPITABLE_HOST: FalseHospitableHost(hero); break;
-        case THE_PROPHETIC_BEGGAR: ThePropheticBeggar(hero); break;
-        case THE_SHADOWING_KID: TheShadowingKid(hero); break;
-        case EXTORTION: Extortion(hero); break;
-        case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero); break;
-        case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero); break;
-        case FAKE_DISTRESS_CALL: FakeDistressCal(hero); break;
+        case TOXIC_RAIN: ToxicRain(hero, levelDificulty); break;
+        case RAIN: Rain(hero, levelDificulty); break;
+        case VOLCANIC_ERUPTION: VolcanicEruption(hero, levelDificulty); break;
+        case FLASH_FLOOD: FlashFlood(hero, levelDificulty); break;
+        case MUDSLIDE: Mudslide(hero, levelDificulty); break;
+        case HUMID_HOT: HumidHot(hero, levelDificulty); break;
+        case CONSTRICTOR_VINES: ConstrictorVines(hero, levelDificulty); break;
+        case WILD_MAGIC_WILDS: WildMagicWilds(hero, levelDificulty); break;
+        case QUICK_FREEZING_GLAD: QuickFreezingGlad(hero, levelDificulty); break;
+        case WILL_WISP_ATTRACTION: WillWispAttraction(hero, levelDificulty); break;
+        case DEAD_MAGIC_ZONE: DeadMagicZone(hero, levelDificulty); break;
+        case POLLEN_HALLUCINATIONS: PollenHallucinations(hero, levelDificulty); break;
+        case ENEMY_PATROL: EnemyPatrol(hero, levelDificulty); break;
+        case MONSTER_AMBUSH: MonsterAmbush(hero, levelDificulty); break;
+        case CUNNING_SCAVENGERS: CunningScavengers(hero, levelDificulty); break;
+        case STAGED_ACCIDENT: StagedAccident(hero, levelDificulty); break;
+        case FALSE_HOSPITABLE_HOST: FalseHospitableHost(hero, levelDificulty); break;
+        case THE_PROPHETIC_BEGGAR: ThePropheticBeggar(hero, levelDificulty); break;
+        case THE_SHADOWING_KID: TheShadowingKid(hero, levelDificulty); break;
+        case EXTORTION: Extortion(hero, levelDificulty); break;
+        case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
+        case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty); break;
+        case FAKE_DISTRESS_CALL: FakeDistressCal(hero, levelDificulty); break;
         case MONEY_FIND: MoneyFind(hero); break;
         case GOOD_STRANGER: GoodStranger(hero); break;
         case GOOD_WEATHER: GoodWeather(hero); break;
@@ -115,12 +115,19 @@ void LoseGold(Character& hero, int amount) {
 
 // ---------------- EVENTS ----------------
 
-void ToxicRain(Character& hero) {
+void ToxicRain(Character& hero, GameHard& levelDificulty) {
+    if (levelDificulty.GetDifficultyLevel() >= 2) {
+        PrintEventCard("☣️", "TOXIC RAIN", "Acidic rain burns your skin! You take extra damage due to the high difficulty level.");
+        DamageHero(hero, 10); // Increased damage for higher difficulty
+    } else {
+        PrintEventCard("☣️", "TOXIC RAIN", "Acidic rain burns your skin!");
+        DamageHero(hero, 5);
+    }
     PrintEventCard("☣️", "TOXIC RAIN", "Acidic rain burns your skin!");
     DamageHero(hero, 5);
 }
 
-void Rain(Character& hero) {
+void Rain(Character& hero, GameHard& levelDificulty) {
     int rainType = rand() % 2;
     if (rainType == 0) {
         PrintEventCard("🌧️", "LIGHT RAIN", "Light rain falls. It is chilly and uncomfortable.", Color::YELLOW);
@@ -131,7 +138,7 @@ void Rain(Character& hero) {
     }
 }
 
-void VolcanicEruption(Character& hero) {
+void VolcanicEruption(Character& hero, GameHard& levelDificulty) {
     if (rand() % 2 == 0) {
         PrintEventCard("🌋", "VOLCANIC ERUPTION", "The ground shakes! You manage to escape safely.", Color::GREEN);
     } else {
@@ -140,16 +147,27 @@ void VolcanicEruption(Character& hero) {
     }
 }
 
-void FlashFlood(Character& hero) {
+void FlashFlood(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("🌊", "FLASH FLOOD", "A sudden wave sweeps you away into sharp rocks! You take extra damage due to the high difficulty level.");
+        DamageHero(hero, 15); // Increased damage for higher difficulty
+    } else
     if (rand() % 2 == 0) {
         PrintEventCard("🌊", "FLASH FLOOD", "Water rises fast, but you climb to high ground safely.", Color::GREEN);
     } else {
         PrintEventCard("🌊", "FLASH FLOOD", "A sudden wave sweeps you away into sharp rocks!");
         DamageHero(hero, 10);
     }
+
 }
 
-void Mudslide(Character& hero) {
+void Mudslide(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("⛰️", "MUDSLIDE", "A torrent of mud sweeps past you closely! You take extra damage due to the high difficulty level.");
+        DamageHero(hero, 10); // Increased damage for higher difficulty
+    } else
     if (rand() % 2 == 0) {
         PrintEventCard("⛰️", "MUDSLIDE", "A torrent of mud sweeps past you closely.", Color::GREEN);
     } else {
@@ -158,7 +176,12 @@ void Mudslide(Character& hero) {
     }
 }
 
-void HumidHot(Character& hero) {
+void HumidHot(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("🏜️", "HUMID & HOT", "All water dried up! You suffer from severe heat exhaustion! Extra damage due to high difficulty level.");
+        DamageHero(hero, 10); // Increased damage for higher difficulty
+    } else
     if (rand() % 2 == 0) {
         PrintEventCard("☀️", "HUMID & HOT", "It's humid and hot, but you manage fine.", Color::YELLOW);
     } else {
@@ -167,43 +190,72 @@ void HumidHot(Character& hero) {
     }
 }
 
-void ConstrictorVines(Character& hero) {
-    PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you!");
-    DamageHero(hero, 3);
+void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you! Extra damage due to high difficulty level.");
+        DamageHero(hero, 6); // Increased damage for higher difficulty
+    } else
+    {
+        PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you!");
+        DamageHero(hero, 3);
+    }
 }
 
-void QuickFreezingGlade(Character& hero) {
+
+void QuickFreezingGlade(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("❄️", "QUICK FREEZING GLADE", "The temperature plummets. Frostbite sets in! Extra damage due to high difficulty level.");
+        DamageHero(hero, 8); // Increased damage for higher difficulty
+    } else
+    {
     PrintEventCard("❄️", "QUICK FREEZING GLADE", "The temperature plummets. Frostbite sets in!");
     DamageHero(hero, 4);
+    }
 }
 
-void Extortion(Character& hero) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void Extortion(Character& hero, GameHard& levelDificulty) {
     PrintEventCard("💰", "EXTORTION", "Local bandits force you to hand over some coin!");
     LoseGold(hero, 10);
 }
 
-void PoacherTrapTrigger(Character& hero) {
+void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty) {
     PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
     DamageHero(hero, 6);
 }
 
 // Narrative Events (No stat loss)
-void WildMagicWilds(Character& hero)       { PrintEventCard("✨", "WILD MAGIC WILDS", "Raw magical energy crackles through the air.", Color::MAGENTA); }
-void WillWispAttraction(Character& hero)   { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); }
-void DeadMagicZone(Character& hero)        { PrintEventCard("🚫", "DEAD MAGIC ZONE", "All magic in this area completely vanishes.", Color::CYAN); }
-void PollenHallucinations(Character& hero) { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA); }
-void EnemyPatrol(Character& hero)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
-void MonsterAmbush(Character& hero)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
-void CunningScavengers(Character& hero)    { PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
-void StagedAccident(Character& hero)       { PrintEventCard("🎭", "STAGED ACCIDENT", "A traveler cries for help, but it feels like a trap.", Color::YELLOW); }
-void FalseHospitableHost(Character& hero)  { PrintEventCard("🏡", "FALSE HOSPITABLE HOST", "Your host offers food, but their smile feels unnatural.", Color::YELLOW); }
-void ThePropheticBeggar(Character& hero)   { PrintEventCard("🔮", "PROPHETIC BEGGAR", "An old beggar whispers an ominous prophecy.", Color::CYAN); }
-void TheShadowingKid(Character& hero)      { PrintEventCard("👀", "SHADOWING KID", "A young child stalks you quietly from behind.", Color::CYAN); }
-void TheTurncoatGuide(Character& hero)     { PrintEventCard("🗺️", "TURNCOAT GUIDE", "Your guide seems to be leading you off course...", Color::YELLOW); }
+void WildMagicWilds(Character& hero, GameHard& levelDificulty)       { PrintEventCard("✨", "WILD MAGIC WILDS", "Raw magical energy crackles through the air.", Color::MAGENTA); }
+void WillWispAttraction(Character& hero, GameHard& levelDificulty)   { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); }
+void DeadMagicZone(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🚫", "DEAD MAGIC ZONE", "All magic in this area completely vanishes.", Color::CYAN); }
+void PollenHallucinations(Character& hero, GameHard& levelDificulty) { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA); }
+void EnemyPatrol(Character& hero, GameHard& levelDificulty)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
+void MonsterAmbush(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
+void CunningScavengers(Character& hero, GameHard& levelDificulty)    { PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
+void StagedAccident(Character& hero, GameHard& levelDificulty)       { PrintEventCard("🎭", "STAGED ACCIDENT", "A traveler cries for help, but it feels like a trap.", Color::YELLOW); }
+void FalseHospitableHost(Character& hero, GameHard& levelDificulty)  { PrintEventCard("🏡", "FALSE HOSPITABLE HOST", "Your host offers food, but their smile feels unnatural.", Color::YELLOW); }
+void ThePropheticBeggar(Character& hero, GameHard& levelDificulty)   { PrintEventCard("🔮", "PROPHETIC BEGGAR", "An old beggar whispers an ominous prophecy.", Color::CYAN); }
+void TheShadowingKid(Character& hero, GameHard& levelDificulty)      { PrintEventCard("👀", "SHADOWING KID", "A young child stalks you quietly from behind.", Color::CYAN); }
+void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEventCard("🗺️", "TURNCOAT GUIDE", "Your guide seems to be leading you off course...", Color::YELLOW); }
 
 
 
-void FakeDistressCal(Character& hero) {
+void FakeDistressCal(Character& hero, GameHard& levelDificulty) {
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
     int choice=0;
 
@@ -244,11 +296,11 @@ break;
     else {std::cout << "You entere wrong answer !";}
 }
 
-void Earthquake(Character& hero)
+void Earthquake(Character& hero, GameHard& levelDificulty)
 {
     
 }
-void MoneyFind(Character& hero) {
+void MoneyFind(Character& hero, GameHard& levelDificulty) {
     int gold = rand() % 100 + 1;
     hero.SetGold(hero.GetGold() + gold);
     std::cout << "You found " << gold << " gold!\n";
