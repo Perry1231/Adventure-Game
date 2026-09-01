@@ -16,7 +16,7 @@ Tavern in Events.cpp
 Events.cpp and functions
 Events randomizer +-
 Add more events
-
+Use all parametrs to launch game
 
 Saver.cpp============================================
 Add game dificult to save + in Header
