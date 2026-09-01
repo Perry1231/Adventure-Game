@@ -45,10 +45,10 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty)
         case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
         case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty); break;
         case FAKE_DISTRESS_CALL: FakeDistressCal(hero, levelDificulty); break;
-        case MONEY_FIND: MoneyFind(hero); break;
-        case GOOD_STRANGER: GoodStranger(hero); break;
-        case GOOD_WEATHER: GoodWeather(hero); break;
-        case GOOD_REST: GoodRest(hero); break;
+        case MONEY_FIND: MoneyFind(hero, levelDificulty); break;
+        case GOOD_STRANGER: GoodStranger(hero,  levelDificulty); break;
+        case GOOD_WEATHER: GoodWeather(hero,  levelDificulty); break;
+        case GOOD_REST: GoodRest(hero,  levelDificulty); break;
         case TAVERN: Tavern(hero); break;
         case HOSTEL: Hostel(hero); break;
         case CASTLE: Castle(hero); break;
