@@ -524,10 +524,23 @@ public:
 
 };
 
+class GameHard
+{
+    protected:
+        int difficultyLevel;
+    public:
+        GameHard() : difficultyLevel(1) {}
+        GameHard(int level) : difficultyLevel(level) {}
+
+        void DisplayDifficulty() const;
+        void ChoiceHard(Enemy& enemy);
+        void SetDifficultyLevel(int level) { difficultyLevel = level; }
+        int GetDifficultyLevel() const { return difficultyLevel; }
+};
 //==================================================================Other_functions=============================================================================
  std::string GetEffectName(int type);
 void MainFunction();
-void ChoiceHard(Enemy& enemy);
+
 void StartGame(Enemy& enemy, Character& hero);
 void Help();
 void GetInfo();

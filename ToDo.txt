@@ -6,11 +6,6 @@ Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
 
-
-Addiction.cpp==========================================
-Addiction.cpp -> dificulty choice (ChoiceHard function) +-
-
-
 Loader.cpp============================================
 Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
 

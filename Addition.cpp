@@ -23,7 +23,7 @@ void HelpFunction()
 }
 
 
-void ChoiceHard(Enemy& enemy) 
+void GameHard::ChoiceHard(Enemy& enemy) 
 {
     const std::string RESET   = "\033[0m";
     const std::string BOLD    = "\033[1m";
@@ -49,9 +49,9 @@ void ChoiceHard(Enemy& enemy)
     }
 
     float multiplier = 1.0f;
-    if (choice == 1) multiplier = 1.0f;
-    else if (choice == 2) multiplier = 1.5f;
-    else if (choice == 3) multiplier = 2.0f;
+    if (choice == 1) {multiplier = 1.0f; difficultyLevel = 1;}
+    else if (choice == 2) {multiplier = 1.5f; difficultyLevel = 2;}
+    else if (choice == 3) {multiplier = 2.0f; difficultyLevel = 3;}
 
     enemy.SetHealth(static_cast<int>(enemy.GetHealth() * multiplier));
     enemy.SetStrength(static_cast<int>(enemy.GetStrength() * multiplier));
@@ -133,8 +133,10 @@ void Reseter(Character& hero, MyInventory& inv)
 }
 
 
-void Settings(Character& hero, MyInventory& inv, Enemy& enemy)
+void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficultyLevel)
 {
+    difficultyLevel.ChoiceHard(enemy);
+
     const std::string RESET   = "\033[0m";
     const std::string BOLD    = "\033[1m";
     const std::string CYAN    = "\033[36m";
@@ -168,7 +170,7 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy)
         switch (choice)
         {
             case 1:
-                ChoiceHard(enemy);
+                difficultyLevel.ChoiceHard(enemy);
                 break;
 
             case 2:
@@ -219,4 +221,12 @@ void BugReportFunction()
     std::cout << "           the game for everyone!\n\n";
     std::cout << "  " << GREEN << "[LINK ]" << RESET << " GitHub: " << BOLD << "github.com/VladyslavVytrykush" << RESET << "\n";
     std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n\n";
+}
+
+
+void GameHard::DisplayDifficulty() const
+{
+    std::cout <<"==================================================" << std::endl;
+    std::cout << "Current difficulty level: " << difficultyLevel << "\n";
+    std::cout <<"==================================================" << std::endl;
 }
