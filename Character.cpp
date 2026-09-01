@@ -547,7 +547,7 @@ std::cout << "Aura: " << auraType << std::endl;
 return auraType;
 }
 
-int Character::GetDamage(Character& hero, int damage, MyInventory& inv1) const
+int Character::GetDamage(Character& hero, int damage, MyInventory& inv1, GameHard& difficultyLevel) const
 {
 damage = hero.GetTotalDefense() - damage;  
 if (damage < GetTotalDefense())
@@ -564,7 +564,7 @@ else if (damage >= GetTotalDefense())
     std::cin >> ch;
     if(ch == 1) {
         std::cout << "Restarting the game..." << std::endl;
-        Reseter(hero, inv1); // Exit the program to allow for a restart
+        Reseter(hero, inv1, difficultyLevel); // Exit the program to allow for a restart
     } else {
         std::cout << "Exiting the game. Goodbye!" << std::endl;
     std::exit(0);

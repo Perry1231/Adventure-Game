@@ -189,7 +189,8 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
                 std::cin >> confirm;
 
                 if (confirm == 'y' || confirm == 'Y') {
-                    Reseter(hero, inv, levelDificulty);
+                    
+                    Reseter(hero, inv, difficultyLevel);
                     std::cout << GREEN << "[SUCCESS] Game progress reset to defaults." << RESET << "\n";
                 } else {
                     std::cout << YELLOW << "[CANCELLED] Action aborted." << RESET << "\n";

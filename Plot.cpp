@@ -8,7 +8,7 @@ void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty)
     std::cout << "│                    START GAME                     │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
 
-    GameHard::ChoiceHard(enemy);
+    levelDificulty.ChoiceHard(enemy);
 
     std::cout << "┌───────────────────────────────────────────────────┐\n";
     std::cout << "│ Welcome to the game! Your adventure begins now.   │\n";

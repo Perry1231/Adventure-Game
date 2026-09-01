@@ -33,7 +33,8 @@ void MainFunction() {
     potion->SetOwner(&hero); 
     artif->SetOwner(&hero);
     
-
+    GameHard difficultyLevelObj;
+    difficultyLevelObj.SetDifficultyLevel(1); 
 
     Enemy enemy;
     enemy.RandomizeStats();
@@ -56,7 +57,7 @@ void MainFunction() {
     std::cin >> mainChoice;                                                                                             
 
     if (mainChoice == 1) {
-        StartGame(enemy, hero);
+        StartGame(enemy, hero, difficultyLevelObj);                                                                                                 //Start game
     } else if (mainChoice == 2) {
         ManageGameSaves(hero, inv1);                                                                                                 //Load game                                                                                                //Save game
     } else if (mainChoice == 3) {
@@ -97,7 +98,7 @@ void MainFunction() {
             std::cout << "\n[!] Invalid choice!\n";
         }
     } else if (mainChoice == 5) {
-        Settings(hero , inv1, enemy);                                                                                             //Settings
+        Settings(hero , inv1, enemy, difficultyLevelObj);                                                                                             //Settings
     } else if (mainChoice == 6) {
         Help();                                                                                                            //Help
     } else if (mainChoice == 7) {

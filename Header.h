@@ -15,6 +15,7 @@ class Potion;
 class MyInventory;  
 class Chest; 
 class Enemy;
+class GameHard;
 
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH }; 
@@ -93,7 +94,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     Armory* GetEquippedArmor() const; 
 
     //Battling
-    int GetDamage(Character& hero, int damage, MyInventory& inv) const;                  
+    int GetDamage(Character& hero, int damage, MyInventory& inv, GameHard& difficultyLevel) const;                  
     int GetTotalAttack() const; 
     int GetTotalDefense() const; 
     int GetTotalHealth() const;
