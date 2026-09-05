@@ -560,10 +560,8 @@ void Mudslide(Character& hero, GameHard& levelDificulty);
 void HumidHot(Character& hero, GameHard& levelDificulty);
 
 void ConstrictorVines(Character& hero, GameHard& levelDificulty);     //Events.cpp and all down
-void WildMagicWilds(Character& hero, GameHard& levelDificulty);
 void QuickFreezingGlad(Character& hero, GameHard& levelDificulty);
 void WillWispAttraction(Character& hero, GameHard& levelDificulty);
-void DeadMagicZone(Character& hero, GameHard& levelDificulty);
 void PollenHallucinations (Character& hero, GameHard& levelDificulty);
 void EnemyPatrol(Character& hero, GameHard& levelDificulty);
 void MonsterAmbush(Character& hero, GameHard& levelDificulty);
@@ -597,6 +595,8 @@ void GoodPlace(Character& hero);
 void FishingChallenge(Character& hero);
 void ArcheryContest(Character& hero);
 void StrangeStone(Character& hero);
+void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
+void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty);
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void BoardGame();

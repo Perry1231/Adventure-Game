@@ -7,19 +7,19 @@
 //Additional events for game
 enum EventType {
     TOXIC_RAIN =0, RAIN=1, VOLCANIC_ERUPTION=2, FLASH_FLOOD=3, MUDSLIDE=4, HUMID_HOT=5,
-    CONSTRICTOR_VINES=6, WILD_MAGIC_WILDS=7, QUICK_FREEZING_GLAD=8,
-    WILL_WISP_ATTRACTION=9, DEAD_MAGIC_ZONE=10, POLLEN_HALLUCINATIONS=11,
-    ENEMY_PATROL=12, MONSTER_AMBUSH=13, CUNNING_SCAVENGERS=14, STAGED_ACCIDENT=15,
-    FALSE_HOSPITABLE_HOST=16, THE_PROPHETIC_BEGGAR=17, THE_SHADOWING_KID=18,
-    EXTORTION=19, THE_TURNCOAT_GUIDE=20, POACHER_TRAP_TRIGGER=21, FAKE_DISTRESS_CALL=22,
-    MONEY_FIND=23, GOOD_STRANGER=24, GOOD_WEATHER=25, GOOD_REST=26 , TAVERN=27, HOSTEL=28, CASTLE=29, DUNGEON=30, CAVE=31, FOREST=32, DESERT=33,
-    VILLAGE=34, BASTION=35, TOWERPLACE=36, SIMPLE_HOUSE=37, GOOD_PLACE=38 , FISHING_CHALLENGE=39, ARCHERY_CONTEST=40, STRANGE_STONE=41
+    CONSTRICTOR_VINES=6, QUICK_FREEZING_GLAD=7,
+    WILL_WISP_ATTRACTION=8,POLLEN_HALLUCINATIONS=10,
+    ENEMY_PATROL=11, MONSTER_AMBUSH=12, CUNNING_SCAVENGERS=13, STAGED_ACCIDENT=14,
+    FALSE_HOSPITABLE_HOST=15, THE_PROPHETIC_BEGGAR=16, THE_SHADOWING_KID=17,
+    EXTORTION=18, THE_TURNCOAT_GUIDE=19, POACHER_TRAP_TRIGGER=20, FAKE_DISTRESS_CALL=21,
+    MONEY_FIND=22, GOOD_STRANGER=23, GOOD_WEATHER=24, GOOD_REST=25 , TAVERN=26, HOSTEL=27, CASTLE=28, DUNGEON=29, CAVE=30, FOREST=31, DESERT=32,
+    VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
     
 };
 
 void RandomizerEvent(Character& hero, GameHard& levelDificulty)
 {
-    int eventType = rand() % 27; //From 0 to 41
+    int eventType = rand() % 41; //From 0 to 41
 
     switch (eventType) {
         case TOXIC_RAIN: ToxicRain(hero, levelDificulty); break;
@@ -29,10 +29,8 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty)
         case MUDSLIDE: Mudslide(hero, levelDificulty); break;
         case HUMID_HOT: HumidHot(hero, levelDificulty); break;
         case CONSTRICTOR_VINES: ConstrictorVines(hero, levelDificulty); break;
-        case WILD_MAGIC_WILDS: WildMagicWilds(hero, levelDificulty); break;
         case QUICK_FREEZING_GLAD: QuickFreezingGlad(hero, levelDificulty); break;
         case WILL_WISP_ATTRACTION: WillWispAttraction(hero, levelDificulty); break;
-        case DEAD_MAGIC_ZONE: DeadMagicZone(hero, levelDificulty); break;
         case POLLEN_HALLUCINATIONS: PollenHallucinations(hero, levelDificulty); break;
         case ENEMY_PATROL: EnemyPatrol(hero, levelDificulty); break;
         case MONSTER_AMBUSH: MonsterAmbush(hero, levelDificulty); break;
@@ -67,6 +65,8 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty)
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
+void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
+
 // ANSI Colors for Console
 namespace Color {
     const std::string RESET   = "\033[0m";
@@ -218,31 +218,33 @@ void QuickFreezingGlade(Character& hero, GameHard& levelDificulty) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 void Extortion(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("💰", "EXTORTION", "Local bandits force you to hand over some coin!");
+    LoseGold(hero, 15);
+    } else
+    {
     PrintEventCard("💰", "EXTORTION", "Local bandits force you to hand over some coin!");
     LoseGold(hero, 10);
+    }
+    
 }
 
 void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty) {
+    if(levelDificulty.GetDifficultyLevel()  ==3 ) 
+    {
+        PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
+    DamageHero(hero, 10);
+    } else
+    {
     PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
     DamageHero(hero, 6);
+    }
+    
 }
-
-// Narrative Events (No stat loss)
-void WildMagicWilds(Character& hero, GameHard& levelDificulty)       { PrintEventCard("✨", "WILD MAGIC WILDS", "Raw magical energy crackles through the air.", Color::MAGENTA); }
+// Narrative Events (No stat loss)  =====================Need finish
 void WillWispAttraction(Character& hero, GameHard& levelDificulty)   { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); }
-void DeadMagicZone(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🚫", "DEAD MAGIC ZONE", "All magic in this area completely vanishes.", Color::CYAN); }
 void PollenHallucinations(Character& hero, GameHard& levelDificulty) { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA); }
 void EnemyPatrol(Character& hero, GameHard& levelDificulty)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
 void MonsterAmbush(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
@@ -273,15 +275,16 @@ std::cout << "It's only your tired imagination" << std::endl;
 
 break;
 case 2:
-std::cout << "It's only tired old granny" << std::endl;
-
+std::cout << "It's only old granny" << std::endl;
+Tired_Granny_Event(hero, levelDificulty);
 break;
 case 3:
 std::cout << "IT'S WENDIGO RUN !!!" << std::endl;
-
+Wendigo_Encounter_Event(hero, levelDificulty);
 break;
 case 4:
-std::cout << "You enter big forest" << std::endl;
+std::cout << "You had entered big forest" << std::endl;
+std::cout << "You see a small house" << std::endl;
 
 break;
     }
@@ -305,16 +308,16 @@ void MoneyFind(Character& hero, GameHard& levelDificulty) {
     hero.SetGold(hero.GetGold() + gold);
     std::cout << "You found " << gold << " gold!\n";
 }
-void GoodStranger(Character& hero) {
+void GoodStranger(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Stranger! You feel refreshed.\n";
     std::cout << "Your health + 5" << std::endl;
     hero.SetHealth(hero.GetHealth() + 5);
 }
-void GoodWeather(Character& hero) {
+void GoodWeather(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Weather! You feel rejuvenated.\n";
     hero.SetHealth(hero.GetHealth() + 5);
 }
-void GoodRest(Character& hero) {
+void GoodRest(Character& hero, GameHard& levelDificulty) {
     int health = rand() % 20 + 10;
     hero.SetHealth(hero.GetHealth() + health);
     std::cout << "You found a safe place to rest. " << health << " health restored.\n";
@@ -443,9 +446,11 @@ void SimpleHouse(Character& hero)//evil mage , witch , friendly house
 
 void GoodPlace(Character& hero)//good place for rest and food
 {
+std::cout << "You enter a peaceful place. The atmosphere is calm and serene." << std::endl;
+std::cout << "You can rest here and regain some health." << std::endl;
 
 }
-
+ //===============================================================================Additional_Events_Games======================================================
 void FishingChallenge(Character& hero)
 {
     std::cout << "You participate in a fishing challenge with the locals." << std::endl;
@@ -462,4 +467,69 @@ void StrangeStone(Character& hero)
 {
     std::cout << "You find a strange stone with mysterious markings." << std::endl;
     // Implement logic for interacting with the strange stone here
+}
+
+
+//==================================================================================Additional_Events========================================================
+#include <iostream>
+#include <limits>
+#include <thread>
+#include <chrono>
+
+// Helper function for a short delay between text reveals
+void SleepMs(int ms) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
+
+void Tired_Granny_Event(Character& hero, GameHard& levelDifficulty)
+{
+    std::cout << "\n==================================================" << std::endl;
+    std::cout << "               EVENT: RANDOM ENCOUNTER           " << std::endl;
+    std::cout << "==================================================\n" << std::endl;
+
+    std::cout << "You see a tired old woman on the roadside struggling with heavy bags.\n" << std::endl;
+    SleepMs(600);
+
+    std::cout << "What will you do?" << std::endl;
+    std::cout << "  [1] Help the old woman carry her bags home" << std::endl;
+    std::cout << "  [2] Walk past and ignore her" << std::endl;
+    std::cout << "\nYour choice -> ";
+
+    int choice;
+    while (!(std::cin >> choice)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter 1 or 2: ";
+    }
+
+    std::cout << "\n--------------------------------------------------" << std::endl;
+
+    switch(choice)
+    {
+        case 1:
+            std::cout << "You help the old woman carry her belongings to her cottage." << std::endl;
+            SleepMs(800);
+            std::cout << "She thanks you warmly and hands you a small pouch of coins!" << std::endl;
+            
+            hero.SetGold(hero.GetGold() + 10);
+            
+            std::cout << "\n[REWARD]: +10 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            break;
+
+        case 2:
+            std::cout << "You pretend not to notice her and continue on your journey." << std::endl;
+            break;
+
+        default:
+            std::cout << "Hesitation costs you. You end up walking past her anyway." << std::endl;
+            break;
+    }
+
+    std::cout << "==================================================\n" << std::endl;
+}
+
+
+void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty)
+{
+
 }
