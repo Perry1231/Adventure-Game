@@ -454,7 +454,7 @@ std::cout << "You can rest here and regain some health." << std::endl;
 void FishingChallenge(Character& hero)
 {
     std::cout << "You participate in a fishing challenge with the locals." << std::endl;
-    // Implement fishing challenge logic here
+    
 }
 
 void ArcheryContest(Character& hero)
