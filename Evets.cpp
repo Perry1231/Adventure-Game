@@ -17,9 +17,19 @@ enum EventType {
     
 };
 
-void RandomizerEvent(Character& hero, GameHard& levelDificulty)
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
 {
     int eventType = rand() % 41; //From 0 to 41
+    gameEvent.eventHistory.push_back(eventType);
+    if(gameEvent.eventHistory.size() > 3) { // Keep only the last 3 events
+        gameEvent.eventHistory.erase(gameEvent.eventHistory.begin());
+    }
+    for(int i=0; i<gameEvent.eventHistory.size(); ++i) {
+        if(gameEvent.eventHistory[i] == eventType) {
+            eventType = rand() % 41;
+            gameEvent.eventHistory.push_back(eventType);
+        }
+    }
 
     switch (eventType) {
         case TOXIC_RAIN: ToxicRain(hero, levelDificulty); break;
@@ -471,10 +481,6 @@ void StrangeStone(Character& hero)
 
 
 //==================================================================================Additional_Events========================================================
-#include <iostream>
-#include <limits>
-#include <thread>
-#include <chrono>
 
 // Helper function for a short delay between text reveals
 void SleepMs(int ms) {

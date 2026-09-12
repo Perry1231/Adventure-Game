@@ -14,7 +14,6 @@ Events.cpp============================================
 Implement Events.cpp +-
 Tavern in Events.cpp
 Events.cpp and functions
-Events randomizer +-
 Add more events
 Use all parametrs to launch game
 

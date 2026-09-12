@@ -538,7 +538,14 @@ class GameHard
         void SetDifficultyLevel(int level) { difficultyLevel = level; }
         int GetDifficultyLevel() const { return difficultyLevel; }
 };
-//==================================================================Other_functions=============================================================================
+
+struct GameEvent                            //For tracking events not ot be repeated
+{
+    std::vector <int> eventHistory; // Store the history of events
+    int tottalEvents = eventHistory.size(); // Total number of events that have occurred
+    GameEvent() : tottalEvents(0) {}
+};
+//===============================================================================Additional_Events_Games======================================================
  std::string GetEffectName(int type);
 void MainFunction();
 
