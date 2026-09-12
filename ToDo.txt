@@ -5,24 +5,22 @@ Implement Character::Attack(Enemy& enemy)    +-
 Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
-
-Loader.cpp============================================
-Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
-
+Add level uprade to all functions
+Add strenght uprade to all functions
+Add inteligence uprade to all functions
 
 Events.cpp============================================
 Implement Events.cpp +-
+Impelents events in events (like fishing chakenge in talk or other)
 Tavern in Events.cpp
 Events.cpp and functions
 Add more events
 Use all parametrs to launch game
 
-Saver.cpp============================================
-Add game dificult to save + in Header
-
 
 Loader.cpp===========================================
 Add game dificult load + in Header
+Implement Loader.cpp (read from files that had been created from saver) +- Only wothout accurate weapon , armor stats
 
 
 Addition.cpp==========================================

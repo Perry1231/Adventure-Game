@@ -464,7 +464,51 @@ std::cout << "You can rest here and regain some health." << std::endl;
 void FishingChallenge(Character& hero)
 {
     std::cout << "You participate in a fishing challenge with the locals." << std::endl;
-    
+    std::cout << "You can try to catch the biggest fish or the rarest fish." << std::endl;
+    std::cout << "What would you like to do?" << std::endl;
+    std::cout << "1. Try to catch the biggest fish" << std::endl;
+    std::cout << "2. Try to catch the rarest fish" << std::endl;
+    std::cout << "3. Leave the fishing challenge" << std::endl;
+
+
+    int choice=0;
+    std::cin >> choice;
+    switch (choice) {
+        case 1:
+            std::cout << "You try to catch the biggest fish." << std::endl;
+            int fishSize = rand() % 100 + 1; // Random fish size between 1 and 100
+            std::cout << "You go to the lake and cast your line. After a while, you feel a tug on the line!" << std::endl;
+            std::cout << "You get into a struggle with the fish!" << std::endl;
+int strength;
+            if(hero.GetStrength() >= fishSize) {
+                std::cout << "You successfully catch the biggest fish! You gain 20 gold." << std::endl;
+                hero.SetGold(hero.GetGold() + 20);
+            } else {
+                std::cout << "The fish was too strong for you. You lose 3 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 2);
+            }
+            break;
+
+        case 2:
+            std::cout << "You try to catch the rarest fish." << std::endl;
+            std::cout << "You go to the lake and cast your line. After a while, you feel a tug on the line!" << std::endl;
+            int rareFishChance = rand() % 100 + 1; // Random chance between 1 and 100
+            if(rareFishChance <= 10) {
+                std::cout << "You successfully catch the rarest fish! You gain 50 gold." << std::endl;
+                hero.SetGold(hero.GetGold() + 50);
+            } else {
+                std::cout << "The fish was too elusive for you. You lose 5 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 5);
+            }
+            break;
+        case 3:
+            std::cout << "You leave the fishing challenge." << std::endl;
+            break;
+        default:
+            std::cout << "Invalid choice. You leave the fishing challenge." << std::endl;
+            break;
+    }
+
 }
 
 void ArcheryContest(Character& hero)
