@@ -46,7 +46,7 @@ inline void ListSaveFiles() {
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
-void Saver(Character& hero, MyInventory& inv) {
+void Saver(Character& hero, MyInventory& inv, GameHard& difficultyLevelObj) {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     ListSaveFiles();
@@ -78,6 +78,7 @@ void Saver(Character& hero, MyInventory& inv) {
     fs << " Race        : " << std::left << std::setw(25) << hero.GetRace() << "\n";
     fs << " Profession  : " << std::left << std::setw(25) << hero.GetProfession() << "\n";
     fs << " Level       : " << std::left << std::setw(25) << hero.GetLevel() << "\n";
+    fs << " Difficulty  : " << std::left << std::setw(25) << difficultyLevelObj.GetDifficultyLevel() << "\n";
     fs << " Description : " << hero.GetDescription() << "\n";
     fs << " ─────────────────────────────────────────────────────────────\n";
     fs << " Health      : " << std::left << std::setw(25) << hero.GetHealth() << "\n";
