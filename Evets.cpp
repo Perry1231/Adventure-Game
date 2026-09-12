@@ -135,6 +135,7 @@ void ToxicRain(Character& hero, GameHard& levelDificulty) {
     }
     PrintEventCard("☣️", "TOXIC RAIN", "Acidic rain burns your skin!");
     DamageHero(hero, 5);
+    hero.SetLevel(hero.GetLevel() + 0.01); // Increase level by 1
 }
 
 void Rain(Character& hero, GameHard& levelDificulty) {
@@ -146,6 +147,7 @@ void Rain(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("⛈️", "HEAVY RAIN", "Heavy rain pours down! You take damage from exposure.");
         DamageHero(hero, 5);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void VolcanicEruption(Character& hero, GameHard& levelDificulty) {
@@ -155,6 +157,7 @@ void VolcanicEruption(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("🌋", "VOLCANIC ERUPTION", "Hot ash and lava burn you as you run!");
         DamageHero(hero, 10);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void FlashFlood(Character& hero, GameHard& levelDificulty) {
@@ -169,6 +172,7 @@ void FlashFlood(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("🌊", "FLASH FLOOD", "A sudden wave sweeps you away into sharp rocks!");
         DamageHero(hero, 10);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 
 }
 
@@ -184,6 +188,7 @@ void Mudslide(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("⛰️", "MUDSLIDE", "You get caught in a dangerous mudslide!");
         DamageHero(hero, 5);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void HumidHot(Character& hero, GameHard& levelDificulty) {
@@ -198,6 +203,7 @@ void HumidHot(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("🏜️", "HUMID & HOT", "All water dried up! You suffer from severe heat exhaustion.");
         DamageHero(hero, 5);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
@@ -210,6 +216,7 @@ void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you!");
         DamageHero(hero, 3);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 
@@ -223,6 +230,7 @@ void QuickFreezingGlade(Character& hero, GameHard& levelDificulty) {
     PrintEventCard("❄️", "QUICK FREEZING GLADE", "The temperature plummets. Frostbite sets in!");
     DamageHero(hero, 4);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 
@@ -238,6 +246,7 @@ void Extortion(Character& hero, GameHard& levelDificulty) {
     PrintEventCard("💰", "EXTORTION", "Local bandits force you to hand over some coin!");
     LoseGold(hero, 10);
     }
+    hero.SetLevel(hero.GetLevel() + 0.01);
     
 }
 
@@ -251,6 +260,7 @@ void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty) {
     PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
     DamageHero(hero, 6);
     }
+    hero.SetLevel(hero.GetLevel() + 0.04);
     
 }
 // Narrative Events (No stat loss)  =====================Need finish
@@ -267,7 +277,7 @@ void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEven
 
 
 
-void FakeDistressCal(Character& hero, GameHard& levelDificulty) {
+void FakeDistressCal(Character& hero, GameHard& levelDificulty) {                                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
     int choice=0;
 
@@ -282,7 +292,7 @@ void FakeDistressCal(Character& hero, GameHard& levelDificulty) {
     {
 case 1:
 std::cout << "It's only your tired imagination" << std::endl;
-
+hero.SetLevel(hero.GetLevel() + 0.01);
 break;
 case 2:
 std::cout << "It's only old granny" << std::endl;
@@ -309,28 +319,33 @@ break;
     else {std::cout << "You entere wrong answer !";}
 }
 
-void Earthquake(Character& hero, GameHard& levelDificulty)
+void Earthquake(Character& hero, GameHard& levelDificulty)                                              //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
-    
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 void MoneyFind(Character& hero, GameHard& levelDificulty) {
     int gold = rand() % 100 + 1;
     hero.SetGold(hero.GetGold() + gold);
     std::cout << "You found " << gold << " gold!\n";
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 void GoodStranger(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Stranger! You feel refreshed.\n";
     std::cout << "Your health + 5" << std::endl;
     hero.SetHealth(hero.GetHealth() + 5);
+    hero.SetLevel(hero.GetLevel() + 0.01);
+    
 }
 void GoodWeather(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Weather! You feel rejuvenated.\n";
     hero.SetHealth(hero.GetHealth() + 5);
+    hero.SetLevel(hero.GetLevel() + 0.03);
 }
 void GoodRest(Character& hero, GameHard& levelDificulty) {
     int health = rand() % 20 + 10;
     hero.SetHealth(hero.GetHealth() + health);
     std::cout << "You found a safe place to rest. " << health << " health restored.\n";
+    hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 
@@ -353,6 +368,7 @@ switch (choice) {
     case 1:
         std::cout << "You rest and regain some health." << std::endl;
         hero.SetHealth(hero.GetHealth() + 20);
+        hero.SetLevel(hero.GetLevel() + 0.04);
         break;
     case 2:
         std::cout << "You talk to the locals and gather information about your next adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -371,7 +387,7 @@ switch (choice) {
 }
 }
 
-void Hostel(Character& hero)
+void Hostel(Character& hero)                                                                                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 std::cout << "You enter a small hostel. The atmosphere is quiet and peaceful." << std::endl;
 std::cout << "You can rest here and regain some health." << std::endl;
@@ -389,6 +405,7 @@ switch (choice) {
     case 1:
         std::cout << "You rest and regain some health." << std::endl;
         hero.SetHealth(hero.GetHealth() + 15);
+        hero.SetLevel(hero.GetLevel() + 0.01);
         break;
     case 2:
         std::cout << "You talk to the other travelers and gather information about your next adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -458,6 +475,8 @@ void GoodPlace(Character& hero)//good place for rest and food
 {
 std::cout << "You enter a peaceful place. The atmosphere is calm and serene." << std::endl;
 std::cout << "You can rest here and regain some health." << std::endl;
+hero.SetLevel(hero.GetLevel() + 0.01);
+hero.SetHealth(hero.GetHealth() + 7);
 
 }
  //===============================================================================Additional_Events_Games======================================================
@@ -483,9 +502,11 @@ int strength;
             if(hero.GetStrength() >= fishSize) {
                 std::cout << "You successfully catch the biggest fish! You gain 20 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + 20);
+                hero.SetLevel(hero.GetLevel() + 0.4);
             } else {
                 std::cout << "The fish was too strong for you. You lose 3 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 2);
+                hero.SetLevel(hero.GetLevel() + 0.01);
             }
             break;
 
@@ -496,9 +517,11 @@ int strength;
             if(rareFishChance <= 10) {
                 std::cout << "You successfully catch the rarest fish! You gain 50 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + 50);
+                hero.SetLevel(hero.GetLevel() + 0.4);
             } else {
                 std::cout << "The fish was too elusive for you. You lose 5 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 5);
+                hero.SetLevel(hero.GetLevel() + 0.01);
             }
             break;
         case 3:
@@ -560,7 +583,7 @@ void Tired_Granny_Event(Character& hero, GameHard& levelDifficulty)
             std::cout << "You help the old woman carry her belongings to her cottage." << std::endl;
             SleepMs(800);
             std::cout << "She thanks you warmly and hands you a small pouch of coins!" << std::endl;
-            
+            hero.SetLevel(hero.GetLevel() + 0.03);
             hero.SetGold(hero.GetGold() + 10);
             
             std::cout << "\n[REWARD]: +10 Gold (Total: " << hero.GetGold() << ")" << std::endl;
@@ -568,6 +591,7 @@ void Tired_Granny_Event(Character& hero, GameHard& levelDifficulty)
 
         case 2:
             std::cout << "You pretend not to notice her and continue on your journey." << std::endl;
+            hero.SetLevel(hero.GetLevel() + 0.01);
             break;
 
         default:

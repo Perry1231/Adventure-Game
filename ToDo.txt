@@ -5,6 +5,7 @@ Implement Character::Attack(Enemy& enemy)    +-
 Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
+//check all functions (actions)
 Add level uprade to all functions
 Add strenght uprade to all functions
 Add inteligence uprade to all functions
