@@ -629,7 +629,7 @@ switch (choice)
 
 }
 
-void Menu(Enemy& enemy , Character& hero)
+void Menu(Enemy& enemy , Character& hero, MyInventory& inv1, GameHard& difficultyLevel)
 {
     int choice;
     std::cout << "\n=== INTERACTION ===" << std::endl;

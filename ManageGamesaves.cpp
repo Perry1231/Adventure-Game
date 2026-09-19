@@ -3,7 +3,7 @@
 #include <string>
 //For all saves functions like save game , load game, delete save
 
-void ManageGameSaves(Character& hero, MyInventory& inv1)
+void ManageGameSaves(Character& hero, MyInventory& inv1, GameHard& levelDificulty)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                 MANAGE GAME SAVES                 │\n";
@@ -20,7 +20,7 @@ void ManageGameSaves(Character& hero, MyInventory& inv1)
     switch(choice)
     {
         case 1:
-            Saver(hero, inv1);
+            Saver(hero, inv1, levelDificulty);
             break;
         case 2:
             Loader(hero, inv1);

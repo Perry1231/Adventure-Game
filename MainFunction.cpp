@@ -33,7 +33,7 @@ void MainFunction() {
     potion->SetOwner(&hero); 
     artif->SetOwner(&hero);
     
-    GameHard difficultyLevelObj;
+    GameHard difficultyLevelObj;       //Creating object of GameHard class to manage difficulty level
     difficultyLevelObj.SetDifficultyLevel(1); 
 
     Enemy enemy;
@@ -59,7 +59,7 @@ void MainFunction() {
     if (mainChoice == 1) {
         StartGame(enemy, hero, difficultyLevelObj);                                                                                                 //Start game
     } else if (mainChoice == 2) {
-        ManageGameSaves(hero, inv1);                                                                                                 //Load game                                                                                                //Save game
+        ManageGameSaves(hero, inv1, difficultyLevelObj);                                                                                                 //Load game                                                                                                //Save game
     } else if (mainChoice == 3) {
         hero.DisplayStats();                                                                                               //Display stats
     } else if (mainChoice == 4) {

@@ -138,7 +138,12 @@ void ToxicRain(Character& hero, GameHard& levelDificulty) {
     hero.SetLevel(hero.GetLevel() + 0.01); // Increase level by 1
 }
 
+
 void Rain(Character& hero, GameHard& levelDificulty) {
+     if (levelDificulty.GetDifficultyLevel() >= 2) {
+        PrintEventCard("🌧️", "RAIN", "Heavy rain soaks you! You take extra damage due to the high difficulty level.");
+        DamageHero(hero, 5); // Increased damage for higher difficulty
+    }
     int rainType = rand() % 2;
     if (rainType == 0) {
         PrintEventCard("🌧️", "LIGHT RAIN", "Light rain falls. It is chilly and uncomfortable.", Color::YELLOW);
@@ -151,6 +156,7 @@ void Rain(Character& hero, GameHard& levelDificulty) {
 }
 
 void VolcanicEruption(Character& hero, GameHard& levelDificulty) {
+     if (levelDificulty.GetDifficultyLevel() >= 2) {
     if (rand() % 2 == 0) {
         PrintEventCard("🌋", "VOLCANIC ERUPTION", "The ground shakes! You manage to escape safely.", Color::GREEN);
     } else {
@@ -158,6 +164,16 @@ void VolcanicEruption(Character& hero, GameHard& levelDificulty) {
         DamageHero(hero, 10);
     }
     hero.SetLevel(hero.GetLevel() + 0.01);
+}
+else {
+    if (rand() % 2 == 0) {
+        PrintEventCard("🌋", "VOLCANIC ERUPTION", "The ground shakes! You manage to escape safely.", Color::GREEN);
+    } else {
+        PrintEventCard("🌋", "VOLCANIC ERUPTION", "Hot ash and lava burn you as you run!");
+        DamageHero(hero, 5);
+    }
+    hero.SetLevel(hero.GetLevel() + 0.01);
+}
 }
 
 void FlashFlood(Character& hero, GameHard& levelDificulty) {
@@ -220,7 +236,7 @@ void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
 }
 
 
-void QuickFreezingGlade(Character& hero, GameHard& levelDificulty) {
+void QuickFreezingGlad(Character& hero, GameHard& levelDificulty) {
     if(levelDificulty.GetDifficultyLevel()  ==3 ) 
     {
         PrintEventCard("❄️", "QUICK FREEZING GLADE", "The temperature plummets. Frostbite sets in! Extra damage due to high difficulty level.");
@@ -314,7 +330,7 @@ break;
     else if (choice == 2)
     {
         std::cout << "You go away" << std::endl;
-        exit;
+        exit(0);
     }
     else {std::cout << "You entere wrong answer !";}
 }
@@ -367,6 +383,8 @@ std::cout << "3. Play a game of chance" << std::endl;
 std::cout << "4. Leave the tavern" << std::endl;
 
 int choice;
+int gameChoice;
+int gameChoice2;
 std::cin>> choice;
 switch (choice) {
     case 1:
@@ -380,7 +398,7 @@ switch (choice) {
         break;
     case 3:
         std::cout << "You play a game of chance with the tavern patrons." << std::endl;
-        int gameChoice;
+        
         std::cout << "Choose a game to play:\n1. Dice Roll\n2. Card Draw\n3. Coin Flip\n";
         std::cin >> gameChoice;
         switch (gameChoice) {
@@ -388,7 +406,6 @@ switch (choice) {
                 std::cout << "You choose to play Dice Roll." << std::endl;
                 std::cout << "1. Roll the dice" << std::endl;
                 std::cout << "2. Leave the game" << std::endl;
-                int gameChoice2;
                 std::cout << "Enter your choice: ";
                 std::cin >> gameChoice2;
                 switch (gameChoice2) {
@@ -412,7 +429,8 @@ switch (choice) {
                 std::cout << "You choose to play Coin Flip." << std::endl;
                 break;
             default:
-                std::cout << "Invalid choice. You leave the game." << std::endl;
+                std::cout << "Invalid choice. Try again." << std::endl;
+                std::cin.clear();
                 return;
         }
 
@@ -529,27 +547,32 @@ void FishingChallenge(Character& hero)
     std::cout << "3. Leave the fishing challenge" << std::endl;
 
 
-    int choice=0;
+    int choice;
+    std::cout << "Enter your choice: ";
     std::cin >> choice;
     switch (choice) {
         case 1:
+        {
             std::cout << "You try to catch the biggest fish." << std::endl;
             int fishSize = rand() % 100 + 1; // Random fish size between 1 and 100
             std::cout << "You go to the lake and cast your line. After a while, you feel a tug on the line!" << std::endl;
             std::cout << "You get into a struggle with the fish!" << std::endl;
-int strength;
-            if(hero.GetStrength() >= fishSize) {
+            if(hero.GetStrength() >= fishSize) 
+            {
                 std::cout << "You successfully catch the biggest fish! You gain 20 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + 20);
                 hero.SetLevel(hero.GetLevel() + 0.4);
-            } else {
+            } 
+            else 
+            {
                 std::cout << "The fish was too strong for you. You lose 3 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 2);
                 hero.SetLevel(hero.GetLevel() + 0.01);
             }
             break;
-
+        }
         case 2:
+        {
             std::cout << "You try to catch the rarest fish." << std::endl;
             std::cout << "You go to the lake and cast your line. After a while, you feel a tug on the line!" << std::endl;
             int rareFishChance = rand() % 100 + 1; // Random chance between 1 and 100
@@ -563,9 +586,12 @@ int strength;
                 hero.SetLevel(hero.GetLevel() + 0.01);
             }
             break;
+        } 
         case 3:
+        {
             std::cout << "You leave the fishing challenge." << std::endl;
             break;
+        }
         default:
             std::cout << "Invalid choice. You leave the fishing challenge." << std::endl;
             break;
@@ -646,3 +672,5 @@ void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty)
 {
 
 }
+
+

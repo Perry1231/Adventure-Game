@@ -552,11 +552,11 @@ void MainFunction();
 void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty);
 void Help();
 void GetInfo();
-void Menu(Enemy& enemy, Character& hero, GameHard& levelDificulty);
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& levelDificulty);
 void Reseter (Character& hero, MyInventory& inv, GameHard& levelDificulty);
-void Saver(Character& hero, MyInventory& inv);
+void Saver(Character& hero, MyInventory& inv, GameHard& levelDificulty);
 void Loader(Character& hero, MyInventory& inv);
 //==================================================================Events_functions============================================================================
 void ToxicRain(Character& hero, GameHard& levelDificulty);
@@ -585,7 +585,7 @@ void Earthquake(Character& hero, GameHard& levelDificulty);
 void MoneyFind(Character& hero, GameHard& levelDificulty);
 void GoodStranger(Character& hero, GameHard& levelDificulty);
 void GoodWeather(Character& hero, GameHard& levelDificulty);
-void RandomizerEvent(Character& hero, GameHard& levelDificulty);
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent);
 void GoodRest(Character& hero, GameHard& levelDificulty);
 void Tavern(Character& hero);
 void Hostel(Character& hero);
@@ -612,12 +612,12 @@ void FistFight();
 void DrinkingContest();
 void CardDraw();
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
-void Turn(Character& hero, GameHard& levelDificulty); //Plot.cpp
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();
 //==================================================================Error_catcher==================================================
-void ManageGameSaves(Character& hero, MyInventory& inv);
+void ManageGameSaves(Character& hero, MyInventory& inv, GameHard& levelDificulty); //ManageGamesaves.cpp
 void ListSaveFiles(); 
 void ListSaveFilesLoader();
 void Deleter();
