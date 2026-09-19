@@ -78,3 +78,10 @@ std::cout << "You throw 2 times dice "
 << "And if you hit second time more then first time or equal"
 << "You win 10 coins" << std::endl;
 }
+
+
+void CardDraw()
+{
+    std::cout << "You play a card draw game with the tavern patrons." << std::endl;
+    // Implement card draw logic here
+}

@@ -323,12 +323,14 @@ void Earthquake(Character& hero, GameHard& levelDificulty)                      
 {
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
+
 void MoneyFind(Character& hero, GameHard& levelDificulty) {
     int gold = rand() % 100 + 1;
     hero.SetGold(hero.GetGold() + gold);
     std::cout << "You found " << gold << " gold!\n";
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
+
 void GoodStranger(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Stranger! You feel refreshed.\n";
     std::cout << "Your health + 5" << std::endl;
@@ -336,11 +338,13 @@ void GoodStranger(Character& hero, GameHard& levelDificulty) {
     hero.SetLevel(hero.GetLevel() + 0.01);
     
 }
+
 void GoodWeather(Character& hero, GameHard& levelDificulty) {
     std::cout << "Event: Good Weather! You feel rejuvenated.\n";
     hero.SetHealth(hero.GetHealth() + 5);
     hero.SetLevel(hero.GetLevel() + 0.03);
 }
+
 void GoodRest(Character& hero, GameHard& levelDificulty) {
     int health = rand() % 20 + 10;
     hero.SetHealth(hero.GetHealth() + health);
@@ -376,11 +380,46 @@ switch (choice) {
         break;
     case 3:
         std::cout << "You play a game of chance with the tavern patrons." << std::endl;
-        
+        int gameChoice;
+        std::cout << "Choose a game to play:\n1. Dice Roll\n2. Card Draw\n3. Coin Flip\n";
+        std::cin >> gameChoice;
+        switch (gameChoice) {
+            case 1:
+                std::cout << "You choose to play Dice Roll." << std::endl;
+                std::cout << "1. Roll the dice" << std::endl;
+                std::cout << "2. Leave the game" << std::endl;
+                int gameChoice2;
+                std::cout << "Enter your choice: ";
+                std::cin >> gameChoice2;
+                switch (gameChoice2) {
+                    case 1:
+                        std::cout << "Rolling the dice..." << std::endl;
+                        DiceRoll(hero);
+                        
+                    case 2:
+                        std::cout << "You leave the game." << std::endl;
+                        break;
+                    default:
+                        std::cout << "Invalid choice. You leave the game." << std::endl;
+                }
+                break;
+
+            case 2:
+                std::cout << "You choose to play Card Draw." << std::endl;
+                CardDraw();
+                break;
+            case 3:
+                std::cout << "You choose to play Coin Flip." << std::endl;
+                break;
+            default:
+                std::cout << "Invalid choice. You leave the game." << std::endl;
+                return;
+        }
+
         DiceRoll(hero);
         break;
     case 4:
-        std::cout << "You leave the tavern and continue your adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        std::cout << "You leave the tavern and continue your adventure." << std::endl;
         break;
     default:
         std::cout << "Invalid choice. You leave the tavern." << std::endl;

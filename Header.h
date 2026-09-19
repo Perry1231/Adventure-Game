@@ -610,6 +610,7 @@ void BoardGame();
 void MusicChallenge();
 void FistFight();
 void DrinkingContest();
+void CardDraw();
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
 void Turn(Character& hero, GameHard& levelDificulty); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
