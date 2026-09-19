@@ -5,6 +5,9 @@ Implement Character::Attack(Enemy& enemy)    +-
 Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
+//Buggs
+Fix gamestart                   ~~~!!!!!!!!~~~
+
 
 //check all functions (actions)
 Add level uprade to all functions
