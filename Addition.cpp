@@ -154,9 +154,9 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
         std::cout << "│ " << BOLD << YELLOW << "                   GAME SETTINGS                   " << RESET << CYAN << "│\n";
         std::cout << "├───────────────────────────────────────────────────┤" << RESET << "\n";
         std::cout << "  " << GREEN << "[1]" << RESET << " Difficulty Level  - Change enemy scaling\n";
-        std::cout << "  " << GRAY  << "[2] Sound Options     - (Not Available)" << RESET << "\n";
-        std::cout << "  " << GRAY  << "[3] Display Settings  - (Not Available)" << RESET << "\n";
-        std::cout << "  " << RED   << "[4]" << RESET << " Reset Progress    - Reset hero & inventory\n";
+        std::cout << "  " << RED   << "[2]" << RESET << " Reset Progress    - Reset hero & inventory\n";
+        std::cout << "  " << YELLOW << "[3]" << RESET << " View Game Info    - Display game overview & author info\n";
+        std::cout << "  " << YELLOW << "[4]" << RESET << " Bug Report        - Report issues or glitches\n";
         std::cout << "  " << GREEN << "[0]" << RESET << " Return            - Back to Main Menu\n";
         std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n";
         std::cout << "Select option: ";
@@ -174,14 +174,7 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
                 difficultyLevel.ChoiceHard(enemy);
                 break;
 
-            case 2:
-                std::cout << YELLOW << "\n[NOTICE] Option not implemented yet." << RESET << "\n";
-                break;
-            case 3:
-                std::cout << YELLOW << "\n[NOTICE] Option not implemented yet." << RESET << "\n";
-                break;
-
-            case 4: {
+            case 2: {
                 std::cout << "\n" << RED << "=== RESET GAME PROGRESS ===" << RESET << "\n";
                 std::cout << "All current progress will be lost. Confirm? (y/n): ";
 
@@ -198,6 +191,13 @@ void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& difficu
                 break;
             }
 
+            case 3:
+                GetInfo();
+                break;
+
+                case 4:
+                BugReportFunction();
+                break;
             case 0:
                 break;
 
