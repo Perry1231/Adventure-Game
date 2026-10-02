@@ -295,7 +295,8 @@ void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEven
 
 void FakeDistressCal(Character& hero, GameHard& levelDificulty) {                                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
-    int choice=0;
+    int choice;
+    std::cin >> choice;
 
     if(choice == 1)
     {

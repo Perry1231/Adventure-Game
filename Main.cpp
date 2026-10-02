@@ -2,11 +2,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
-
+#include <windows.h>
 
 
 int main() {
-   MainFunction();
-    return 0;             
+    SetConsoleOutputCP(65001);
+    SetConsoleCP(65001);
+
+    MainFunction();
+    return 0;
 }
