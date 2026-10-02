@@ -607,7 +607,7 @@ void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty);
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void BoardGame();
-void MusicChallenge();
+void MusicChallenge(Character& hero);
 void FistFight();
 void DrinkingContest();
 void CardDraw();

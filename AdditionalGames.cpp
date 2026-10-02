@@ -51,10 +51,52 @@ void BoardGame()
     // Implement board game logic here
 }
 
-void MusicChallenge()
+void MusicChallenge(Character& hero)
 {
     std::cout << "You participate in a music challenge with the tavern patrons." << std::endl;
-    // Implement music challenge logic here
+    
+    std::cout << "Choose a music challenge:\n1. Singing Contest\n2. Instrumental Performance\n3. Dance Off\n";
+    int musicChoice;
+    std::cin >> musicChoice;
+    switch (musicChoice) {
+        case 1:
+            std::cout << "You participate in a singing contest." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
+                std::cout << "You impress the crowd with your singing skills!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 15);
+                std::cout << "\n[REWARD]: +15 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The crowd is not impressed with your singing." << std::endl;
+            }
+            break;
+        case 2:
+            std::cout << "You perform an instrumental piece." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetIntelligence() > 10) {
+                std::cout << "Your instrumental performance captivates the audience!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 20);
+                std::cout << "\n[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The audience is not impressed with your performance." << std::endl;
+            }
+            break;
+        case 3:
+            std::cout << "You engage in a dance-off." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
+                std::cout << "You impress the crowd with your dancing skills!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 25);
+                std::cout << "\n[REWARD]: +25 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The crowd is not impressed with your dancing." << std::endl;
+            }
+            break;
+        default:
+            std::cout << "Invalid choice. You leave the music challenge." << std::endl;
+            break;
+    }
+
 }
 void FistFight()
 {
