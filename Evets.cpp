@@ -702,9 +702,7 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty)
 
             break;
         case 2:
-            std::cout << "The locals mention that strange creatures have been sighted in the area." << std::endl;
-            std::cout << "They advise caution and suggest you prepare for potential encounters." << std::endl;
-            std::cout << "You gain valuable information for your next adventure!" << std::endl;
+            TalkStrangers();
             hero.SetLevel(hero.GetLevel() + 0.02);
             break;
         case 3:
@@ -722,5 +720,35 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty)
             std::cout << "Invalid choice. You end the conversation with the locals." << std::endl;
     }
 }
+}
+
+
+void TalkStrangers()
+{
+    int talk_random = rand() % 6 + 1;       //6 diffarnte talks with strangers
+    switch(talk_random)
+    {
+        case 1:
+            std::cout << "You meet a wandering bard who shares tales of ancient heroes." << std::endl;
+            break;
+
+        case 2:
+            std::cout << "A mysterious traveler offers you a cryptic riddle to solve." << std::endl;
+            break;
+
+        case 3:
+            std::cout << "You encounter a merchant who offers rare items for trade." << std::endl;
+
+
+            break;
+
+        case 4:
+            std::cout << "A local farmer tells you about the best fishing spots nearby." << std::endl;
+            break;
+
+            std::cout << "You meet a retired adventurer who shares tips for surviving in the wild." << std::endl;
+                break;
+
+    }
 }
 
