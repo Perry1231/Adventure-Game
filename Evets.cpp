@@ -746,8 +746,12 @@ void TalkStrangers()
             std::cout << "A local farmer tells you about the best fishing spots nearby." << std::endl;
             break;
 
+        case 5:
             std::cout << "You meet a retired adventurer who shares tips for surviving in the wild." << std::endl;
                 break;
+        case 6:
+            std::cout << "A wandering scholar discusses the history of the region and its legends." << std::endl;
+            break;
 
     }
 }
