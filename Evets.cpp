@@ -673,4 +673,53 @@ void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty)
 
 }
 
+//===============================Talking to Locals Event (Placeholder)=============================
+void TalkToLocals(Character& hero, GameHard& levelDificulty)
+{
+    std::cout << "You engage in conversation with the locals." << std::endl;
+    std::cout << "They share rumors of hidden treasures and dangerous creatures in the area." << std::endl;
+    std::cout << "You gain valuable information for your next adventure!" << std::endl;
+    hero.SetLevel(hero.GetLevel() + 0.02);
+    std::cout << "What would you like to get to know ?" << std::endl;
+    std::cout << "1. Gain some info about tresures" << std::endl;
+    std::cout << "2. What is going here ?" << std::endl;
+    std::cout << "3. Where I can find job ?" << std::endl;
+    std::cout << "4. Exit talk " << std::endl;
+
+    int choice =0;
+    switch(choice)
+    {
+        case 1:
+            if (hero.GetLevel() > 1.0) {
+                std::cout << "The locals tell you about a hidden treasure in the nearby forest." << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 20);
+                std::cout << "\n[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The locals are hesitant to share information with you." << std::endl;
+            }
+
+            break;
+        case 2:
+            std::cout << "The locals mention that strange creatures have been sighted in the area." << std::endl;
+            std::cout << "They advise caution and suggest you prepare for potential encounters." << std::endl;
+            std::cout << "You gain valuable information for your next adventure!" << std::endl;
+            hero.SetLevel(hero.GetLevel() + 0.02);
+            break;
+        case 3:
+        if(hero.GetLevel() > 1.0) {
+                std::cout << "The locals suggest checking the village for potential job opportunities." << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.02);
+            } else {
+            std::cout << "The locals suggest checking the village for potential job opportunities." << std::endl;
+
+            break;
+        case 4:
+            std::cout << "You end the conversation with the locals." << std::endl;
+            break;
+        default:
+            std::cout << "Invalid choice. You end the conversation with the locals." << std::endl;
+    }
+}
+}
 
