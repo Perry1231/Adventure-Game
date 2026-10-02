@@ -549,7 +549,7 @@ struct GameEvent                            //For tracking events not ot be repe
  std::string GetEffectName(int type);
 void MainFunction();
 
-void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty);
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent);
 void Help();
 void GetInfo();
 void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty);

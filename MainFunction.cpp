@@ -38,6 +38,7 @@ void MainFunction() {
 
     Enemy enemy;
     enemy.RandomizeStats();
+    GameEvent gameEvent;
 //====================================================================
   int mainChoice = 0;
     while (true) {
@@ -57,7 +58,7 @@ void MainFunction() {
     std::cin >> mainChoice;                                                                                             
 
     if (mainChoice == 1) {
-        StartGame(enemy, hero, difficultyLevelObj);                                                                                                 //Start game
+        StartGame(enemy, hero, difficultyLevelObj, gameEvent);                                                                                                 //Start game
     } else if (mainChoice == 2) {
         ManageGameSaves(hero, inv1, difficultyLevelObj);                                                                                                 //Load game                                                                                                //Save game
     } else if (mainChoice == 3) {
