@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "0.2.0",
   "configurations": [
     {
@@ -13,6 +13,25 @@
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "preLaunchTask": "Build Adventure Game"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game",
+      "program": "c:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }

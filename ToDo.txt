@@ -6,7 +6,7 @@ Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
 //Buggs
-Fix gamestart                   ~~~!!!!!!!!~~~
+
 
 
 //check all functions (actions)
@@ -18,10 +18,10 @@ Add inteligence uprade to all functions
 Events.cpp============================================
 Implement Events.cpp +-
 Impelents events in events (like fishing chakenge in talk or other)
-Tavern in Events.cpp
+Tavern in Events.cpp +-
 Events.cpp and functions
 Add more events
-Use all parametrs to launch game
+
 
 
 Loader.cpp===========================================
