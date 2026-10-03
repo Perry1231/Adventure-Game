@@ -17,7 +17,6 @@ Add inteligence uprade to all functions
 
 Events.cpp============================================
 Implement Events.cpp +-
-Impelents events in events (like fishing chakenge in talk or other)
 Tavern in Events.cpp +-
 Events.cpp and functions
 Add more events

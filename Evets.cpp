@@ -677,49 +677,64 @@ void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty)
 //===============================Talking to Locals Event (Placeholder)=============================
 void TalkToLocals(Character& hero, GameHard& levelDificulty)
 {
-    std::cout << "You engage in conversation with the locals." << std::endl;
-    std::cout << "They share rumors of hidden treasures and dangerous creatures in the area." << std::endl;
-    std::cout << "You gain valuable information for your next adventure!" << std::endl;
+    std::cout << "You engage in conversation with the locals.\n";
+    std::cout << "They share rumors of hidden treasures and dangerous creatures in the area.\n";
+    std::cout << "You gain valuable information for your next adventure!\n";
     hero.SetLevel(hero.GetLevel() + 0.02);
-    std::cout << "What would you like to get to know ?" << std::endl;
-    std::cout << "1. Gain some info about tresures" << std::endl;
-    std::cout << "2. What is going here ?" << std::endl;
-    std::cout << "3. Where I can find job ?" << std::endl;
-    std::cout << "4. Exit talk " << std::endl;
 
-    int choice =0;
-    switch(choice)
+    int choice = 0;
+    while (choice != 4)
     {
-        case 1:
-            if (hero.GetLevel() > 1.0) {
-                std::cout << "The locals tell you about a hidden treasure in the nearby forest." << std::endl;
-                hero.SetLevel(hero.GetLevel() + 0.05);
-                hero.SetGold(hero.GetGold() + 20);
-                std::cout << "\n[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")" << std::endl;
-            } else {
-                std::cout << "The locals are hesitant to share information with you." << std::endl;
-            }
+        std::cout << "\nWhat would you like to get to know?\n";
+        std::cout << "1. Gain some info about treasures\n";
+        std::cout << "2. What is going on here?\n";
+        std::cout << "3. Where can I find a job?\n";
+        std::cout << "4. Exit talk\n";
+        std::cout << "Choice: ";
+        
+        if (!(std::cin >> choice)) {
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
 
-            break;
-        case 2:
-            TalkStrangers();
-            hero.SetLevel(hero.GetLevel() + 0.02);
-            break;
-        case 3:
-        if(hero.GetLevel() > 1.0) {
-                std::cout << "The locals suggest checking the village for potential job opportunities." << std::endl;
+        switch (choice)
+        {
+            case 1:
+                if (hero.GetLevel() > 1.0) {
+                    std::cout << "The locals tell you about a hidden treasure in the nearby forest.\n";
+                    hero.SetLevel(hero.GetLevel() + 0.05);
+                    hero.SetGold(hero.GetGold() + 20);
+                    std::cout << "[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")\n";
+                } else {
+                    std::cout << "The locals are hesitant to share information with you.\n";
+                }
+                break;
+
+            case 2:
+                TalkStrangers();
                 hero.SetLevel(hero.GetLevel() + 0.02);
-            } else {
-            std::cout << "The locals suggest checking the village for potential job opportunities." << std::endl;
+                break;
 
-            break;
-        case 4:
-            std::cout << "You end the conversation with the locals." << std::endl;
-            break;
-        default:
-            std::cout << "Invalid choice. You end the conversation with the locals." << std::endl;
+            case 3:
+                if (hero.GetLevel() > 1.0) {
+                    std::cout << "The locals suggest checking the village board for high-paying contracts.\n";
+                    hero.SetLevel(hero.GetLevel() + 0.02);
+                } else {
+                    std::cout << "The locals suggest checking the village for basic odd jobs.\n";
+                }
+                break;
+
+            case 4:
+                std::cout << "You end the conversation with the locals.\n";
+                break;
+
+            default:
+                std::cout << "Invalid choice. Please choose options 1 through 4.\n";
+                break;
+        }
     }
-}
 }
 
 
