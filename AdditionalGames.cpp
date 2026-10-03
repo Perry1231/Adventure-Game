@@ -147,9 +147,14 @@ void FistFight(Character& hero)
             break;
     }
 }
-else 
+else if (actionChoice == 2)
     {
-        std::cout << "You leave the fist fight." << std::endl;
+        std::cout << "You leave the fist  fight." << std::endl;
+        return;
+    }
+    else
+    {
+        std::cout << "Invalid choice. You leave the fist  fight." << std::endl;
         return;
     }
 }
@@ -209,12 +214,18 @@ void DrinkingContest(Character& hero, GameHard& levelDificulty)
 
             }
         }
-             else 
-             {
+    else if (actionChoice == 2)
+    {
         std::cout << "You leave the drinking contest." << std::endl;
         return;
     }
+    else
+    {
+        std::cout << "Invalid choice. You leave the drinking contest." << std::endl;
+        return;
+    }
 }
+
 
 
 
@@ -230,8 +241,29 @@ std::cout << "You throw 2 times dice "
 }
 
 
-void CardDraw()
+void CardDraw()             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
     std::cout << "You play a card draw game with the tavern patrons." << std::endl;
     std::cout << "Choose action:\n1. Draw a card\n2. Leave the game\n";
+    int actionChoice;
+    std::cin >> actionChoice;
+
+
+    int randomCardWeight = rand() % 13 + 1;
+    if(actionChoice == 1 )
+    {
+      std::cout << "You draw a card from the deck." << std::endl;
+      std::cout << "The card you drew is a " << randomCardWeight << "." << std::endl;
+    }
+
+    else if (actionChoice == 2)
+    {
+        std::cout << "You leave the card draw game." << std::endl;
+        return;
+    }
+    else
+    {
+        std::cout << "Invalid choice. You leave the card draw game." << std::endl;
+        return;
+    }
 }
