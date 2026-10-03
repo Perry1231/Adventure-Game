@@ -97,6 +97,11 @@ void MusicChallenge(Character& hero)
 void FistFight(Character& hero)
 {
     std::cout << "You engage in a fist fight with the tavern patrons." << std::endl;
+    std::cout << "Choose action:\n1. Play fist fight\n2. Leave the game\n";
+    int actionChoice;
+    std::cin >> actionChoice;
+    if(actionChoice == 1) 
+    {
     std::cout << "Choose an opponent:\n1. Weak Opponent\n2. Average Opponent\n3. Strong Opponent\n";
     int opponentChoice;
 
@@ -142,13 +147,26 @@ void FistFight(Character& hero)
             break;
     }
 }
+else 
+    {
+        std::cout << "You leave the fist fight." << std::endl;
+        return;
+    }
+}
 
 void DrinkingContest(Character& hero, GameHard& levelDificulty)
 {
     std::cout << "You participate in a drinking contest with the tavern patrons." << std::endl;
+    std::cout << "Choose action:\n1. Drink \n2. Leave the game\n";
+    int actionChoice;
+    std::cin >> actionChoice;
+    if (actionChoice == 1) 
+    {    
+    
     std::cout << "Choose a drinking opponent:\n1. Light Drinker\n2. Average Drinker\n3. Heavy Drinker\n";
     int opponentChoice;
-    switch(opponentChoice) {
+    switch(opponentChoice) 
+    {
         case 1:
             std::cout << "You compete against a light drinker." << std::endl;
             if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
@@ -188,8 +206,17 @@ void DrinkingContest(Character& hero, GameHard& levelDificulty)
         default:
             std::cout << "Invalid choice. You leave the drinking contest." << std::endl;
             break;
+
+            }
+        }
+             else 
+             {
+        std::cout << "You leave the drinking contest." << std::endl;
+        return;
     }
 }
+
+
 
 
 
@@ -206,5 +233,5 @@ std::cout << "You throw 2 times dice "
 void CardDraw()
 {
     std::cout << "You play a card draw game with the tavern patrons." << std::endl;
-    // Implement card draw logic here
+    std::cout << "Choose action:\n1. Draw a card\n2. Leave the game\n";
 }
