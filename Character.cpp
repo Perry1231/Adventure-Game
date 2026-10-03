@@ -1,6 +1,7 @@
 #include "Header.h"
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include <cstdlib>
 #include <map>
 
@@ -8,24 +9,34 @@
 //=============================Main functions=============================
 void Character::DisplayStats() 
 {
-    std::cout << "\n\n" << std::endl;
-    std::cout <<"============================================="<< std::endl;
-    std::cout << "Character Stats:" << std::endl;
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Age: " << age << std::endl;
-    std::cout << "Race: " << race << std::endl;
-    std::cout << "Profession: " << profession << std::endl;
-    std::cout << "Level: " << level << std::endl;
-    std::cout << "Description: " << description << std::endl;
-    std::cout <<"=================Self Stats=================="<< std::endl;
-    std::cout << "Health: " << health << std::endl;
-    std::cout << "Strength: " << strength << std::endl;
-    std::cout << "Agility: " << agility << std::endl;
-    std::cout << "Intelligence: " << intelligence << std::endl;
-    std::cout << "Defense: " << defense << std::endl;
-    std::cout << "Gold: " << gold << std::endl;
-    std::cout <<"============================================="<< std::endl;
-    std::cout << "\n\n" << std::endl;
+    const int width = 45;
+
+    std::cout << "\n";
+    std::cout << "┌" << std::string(width - 2, '─') << "┐\n";
+    std::cout << "│ " << std::left << std::setw(width - 4) << "CHARACTER PROFILE" << " │\n";
+    std::cout << "├" << std::string(width - 2, '─') << "┤\n";
+
+    // Basic Info
+    std::cout << "│ " << std::left << std::setw(15) << "Name:"        << std::setw(width - 19) << name        << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Age:"         << std::setw(width - 19) << age         << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Race:"        << std::setw(width - 19) << race        << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Profession:"  << std::setw(width - 19) << profession  << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Level:"       << std::setw(width - 19) << level       << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Description:" << std::setw(width - 19) << description << " │\n";
+
+    std::cout << "├" << std::string(width - 2, '─') << "┤\n";
+    std::cout << "│ " << std::left << std::setw(width - 4) << "ATTRIBUTES & STATS" << " │\n";
+    std::cout << "├" << std::string(width - 2, '─') << "┤\n";
+
+    // Stats
+    std::cout << "│ " << std::left << std::setw(15) << "Health:"       << std::setw(width - 19) << health       << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Strength:"     << std::setw(width - 19) << strength     << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Agility:"      << std::setw(width - 19) << agility      << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Intelligence:" << std::setw(width - 19) << intelligence << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Defense:"      << std::setw(width - 19) << defense      << " │\n";
+    std::cout << "│ " << std::left << std::setw(15) << "Gold:"         << std::setw(width - 19) << gold         << " │\n";
+
+    std::cout << "└" << std::string(width - 2, '─') << "┘\n\n";
 }
 
 
@@ -629,33 +640,53 @@ switch (choice)
 
 }
 
-void Menu(Enemy& enemy , Character& hero, MyInventory& inv1, GameHard& difficultyLevel)
+#include <iostream>
+#include <limits>
+
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficultyLevel)
 {
-    int choice;
-    std::cout << "\n=== INTERACTION ===" << std::endl;
-    std::cout << "1-Talk \n 2-Attack \n 3-Trade \n4-Leave" << std::endl;
-    std::cin >> choice;
+    int choice = 0;
+
+    std::cout << "\n┌──────────────────────────────────────┐\n"
+              << "│            INTERACTION               │\n"
+              << "├──────────────────────────────────────┤\n"
+              << "│  [1] Talk                            │\n"
+              << "│  [2] Attack                          │\n"
+              << "│  [3] Trade                           │\n"
+              << "│  [4] Leave                           │\n"
+              << "└──────────────────────────────────────┘\n"
+              << "Select an action: ";
+
+    // Handle non-integer inputs gracefully to prevent infinite loops
+    if (!(std::cin >> choice)) 
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "\n[!] Invalid input. Please enter a valid number.\n";
+        return;
+    }
+
+    std::cout << "\n";
+
     switch (choice)
     {
-    case 1:
-        std::cout << "You talk to the " << enemy.GetName() << "." << std::endl;
-        break;
-    case 2:
-       hero.DamageSystem(enemy);
-        break;
-    case 3:
-        std::cout << "You start traiding" << std::endl;
-
-        break;
-
-    case 4:
-        std::cout << "You leave the area." << std::endl;
-        
-        break;
-
-    default:
-        std::cout << "Invalid choice" << std::endl;
-        std::cout << "Make choice once more" << std::endl;
+        case 1:
+            std::cout << "💬 You talk to the " << enemy.GetName() << ".\n";
+            break;
+        case 2:
+            std::cout << "⚔️ You attack the " << enemy.GetName() << "!\n";
+            hero.DamageSystem(enemy);
+            break;
+        case 3:
+            std::cout << "🪙 You start trading with the " << enemy.GetName() << ".\n";
+            // TODO: Call trade function, e.g., inv1.OpenTrade(hero);
+            break;
+        case 4:
+            std::cout << "🚪 You leave the area.\n";
+            break;
+        default:
+            std::cout << "❌ Invalid choice. Please select an option between 1 and 4.\n";
+            break;
     }
 }
 
