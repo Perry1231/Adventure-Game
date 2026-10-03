@@ -609,7 +609,7 @@ void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void BoardGame();
 void MusicChallenge(Character& hero);
 void FistFight(Character& hero);
-void DrinkingContest();
+void DrinkingContest(Character& hero, GameHard& levelDificulty);
 void CardDraw();
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
 void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent); //Plot.cpp

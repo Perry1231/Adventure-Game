@@ -143,10 +143,52 @@ void FistFight(Character& hero)
     }
 }
 
-void DrinkingContest()
+void DrinkingContest(Character& hero, GameHard& levelDificulty)
 {
     std::cout << "You participate in a drinking contest with the tavern patrons." << std::endl;
-    // Implement drinking contest logic here
+    std::cout << "Choose a drinking opponent:\n1. Light Drinker\n2. Average Drinker\n3. Heavy Drinker\n";
+    int opponentChoice;
+    switch(opponentChoice) {
+        case 1:
+            std::cout << "You compete against a light drinker." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
+                std::cout << "You outdrink the light drinker!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 10);
+                std::cout << "\n[REWARD]: +10 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The light drinker proves to be a challenge. You lose 5 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 2 * levelDificulty.GetDifficultyLevel());
+            }
+            break;
+        case 2:
+            std::cout << "You compete against an average drinker." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
+                std::cout << "You outdrink the average drinker!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 15);
+                std::cout << "\n[REWARD]: +15 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The average drinker proves to be a challenge. You lose 10 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 5 * levelDificulty.GetDifficultyLevel());
+            }
+            break;
+        case 3:
+            std::cout << "You compete against a heavy drinker." << std::endl;
+            if(hero.GetLevel() > 1.0 && hero.GetAgility() > 10) {
+                std::cout << "You outdrink the heavy drinker!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 20);
+                std::cout << "\n[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The heavy drinker proves to be a challenge. You lose 15 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 6 * levelDificulty.GetDifficultyLevel());
+            }
+            break;
+        default:
+            std::cout << "Invalid choice. You leave the drinking contest." << std::endl;
+            break;
+    }
 }
 
 
