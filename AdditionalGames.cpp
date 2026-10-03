@@ -45,11 +45,7 @@ while(choice != 3);
 
 }
 
-void BoardGame()
-{
-    std::cout << "You play a board game with the tavern patrons." << std::endl;
-    // Implement board game logic here
-}
+
 
 void MusicChallenge(Character& hero)
 {
@@ -98,10 +94,53 @@ void MusicChallenge(Character& hero)
     }
 
 }
-void FistFight()
+void FistFight(Character& hero)
 {
     std::cout << "You engage in a fist fight with the tavern patrons." << std::endl;
-    // Implement fist fight logic here
+    std::cout << "Choose an opponent:\n1. Weak Opponent\n2. Average Opponent\n3. Strong Opponent\n";
+    int opponentChoice;
+
+    switch(opponentChoice) {
+        case 1:
+            std::cout << "You fight a weak opponent." << std::endl;
+            if(hero.GetStrength() > 10) {
+                std::cout << "You easily defeat the weak opponent!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 10);
+                std::cout << "\n[REWARD]: +10 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The weak opponent proves to be a challenge. You lose 5 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 5);
+            }
+            break;
+        case 2:
+            std::cout << "You fight an average opponent." << std::endl;
+            if(hero.GetStrength() > 15) {
+                std::cout << "You defeat the average opponent!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 15);
+                std::cout << "\n[REWARD]: +15 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The average opponent proves to be a challenge. You lose 10 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 10);
+            }
+            break;
+        case 3:
+            std::cout << "You fight a strong opponent." << std::endl;
+            if(hero.GetStrength() > 20) {
+                std::cout << "You defeat the strong opponent!" << std::endl;
+                hero.SetLevel(hero.GetLevel() + 0.05);
+                hero.SetGold(hero.GetGold() + 20);
+                std::cout << "\n[REWARD]: +20 Gold (Total: " << hero.GetGold() << ")" << std::endl;
+            } else {
+                std::cout << "The strong opponent proves to be a challenge. You lose 15 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 15);
+            }
+            break;
+        default:
+            std::cout << "Invalid choice. You leave the fist fight." << std::endl;
+            break;
+    }
 }
 
 void DrinkingContest()
