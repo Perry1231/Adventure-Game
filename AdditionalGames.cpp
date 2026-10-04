@@ -292,6 +292,7 @@ void CardDraw(Character& hero)
 
         switch(actionChoice2) {
             case 1:
+            {
                 std::cout << "\nYou decided to keep the card.\n";
                 int sum = 0;
                 std::cout << "Drawing 3 more cards...\n";
@@ -343,14 +344,17 @@ void CardDraw(Character& hero)
                     }
                 }
                 break;
-
+            }
             case 2:
+            {
                 std::cout << "\nYou decided not to risk it and discarded the card.\n";
                 break;
-
+            }
             default:
+            {
                 std::cout << "\nInvalid choice. You walk away from the table.\n";
                 break;
+            }
         }
     }
     else if (actionChoice == 2)

@@ -424,7 +424,7 @@ switch (choice) {
 
             case 2:
                 std::cout << "You choose to play Card Draw." << std::endl;
-                CardDraw();
+                CardDraw(hero);
                 break;
             case 3:
                 std::cout << "You choose to play Coin Flip." << std::endl;

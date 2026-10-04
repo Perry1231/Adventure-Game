@@ -608,11 +608,10 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty);
 void TalkStrangers();
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll(Character& hero); //OtherRandomizer.cpp
-void BoardGame();
 void MusicChallenge(Character& hero);
 void FistFight(Character& hero);
 void DrinkingContest(Character& hero, GameHard& levelDificulty);
-void CardDraw();
+void CardDraw(Character& hero);
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
 void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
