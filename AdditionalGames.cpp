@@ -241,7 +241,7 @@ std::cout << "You throw 2 times dice "
 }
 
 
-void CardDraw(Character& hero)             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void CardDraw(Character& hero)            
 {
     std::cout << "You play a card draw game with the tavern patrons." << std::endl;
     std::cout << "Choose action:\n1. Draw a card\n2. Leave the game\n";
@@ -309,7 +309,7 @@ void CardDraw(Character& hero)             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             break;
     }
     }
-    
+
     else if (actionChoice == 2)
     {
         std::cout << "You leave the card draw game." << std::endl;

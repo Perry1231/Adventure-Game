@@ -32,7 +32,7 @@ Implement Loader.cpp (read from files that had been created from saver) +- Only 
 AdditionalGames.cpp===================================
 Add games + add randomizer for places games (it randomize games in tavers)
 Multiply for HowToPlayFunction()
-CardDraw() write
+
 
 
 Armory.cpp============================================
