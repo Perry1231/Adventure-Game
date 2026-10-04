@@ -249,7 +249,7 @@ void CardDraw()             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cin >> actionChoice;
 
 
-    int randomCardWeight = rand() % 13 + 1;
+    int randomCardWeight = rand() % 11 + 1;
     if(actionChoice == 1 )
     {
       std::cout << "You draw a card from the deck." << std::endl;

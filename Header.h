@@ -604,6 +604,8 @@ void ArcheryContest(Character& hero);
 void StrangeStone(Character& hero);
 void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
 void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty);
+void TalkToLocals(Character& hero, GameHard& levelDificulty);
+void TalkStrangers();
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void BoardGame();

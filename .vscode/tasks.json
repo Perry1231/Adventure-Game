@@ -4,15 +4,15 @@
     {
       "type": "cppbuild",
       "label": "Build Adventure Game",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+      "command": "C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\msys2_g++.cmd",
       "args": [
         "-Wall",
         "-Wextra",
         "-g3",
         "-std=c++17",
-        "${workspaceFolder}\\*.cpp",
+        "${workspaceFolder}/*.cpp",
         "-o",
-        "${workspaceFolder}\\output\\Main.exe"
+        "${workspaceFolder}/output/Main.exe"
       ],
       "problemMatcher": ["$gcc"],
       "group": {
