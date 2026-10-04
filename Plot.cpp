@@ -19,35 +19,40 @@ void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEven
 
 void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
 {
-    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
-    std::cout << "│                       TURN                        │\n";
-    std::cout << "├───────────────────────────────────────────────────┤\n";
-    std::cout << "│  1. Make turn                                     │\n";
-    std::cout << "│  2. Look in inventory                             │\n";
-    std::cout << "│  3. Go to main menu                               │\n";
-    std::cout << "└───────────────────────────────────────────────────┘\n";
-
-    std::cout << "Enter choice : ";
     int choice = 0;
-    std::cin >> choice;
+    do {
+        std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+        std::cout << "│                       TURN                        │\n";
+        std::cout << "├───────────────────────────────────────────────────┤\n";
+        std::cout << "│  1. Make turn                                     │\n";
+        std::cout << "│  2. Look in inventory                             │\n";
+        std::cout << "│  3. Go to main menu                               │\n";
+        std::cout << "└───────────────────────────────────────────────────┘\n";
 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "\nYou make a turn.\n";
-            RandomizerEvent(hero, levelDificulty, gameEvent); // Assuming you have a GameHard object to pass
-            break;
-        case 2:
-            std::cout << "\nYou have chosen to look in your inventory.\n";
-            hero.GetInventory()->DisplayInventory();
-            break;
-        case 3:
-            std::cout << "\nReturning to main menu.\n";
-            MainFunction(); 
-            break;
-        default:
-            std::cout << "\nInvalid choice. Please select a valid option.\n";
-            break;
-    }
+        std::cout << "Enter choice : ";
+        std::cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                std::cout << "\nYou make a turn.\n";
+                RandomizerEvent(hero, levelDificulty, gameEvent);
+                break;
+            case 2:
+                std::cout << "\nYou have chosen to look in your inventory.\n";
+                if (hero.GetInventory()) {
+                    hero.GetInventory()->DisplayInventory();
+                } else {
+                    std::cout << "Inventory is empty.\n";
+                }
+                break;
+            case 3:
+                std::cout << "\nReturning to main menu.\n";
+                break;
+            default:
+                std::cout << "\nInvalid choice. Please select a valid option.\n";
+                break;
+        }
+    } while (choice != 3);
     std::cout << "\n\n";
 }

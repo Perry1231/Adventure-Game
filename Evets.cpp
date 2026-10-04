@@ -8,7 +8,7 @@
 enum EventType {
     TOXIC_RAIN =0, RAIN=1, VOLCANIC_ERUPTION=2, FLASH_FLOOD=3, MUDSLIDE=4, HUMID_HOT=5,
     CONSTRICTOR_VINES=6, QUICK_FREEZING_GLAD=7,
-    WILL_WISP_ATTRACTION=8,POLLEN_HALLUCINATIONS=10,
+    WILL_WISP_ATTRACTION=8,POLLEN_HALLUCINATIONS=9,
     ENEMY_PATROL=11, MONSTER_AMBUSH=12, CUNNING_SCAVENGERS=13, STAGED_ACCIDENT=14,
     FALSE_HOSPITABLE_HOST=15, THE_PROPHETIC_BEGGAR=16, THE_SHADOWING_KID=17,
     EXTORTION=18, THE_TURNCOAT_GUIDE=19, POACHER_TRAP_TRIGGER=20, FAKE_DISTRESS_CALL=21,
@@ -19,16 +19,21 @@ enum EventType {
 
 void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
 {
-    int eventType = rand() % 41; //From 0 to 41
+    int eventType = rand() % 41; //From 0 to 40
+    // Перевірка на повтор подій з історії — без безлімітного циклу
+    for (bool duplicate = true; duplicate; ) {
+        duplicate = false;
+        for (int h : gameEvent.eventHistory) {
+            if (h == eventType) {
+                eventType = rand() % 41;
+                duplicate = true;
+                break;
+            }
+        }
+    }
     gameEvent.eventHistory.push_back(eventType);
     if(gameEvent.eventHistory.size() > 3) { // Keep only the last 3 events
         gameEvent.eventHistory.erase(gameEvent.eventHistory.begin());
-    }
-    for(int i=0; i<gameEvent.eventHistory.size(); ++i) {
-        if(gameEvent.eventHistory[i] == eventType) {
-            eventType = rand() % 41;
-            gameEvent.eventHistory.push_back(eventType);
-        }
     }
 
     switch (eventType) {

@@ -8,6 +8,7 @@
 int main() {
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
+    srand((unsigned)time(nullptr));
 
     MainFunction();
     return 0;
