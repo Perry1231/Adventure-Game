@@ -40,7 +40,7 @@ void MainFunction() {
     enemy.RandomizeStats();
     GameEvent gameEvent;
 //====================================================================
-  int mainChoice = 0;
+  int mainChoice =0;
     while (true) {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                     MAIN MENU                     │\n";

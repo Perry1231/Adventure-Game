@@ -11,6 +11,7 @@ void ManageGameSaves(Character& hero, MyInventory& inv1, GameHard& levelDificult
     std::cout << "│  1. Save Game                                     │\n";
     std::cout << "│  2. Load Game                                     │\n";
     std::cout << "│  3. Delete Game                                   │\n";
+    std::cout << "│  4. Exit                                          │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
     
     int choice = 0;
@@ -28,6 +29,8 @@ void ManageGameSaves(Character& hero, MyInventory& inv1, GameHard& levelDificult
         case 3:
             Deleter();
             break;
+            case 4:
+            return;
         default:
             std::cout << "\n[!] No such function. Invalid choice.\n";
             break;
