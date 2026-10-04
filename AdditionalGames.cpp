@@ -241,7 +241,7 @@ std::cout << "You throw 2 times dice "
 }
 
 
-void CardDraw()             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void CardDraw(Character& hero)             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
     std::cout << "You play a card draw game with the tavern patrons." << std::endl;
     std::cout << "Choose action:\n1. Draw a card\n2. Leave the game\n";
@@ -250,12 +250,66 @@ void CardDraw()             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
     int randomCardWeight = rand() % 11 + 1;
-    if(actionChoice == 1 )
+    if(actionChoice == 1)
     {
-      std::cout << "You draw a card from the deck." << std::endl;
-      std::cout << "The card you drew is a " << randomCardWeight << "." << std::endl;
-    }
 
+    std::cout << "Good , now set your bet amount :\n";
+    int betAmount;
+    std::cin >> betAmount;
+
+    std::cout << "You bet " << betAmount << " gold on the card draw." << std::endl;
+    std::cout << "Game starts now ..." << std::endl;
+
+    std::cout << "You draw a card from the deck." << std::endl;
+    std::cout << "The card you drew weight is a " << randomCardWeight << "." << std::endl;
+    
+    std::cout << "Choose an action:\n1. Keep the card\n2. Discard the card\n";
+    int actionChoice2;
+    std::cin >> actionChoice2;
+
+    switch(actionChoice2) {
+        case 1:
+            std::cout << "You keep the card." << std::endl;
+            int sum=0;
+            for(int i=0; i<3; i++) {
+                int newCardWeight = rand() % 11 + 1;
+                sum += newCardWeight;
+                std::cout << "You draw a new card with weight " << newCardWeight << "." << std::endl;
+            }
+            if(sum > 21)
+            {
+                std::cout << "Your total card weight is " << sum << ". You lose the bet of " << betAmount << " gold." << std::endl;
+                hero.SetGold(hero.GetGold() - betAmount);
+            } else {
+                std::cout << "Your total card weight is " << sum << ". What would you like to do?\n1. Keep the cards\n2. Discard the cards\n";
+                int finalChoice;
+                std::cin >> finalChoice;
+                if(finalChoice == 1) {
+                    std::cout << "You keep the cards." << std::endl;
+                    if(sum + randomCardWeight <= 21) {
+                        std::cout << "You win! You gain " << betAmount << " gold." << std::endl;
+                        hero.SetGold(hero.GetGold() + betAmount);
+                    } else {
+                        std::cout << "You lose! You lose the bet of " << betAmount << " gold." << std::endl;
+                        hero.SetGold(hero.GetGold() - betAmount* 1.5);
+                    }
+                } else if(finalChoice == 2) {
+                    std::cout << "You discard the cards." << std::endl;
+                    hero.SetGold(hero.GetGold() - betAmount);
+                } else {
+                    std::cout << "Invalid choice. You discard the cards." << std::endl;
+                }
+            }
+            break;
+        case 2:
+            std::cout << "You discard the card." << std::endl;
+            break;
+        default:
+            std::cout << "Invalid choice. You discard the card." << std::endl;
+            break;
+    }
+    }
+    
     else if (actionChoice == 2)
     {
         std::cout << "You leave the card draw game." << std::endl;
@@ -266,4 +320,5 @@ void CardDraw()             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         std::cout << "Invalid choice. You leave the card draw game." << std::endl;
         return;
     }
+
 }
