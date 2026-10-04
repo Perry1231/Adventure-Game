@@ -251,13 +251,13 @@ std::cout << "You throw 2 times dice "
 void CardDraw(Character& hero)            
 {
     std::cout << "\n========================================\n";
-    std::cout << "       ТАВЕРНА: ГРА В КАРТИ       \n";
+    std::cout << "       TAVERN: CARD DRAW GAME       \n";
     std::cout << "========================================\n";
-    std::cout << "Ви сідаєте за стіл до місцевих жителів і пропонуєте зіграти.\n";
-    std::cout << "1. Зіграти в карткову гру\n";
-    std::cout << "2. Покинути гру\n";
+    std::cout << "You sit at a table with local patrons and propose a game.\n";
+    std::cout << "1. Play the card game\n";
+    std::cout << "2. Leave the game\n";
     std::cout << "----------------------------------------\n";
-    std::cout << "Ваш вибір: ";
+    std::cout << "Your choice: ";
     
     int actionChoice;
     std::cin >> actionChoice;
@@ -266,101 +266,101 @@ void CardDraw(Character& hero)
     
     if (actionChoice == 1)
     {
-        std::cout << "\nСкільки золота ви готові поставити?\n";
-        std::cout << "Ваша ставка: ";
+        std::cout << "\nHow much gold are you willing to bet?\n";
+        std::cout << "Your bet: ";
         int betAmount;
         std::cin >> betAmount;
 
         if (betAmount > hero.GetGold()) {
-            std::cout << "\nУ вас недостатньо золота для такої ставки!\n";
+            std::cout << "\nYou don't have enough gold for that bet!\n";
             return;
         }
 
-        std::cout << "\n[СТАВКА]: " << betAmount << " золота.\n";
-        std::cout << "Гра починається...\n\n";
+        std::cout << "\n[BET PLACED]: " << betAmount << " gold.\n";
+        std::cout << "The game begins...\n\n";
 
-        std::cout << "Ви витягуєте першу карту з колоди...\n";
-        std::cout << "Вага карти: " << randomCardWeight << "\n\n";
+        std::cout << "You draw the first card from the deck...\n";
+        std::cout << "Card weight: " << randomCardWeight << "\n\n";
         
-        std::cout << "Що робимо далі?\n";
-        std::cout << "1. Залишити карту собі\n";
-        std::cout << "2. Скинути карту\n";
-        std::cout << "Ваш вибір: ";
+        std::cout << "What do you want to do next?\n";
+        std::cout << "1. Keep the card\n";
+        std::cout << "2. Discard the card\n";
+        std::cout << "Your choice: ";
         
         int actionChoice2;
         std::cin >> actionChoice2;
 
         switch(actionChoice2) {
             case 1:
-                std::cout << "\nВи вирішили залишити карту.\n";
+                std::cout << "\nYou decided to keep the card.\n";
                 int sum = 0;
-                std::cout << "Добираємо ще 3 карти...\n";
+                std::cout << "Drawing 3 more cards...\n";
                 
                 for(int i = 0; i < 3; i++) {
                     int newCardWeight = rand() % 11 + 1;
                     sum += newCardWeight;
-                    std::cout << " - Додаткова карта #" << (i + 1) << ": " << newCardWeight << "\n";
+                    std::cout << " - Bonus card #" << (i + 1) << ": " << newCardWeight << "\n";
                 }
                 
-                std::cout << "\nСума додаткових карт: " << sum << "\n";
+                std::cout << "\nSum of bonus cards: " << sum << "\n";
 
                 if(sum > 21)
                 {
-                    std::cout << "\nПеребір! Загальна вага перевищила 21.\n";
-                    std::cout << "Ви програли ставку: -" << betAmount << " золота.\n";
+                    std::cout << "\nBust! The total weight exceeded 21.\n";
+                    std::cout << "You lost your bet of " << betAmount << " gold.\n";
                     hero.SetGold(hero.GetGold() - betAmount);
                 } 
                 else 
                 {
-                    std::cout << "\nБажаєте ризикнути чи зупинитись?\n";
-                    std::cout << "1. Залишити всі карти (урахувати першу)\n";
-                    std::cout << "2. Скинути карти\n";
-                    std::cout << "Ваш вибір: ";
+                    std::cout << "\nDo you want to risk it or stop?\n";
+                    std::cout << "1. Keep all cards (include the first one)\n";
+                    std::cout << "2. Discard the cards\n";
+                    std::cout << "Your choice: ";
                     
                     int finalChoice;
                     std::cin >> finalChoice;
                     
                     if(finalChoice == 1) {
-                        std::cout << "\nВи залишаєте всі карти на столі.\n";
+                        std::cout << "\nYou keep all cards on the table.\n";
                         int totalSum = sum + randomCardWeight;
-                        std::cout << "Загальна комбінація: " << totalSum << "\n";
+                        std::cout << "Total card combination: " << totalSum << "\n";
 
                         if(totalSum <= 21) {
-                            std::cout << "\nПеремога! Ви виграли " << betAmount << " золота!\n";
+                            std::cout << "\nVictory! You won " << betAmount << " gold!\n";
                             hero.SetGold(hero.GetGold() + betAmount);
                         } else {
-                            std::cout << "\nПрограш! Загальна сума (" << totalSum << ") більша за 21.\n";
-                            std::cout << "Ви втрачаєте: -" << (betAmount * 1.5) << " золота.\n";
+                            std::cout << "\nDefeat! Total sum (" << totalSum << ") is greater than 21.\n";
+                            std::cout << "Penalty! You lose: -" << (betAmount * 1.5) << " gold.\n";
                             hero.SetGold(hero.GetGold() - betAmount * 1.5);
                         }
                     } 
                     else if(finalChoice == 2) {
-                        std::cout << "\nВи скинули карти та покинули гру.\n";
+                        std::cout << "\nYou discarded the cards and left the game.\n";
                         hero.SetGold(hero.GetGold() - betAmount);
                     } 
                     else {
-                        std::cout << "\nНевірний вибір. Ви скинули карти.\n";
+                        std::cout << "\nInvalid choice. You discarded the cards.\n";
                     }
                 }
                 break;
 
             case 2:
-                std::cout << "\nВи вирішили не ризикувати і скинули карту.\n";
+                std::cout << "\nYou decided not to risk it and discarded the card.\n";
                 break;
 
             default:
-                std::cout << "\nНевірний вибір. Ви йдете від столу.\n";
+                std::cout << "\nInvalid choice. You walk away from the table.\n";
                 break;
         }
     }
     else if (actionChoice == 2)
     {
-        std::cout << "\nВи вирішили не брати участь і залишаєте таверну.\n";
+        std::cout << "\nYou decided not to participate and leave the tavern.\n";
         return;
     }
     else
     {
-        std::cout << "\nНевірний ввід. Ви йдете геть.\n";
+        std::cout << "\nInvalid input. You walk away.\n";
         return;
     }
     
