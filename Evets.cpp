@@ -348,39 +348,52 @@ break;
     else {std::cout << "You entere wrong answer !";}
 }
 
-void Earthquake(Character& hero, GameHard& levelDificulty)                                              //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-{
+// Helper function for health gains
+void GainHealth(Character& hero, int amount) {
+    hero.SetHealth(hero.GetHealth() + amount);
+    std::cout << Color::GREEN << Color::BOLD << "   [ + " << amount << " HP ] " 
+              << Color::RESET << "Current Health: " << Color::GREEN << hero.GetHealth() << Color::RESET << "\n";
+}
+
+// Helper function for gold gains
+void GainGold(Character& hero, int amount) {
+    hero.SetGold(hero.GetGold() + amount);
+    std::cout << Color::YELLOW << Color::BOLD << "   [ + " << amount << " Gold ] " 
+              << Color::RESET << "Current Gold: " << Color::YELLOW << hero.GetGold() << Color::RESET << "\n";
+}
+
+// Events
+
+void Earthquake(Character& hero, GameHard& levelDificulty) {
+    std::cout << Color::DARK_GRAY << " 🌋 [EVENT] " << Color::RESET << "An Earthquake shakes the ground! (Exp +0.01)\n";
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void MoneyFind(Character& hero, GameHard& levelDificulty) {
     int gold = rand() % 100 + 1;
-    hero.SetGold(hero.GetGold() + gold);
-    std::cout << "You found " << gold << " gold!\n";
+    std::cout << Color::YELLOW << " 💰 [EVENT] " << Color::RESET << "You stumbled upon a hidden stash!\n";
+    GainGold(hero, gold);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
 void GoodStranger(Character& hero, GameHard& levelDificulty) {
-    std::cout << "Event: Good Stranger! You feel refreshed.\n";
-    std::cout << "Your health + 5" << std::endl;
-    hero.SetHealth(hero.GetHealth() + 5);
+    std::cout << Color::CYAN << " 🤝 [EVENT] " << Color::RESET << "A Good Stranger shares a warm meal with you. You feel refreshed!\n";
+    GainHealth(hero, 5);
     hero.SetLevel(hero.GetLevel() + 0.01);
-    
 }
 
 void GoodWeather(Character& hero, GameHard& levelDificulty) {
-    std::cout << "Event: Good Weather! You feel rejuvenated.\n";
-    hero.SetHealth(hero.GetHealth() + 5);
+    std::cout << Color::CYAN << " ☀️  [EVENT] " << Color::RESET << "Good Weather! The clear skies rejuvenate your spirit.\n";
+    GainHealth(hero, 5);
     hero.SetLevel(hero.GetLevel() + 0.03);
 }
 
 void GoodRest(Character& hero, GameHard& levelDificulty) {
     int health = rand() % 20 + 10;
-    hero.SetHealth(hero.GetHealth() + health);
-    std::cout << "You found a safe place to rest. " << health << " health restored.\n";
+    std::cout << Color::GREEN << " ⛺ [EVENT] " << Color::RESET << "You found a safe, cozy place to rest.\n";
+    GainHealth(hero, health);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
-
 
 void Tavern(Character& hero)
 {
