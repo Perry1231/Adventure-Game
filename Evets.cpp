@@ -92,6 +92,7 @@ namespace Color {
     const std::string MAGENTA = "\033[35m";
     const std::string CYAN    = "\033[36m";
     const std::string BOLD    = "\033[1m";
+    const std::string DARK_GRAY = "\033[90m";
 }
 
 // Helper function to render formatted Event Cards
@@ -117,15 +118,21 @@ void PrintEventCard(const std::string& icon, const std::string& title, const std
 // Helper function for damage logging
 void DamageHero(Character& hero, int amount) {
     hero.SetHealth(hero.GetHealth() - amount);
-    std::cout << Color::RED << Color::BOLD << "   [ - " << amount << " HP ] " 
-              << Color::RESET << "Current Health: " << Color::GREEN << hero.GetHealth() << Color::RESET << "\n";
+    
+    std::cout << Color::RED << Color::BOLD << " ⚔  [DAMAGE] " 
+              << Color::RESET << "-" << amount << " HP  " 
+              << Color::DARK_GRAY << "(Health: " << Color::GREEN << hero.GetHealth() 
+              << Color::DARK_GRAY << "/" << hero.GetTotalHealth() << ")" << Color::RESET << "\n";
 }
 
 // Helper function for gold loss logging
 void LoseGold(Character& hero, int amount) {
     hero.SetGold(hero.GetGold() - amount);
-    std::cout << Color::YELLOW << Color::BOLD << "   [ - " << amount << " Gold ] " 
-              << Color::RESET << "Current Gold: " << Color::YELLOW << hero.GetGold() << Color::RESET << "\n";
+    
+    std::cout << Color::YELLOW << Color::BOLD << " 🪙  [LOSS]   " 
+              << Color::RESET << "-" << amount << " Gold " 
+              << Color::DARK_GRAY << "(Remaining: " << Color::YELLOW << hero.GetGold() 
+              << Color::DARK_GRAY << ")" << Color::RESET << "\n";
 }
 
 // ---------------- EVENTS ----------------
