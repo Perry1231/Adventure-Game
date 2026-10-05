@@ -470,42 +470,78 @@ switch (choice) {
 }
 }
 
-void Hostel(Character& hero)                                                                                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-{
-std::cout << "You enter a small hostel. The atmosphere is quiet and peaceful." << std::endl;
-std::cout << "You can rest here and regain some health." << std::endl;
-std::cout << "Or you can talk to the other travelers and gather information about your next adventure." << std::endl;
-std::cout << "What would you like to do?" << std::endl;
+void Hostel(Character& hero) {
+    // Atmospheric introduction box / header
+    std::cout << Color::CYAN << Color::BOLD << "\n 🏨 [LOCATION] " 
+              << Color::RESET << "The Dusty Lantern Hostel\n";
+    std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
+    std::cout << " You step into a warm, dimly lit room. The air smells of woodsmoke and stale ale.\n";
+    std::cout << " A weary innkeeper nods from behind the counter, and travelers murmur in corners.\n\n";
 
-std::cout <<"1. Rest and regain health" << std::endl;
-std::cout <<"2. Talk to the other travelers" << std::endl;
-std::cout <<"3. Leave the hostel" << std::endl;
+    std::cout << Color::BOLD << " What would you like to do?\n" << Color::RESET;
+    std::cout << "  " << Color::YELLOW << "1." << Color::RESET << " Rent a room to rest and recover health\n";
+    std::cout << "  " << Color::YELLOW << "2." << Color::RESET << " Approach the travelers to chat and gather rumors\n";
+    std::cout << "  " << Color::YELLOW << "3." << Color::RESET << " Leave the hostel and head back out\n";
+    std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
+    
+    std::cout << Color::BOLD << " Choice > " << Color::RESET;
+    int choice;
+    std::cin >> choice;
+    std::cout << "\n";
 
-int choice;
-std::cin>> choice;
+    switch (choice) {
+        case 1: {
+            std::cout << Color::GREEN << " ⛺ [REST] " << Color::RESET << "You secure a quiet cot for the night.\n";
+            GainHealth(hero, 15);
+            hero.SetLevel(hero.GetLevel() + 0.01);
+            break;
+        }
+        case 2: {
+            std::cout << Color::MAGENTA << " 🗣️  [RUMORS] " << Color::RESET << "You sit by the hearth and strike up a conversation...\n";
+            std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
+            std::cout << "  " << Color::YELLOW << "1." << Color::RESET << " Ask about hidden treasures\n";
+            std::cout << "  " << Color::YELLOW << "2." << Color::RESET << " Ask what is going on in these lands\n";
+            std::cout << "  " << Color::YELLOW << "3." << Color::RESET << " Ask where you can find work\n";
+            std::cout << "  " << Color::YELLOW << "4." << Color::RESET << " Order a round of drinks for everyone ($10 Gold)\n";
+            std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
 
-switch (choice) {
-    case 1:
-        std::cout << "You rest and regain some health." << std::endl;
-        hero.SetHealth(hero.GetHealth() + 15);
-        hero.SetLevel(hero.GetLevel() + 0.01);
-        break;
-    case 2:
-        std::cout << "You talk to the other travelers and gather information about your next adventure." << std::endl;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            std::cout << Color::BOLD << " Dialogue Choice > " << Color::RESET;
+            int subChoice;
+            std::cin >> subChoice;
+            std::cout << "\n";
 
-        std::cout << "1. Gain some info about tresures" << std::endl;
-        std::cout << "2. What is going here ?" << std::endl;
-        std::cout << "3. Where I can find job ?" << std::endl;
-        std::cout << "4.                       " << std::endl;
-
-        break;
-    case 3:
-        std::cout << "You leave the hostel and continue your adventure." << std::endl;
-        break;
-    default:
-        std::cout << "Invalid choice. You leave the hostel." << std::endl;
-        break;
-}
+            switch (subChoice) {
+                case 1:
+                    std::cout << Color::CYAN << " 🗺️  " << Color::RESET << "\"Old legends say a stash is buried deep within the eastern caves...\"\n";
+                    break;
+                case 2:
+                    std::cout << Color::CYAN << " 📜 " << Color::RESET << "\"Monsters have been growing bolder by the day. Nobody feels safe anymore.\"\n";
+                    break;
+                case 3:
+                    std::cout << Color::CYAN << " 💰 " << Color::RESET << "\"The local militia is always paying heads for goblin teeth. Check the board outside.\"\n";
+                    break;
+                case 4:
+                    if (hero.GetGold() >= 10) {
+                        LoseGold(hero, 10);
+                        std::cout << Color::GREEN << " ✨ " << Color::RESET << "The tavern cheers! Everyone raises a glass to your generosity.\n";
+                        hero.SetLevel(hero.GetLevel() + 0.02); // Small bonus for being generous
+                    } else {
+                        std::cout << Color::RED << " ❌ " << Color::RESET << "You check your pockets... you don't have enough gold to buy drinks!\n";
+                    }
+                    break;
+                default:
+                    std::cout << Color::DARK_GRAY << " The travelers grow silent, ignoring your rambling.\n" << Color::RESET;
+                    break;
+            }
+            break;
+        }
+        case 3:
+            std::cout << Color::DARK_GRAY << " 🚪 [LEAVE] " << Color::RESET << " You step back out into the open world.\n";
+            break;
+        default:
+            std::cout << Color::RED << " ⚠️  [NOTICE] " << Color::RESET << "Indecisive, you are gently nudged out the front door.\n";
+            break;
+    }
 }
 
 void Castle(Character& hero)
