@@ -567,7 +567,7 @@ class Quest
         void SetCompleted(bool completed) { isCompleted = completed; }
 
         int GetQuestDifficulty() const { return questDifficulty; }
-        std::string GetQuestDescriptionLength() const { return questDescription; } 
+        std::string GetQuestDescription() const { return questDescription; } 
         std::string GetQuestName() const { return questName; }
 
         
