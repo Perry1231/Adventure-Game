@@ -546,7 +546,52 @@ void Hostel(Character& hero) {
 
 void Castle(Character& hero)
 {
+std::cout << "You enter a grand castle. The halls are adorned with tapestries and the air smells of incense." << std::endl;
+std::cout << "Select what you want to do: " << std::endl;
+std::cout << "1. Rest in the royal chambers" << std::endl;
+std::cout << "2. Search for hidden treasures" << std::endl;
+std::cout << "3. Look around for quests or tasks" << std::endl;
+std::cout << "4. Leave the castle" << std::endl;
+int choice;
 
+std::cin >> choice;
+switch (choice) {
+    case 1:
+        std::cout << "You rest in the royal chambers and regain some health." << std::endl;
+        hero.SetHealth(hero.GetHealth() + 30);
+        hero.SetLevel(hero.GetLevel() + 0.02);
+        break;
+    case 2:
+        int randomRsult = rand() % 2;
+        int randGold = rand() % 100 + 1; // Random gold between 1 and 100
+        if (randomRsult == 0) {
+            std::cout << "You find a hidden treasure chest filled with gold!" << std::endl;
+            hero.SetGold(hero.GetGold() + randGold);
+            hero.SetLevel(hero.GetLevel() + 0.02);
+        } else {
+            std::cout << "You search the castle but find no treasures." << std::endl;
+        }
+
+        hero.SetLevel(hero.GetLevel() + 0.02);
+        break;
+    case 3:
+        std::cout << "You look around for quests." << std::endl;
+        int questResult = rand() % 2;
+        if (questResult == 0) {
+            std::cout << "You find a quest to help the castle guard with a problem." << std::endl;
+            Quest quest;
+        } else {
+            std::cout << "You look around but find no quests." << std::endl;
+        }
+        hero.SetLevel(hero.GetLevel() + 0.02);
+        break;
+    case 4:
+        std::cout << "You leave the castle and continue your adventure." << std::endl;
+        break;
+    default:
+        std::cout << "Invalid choice. You leave the castle." << std::endl;
+        break;
+}
 }
 
 void Dungeon(Character& hero)

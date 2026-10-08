@@ -545,8 +545,37 @@ struct GameEvent                            //For tracking events not ot be repe
     int tottalEvents = eventHistory.size(); // Total number of events that have occurred
     GameEvent() : tottalEvents(0) {}
 };
+
+
+
+class Quest
+{
+    protected:
+        std::string questName;
+        std::string questDescription;
+        int questDifficulty;
+        bool isCompleted;
+
+    public:
+        Quest() : questName(""), questDescription(""), questDifficulty(1), isCompleted(false) {}
+        Quest(std::string name, std::string description, int difficulty) : questName(name), questDescription(description), questDifficulty(difficulty), isCompleted(false) {}
+
+        void DisplayQuestInfo() const;
+        void SetQuestName(const std::string& name) { questName = name; }
+        void SetQuestDescription(const std::string& description) { questDescription = description; }
+        void SetQuestDifficulty(int difficulty) { questDifficulty = difficulty; }
+        void SetCompleted(bool completed) { isCompleted = completed; }
+
+        int GetQuestDifficulty() const { return questDifficulty; }
+        std::string GetQuestDescriptionLength() const { return questDescription; } 
+        std::string GetQuestName() const { return questName; }
+
+        
+        bool IsCompleted() const { return isCompleted; }
+        int GetQuestDifficulty() const { return questDifficulty; }
+};
 //===============================================================================Additional_Events_Games======================================================
- std::string GetEffectName(int type);
+std::string GetEffectName(int type);
 void MainFunction();
 
 void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent);
