@@ -39,6 +39,12 @@ void MainFunction() {
     Enemy enemy;
     enemy.RandomizeStats();
     GameEvent gameEvent;
+
+    Quest quest1;
+    quest1.SetQuestName("The Lost Home");
+    quest1.SetQuestDescription("Find the lost home of the ancient civilization.");
+    quest1.SetQuestDifficulty(3);
+    
 //====================================================================
   int mainChoice =0;
     while (true) {
