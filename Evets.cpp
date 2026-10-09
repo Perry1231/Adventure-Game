@@ -17,7 +17,7 @@ enum EventType {
     
 };
 
-void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     int eventType = rand() % 41; //From 0 to 40
     // Перевірка на повтор подій з історії — без безлімітного циклу
@@ -75,8 +75,8 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case SIMPLE_HOUSE: SimpleHouse(hero); break;
         case GOOD_PLACE: GoodPlace(hero); break;
         case FISHING_CHALLENGE: FishingChallenge(hero); break;
-        case ARCHERY_CONTEST: ArcheryContest(hero); break;
-        case STRANGE_STONE: StrangeStone(hero); break;
+        case ARCHERY_CONTEST: ArcheryContest(hero, levelDificulty); break;
+        case STRANGE_STONE: StrangeStone(hero, inv1); break;
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
@@ -706,16 +706,102 @@ void FishingChallenge(Character& hero)
 
 }
 
-void ArcheryContest(Character& hero)
+void ArcheryContest(Character& hero, GameHard& levelDificulty)
 {
     std::cout << "You participate in an archery contest with the locals." << std::endl;
-    // Implement archery contest logic here
+    std::cout << "You can try to hit the bullseye or aim for the highest score." << std::endl;
+    std::cout << "What would you like to do?" << std::endl;
+    std::cout << "1. Try to hit the bullseye" << std::endl;
+    std::cout << "2. Try to aim for the highest score" << std::endl;
+    std::cout << "3. Leave the archery contest" << std::endl;
+    std::cout << "Enter your choice: ";
+    int choice;
+
+    switch(choice)
+    {
+        case 1:
+        {
+            std::cout << "You try to hit the bullseye." << std::endl;
+            int bullseyeChance = rand() % 100 + 1; // Random chance between 1 and 100
+            if(bullseyeChance <= 20) {
+                std::cout << "You successfully hit the bullseye! You gain 30 gold." << std::endl;
+                hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10); 
+                hero.SetLevel(hero.GetLevel() + 0.4);
+            } else {
+                std::cout << "You miss the bullseye. You lose 2 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 2);
+                hero.SetLevel(hero.GetLevel() + 0.01);
+            }
+            break;
+        }
+        case 2:
+        {
+            std::cout << "You try to aim for the highest score." << std::endl;
+            int highScoreChance = rand() % 100 + 1; // Random chance between 1 and 100
+            if(highScoreChance <= 30) {
+                std::cout << "You achieve the highest score! You gain 40 gold." << std::endl;
+                hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10);
+                hero.SetLevel(hero.GetLevel() + 0.4);
+            } else {
+                std::cout << "You fail to achieve a high score. You lose 3 health." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 3);
+                hero.SetLevel(hero.GetLevel() + 0.01);
+            }
+            break;
+        }
+        case 3:
+        {
+            std::cout << "You leave the archery contest." << std::endl;
+            break;
+        }
+        default:
+            std::cout << "Invalid choice. You leave the archery contest." << std::endl;
+            break;
+    }
+
 }
 
-void StrangeStone(Character& hero)
+void StrangeStone(Character& hero, MyInventory& inv1)
 {
     std::cout << "You find a strange stone with mysterious markings." << std::endl;
-    // Implement logic for interacting with the strange stone here
+    std::cout << "You can try to decipher the markings or leave it alone." << std::endl;
+    std::cout << "Enter your choice:\n1. Decipher the markings\n2. Leave it alone\n";
+    int choice;
+
+    switch(choice)
+    {
+        case 1:
+        {
+            std::cout << "You attempt to decipher the markings." << std::endl;
+            int decipherChance = rand() % 100 + 1; // Random chance between 1 and 100
+            if(decipherChance <= 25) {
+                std::cout << "You successfully decipher the markings! You gain a magical artifact." << std::endl;
+                Artifact* artifact2 = new Artifact();       //Adding artifact for test in inventory
+                artifact2->RandomizeArtifact();
+                artifact2->SetArtifactName("Ancient Stone of Wisdom");
+                artifact2->SetArtifactDescription("A stone inscribed with ancient runes. It radiates a faint magical energy.");
+                artifact2->SetArtifactPower(10);
+                artifact2->SetArtifactValue(100);
+
+                inv1.AddItem(artifact2);
+
+                hero.SetLevel(hero.GetLevel() + 0.5);
+            } else {
+                std::cout << "You fail to decipher the markings. You feel a strange energy drain from you." << std::endl;
+                hero.SetHealth(hero.GetHealth() - 5);
+                hero.SetLevel(hero.GetLevel() + 0.01);
+            }
+            break;
+        }
+        case 2:
+        {
+            std::cout << "You leave the stone alone and continue your journey." << std::endl;
+            break;
+        }
+        default:
+            std::cout << "Invalid choice. You leave the stone alone." << std::endl;
+            break;
+    }
 }
 
 

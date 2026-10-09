@@ -16,6 +16,7 @@ void Quest::SetQuestDifficulty(int difficulty) {
     questDifficulty = difficulty;
 }
 
+
 void Quest::DisplayQuestInfo() const {
     // Colors and Styles
     const std::string RESET = "\033[0m";
@@ -28,7 +29,7 @@ void Quest::DisplayQuestInfo() const {
 
     // Header Border
     std::cout << CYAN << "========================================\n";
-    std::cout << "               QUEST INFO               \n";
+    std::cout << "               QUESTS INFO               \n";
     std::cout << "========================================\n" << RESET;
 
     // Quest Details with styling
@@ -44,7 +45,6 @@ void Quest::DisplayQuestInfo() const {
         std::cout << RED << "[ No ]" << RESET << std::endl;
     }
 
-    // Footer Border
     std::cout << CYAN << "========================================\n" << RESET;
 }
 

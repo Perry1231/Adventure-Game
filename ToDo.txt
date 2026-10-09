@@ -5,10 +5,13 @@ Implement Character::Attack(Enemy& enemy)    +-
 Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
-//Buggs
 
 
-//Header.h
+//Buggs=============================================
+
+
+
+//Header.h===========================================
 Add Quest realisation full
 
 //check all functions (actions)
@@ -24,6 +27,9 @@ Events.cpp and functions
 Add more events
 End started evnts structure
 
+
+Artifacts.cpp========================================
+Add artifact rarity
 
 
 Loader.cpp===========================================

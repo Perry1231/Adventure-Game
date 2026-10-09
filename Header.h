@@ -437,6 +437,10 @@ Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEqui
 
     Character* GetOwner() const { return owner_p; } 
     void SetOwner(Character* c) { owner_p = c; } 
+    int SetArtifactName(std::string name_) { name = name_; return 0; }
+    int SetArtifactDescription(std::string description_) { description = description_; return 0; }
+    int SetArtifactPower(int power_) { power = power_; return 0; }
+    int SetArtifactValue(int value_) { value = value_; return 0; }
 
 };
 //==================================================================Chest_structure=========================================================================================
@@ -614,7 +618,7 @@ void Earthquake(Character& hero, GameHard& levelDificulty);
 void MoneyFind(Character& hero, GameHard& levelDificulty);
 void GoodStranger(Character& hero, GameHard& levelDificulty);
 void GoodWeather(Character& hero, GameHard& levelDificulty);
-void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent);
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1);
 void GoodRest(Character& hero, GameHard& levelDificulty);
 void Tavern(Character& hero);
 void Hostel(Character& hero);
@@ -629,8 +633,8 @@ void TowerPlace(Character& hero);
 void SimpleHouse(Character& hero);
 void GoodPlace(Character& hero);
 void FishingChallenge(Character& hero);
-void ArcheryContest(Character& hero);
-void StrangeStone(Character& hero);
+void ArcheryContest(Character& hero, GameHard& levelDificulty);
+void StrangeStone(Character& hero, MyInventory& inv1);
 void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
 void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty);
 void TalkToLocals(Character& hero, GameHard& levelDificulty);
