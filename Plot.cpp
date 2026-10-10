@@ -17,7 +17,7 @@ void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEven
     Turn(hero, levelDificulty, gameEvent);
 }
 
-void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     int choice = 0;
     do {
@@ -36,7 +36,7 @@ void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
         {
             case 1:
                 std::cout << "\nYou make a turn.\n";
-                RandomizerEvent(hero, levelDificulty, gameEvent);
+                RandomizerEvent(hero, levelDificulty, gameEvent, inv1);
                 break;
             case 2:
                 std::cout << "\nYou have chosen to look in your inventory.\n";

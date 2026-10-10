@@ -16,7 +16,7 @@ enum EventType {
     VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
     
 };
-
+void BardStory() ;
 void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     int eventType = rand() % 41; //From 0 to 40
@@ -937,6 +937,7 @@ void TalkStrangers()
     {
         case 1:
             std::cout << "You meet a wandering bard who shares tales of ancient heroes." << std::endl;
+            BardStory();
             break;
 
         case 2:
@@ -961,5 +962,48 @@ void TalkStrangers()
             break;
 
     }
+}
+
+
+void BardStory()
+{
+int story_random = rand() % 4 + 1;      
+switch(story_random)
+    {
+        case 1:
+            std::cout << "The bard sings of a legendary sword that can vanquish any foe." << std::endl;
+            std::cout << "The legend of heroic knight Valador, who sought the hand of a fair noble maiden, " << std::endl;
+            std::cout << "and rode off to battle against a dragon to prove his worth." << std::endl;
+            std::cout << "While typical of such tales the knight was indeed victorious and returned with the somewhat smallish head of the terrifying beast," << std::endl;
+            std::cout << "and was proclaimed worthy to marry the princess and inherit the kingdom." << std::endl;
+            std::cout << "The ending however is more tragic, as it recounts the kingdom being plagued by two greater," << std::endl;
+            std::cout << "more fearsome dragons that destroyed the castle and its occupants in vengeance for the slaying of their young hatchling." << std::endl;
+            break;
+
+        case 2:
+            std::cout << "This historical favorite is told more cautiously in the emperors' lands, " << std::endl;
+            std::cout << "for fear of the retribution that comes with openly mocking the nobility's ancestors. " << std::endl;
+            std::cout << "The tale itself concerns an arrogant emperor who received a pair of cursed dancing shoes as a wedding gift that gave him two left feet. " << std::endl;
+            std::cout << "Aside from the embarrassment upon the ballroom floor that evening," << std::endl;
+            std::cout << "he was forever remembered for his clumsy gait and inability to climb stairs without stumbling." << std::endl;
+            break;
+
+        case 3:
+            std::cout << "A touching lesbian romance, recounting the chance meeting of a ranger and a priestess at a small towns harvest festival. " << std::endl;
+            std::cout << "It tells of their blossoming love during the following winter as they struggled to protect the hamlet from vicious goblins," << std::endl;
+            std::cout << "hungry predators and a small epidemic." << std::endl;
+            std::cout << "While of mixed popularity among the more conservative crowds, it has become a favorite of independent women and perverse men across the land; both appreciating the tale for very different reasons. " << std::endl;
+            std::cout << "\"Ones caress like silk, the others touch like fire, between them sparked a burning desire. Days turned to weeks and their friendship did grow, evolving into a love more pure then hinterlands snow.\"" << std::endl;
+            break;
+
+        case 4:
+            std::cout << "The valiant legend of the famed Scorpion Sword," << std::endl;
+            std::cout << "the blade forged from the bodies of desert scorpions and given a life of its own. " << std::endl;
+            std::cout << "While carried by bandits and desert tyrants for centuries and the subject of many a campfire tale, " << std::endl;
+            std::cout << "no other retelling quite captures the horror and overwhelming sense of doom those on the wrong end of this blade felt as this one. " << std::endl;
+            std::cout << "Often sung in a deep baritone with rattles and thumb cymbals signifying the scorpions clawed grasps, it is not soon forgotten by any present." << std::endl;
+            break;
+    }
+
 }
 
