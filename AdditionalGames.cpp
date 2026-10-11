@@ -170,7 +170,7 @@ void DrinkingContest(Character& hero, GameHard& levelDificulty)
 {
     std::cout << "You participate in a drinking contest with the tavern patrons." << std::endl;
     std::cout << "Choose action:\n1. Drink \n2. Leave the game\n";
-    int actionChoice;
+    int actionChoice=0 ;
     std::cin >> actionChoice;
     if (actionChoice == 1) 
     {    
