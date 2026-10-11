@@ -2,7 +2,7 @@
 #include <iostream>
 //For main events and plot
 
-void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent)
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                    START GAME                     │\n";

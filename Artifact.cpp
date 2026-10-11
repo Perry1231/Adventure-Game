@@ -97,6 +97,8 @@ void Artifact::ShowInfo() const {
     std::cout << "│              ARTIFACT CHARACTERISTICS             │\n";
     std::cout << "├───────────────────────────────────────────────────┤\n";
     std::cout << "│  Artifact : " << name << "\n";
+    std::cout << "│  Description: " << description << "\n";
+    std::cout << "│  Rarity   : " << rarityType << "\n";
     std::cout << "│  Type     : " << GetType() << "\n";
     std::cout << "│  Power    : " << power << "\n";
     std::cout << "│  Value    : " << value << " gold\n";
@@ -125,3 +127,5 @@ void Artifact::Reset() {
     std::cout << "│  " << name << " unequipped.\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
+
+
