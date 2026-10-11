@@ -14,7 +14,7 @@ void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEven
     std::cout << "│ Welcome to the game! Your adventure begins now.   │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 
-    Turn(hero, levelDificulty, gameEvent);
+    Turn(hero, levelDificulty, gameEvent, inv1);
 }
 
 void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)

@@ -20,6 +20,7 @@ class GameHard;
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH }; 
 enum AuraType {WORST,BAD,MEDIUM,GOOD,EXCELLENT};
+enum ArtifactRarity { COMMON_ARTIFACT, RARE_ARTIFACT, EPIC_ARTIFACT, LEGENDARY_ARTIFACT, UKNOWN_RARITY};
 //=====================================================Item_structure==========================================
 class Item {
 private:
@@ -415,18 +416,21 @@ class Artifact : public Item
         int power;
         bool isEquipped;
         Character* owner_p;
+        
+        ArtifactRarity rarityType;
     public:
 
-Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEquipped(false){}
+Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEquipped(false), rarityType(COMMON_ARTIFACT){}
 
-    Artifact (std::string name_, std::string description_,int EffectType_ ,int value_, int power_, bool isEquipped)
-: name(name_), description(description_), effectType(EffectType_),value(value_), power(power_), isEquipped(isEquipped) {}
+    Artifact (std::string name_, std::string description_,int EffectType_ ,int value_, int power_, bool isEquipped, ArtifactRarity rarityType_)
+: name(name_), description(description_), effectType(EffectType_),value(value_), power(power_), isEquipped(isEquipped), rarityType(rarityType_) {}
 
     int GetArtifactValue() const { return value; }
     int GetArtifactPower() const { return power; }
     std::string GetName() const override { return name; }
     std::string GetArtifactDescription() const { return description; }
     int GetEffectType() const { return effectType; }
+    void GetArtifactRarity() const { std::cout << "Artifact Rarity: " << rarityType << std::endl; }
 
     std::string GetType() const override { return "Artifact"; }
     void ShowInfo() const override ;
@@ -441,6 +445,7 @@ Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEqui
     int SetArtifactDescription(std::string description_) { description = description_; return 0; }
     int SetArtifactPower(int power_) { power = power_; return 0; }
     int SetArtifactValue(int value_) { value = value_; return 0; }
+    int SetArtifactRarity(ArtifactRarity rarity_) { rarityType = rarity_; return 0; }
 
 };
 //==================================================================Chest_structure=========================================================================================
@@ -581,7 +586,7 @@ class Quest
 std::string GetEffectName(int type);
 void MainFunction();
 
-void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent);
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1);
 void Help();
 void GetInfo();
 void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty);
@@ -645,7 +650,7 @@ void FistFight(Character& hero);
 void DrinkingContest(Character& hero, GameHard& levelDificulty);
 void CardDraw(Character& hero);
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
-void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent); //Plot.cpp
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();
