@@ -22,7 +22,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game",
-      "program": "c:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/Debug/outDebug",
+      "program": "c:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
