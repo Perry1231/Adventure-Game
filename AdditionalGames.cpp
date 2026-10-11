@@ -105,13 +105,13 @@ void FistFight(Character& hero)
 {
     std::cout << "You engage in a fist fight with the tavern patrons." << std::endl;
     std::cout << "Choose action:\n1. Play fist fight\n2. Leave the game\n";
-    int actionChoice;
+    int actionChoice=0;
     std::cin >> actionChoice;
     if(actionChoice == 1) 
     {
     std::cout << "Choose an opponent:\n1. Weak Opponent\n2. Average Opponent\n3. Strong Opponent\n";
-    int opponentChoice;
-
+    int opponentChoice=0;
+    std::cin >> opponentChoice;
     switch(opponentChoice) {
         case 1:
             std::cout << "You fight a weak opponent." << std::endl;
@@ -176,7 +176,8 @@ void DrinkingContest(Character& hero, GameHard& levelDificulty)
     {    
     
     std::cout << "Choose a drinking opponent:\n1. Light Drinker\n2. Average Drinker\n3. Heavy Drinker\n";
-    int opponentChoice;
+    int opponentChoice=0;
+    std::cin >> opponentChoice;
     switch(opponentChoice) 
     {
         case 1:

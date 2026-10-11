@@ -4,19 +4,6 @@
 //Here will be realisation of quests
 
 
-void Quest::SetQuestName(const std::string& name) {
-    questName = name;
-}
-
-void Quest::SetQuestDescription(const std::string& description) {
-    questDescription = description;
-}
-
-void Quest::SetQuestDifficulty(int difficulty) {
-    questDifficulty = difficulty;
-}
-
-
 void Quest::DisplayQuestInfo() const {
     // Colors and Styles
     const std::string RESET = "\033[0m";
@@ -46,21 +33,4 @@ void Quest::DisplayQuestInfo() const {
     }
 
     std::cout << CYAN << "========================================\n" << RESET;
-}
-
-void Quest::SetCompleted(bool completed) {
-    isCompleted = completed;
-}
-
-int Quest::GetQuestDifficulty() const {
-    return questDifficulty;
-}
-
-
-std::string Quest::GetQuestName() const {
-    return questName;
-}
-
-std::string Quest::GetQuestDescription() const {
-    return questDescription;
 }

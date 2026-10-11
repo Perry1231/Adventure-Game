@@ -576,7 +576,6 @@ class Quest
 
         
         bool IsCompleted() const { return isCompleted; }
-        int GetQuestDifficulty() const { return questDifficulty; }
 };
 //===============================================================================Additional_Events_Games======================================================
 std::string GetEffectName(int type);

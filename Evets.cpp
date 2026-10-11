@@ -557,11 +557,14 @@ int choice;
 std::cin >> choice;
 switch (choice) {
     case 1:
+    {
         std::cout << "You rest in the royal chambers and regain some health." << std::endl;
         hero.SetHealth(hero.GetHealth() + 30);
         hero.SetLevel(hero.GetLevel() + 0.02);
         break;
+    }
     case 2:
+    {
         int randomRsult = rand() % 2;
         int randGold = rand() % 100 + 1; // Random gold between 1 and 100
         if (randomRsult == 0) {
@@ -574,7 +577,9 @@ switch (choice) {
 
         hero.SetLevel(hero.GetLevel() + 0.02);
         break;
+    }
     case 3:
+    {
         std::cout << "You look around for quests." << std::endl;
         int questResult = rand() % 2;
         if (questResult == 0) {
@@ -585,12 +590,17 @@ switch (choice) {
         }
         hero.SetLevel(hero.GetLevel() + 0.02);
         break;
+    }
     case 4:
+    {
         std::cout << "You leave the castle and continue your adventure." << std::endl;
         break;
-    default:
+    }
+default:
+    {
         std::cout << "Invalid choice. You leave the castle." << std::endl;
         break;
+    }
 }
 }
 
