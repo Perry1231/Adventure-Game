@@ -84,25 +84,115 @@ void Task_2_Rescue()
 
 void Task_3_Explore()
 {
-
+int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Explore the ancient ruins and uncover hidden secrets.\n";
+            break;
+        case 2:
+            std::cout << "Task: Investigate the mysterious cave system.\n";
+            break;
+        case 3:
+            std::cout << "Task: Map out the uncharted territories of the forest.\n";
+            break;
+        case 4:
+            std::cout << "Task: Discover the lost city in the desert.\n";
+            break;
+        case 5:
+            std::cout << "Task: Search for rare creatures in the enchanted swamp.\n";
+            break;
+    }
 }
 
 void Task_4_Eliminate()
 {
-
+int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Eliminate a group of bandits terrorizing the village.\n";
+            break;
+        case 2:
+            std::cout << "Task: Hunt down a dangerous beast in the forest.\n";
+            break;
+        case 3:
+            std::cout << "Task: Defeat a rival adventurer in a duel.\n";
+            break;
+        case 4:
+            std::cout << "Task: Clear out a nest of venomous creatures.\n";
+            break;
+        case 5:
+            std::cout << "Task: Take down a corrupt official causing chaos in the city.\n";
+            break;
+    }
 }
 
 void Task_5_Deliver()
 {
-
+int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Deliver a message to the king in the capital city.\n";
+            break;
+        case 2:
+            std::cout << "Task: Transport a valuable artifact to the museum.\n";
+            break;
+        case 3:
+            std::cout << "Task: Escort a caravan safely through dangerous territory.\n";
+            break;
+        case 4:
+            std::cout << "Task: Deliver a package to a remote village.\n";
+            break;
+        case 5:
+            std::cout << "Task: Carry important supplies to the front lines of battle.\n";
+            break;
+    }
 }
 
 void Task_6_Escort()
 {
-
+int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Escort a noble to a diplomatic meeting.\n";
+            break;
+        case 2:
+            std::cout << "Task: Protect a merchant caravan from bandit attacks.\n";
+            break;
+        case 3:
+            std::cout << "Task: Guide a group of travelers through treacherous terrain.\n";
+            break;
+        case 4:
+            std::cout << "Task: Safely escort a group of refugees to a safe haven.\n";
+            break;
+        case 5:
+            std::cout << "Task: Accompany a scholar on an expedition to study ancient ruins.\n";
+            break;
+    }
 }
 
 void Task_7_Puzzle()
 {
-
+int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Solve the riddle of the ancient sphinx.\n";
+            break;
+        case 2:
+            std::cout << "Task: Unlock the secret door in the wizard's tower.\n";
+            break;
+        case 3:
+            std::cout << "Task: Decipher the coded message left by a mysterious figure.\n";
+            break;
+        case 4:
+            std::cout << "Task: Complete the magical puzzle to access a hidden treasure.\n";
+            break;
+        case 5:
+            std::cout << "Task: Solve the labyrinth to find the lost artifact.\n";
+            break;
+    }
 }
