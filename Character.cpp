@@ -758,10 +758,10 @@ int Character::Talk(Enemy& enemy)
         switch(choice)
         {
             case 1:
-            TaskGenerator();
+            Task_Generator();
             break;
             case 2:
-
+            Talk_About_Life();
             break;
             case 3:
 

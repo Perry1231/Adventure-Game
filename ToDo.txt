@@ -7,6 +7,11 @@ Perfect Character::DmageSystem(function)     +-
 
 
 
+Task_Generator_For_Character========================
+Implement all functions
+
+
+
 //Buggs=============================================
 
 

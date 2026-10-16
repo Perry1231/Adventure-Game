@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include "Header.h"
 
 void Character::Task_Generator()
 {
