@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <map>
+#include <limits>
 
 
 //=============================Main functions=============================
@@ -640,8 +641,7 @@ switch (choice)
 
 }
 
-#include <iostream>
-#include <limits>
+
 
 void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficultyLevel)
 {
@@ -672,6 +672,7 @@ void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty
     {
         case 1:
             std::cout << "💬 You talk to the " << enemy.GetName() << ".\n";
+            hero.Talk(enemy);
             break;
         case 2:
             std::cout << "⚔️ You attack the " << enemy.GetName() << "!\n";
@@ -679,7 +680,7 @@ void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty
             break;
         case 3:
             std::cout << "🪙 You start trading with the " << enemy.GetName() << ".\n";
-            // TODO: Call trade function, e.g., inv1.OpenTrade(hero);
+            hero.Trade(enemy);
             break;
         case 4:
             std::cout << "🚪 You leave the area.\n";
