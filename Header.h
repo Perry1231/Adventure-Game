@@ -145,7 +145,8 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Usage();
     
     //Interaction
-    void TaskGenerator();
+    void Talk_About_Life();
+    void Task_Generator();
     void Fight(Enemy& enemy);
     int Trade(Enemy& enemy);
     int Talk(Enemy& enemy);

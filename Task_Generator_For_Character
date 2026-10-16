@@ -1,11 +1,8 @@
 #include <iostream>
 
-void TaskGenerator()
+void Character::Task_Generator()
 {
     int choice = rand() % 7 + 1; // Randomly select a task between 1 and 7
-
-    std::cout << "Select a task: ";
-    std::cin >> choice;
 
     switch (choice) {
         case 1:
@@ -195,4 +192,12 @@ int choice = rand() % 5 + 1;
             std::cout << "Task: Solve the labyrinth to find the lost artifact.\n";
             break;
     }
+}
+
+
+
+
+void Character::Talk_About_Life()
+{
+
 }
