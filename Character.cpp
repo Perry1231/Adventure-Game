@@ -758,7 +758,7 @@ int Character::Talk(Enemy& enemy)
         switch(choice)
         {
             case 1:
-            //TaskGenartor(level , ...);
+            TaskGenerator();
             break;
             case 2:
 

@@ -1,0 +1,83 @@
+#include <iostream>
+
+void TaskGenerator()
+{
+    std::cout << "\n=== Task Generator ===\n";
+    std::cout << "1. Collect Things\n";
+    std::cout << "2. Rescue\n";
+    std::cout << "3. Explore\n";
+    std::cout << "4. Eliminate\n";
+    std::cout << "5. Deliver\n";
+    std::cout << "6. Escort\n";
+    std::cout << "7. Puzzle\n";
+    std::cout << "0. Cancel\n";
+
+    int choice;
+    std::cout << "Select a task: ";
+    std::cin >> choice;
+
+    switch (choice) {
+        case 1:
+            Task_1_CollectThings();
+            break;
+        case 2:
+            Task_2_Rescue();
+            break;
+        case 3:
+            Task_3_Explore();
+            break;
+        case 4:
+            Task_4_Eliminate();
+            break;
+        case 5:
+            Task_5_Deliver();
+            break;
+        case 6:
+            Task_6_Escort();
+            break;
+        case 7:
+            Task_7_Puzzle();
+            break;
+        case 0:
+            std::cout << "Task selection canceled.\n";
+            break;
+        default:
+            std::cout << "Invalid choice!\n";
+            break;
+    }
+}
+
+void Task_1_CollectThings()
+{
+
+}
+
+void Task_2_Rescue()
+{
+
+}
+
+void Task_3_Explore()
+{
+
+}
+
+void Task_4_Eliminate()
+{
+
+}
+
+void Task_5_Deliver()
+{
+
+}
+
+void Task_6_Escort()
+{
+
+}
+
+void Task_7_Puzzle()
+{
+
+}
