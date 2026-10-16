@@ -37,12 +37,49 @@ void TaskGenerator()
 
 void Task_1_CollectThings()
 {
+int choice = rand() % 5 + 1; 
 
+    switch (choice) {
+        case 1:
+            std::cout << "Task: Collect herbs from the forest.\n";
+            break;
+        case 2:
+            std::cout << "Task: Gather minerals from the cave.\n";
+            break;
+        case 3:
+            std::cout << "Task: Retrieve lost artifacts from the ruins.\n";
+            break;
+        case 4:
+            std::cout << "Task: Collect rare flowers from the mountains.\n";
+            break;
+        case 5:
+            std::cout << "Task: Gather magical crystals from the enchanted lake.\n";
+            break;
+
+    }
 }
 
 void Task_2_Rescue()
 {
-
+    int choice = rand() % 5 + 1; 
+    switch(choice)
+    {
+        case 1:
+            std::cout << "Task: Rescue a captured villager from the dungeon.\n";
+            break;
+        case 2:
+            std::cout << "Task: Save a lost child from the dangerous forest.\n";
+            break;
+        case 3:
+            std::cout << "Task: Help a stranded traveler find their way back home.\n";
+            break;
+        case 4:
+            std::cout << "Task: Retrieve a stolen item from the thieves' hideout.\n";
+            break;
+        case 5:
+            std::cout << "Task: Assist a wounded ally in the battlefield.\n";
+            break;
+    }
 }
 
 void Task_3_Explore()
