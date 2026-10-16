@@ -2,17 +2,8 @@
 
 void TaskGenerator()
 {
-    std::cout << "\n=== Task Generator ===\n";
-    std::cout << "1. Collect Things\n";
-    std::cout << "2. Rescue\n";
-    std::cout << "3. Explore\n";
-    std::cout << "4. Eliminate\n";
-    std::cout << "5. Deliver\n";
-    std::cout << "6. Escort\n";
-    std::cout << "7. Puzzle\n";
-    std::cout << "0. Cancel\n";
+    int choice = rand() % 7 + 1; // Randomly select a task between 1 and 7
 
-    int choice;
     std::cout << "Select a task: ";
     std::cin >> choice;
 
@@ -40,9 +31,6 @@ void TaskGenerator()
             break;
         case 0:
             std::cout << "Task selection canceled.\n";
-            break;
-        default:
-            std::cout << "Invalid choice!\n";
             break;
     }
 }
