@@ -28,9 +28,6 @@ void Character::Task_Generator()
         case 7:
             Task_7_Puzzle();
             break;
-        case 0:
-            std::cout << "Task selection canceled.\n";
-            break;
     }
 }
 
@@ -201,5 +198,5 @@ int choice = rand() % 5 + 1;
 
 void Character::Talk_About_Life()
 {
-
+std::cout << "Not implemented yet" << std::endl;
 }

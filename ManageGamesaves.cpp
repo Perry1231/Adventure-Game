@@ -1,38 +1,30 @@
 #include "Header.h"
-#include <iostream>
-#include <string>
-//For all saves functions like save game , load game, delete save
 
-void ManageGameSaves(Character& hero, MyInventory& inv1, GameHard& levelDificulty)
+void ManageGamesaves(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
-    std::cout << "│                 MANAGE GAME SAVES                 │\n";
+    std::cout << "│                MANAGE GAME SAVES               │\n";
     std::cout << "├───────────────────────────────────────────────────┤\n";
-    std::cout << "│  1. Save Game                                     │\n";
-    std::cout << "│  2. Load Game                                     │\n";
-    std::cout << "│  3. Delete Game                                   │\n";
-    std::cout << "│  4. Exit                                          │\n";
+    std::cout << "│  1. Save game                                   │\n";
+    std::cout << "│  2. Load game                                   │\n";
+    std::cout << "│  0. Back to main menu                           │\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
+    std::cout << "Choice: ";
     
-    int choice = 0;
-    std::cout << "Enter choice: ";
+    int choice;
     std::cin >> choice;
-
-    switch(choice)
-    {
+    
+    switch (choice) {
         case 1:
-            Saver(hero, inv1, levelDificulty);
+            Saver(hero, inv, difficultyLevel);
             break;
         case 2:
-            Loader(hero, inv1);
+            Loader(hero, inv);
             break;
-        case 3:
-            Deleter();
+        case 0:
             break;
-            case 4:
-            return;
         default:
-            std::cout << "\n[!] No such function. Invalid choice.\n";
+            std::cout << "\n[!] Invalid choice!\n";
             break;
     }
 }

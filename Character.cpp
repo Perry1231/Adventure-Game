@@ -6,7 +6,8 @@
 #include <map>
 #include <limits>
 
-
+void Task_Generator();
+void Talk_About_Life();
 //=============================Main functions=============================
 void Character::DisplayStats() 
 {
@@ -794,4 +795,21 @@ void Character::Fight(Enemy& enemy)
             std::exit(0);
         }
     }
+
+void Reseter(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
+{
+    std::cout << "Game reset requested by user.\n";
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                  GAME RESET                     │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
+
+    hero.SetHealth(hero.GetHealth());
+    hero.SetGold(hero.GetGold());
+    hero.SetLevel(hero.GetLevel());
+    
+    inv.Clear();
+    
+    std::cout << "Game reset successfully!\n";
+    std::cout << "\nPress Enter to continue...\n";
+    std::cin.ignore();
 }

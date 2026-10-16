@@ -211,7 +211,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
 {
     this->isEnchanted_w = isEnchanted_;
 }
-   
+    
 
 
     void Use() override;
@@ -220,9 +220,9 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     
     int GetAttack() const { return attack_w; };                                                      
     int GetDurability() const{ return durability_w; };  
-    int GetValue() const { return value_w; };
-    bool IsBroken() const { return isBroken_w; };
-    bool IsEnchanted() const { return isEnchanted_w; };
+    int GetValue() const { return value_w;};
+    bool IsBroken() const { return isBroken_w;};
+    bool IsEnchanted() const { return isEnchanted_w;};
     std::string RandomizeWeaponStart(const std::string& profession);
     void BrokenWeapon();
     std::string  RandomizeWeaponSpeacial();
@@ -233,8 +233,7 @@ Weapon(std::string name_, int attack_, int defend_, float durability_, int value
     std::string GetName() const override { return name_w; }
     std::string GetType() const override { return "Weapon"; }
 
-
-    ~Weapon() {}
+    virtual ~Weapon() {}
 };
 
 
@@ -295,7 +294,7 @@ int GetDurability() const { return durability_a;}
 int GetValue() const { return value_a; }
 bool IsBroken() const { return isBroken_a; }
 bool IsEnchanted() const { return isEnchanted_a; }
-
+ 
 
 bool IsUsable() const { return !isBroken_a && durability_a > 0; }
 void BrokenArmory();
@@ -305,9 +304,9 @@ std::string RandomizeArmorSpecial();
 std::string RandomizeArmorStart();
 std::string GetName() const override { return name_a; }
 std::string GetType() const override { return "Armor"; }
+ 
 
-
-~Armory() {};
+virtual ~Armory() {}
 };
 
 
@@ -406,6 +405,8 @@ description_p(description_), isEquipped_p(false), value_p(value_) {}
 
     Character* GetOwner() const { return owner_p; } 
     void SetOwner(Character* c) { owner_p = c; }   
+
+    virtual ~Potion() {}
 };
 //==================================================================Artifact_structure======================================================================================
 class Artifact : public Item
@@ -449,6 +450,7 @@ Artifact() : name(""), description(""),effectType(0) ,value(0) ,power(0), isEqui
     int SetArtifactValue(int value_) { value = value_; return 0; }
     int SetArtifactRarity(ArtifactRarity rarity_) { rarityType = rarity_; return 0; }
 
+    virtual ~Artifact() {}
 };
 //==================================================================Chest_structure=========================================================================================
 class Chest
@@ -492,6 +494,9 @@ class OtherCharacter
         
         CharacterType GetType() const { return ctype; }
         void SetType(CharacterType type) { ctype = type; }
+        
+        static OtherCharacter CreateQuestGiver();
+        static OtherCharacter CreateMerchant();
 
 };
 
@@ -594,7 +599,7 @@ void GetInfo();
 void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& levelDificulty);
-void Reseter (Character& hero, MyInventory& inv, GameHard& levelDificulty);
+void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty);
 void Saver(Character& hero, MyInventory& inv, GameHard& levelDificulty);
 void Loader(Character& hero, MyInventory& inv);
 //==================================================================Events_functions============================================================================
