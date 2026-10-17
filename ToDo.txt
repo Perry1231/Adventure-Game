@@ -10,6 +10,7 @@ Header.h==================(Task.class)=================
 Craete task creator for Task_Generator_For_Character
 
 
+
 Task_Generator_For_Character========================
 Implement all functions
 
@@ -42,9 +43,6 @@ Add more events
 End started evnts structure
 
 
-Artifacts.cpp========================================
-Add artifact rarity
-
 
 Loader.cpp===========================================
 Add game dificult load + in Header
@@ -60,6 +58,10 @@ Multiply for HowToPlayFunction()
 
 Armory.cpp============================================
 RandomizeArmorSpecial() not ended
+
+
+Artifacts.cpp========================================
+Add artifact rarity
 
 
 Future==================================================
