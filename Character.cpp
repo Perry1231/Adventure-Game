@@ -795,6 +795,8 @@ void Character::Fight(Enemy& enemy)
             std::exit(0);
         }
     }
+}
+
 
 void Reseter(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
 {
