@@ -12,6 +12,11 @@ Implement all functions
 
 
 
+
+//Additional_Functions=============================
+Add more functions except these in code       Example : char Choice()   ->>><<<- int choice ...
+
+
 //Buggs=============================================
 
 

@@ -581,6 +581,7 @@ class Quest
         void SetQuestDescription(const std::string& description) { questDescription = description; }
         void SetQuestDifficulty(int difficulty) { questDifficulty = difficulty; }
         void SetCompleted(bool completed) { isCompleted = completed; }
+        void SetUncompleted() { isCompleted = false; }
 
         int GetQuestDifficulty() const { return questDifficulty; }
         std::string GetQuestDescription() const { return questDescription; } 
@@ -589,6 +590,10 @@ class Quest
         
         bool IsCompleted() const { return isCompleted; }
 };
+
+
+//==================================================================Additional_Functions================================================
+
 //===============================================================================Additional_Events_Games======================================================
 std::string GetEffectName(int type);
 void MainFunction();

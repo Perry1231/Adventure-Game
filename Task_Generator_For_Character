@@ -39,68 +39,29 @@ int choice = rand() % 5 + 1;
         case 1:
             std::cout << "Task: Collect herbs from the forest.\n";
             std::cout << "Reward: 20 gold and a health potion.\n";
-            std::cout << "Do you accept this task? (y/n): ";
-            char accept;
-
-            std::cin >> accept;
-            if (accept == 'y' || accept == 'Y') {
-                std::cout << "You have accepted the task!\n";
-            } else {
-                std::cout << "You have declined the task.\n";
-            }
             break;
         case 2:
             std::cout << "Task: Gather minerals from the cave.\n";
             std::cout << "Reward: 15 gold and a strength potion.\n";
-            std::cout << "Do you accept this task? (y/n): ";
-           
-
-            std::cin >> accept;
-            if (accept == 'y' || accept == 'Y') {
-                std::cout << "You have accepted the task!\n";
-            } else {
-                std::cout << "You have declined the task.\n";
-            }
             break;
         case 3:
             std::cout << "Task: Retrieve lost artifacts from the ruins.\n";
             std::cout << "Reward: 20 gold and an intelligence potion.\n";
-            std::cout << "Do you accept this task? (y/n): ";
-            
-
-            std::cin >> accept;
-            if (accept == 'y' || accept == 'Y') {
-                std::cout << "You have accepted the task!\n";
-            } else {
-                std::cout << "You have declined the task.\n";
-            }
             break;
         case 4:
             std::cout << "Task: Collect rare flowers from the mountains.\n";
             std::cout << "Reward: 10 gold and a vitality potion.\n";
-            std::cout << "Do you accept this task? (y/n): ";
-            
-
-            std::cin >> accept;
-            if (accept == 'y' || accept == 'Y') {
-                std::cout << "You have accepted the task!\n";
-            } else {
-                std::cout << "You have declined the task.\n";
-            }
             break;
         case 5:
             std::cout << "Task: Gather magical crystals from the enchanted lake.\n";
             std::cout << "Reward: 25 gold and a wisdom potion.\n";
-            std::cout << "Do you accept this task? (y/n): ";
-            
-
-            std::cin >> accept;
-            if (accept == 'y' || accept == 'Y') {
-                std::cout << "You have accepted the task!\n";
-            } else {
-                std::cout << "You have declined the task.\n";
-            }
             break;
+
+
+
+    char choice;
+    std::cin >> choice;
+    
 
     }
 }
