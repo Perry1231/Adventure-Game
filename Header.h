@@ -593,7 +593,8 @@ class Quest
 
 
 //==================================================================Additional_Functions================================================
-char ChoiceInput_YN(char choice);
+char ChoiceInput_YN();
+int ChoiceInput_Number();
 
 //===============================================================================Additional_Events_Games======================================================
 std::string GetEffectName(int type);
