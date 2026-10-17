@@ -2,6 +2,14 @@
 #include <string>
 #include "Header.h"
 
+void Task_1_CollectThings();
+void Task_2_Rescue();
+void Task_3_Explore();
+void Task_4_Eliminate();
+void Task_5_Deliver();
+void Task_6_Escort();
+void Task_7_Puzzle();
+
 void Character::Task_Generator()
 {
     int choice = rand() % 7 + 1; // Randomly select a task between 1 and 7
@@ -59,11 +67,18 @@ int choice = rand() % 5 + 1;
 
 
 
-    char choice;
-    std::cin >> choice;
-    
+    int choice = ChoiceInput_YN();
+    if(choice == 'y' || choice == 'Y') {
+        std::cout << "You accepted the task!\n";
+        Quest quest;
+        
+
+    } else {
+        std::cout << "You declined the task.\n";
+
 
     }
+}
 }
 
 void Task_2_Rescue()

@@ -6,6 +6,9 @@ Implement Character::Menu(function)
 Perfect Character::DmageSystem(function)     +-
 
 
+Header.h==================(Task.class)=================
+Craete task creator for Task_Generator_For_Character
+
 
 Task_Generator_For_Character========================
 Implement all functions
@@ -15,6 +18,7 @@ Implement all functions
 
 //Additional_Functions=============================
 Add more functions except these in code       Example : char Choice()   ->>><<<- int choice ...
+
 
 
 //Buggs=============================================
