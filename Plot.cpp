@@ -2,21 +2,6 @@
 #include <iostream>
 //For main events and plot
 
-void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
-{
-    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
-    std::cout << "│                    START GAME                     │\n";
-    std::cout << "└───────────────────────────────────────────────────┘\n";
-
-    levelDificulty.ChoiceHard(enemy);
-
-    std::cout << "┌───────────────────────────────────────────────────┐\n";
-    std::cout << "│ Welcome to the game! Your adventure begins now.   │\n";
-    std::cout << "└───────────────────────────────────────────────────┘\n\n";
-
-    Turn(hero, levelDificulty, gameEvent, inv1);
-}
-
 void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     int choice = 0;
