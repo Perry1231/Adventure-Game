@@ -13,3 +13,4 @@ OtherCharacter OtherCharacter::CreateMerchant()
     oc.ctype = MERCHANS;
     return oc;
 }
+

@@ -12,31 +12,12 @@ void Task_7_Puzzle();
 
 void Character::Task_Generator()
 {
-    int choice = rand() % 7 + 1; // Randomly select a task between 1 and 7
+    int subChoice_1 = rand() % 7 + 1; // Randomly select a task between 1 and 7
+    int subChoice_2 = rand() % 7 + 1; // Randomly select a sub-task between 1 and 7
+    int subChoice_3 = rand() % 7 + 1; // Randomly select a sub-task between 1 and 7
 
-    switch (choice) {
-        case 1:
-            Task_1_CollectThings();
-            break;
-        case 2:
-            Task_2_Rescue();
-            break;
-        case 3:
-            Task_3_Explore();
-            break;
-        case 4:
-            Task_4_Eliminate();
-            break;
-        case 5:
-            Task_5_Deliver();
-            break;
-        case 6:
-            Task_6_Escort();
-            break;
-        case 7:
-            Task_7_Puzzle();
-            break;
-    }
+    std::vector <int> taskList = {subChoice_1, subChoice_2, subChoice_3};
+    
 }
 
 void Task_1_CollectThings()
