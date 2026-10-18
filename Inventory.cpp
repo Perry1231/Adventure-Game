@@ -101,7 +101,9 @@ void MyInventory::InventoryFunctions()                                          
             int choice_2;
             std::cout << "Eneter id of item to delete : " ;
             std::cin>> choice_2;
-            DelItem(choice_2);
+            if (DelItem(choice_2) == -1) {
+                std::cout << "Error: Item not found! Cannot delete." << std::endl;
+            }
         }
 
         else if (choice == 3)         

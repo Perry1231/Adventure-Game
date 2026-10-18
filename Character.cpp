@@ -580,7 +580,7 @@ else if (damage >= GetTotalDefense())
         Reseter(hero, inv1, difficultyLevel); // Exit the program to allow for a restart
     } else {
         std::cout << "Exiting the game. Goodbye!" << std::endl;
-    std::exit(0);
+        std::exit(0);
     }
 }
   return damage;
@@ -798,20 +798,3 @@ void Character::Fight(Enemy& enemy)
 }
 
 
-void Reseter(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
-{
-    std::cout << "Game reset requested by user.\n";
-    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
-    std::cout << "│                  GAME RESET                     │\n";
-    std::cout << "└───────────────────────────────────────────────────┘\n\n";
-
-    hero.SetHealth(hero.GetHealth());
-    hero.SetGold(hero.GetGold());
-    hero.SetLevel(hero.GetLevel());
-    
-    inv.Clear();
-    
-    std::cout << "Game reset successfully!\n";
-    std::cout << "\nPress Enter to continue...\n";
-    std::cin.ignore();
-}

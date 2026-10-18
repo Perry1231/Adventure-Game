@@ -103,6 +103,11 @@ void Help()
 
 void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty)
 {
+    std::cout << "Game reset requested by user.\n";
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                  GAME RESET                     │\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
+
     hero = Character(); 
     
     
@@ -130,7 +135,16 @@ void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty)
     inv.AddItem(weapon_2);
     inv.AddItem(p);
     
-    std::cout << "Game reset! Your adventure starts anew." << std::endl;
+    std::cout << "Game reset successfully!\n";
+    std::cout << "\nPress Enter to continue...\n";
+    std::cin.ignore();
+}
+
+void ManageGameSaves(Character& hero, MyInventory& inv, GameHard& levelDificulty)
+{
+    // Placeholder implementation - saves and loads game state
+    std::cout << "[MANAGE GAME SAVES] - Function not yet implemented.\n";
+    std::cout << "Save/Load game functionality would go here.\n";
 }
 
 
@@ -225,6 +239,15 @@ void BugReportFunction()
     std::cout << "           the game for everyone!\n\n";
     std::cout << "  " << GREEN << "[LINK ]" << RESET << " GitHub: " << BOLD << "github.com/VladyslavVytrykush" << RESET << "\n";
     std::cout << CYAN << "└───────────────────────────────────────────────────┘" << RESET << "\n\n";
+}
+
+void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
+{
+    std::cout << "[START GAME] - Function not yet implemented.\n";
+    std::cout << "Game starting logic would go here.\n";
+    std::cout << "Current difficulty: " << levelDificulty.GetDifficultyLevel() << "\n";
+    std::cout << "Press Enter to continue...\n";
+    std::cin.ignore();
 }
 
 
