@@ -14,34 +14,34 @@
 
 
 // name + gold
-static std::map<std::string, int> & GetQuestTaskDB() {
-    static std::map<std::string, int> yt;
-    if (yt.empty()) {
-        yt = {
-    {"Collect Magic Sticks", 25}
-    
+// name -> {gold, difficulty}
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
+    static std::map<std::string, std::pair<int, int>> yar;
+    if (yar.empty()) {
+        yar = {
+            {"Collect Magic Sticks", {25, 2}} // 25 gold, 2 difficulty
         };
     }
-    return yt;
+    return yar;
 }
 
 
 
 std::string Quest::RandomizeQuest(GameHard& difficulty) {
-    auto& ar = GetQuestTaskDB();
+    auto& yar = GetQuestTaskDB();
 
     std::string task_ar[] = {   //List of tasks
        "Collect Magic Sticks" 
     };
 
     std::string chosen_name_t;
-    chosen_name_t = task_ar[rand() % 17];
+    chosen_name_t = task_ar[rand() % std::size(task_ar)];    //Change number of tasks
     questDifficulty = rand() + 3;
-    auto it = ar.find(chosen_name_t);
-    if (it != ar.end()) {
+    auto it = yar.find(chosen_name_t);
+    if (it != yar.end()) {
         reward = it->second.first;
         questDifficulty = it->second.second;
-        reward = reward / difficulty;
+        reward = reward / difficulty.GetDifficultyLevel();
     }
 
     questName = chosen_name_t;
@@ -50,11 +50,16 @@ std::string Quest::RandomizeQuest(GameHard& difficulty) {
 
 
 
-void DisplayQuestInfo()
-{
-
+void Quest::DisplayQuestInfo() const {
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│                 QUEST DETAILS                     │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  Title       : " << questName << "\n";
+    std::cout << "│  Difficulty  : " << questDifficulty << "\n";
+    std::cout << "│  Reward      : " << reward << " gold\n";
+    std::cout << "│  Status      : " << (isCompleted ? "Completed" : "In Progress") << "\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
-
 
 
 

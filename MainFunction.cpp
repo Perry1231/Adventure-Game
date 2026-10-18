@@ -44,6 +44,7 @@ void MainFunction() {
     quest1.SetQuestName("The Lost Home");
     quest1.SetQuestDescription("Find the lost home of the ancient civilization.");
     quest1.SetQuestDifficulty(3);
+    quest1.DisplayQuestInfo();
     
 //====================================================================
   int mainChoice =0;
