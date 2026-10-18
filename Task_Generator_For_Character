@@ -1,204 +1,81 @@
 #include <iostream>
 #include <string>
+#include <map>
 #include "Header.h"
 
-void Task_1_CollectThings();
-void Task_2_Rescue();
-void Task_3_Explore();
-void Task_4_Eliminate();
-void Task_5_Deliver();
-void Task_6_Escort();
-void Task_7_Puzzle();
+// void Task_1_CollectThings();
+// void Task_2_Rescue();
+// void Task_3_Explore();
+// void Task_4_Eliminate();
+// void Task_5_Deliver();
+// void Task_6_Escort();
+// void Task_7_Puzzle();
 
-void Character::Task_Generator()
-{
-    int subChoice_1 = rand() % 7 + 1; // Randomly select a task between 1 and 7
-    int subChoice_2 = rand() % 7 + 1; // Randomly select a sub-task between 1 and 7
-    int subChoice_3 = rand() % 7 + 1; // Randomly select a sub-task between 1 and 7
 
-    std::vector <int> taskList = {subChoice_1, subChoice_2, subChoice_3};
+
+// name + gold
+static std::map<std::string, int> & GetQuestTaskDB() {
+    static std::map<std::string, int> yt;
+    if (yt.empty()) {
+        yt = {
+    {"Collect Magic Sticks", 25}
     
-}
-
-void Task_1_CollectThings()
-{
-int choice = rand() % 5 + 1; 
-
-    switch (choice) {
-        case 1:
-            std::cout << "Task: Collect herbs from the forest.\n";
-            std::cout << "Reward: 20 gold and a health potion.\n";
-            break;
-        case 2:
-            std::cout << "Task: Gather minerals from the cave.\n";
-            std::cout << "Reward: 15 gold and a strength potion.\n";
-            break;
-        case 3:
-            std::cout << "Task: Retrieve lost artifacts from the ruins.\n";
-            std::cout << "Reward: 20 gold and an intelligence potion.\n";
-            break;
-        case 4:
-            std::cout << "Task: Collect rare flowers from the mountains.\n";
-            std::cout << "Reward: 10 gold and a vitality potion.\n";
-            break;
-        case 5:
-            std::cout << "Task: Gather magical crystals from the enchanted lake.\n";
-            std::cout << "Reward: 25 gold and a wisdom potion.\n";
-            break;
-
-
-
-    int choice = ChoiceInput_YN();
-    if(choice == 'y' || choice == 'Y') {
-        std::cout << "You accepted the task!\n";
-        Quest quest;
-        
-
-    } else {
-        std::cout << "You declined the task.\n";
-
-
+        };
     }
-}
-}
-
-void Task_2_Rescue()
-{
-    int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Rescue a captured villager from the dungeon.\n";
-            break;
-        case 2:
-            std::cout << "Task: Save a lost child from the dangerous forest.\n";
-            break;
-        case 3:
-            std::cout << "Task: Help a stranded traveler find their way back home.\n";
-            break;
-        case 4:
-            std::cout << "Task: Retrieve a stolen item from the thieves' hideout.\n";
-            break;
-        case 5:
-            std::cout << "Task: Assist a wounded ally in the battlefield.\n";
-            break;
-    }
+    return yt;
 }
 
-void Task_3_Explore()
-{
-int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Explore the ancient ruins and uncover hidden secrets.\n";
-            break;
-        case 2:
-            std::cout << "Task: Investigate the mysterious cave system.\n";
-            break;
-        case 3:
-            std::cout << "Task: Map out the uncharted territories of the forest.\n";
-            break;
-        case 4:
-            std::cout << "Task: Discover the lost city in the desert.\n";
-            break;
-        case 5:
-            std::cout << "Task: Search for rare creatures in the enchanted swamp.\n";
-            break;
+
+
+std::string Quest::RandomizeQuest(GameHard& difficulty) {
+    auto& ar = GetQuestTaskDB();
+
+    std::string task_ar[] = {   //List of tasks
+       "Collect Magic Sticks" 
+    };
+
+    std::string chosen_name_t;
+    chosen_name_t = task_ar[rand() % 17];
+    questDifficulty = rand() + 3;
+    auto it = ar.find(chosen_name_t);
+    if (it != ar.end()) {
+        reward = it->second.first;
+        questDifficulty = it->second.second;
+        reward = reward / difficulty;
     }
+
+    questName = chosen_name_t;
+    return questName;
 }
 
-void Task_4_Eliminate()
+
+
+void DisplayQuestInfo()
 {
-int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Eliminate a group of bandits terrorizing the village.\n";
-            break;
-        case 2:
-            std::cout << "Task: Hunt down a dangerous beast in the forest.\n";
-            break;
-        case 3:
-            std::cout << "Task: Defeat a rival adventurer in a duel.\n";
-            break;
-        case 4:
-            std::cout << "Task: Clear out a nest of venomous creatures.\n";
-            break;
-        case 5:
-            std::cout << "Task: Take down a corrupt official causing chaos in the city.\n";
-            break;
-    }
+
 }
 
-void Task_5_Deliver()
-{
-int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Deliver a message to the king in the capital city.\n";
-            break;
-        case 2:
-            std::cout << "Task: Transport a valuable artifact to the museum.\n";
-            break;
-        case 3:
-            std::cout << "Task: Escort a caravan safely through dangerous territory.\n";
-            break;
-        case 4:
-            std::cout << "Task: Deliver a package to a remote village.\n";
-            break;
-        case 5:
-            std::cout << "Task: Carry important supplies to the front lines of battle.\n";
-            break;
-    }
-}
 
-void Task_6_Escort()
-{
-int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Escort a noble to a diplomatic meeting.\n";
-            break;
-        case 2:
-            std::cout << "Task: Protect a merchant caravan from bandit attacks.\n";
-            break;
-        case 3:
-            std::cout << "Task: Guide a group of travelers through treacherous terrain.\n";
-            break;
-        case 4:
-            std::cout << "Task: Safely escort a group of refugees to a safe haven.\n";
-            break;
-        case 5:
-            std::cout << "Task: Accompany a scholar on an expedition to study ancient ruins.\n";
-            break;
-    }
-}
 
-void Task_7_Puzzle()
-{
-int choice = rand() % 5 + 1; 
-    switch(choice)
-    {
-        case 1:
-            std::cout << "Task: Solve the riddle of the ancient sphinx.\n";
-            break;
-        case 2:
-            std::cout << "Task: Unlock the secret door in the wizard's tower.\n";
-            break;
-        case 3:
-            std::cout << "Task: Decipher the coded message left by a mysterious figure.\n";
-            break;
-        case 4:
-            std::cout << "Task: Complete the magical puzzle to access a hidden treasure.\n";
-            break;
-        case 5:
-            std::cout << "Task: Solve the labyrinth to find the lost artifact.\n";
-            break;
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -570,11 +570,13 @@ class Quest
         std::string questName;
         std::string questDescription;
         int questDifficulty;
+        int reward;
         bool isCompleted;
 
     public:
-        Quest() : questName(""), questDescription(""), questDifficulty(1), isCompleted(false) {}
-        Quest(std::string name, std::string description, int difficulty) : questName(name), questDescription(description), questDifficulty(difficulty), isCompleted(false) {}
+        Quest() : questName(""), questDescription(""), questDifficulty(1), reward(0),isCompleted(false) {}
+        Quest(std::string name, std::string description, int difficulty, int rewardes) : questName(name), 
+        questDescription(description), questDifficulty(difficulty), reward(rewardes), isCompleted(false) {}
 
         void DisplayQuestInfo() const;
         void SetQuestName(const std::string& name) { questName = name; }
@@ -582,12 +584,14 @@ class Quest
         void SetQuestDifficulty(int difficulty) { questDifficulty = difficulty; }
         void SetCompleted(bool completed) { isCompleted = completed; }
         void SetUncompleted() { isCompleted = false; }
+        void SetReward(int rewardes) { reward = rewardes; }
 
         int GetQuestDifficulty() const { return questDifficulty; }
         std::string GetQuestDescription() const { return questDescription; } 
         std::string GetQuestName() const { return questName; }
 
         
+        std::string RandomizeQuest(GameHard& difficulty);
         bool IsCompleted() const { return isCompleted; }
 };
 
