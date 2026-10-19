@@ -19,7 +19,23 @@ static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
     static std::map<std::string, std::pair<int, int>> yar;
     if (yar.empty()) {
         yar = {
-            {"Collect Magic Sticks", {25, 2}} // 25 gold, 2 difficulty
+            {"Collect Magic Sticks", {25, 2}}, // 25 gold, 2 difficulty
+            {"Collect Magic Stones", {25, 2}},
+            {"ColLect Magic Items", {18,1}},
+            {"ColLect Magic Grass",{15, 2}},
+            {"Collect Magic Flowers", {18, 2}},
+            {"Collect Rare Ores",{23, 2}},
+            {"Collect Broken Portal Fragments",{39, 2}},
+            {"Collect Festival Ingredients",{20, 1}},
+            {"",{}},
+            {"",{}},
+            {"",{}},
+            {"",{}},
+            {"",{}},
+            {"",{}},
+            {"",{}},
+            {"",{}}
+            
         };
     }
     return yar;
@@ -31,7 +47,8 @@ std::string Quest::RandomizeQuest(GameHard& difficulty) {
     auto& yar = GetQuestTaskDB();
 
     std::string task_ar[] = {   //List of tasks
-       "Collect Magic Sticks" 
+       "Collect Magic Sticks" , "Collect Magic Stones", "ColLect Magic Items", "ColLect Magic Grass", "Collect Magic Flowers",
+        "Collect Rare Ores", "Collect Broken Portal Fragments", "Collect Festival Ingredients"
     };
 
     std::string chosen_name_t;
@@ -60,28 +77,6 @@ void Quest::DisplayQuestInfo() const {
     std::cout << "│  Status      : " << (isCompleted ? "Completed" : "In Progress") << "\n";
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
