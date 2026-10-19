@@ -14,7 +14,7 @@ Craete task creator for Task_Generator_For_Character
 
 Task_Generator_For_Character========================
 Implement all functions
-
+Add task related on stranger job
 
 
 
