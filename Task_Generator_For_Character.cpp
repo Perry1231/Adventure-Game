@@ -43,6 +43,40 @@ static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
 
 
 
+//Task for magic stranger
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskMagicDB() {
+static std::map<std::string, std::pair<int, int>> yar;
+    if (yar.empty()) {
+        yar = {
+            {"",{}},
+            {"",{}}
+        };
+    }
+    return yar;
+}
+
+
+
+
+//Task for evil stranger
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskEvilDB() {
+static std::map<std::string, std::pair<int, int>> yar;
+    if (yar.empty()) {
+        yar = {
+            {"",{}},
+            {"",{}}
+        };
+    }
+    return yar;
+}
+
+
+
+
+
+
+
+
 std::string Quest::RandomizeQuest(GameHard& difficulty) {
     auto& yar = GetQuestTaskDB();
 
