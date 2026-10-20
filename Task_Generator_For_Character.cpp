@@ -11,30 +11,36 @@
 // void Task_6_Escort();
 // void Task_7_Puzzle();
 
-
+struct QuestStructBasic
+{
+    std::string name_task;
+    int gold_task;
+    int difficulty_task;
+    float experience_task;
+};
 
 // name + gold
 // name -> {gold, difficulty}
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {                       //Basic tasks
-    static std::map<std::string, std::pair<int, int>> yar;
+static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {                       //Basic tasks
+    static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
-            {"Collect Magic Sticks", {25, 2}}, // 25 gold, 2 difficulty
-            {"Collect Magic Stones", {25, 2}},
-            {"ColLect Magic Items", {18,1}},
-            {"ColLect Magic Grass",{15, 2}},
-            {"Collect Magic Flowers", {18, 2}},
-            {"Collect Rare Ores",{23, 2}},
-            {"Collect Broken Portal Fragments",{39, 2}},
-            {"Collect Festival Ingredients",{20, 1}},
-            {"Collect Magic White moss",{15,1}},
-            {"Collect Mandragora",{22, 2}},
-            {"Collect Magic Mirror",{20, 1}},
-            {"Collect Magic Pages from Book",{25, 5}},
-            {"Collect Magic Pages from Evil Book",{32, 2}},
-            {"Collect Magical Herb for village",{25, 2}},
-            {"Collect pinocones for magic squirrel",{12, 1}},
-            {"Collect leaves for small dwarf's house",{20, 1}}
+            {"Collect Magic Sticks", {25, 2, 0.01}}, // 25 gold, 2 difficulty
+            {"Collect Magic Stones", {25, 2, 0.01}},
+            {"ColLect Magic Items", {18,1, 0.01}},
+            {"ColLect Magic Grass",{15, 2, 0.01}},
+            {"Collect Magic Flowers", {18, 2, 0.01}},
+            {"Collect Rare Ores",{23, 2, 0.01}},
+            {"Collect Broken Portal Fragments",{39, 2, 0.01}},
+            {"Collect Festival Ingredients",{20, 1, 0.01}},
+            {"Collect Magic White moss",{15,1, 0.01}},
+            {"Collect Mandragora",{22, 2, 0.01}},
+            {"Collect Magic Mirror",{20, 1, 0.01}},
+            {"Collect Magic Pages from Book",{25, 5, 0.01}},
+            {"Collect Magic Pages from Evil Book",{32, 2, 0.01}},
+            {"Collect Magical Herb for village",{25, 2, 0.01}},
+            {"Collect pinocones for magic squirrel",{12, 1, 0.01}},
+            {"Collect leaves for small dwarf's house",{20, 1, 0.01}}
             
         };
     }
@@ -44,8 +50,8 @@ static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {           
 
 
 //Task for magic stranger
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskMagicDB() {                  //Magic tasks for magicians
-static std::map<std::string, std::pair<int, int>> yar;
+static std::map<std::string, QuestStructBasic>& GetQuestTaskMagicDB() {                  //Magic tasks for magicians
+static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
             {"",{}},
@@ -59,8 +65,8 @@ static std::map<std::string, std::pair<int, int>> yar;
 
 
 //Task for evil stranger
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskEvilDB() {                   //Basic evil tasks
-static std::map<std::string, std::pair<int, int>> yar;
+static std::map<std::string, QuestStructBasic>& GetQuestTaskEvilDB() {                   //Basic evil tasks
+static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
             {"",{}},
@@ -72,8 +78,8 @@ static std::map<std::string, std::pair<int, int>> yar;
 
 
 
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskDwarfDB() {                  //Basic dwarf tasks
-static std::map<std::string, std::pair<int, int>> yar;
+static std::map<std::string, QuestStructBasic>& GetQuestTaskDwarfDB() {                  //Basic dwarf tasks
+static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
             {"",{}},
@@ -86,8 +92,8 @@ static std::map<std::string, std::pair<int, int>> yar;
 
 
 
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {                           //Basic tasks ents
-static std::map<std::string, std::pair<int, int>> yar;
+static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {                           //Basic tasks ents
+static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
             {"",{}},
@@ -113,8 +119,10 @@ std::string Quest::RandomizeQuest(GameHard& difficulty) {
     questDifficulty = rand() + 3;
     auto it = yar.find(chosen_name_t);
     if (it != yar.end()) {
-        reward = it->second.first;
-        questDifficulty = it->second.second;
+        reward = it->second.gold_task;                      //get reward
+        questDifficulty = it->second.difficulty_task;       //get diffilculty
+        int exp = it->second.experience_task;               //get experience
+        
         reward = reward / difficulty.GetDifficultyLevel();
     }
 
