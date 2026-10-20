@@ -27,14 +27,14 @@ static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
             {"Collect Rare Ores",{23, 2}},
             {"Collect Broken Portal Fragments",{39, 2}},
             {"Collect Festival Ingredients",{20, 1}},
-            {"",{}},
-            {"",{}},
-            {"",{}},
-            {"",{}},
-            {"",{}},
-            {"",{}},
-            {"",{}},
-            {"",{}}
+            {"Collect Magic White moss",{15,1}},
+            {"Collect Mandragora",{22, 2}},
+            {"Collect Magic Mirror",{20, 1}},
+            {"Collect Magic Pages from Book",{25, 5}},
+            {"Collect Magic Pages from Evil Book",{32, 2}},
+            {"Collect Magical Herb for village",{25, 2}},
+            {"Collect pinocones for magic squirrel",{12, 1}},
+            {"Collect leaves for small dwarf's house",{20, 1}}
             
         };
     }
