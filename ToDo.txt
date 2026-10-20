@@ -12,10 +12,12 @@ Craete task creator for Task_Generator_For_Character
 Add data base strucutres for every Other_character class (ents , magicians, orks , trolls...)
 
 
+
 Task_Generator_For_Character========================
 Implement all functions
 Add task related on stranger job
 Change experience in DB related to difficulty
+
 
 
 Objects======================

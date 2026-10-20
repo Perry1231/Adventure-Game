@@ -13,7 +13,6 @@
 
 struct QuestStructBasic
 {
-    std::string name_task;
     int gold_task;
     int difficulty_task;
     float experience_task;
@@ -88,21 +87,6 @@ static std::map<std::string, QuestStructBasic> yar;
     }
     return yar;
 }
-
-
-
-
-static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {                           //Basic tasks ents
-static std::map<std::string, QuestStructBasic> yar;
-    if (yar.empty()) {
-        yar = {
-            {"",{}},
-            {"",{}}
-        };
-    }
-    return yar;
-}
-
 
 
 
