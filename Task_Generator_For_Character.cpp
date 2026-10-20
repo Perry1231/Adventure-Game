@@ -15,7 +15,7 @@
 
 // name + gold
 // name -> {gold, difficulty}
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {                       //Basic tasks
     static std::map<std::string, std::pair<int, int>> yar;
     if (yar.empty()) {
         yar = {
@@ -44,7 +44,7 @@ static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {
 
 
 //Task for magic stranger
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskMagicDB() {
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskMagicDB() {                  //Magic tasks for magicians
 static std::map<std::string, std::pair<int, int>> yar;
     if (yar.empty()) {
         yar = {
@@ -59,7 +59,20 @@ static std::map<std::string, std::pair<int, int>> yar;
 
 
 //Task for evil stranger
-static std::map<std::string, std::pair<int, int>>& GetQuestTaskEvilDB() {
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskEvilDB() {                   //Basic evil tasks
+static std::map<std::string, std::pair<int, int>> yar;
+    if (yar.empty()) {
+        yar = {
+            {"",{}},
+            {"",{}}
+        };
+    }
+    return yar;
+}
+
+
+
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskDwarfDB() {                  //Basic dwarf tasks
 static std::map<std::string, std::pair<int, int>> yar;
     if (yar.empty()) {
         yar = {
@@ -73,6 +86,16 @@ static std::map<std::string, std::pair<int, int>> yar;
 
 
 
+static std::map<std::string, std::pair<int, int>>& GetQuestTaskDB() {                           //Basic tasks ents
+static std::map<std::string, std::pair<int, int>> yar;
+    if (yar.empty()) {
+        yar = {
+            {"",{}},
+            {"",{}}
+        };
+    }
+    return yar;
+}
 
 
 
