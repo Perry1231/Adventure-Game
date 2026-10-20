@@ -18,8 +18,7 @@ Add task related on stranger job
 
 
 
-
-Add_Objects_To_Task_Generator======================
+Objects======================
 Add magic grass or else to collect
 
 
@@ -44,11 +43,12 @@ Add strenght uprade to all functions
 Add inteligence uprade to all functions
 
 
+
 Events.cpp============================================
 Implement Events.cpp +-
 Tavern in Events.cpp +-
 Events.cpp and functions
-Add more events
+Add events related to tasks 
 End started evnts structure
 
 
