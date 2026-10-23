@@ -3,6 +3,14 @@
 #include <map>
 #include "Header.h"
 
+
+
+constexpr const char* CYAN = "\033[36m";
+constexpr const char* YELLOW = "\033[33m";
+constexpr const char* GRAY = "\033[90m";
+constexpr const char* RED = "\033[31m";
+constexpr const char* RESET = "\033[0m";
+
 // void Task_1_CollectThings();
 // void Task_2_Rescue();
 // void Task_3_Explore();
@@ -17,6 +25,28 @@ struct QuestStructBasic
     int difficulty_task;
     float experience_task;
 };
+
+int Quest::ResizeQuestBig()
+{
+   int new_capacity = capacity_quest + 1;
+    Quest** temp = new Quest*[new_capacity];
+    for (int i = 0; i < count_quest; i++)
+        temp[i] = quests[i];
+    delete[] quests;
+    quests = temp;
+    capacity_quest = new_capacity;
+    return 0;
+}
+
+
+int Quest::AddQuest(Quest* quest1) {
+    if (count_quest >= capacity_quest) ResizeQuestBig();
+    quest1->SetQuestNumber(number_quest);   
+    quests[count_quest++] = quest1;
+    number_quest++;
+    return 0;
+}
+
 
 // name + gold
 // name -> {gold, difficulty}
@@ -130,29 +160,24 @@ void Quest::DisplayQuestInfo() const {
 
 void Quest::DisplayAllQuestInfo() const 
 {
-    constexpr const char* CYAN = "\033[36m";
-    constexpr const char* YELLOW = "\033[33m";
-    constexpr const char* GRAY = "\033[90m";
-    constexpr const char* RED = "\033[31m";
-    constexpr const char* RESET = "\033[0m";
 
     if (count_quest == 0)
     {
-        std::cout << RED << "\n[!] Inventory is completely empty.\n" << RESET;
+        std::cout << RED << "\n[!] Quest's list is completely empty.\n" << RESET;
         return;
     }
 
-    std::cout << CYAN << "\n================ INVENTORY (" << count_quest << " items) ================\n" << RESET;
+    std::cout << CYAN << "\n================ Quest's list (" << count_quest << " items) ================\n" << RESET;
 
     for (int i = 0; i < count_quest; ++i)
     {
         std::cout << YELLOW << "#" << (i + 1) << " " << RESET
-                  << quest1[i]->GetName() 
-                  << GRAY << " [ID: " << quest1[i]->GetItemId() 
-                  << " | Type: " << quest1[i]->GetType() << "]" << RESET << "\n";
+                  << quests[i]->GetQuestName() 
+                  << GRAY << " [ID: " << quests[i]->GetQuestNumber() 
+                  << " | Type: " << quests[i]->GetQuestDifficulty() << "]" << RESET << "\n";
 
   
-        quest1[i]->DisplayQuestInfo();//Details here are
+        quests[i]->DisplayQuestInfo();//Details here are
 
         if (i < count_quest - 1) {
             std::cout << GRAY << "--------------------------------------------------\n" << RESET;
@@ -168,3 +193,23 @@ void Character::Talk_About_Life()
 {
 std::cout << "Talk about life Not implemented yet" << std::endl;
 }
+
+
+
+
+/*int MyInventory::Delete_Quest(int ) {
+    for (int i = 0; i < count; i++) {
+        if (items[i]->GetItemId() == itemId) {
+            delete items[i];
+            for (int j = i; j < count - 1; j++) {
+                items[j] = items[j + 1];
+            }
+            count--;
+            std::cout << "Item with ID " << itemId << " deleted." << std::endl;
+            return 0;
+        }
+    }
+    std::cout << "Item with ID " << itemId << " not found!" << std::endl;
+    return -1;
+}
+    */

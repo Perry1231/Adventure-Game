@@ -566,6 +566,7 @@ struct GameEvent                            //For tracking events not ot be repe
 
 class Quest
 {
+    Quest** quests;
     protected:
         int number_quest;                       //id
         int capacity_quest;                     //capacity
@@ -586,11 +587,12 @@ class Quest
 
         int GetCountQuest() const { return count_quest;}
         int GetCapacityQuest() const {return capacity_quest;}
-        int AddItemQuest(Item* quest1);
+        int AddQuest(Quest* quest1);
         Quest* GetItemQuest(int index) const;
+        int ResizeQuestBig();
 
-
-        void SetQuestNumber() {number_quest = number_quest1; }
+        
+        void SetQuestNumber(int number_quest1) {number_quest = number_quest1; }
         void DisplayQuestInfo() const;
         void SetQuestName(const std::string& name) { questName = name; }
         void SetQuestDescription(const std::string& description) { questDescription = description; }
@@ -612,8 +614,8 @@ class Quest
 
 
         ~Quest(){for (int i = 0; i < count_quest; i++)
-        delete quest1[i];
-    delete[] quest1;}
+        delete quests[i];
+    delete[] quests;}
 
 };
 
