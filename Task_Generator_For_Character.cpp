@@ -24,7 +24,7 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
     static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = {
-            {"Collect Magic Sticks", {25, 2, 0.01}}, // 25 gold, 2 difficulty
+            {"Collect Magic Sticks", {25, 2, 0.01}}, // 25 gold, 2 difficulty , 0.01 exp
             {"Collect Magic Stones", {25, 2, 0.01}},
             {"ColLect Magic Items", {18,1, 0.01}},
             {"ColLect Magic Grass",{15, 2, 0.01}},
@@ -127,9 +127,14 @@ void Quest::DisplayQuestInfo() const {
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
+void Quest::DisplayAllQuestInfo() const
+{
+    
+}
+
 
 
 void Character::Talk_About_Life()
 {
-std::cout << "Not implemented yet" << std::endl;
+std::cout << "Talk about life Not implemented yet" << std::endl;
 }
