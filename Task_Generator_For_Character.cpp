@@ -127,9 +127,39 @@ void Quest::DisplayQuestInfo() const {
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
-void Quest::DisplayAllQuestInfo() const
+
+void Quest::DisplayAllQuestInfo() const 
 {
-    
+    constexpr const char* CYAN = "\033[36m";
+    constexpr const char* YELLOW = "\033[33m";
+    constexpr const char* GRAY = "\033[90m";
+    constexpr const char* RED = "\033[31m";
+    constexpr const char* RESET = "\033[0m";
+
+    if (count_quest == 0)
+    {
+        std::cout << RED << "\n[!] Inventory is completely empty.\n" << RESET;
+        return;
+    }
+
+    std::cout << CYAN << "\n================ INVENTORY (" << count_quest << " items) ================\n" << RESET;
+
+    for (int i = 0; i < count_quest; ++i)
+    {
+        std::cout << YELLOW << "#" << (i + 1) << " " << RESET
+                  << quest1[i]->GetName() 
+                  << GRAY << " [ID: " << quest1[i]->GetItemId() 
+                  << " | Type: " << quest1[i]->GetType() << "]" << RESET << "\n";
+
+  
+        quest1[i]->DisplayQuestInfo();//Details here are
+
+        if (i < count_quest - 1) {
+            std::cout << GRAY << "--------------------------------------------------\n" << RESET;
+        }
+    }
+
+    std::cout << CYAN << "====================================================\n\n" << RESET;
 }
 
 

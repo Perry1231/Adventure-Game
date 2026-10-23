@@ -18,6 +18,8 @@ Implement all functions
 Add task related on stranger job
 Change experience in DB related to difficulty
 Add display tasks actibe to main
+Add main functions for Quest class rom Invenctory
+
 
 
 Objects======================

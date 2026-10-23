@@ -2,7 +2,7 @@
 #include <iostream>
 //For main events and plot
 
-void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Quest& quest1)
 {
     int choice = 0;
     do {
@@ -11,7 +11,8 @@ void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInv
         std::cout << "├───────────────────────────────────────────────────┤\n";
         std::cout << "│  1. Make turn                                     │\n";
         std::cout << "│  2. Look in inventory                             │\n";
-        std::cout << "│  3. Go to main menu                               │\n";
+        std::cout << "|  3. Look active quest                             |\n";
+        std::cout << "│  4. Go to main menu                               │\n";
         std::cout << "└───────────────────────────────────────────────────┘\n";
 
         std::cout << "Enter choice : ";
@@ -32,6 +33,9 @@ void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInv
                 }
                 break;
             case 3:
+                quest1.DisplayAllQuestInfo();
+                break;
+            case 4:
                 std::cout << "\nReturning to main menu.\n";
                 break;
             default:

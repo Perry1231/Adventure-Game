@@ -311,7 +311,7 @@ virtual ~Armory() {}
 
 
 //=======================================================================Inventory_structure===========================================================================
- class MyInventory
+ class MyInventory              //!!!
  {
  private:
  Item** items;
@@ -567,6 +567,9 @@ struct GameEvent                            //For tracking events not ot be repe
 class Quest
 {
     protected:
+        int number_quest;                       //id
+        int capacity_quest;                     //capacity
+        int count_quest;                        //count of quests now
         std::string questName;
         std::string questDescription;
         int questDifficulty;
@@ -574,10 +577,20 @@ class Quest
         bool isCompleted;
 
     public:
-        Quest() : questName(""), questDescription(""), questDifficulty(1), reward(0),isCompleted(false) {}
-        Quest(std::string name, std::string description, int difficulty, int rewardes) : questName(name), 
-        questDescription(description), questDifficulty(difficulty), reward(rewardes), isCompleted(false) {}
+        Quest() : number_quest(0), capacity_quest(0), count_quest(0), questName(""), questDescription(""), questDifficulty(1), reward(0),isCompleted(false) {}
+        Quest(int number_quest1, int capacity_quest1,int count_quest1, std::string name, std::string description, int difficulty, int rewardes) : 
+        number_quest(number_quest1), capacity_quest(capacity_quest1),count_quest(count_quest1),
+        questName(name), questDescription(description), questDifficulty(difficulty), reward(rewardes), isCompleted(false) {}
 
+
+
+        int GetCountQuest() const { return count_quest;}
+        int GetCapacityQuest() const {return capacity_quest;}
+        int AddItemQuest(Item* quest1);
+        Quest* GetItemQuest(int index) const;
+
+
+        void SetQuestNumber() {number_quest = number_quest1; }
         void DisplayQuestInfo() const;
         void SetQuestName(const std::string& name) { questName = name; }
         void SetQuestDescription(const std::string& description) { questDescription = description; }
@@ -585,14 +598,23 @@ class Quest
         void SetCompleted(bool completed) { isCompleted = completed; }
         void SetUncompleted() { isCompleted = false; }
         void SetReward(int rewardes) { reward = rewardes; }
+        void DisplayAllQuestInfo() const;
 
         int GetQuestDifficulty() const { return questDifficulty; }
         std::string GetQuestDescription() const { return questDescription; } 
         std::string GetQuestName() const { return questName; }
+        int GetQuestNumber() const {return number_quest; }
 
         
+        int Delete_Quest(int number_quest);
         std::string RandomizeQuest(GameHard& difficulty);
         bool IsCompleted() const { return isCompleted; }
+
+
+        ~Quest(){for (int i = 0; i < count_quest; i++)
+        delete quest1[i];
+    delete[] quest1;}
+
 };
 
 
