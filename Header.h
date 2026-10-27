@@ -91,6 +91,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     char GetType(AuraType type);
     void EquipWeapon(Weapon* w); 
     void EquipArmor(Armory* a); 
+
     Weapon* GetEquippedWeapon() const;
     Armory* GetEquippedArmor() const; 
 
@@ -323,9 +324,7 @@ virtual ~Armory() {}
  public:
  MyInventory() : items(nullptr) , capacity(0), count(0), id(1), owner(nullptr) {}
 
-~MyInventory(){for (int i = 0; i < count; i++)
-        delete items[i];
-    delete[] items;}
+
 
 
 void SetOwner(Character* c) { owner = c; }
@@ -340,6 +339,10 @@ int DelItem(int id);
 int ResizeInventoryBig();
 void InventoryFunctions();
 
+
+~MyInventory(){for (int i = 0; i < count; i++)
+        delete items[i];
+    delete[] items;}
 };
 void HelpFunction() ;
 
@@ -620,7 +623,7 @@ class Quest
 };
 
 
-class Object
+class Object : public Item
 {
     Object** objects;
 protected:
@@ -629,7 +632,8 @@ int price_object;
 std::string name_object;
 std::string describtion_object;
 bool isQuest;
-int count_object;                           //how many
+int count_object; 
+Character* owner_p;                          //how many
 
 public:
 
@@ -638,10 +642,16 @@ Object() : price_object(0), name_object("Default name object"), describtion_obje
 Object(int price_object1, std::string name_object1, std::string describtion_object1, bool isQuest1, int count1): price_object(price_object1),
  name_object(name_object1), describtion_object(describtion_object1), isQuest(isQuest1), count_object(count1) {}
 
- 
-//Main functions
-void CreateObjectConstructor();
 
+//Main functions
+void EquipObject();
+void CreateObjectConstructor();
+void RecountObject();
+void DisplayObjectStats();
+
+
+Object* GetOwner() const { return owner_p; } 
+void SetOwner(Character* c) { owner_p = c; }  
 //Getters
 int GetObjectCount() {return count_object;}
 
