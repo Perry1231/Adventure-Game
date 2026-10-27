@@ -620,6 +620,42 @@ class Quest
 };
 
 
+class Object
+{
+    Object** objects;
+protected:
+
+int price_object;
+std::string name_object;
+std::string describtion_object;
+bool isQuest;
+int count_object;                           //how many
+
+public:
+
+Object() : price_object(0), name_object("Default name object"), describtion_object("Default describtion object"),
+ isQuest("false"), count_object(0) {};
+Object(int price_object1, std::string name_object1, std::string describtion_object1, bool isQuest1, int count1): price_object(price_object1),
+ name_object(name_object1), describtion_object(describtion_object1), isQuest(isQuest1), count_object(count1) {}
+
+ 
+//Main functions
+void CreateObjectConstructor();
+
+//Getters
+int GetObjectCount() {return count_object;}
+
+//Setters
+void SetObjectCount(int count1) {count_object = count1;}
+
+
+
+//Deleter
+ ~Object(){for (int i = 0; i < count_object; i++)
+        delete objects[i];
+    delete[] objects;}
+};
+
 //==================================================================Additional_Functions================================================
 char ChoiceInput_YN();
 int ChoiceInput_Number();
