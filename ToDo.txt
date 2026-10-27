@@ -36,9 +36,6 @@ Add more functions except these in code       Example : char Choice()   ->>><<<-
 
 
 
-//Header.h===========================================
-Add Quest realisation full
-
 //check all functions (actions)
 Add level uprade to all functions
 Add strenght uprade to all functions
@@ -52,6 +49,12 @@ Tavern in Events.cpp +-
 Events.cpp and functions
 Add events related to tasks 
 End started evnts structure
+
+
+
+Saver.cpp============================================
+Add quests saver 
+
 
 
 

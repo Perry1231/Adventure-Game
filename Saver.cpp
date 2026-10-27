@@ -1,7 +1,7 @@
 #include "Header.h"
 #include <fstream>
 
-void Saver(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
+void Saver(Character& hero, MyInventory& inv, GameHard& difficultyLevel, Quest& quests, Quest& quest)
 {
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                  SAVE GAME                      │\n";
@@ -24,8 +24,10 @@ void Saver(Character& hero, MyInventory& inv, GameHard& difficultyLevel)
     saveFile << "Level: " << hero.GetLevel() << "\n";
     
     saveFile << "\nInventory:\n";
-    // TODO: Save inventory items
-    
+    for(int i=0; i<quest.GetCountQuest(); i++)
+    {
+        //saveFile << "Quest #" << i<< "#, " << quests[i] << std::endl;
+    }    
     saveFile << "\nDifficulty: " << difficultyLevel.GetDifficultyLevel() << "\n";
     
     saveFile.close();
