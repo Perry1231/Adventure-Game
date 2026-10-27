@@ -80,7 +80,8 @@ void MyInventory::InventoryFunctions()                                          
 {
     while(true)
     {
-    int choice =0;
+        ChoiceInput_Number();
+    int choice =ChoiceInput_Number();
     std::cout << "\n\n" << std::endl;
     std::cout <<"==================Inventory================="<< std::endl;
     std::cout << "Size: " << count << std::endl;
@@ -98,9 +99,9 @@ void MyInventory::InventoryFunctions()                                          
 
         else if (choice == 2)
         {//Display all items
-            int choice_2;
+            
             std::cout << "Eneter id of item to delete : " ;
-            std::cin>> choice_2;
+            int choice_2= ChoiceInput_Number();
             if (DelItem(choice_2) == -1) {
                 std::cout << "Error: Item not found! Cannot delete." << std::endl;
             }

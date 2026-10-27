@@ -307,8 +307,7 @@ void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEven
 
 void FakeDistressCal(Character& hero, GameHard& levelDificulty) {                                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
-    int choice;
-    std::cin >> choice;
+    int choice =ChoiceInput_Number();
 
     if(choice == 1)
     {
@@ -408,10 +407,10 @@ std::cout << "2. Talk to the locals" << std::endl;
 std::cout << "3. Play a game of chance" << std::endl;
 std::cout << "4. Leave the tavern" << std::endl;
 
-int choice;
+int choice =ChoiceInput_Number();
 int gameChoice;
 int gameChoice2;
-std::cin>> choice;
+
 switch (choice) {
     case 1:
         std::cout << "You rest and regain some health." << std::endl;
@@ -485,8 +484,8 @@ void Hostel(Character& hero) {
     std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
     
     std::cout << Color::BOLD << " Choice > " << Color::RESET;
-    int choice;
-    std::cin >> choice;
+    int choice = ChoiceInput_Number();
+    
     std::cout << "\n";
 
     switch (choice) {
@@ -552,9 +551,8 @@ std::cout << "1. Rest in the royal chambers" << std::endl;
 std::cout << "2. Search for hidden treasures" << std::endl;
 std::cout << "3. Look around for quests or tasks" << std::endl;
 std::cout << "4. Leave the castle" << std::endl;
-int choice;
+int choice = ChoiceInput_Number();
 
-std::cin >> choice;
 switch (choice) {
     case 1:
     {
@@ -664,9 +662,9 @@ void FishingChallenge(Character& hero)
     std::cout << "3. Leave the fishing challenge" << std::endl;
 
 
-    int choice;
+    
     std::cout << "Enter your choice: ";
-    std::cin >> choice;
+    int choice = ChoiceInput_Number();
     switch (choice) {
         case 1:
         {
@@ -725,7 +723,7 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty)
     std::cout << "2. Try to aim for the highest score" << std::endl;
     std::cout << "3. Leave the archery contest" << std::endl;
     std::cout << "Enter your choice: ";
-    int choice;
+    int choice = ChoiceInput_Number();
 
     switch(choice)
     {
@@ -776,7 +774,7 @@ void StrangeStone(Character& hero, MyInventory& inv1)
     std::cout << "You find a strange stone with mysterious markings." << std::endl;
     std::cout << "You can try to decipher the markings or leave it alone." << std::endl;
     std::cout << "Enter your choice:\n1. Decipher the markings\n2. Leave it alone\n";
-    int choice;
+    int choice= ChoiceInput_Number();
 
     switch(choice)
     {

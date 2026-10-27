@@ -11,8 +11,7 @@ void ManageGamesaves(Character& hero, MyInventory& inv, GameHard& difficultyLeve
     std::cout << "└───────────────────────────────────────────────────┘\n";
     std::cout << "Choice: ";
     
-    int choice;
-    std::cin >> choice;
+    int choice = ChoiceInput_Number();
     
     switch (choice) {
         case 1:

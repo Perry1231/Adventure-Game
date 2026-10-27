@@ -404,9 +404,8 @@ void Character::Take() {
         currentChest->GetItem(i)->ShowInfo();
     }
     std::cout << "0. Cancel\n";
-    int choice;
     std::cout << "Select item to take: ";
-    std::cin >> choice;
+    int choice = ChoiceInput_Number();
     if (choice == 0) return;
     if (choice < 1 || choice > itemCount) {
         std::cout << "Invalid choice!\n";
@@ -616,8 +615,7 @@ std::cout << "||\t\t\t\t\t\t\t\t||" << std::endl;
 std::cout << "||"  << "Attack - 1" << std::endl;
 std::cout << "||"  << "Look in your inventory" << std::endl;
 std::cout << "||"  << "Leave battle - 2" << std::endl;
-int choice ;
-std::cin >> choice;
+int choice = ChoiceInput_Number();
 switch (choice)
 {
     case 1:
@@ -752,10 +750,10 @@ int Character::Talk(Enemy& enemy)
     if(enemy.GetAttitude() < 1)
     {
         std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
-        int choice=0;
+        
         std::cout << "`Do what you want` ---->" << std::endl;
         std::cout << "1 - Take task \n2 - Talk about life \n 3 - Leave" << std::endl;
-        std::cin >> choice;
+        int choice=ChoiceInput_Number();
         switch(choice)
         {
             case 1:
