@@ -197,19 +197,18 @@ std::cout << "Talk about life Not implemented yet" << std::endl;
 
 
 
-/*int MyInventory::Delete_Quest(int ) {
-    for (int i = 0; i < count; i++) {
-        if (items[i]->GetItemId() == itemId) {
-            delete items[i];
-            for (int j = i; j < count - 1; j++) {
-                items[j] = items[j + 1];
+int Quest::Delete_Quest(int ) {
+    for (int i = 0; i < count_quest; i++) {
+        if (quests[i]->GetQuestNumber() == number_quest) {
+            delete quests[i];
+            for (int j = i; j < count_quest - 1; j++) {
+                quests[j] = quests[j + 1];
             }
-            count--;
-            std::cout << "Item with ID " << itemId << " deleted." << std::endl;
+            count_quest--;
+            std::cout << "Item with ID " << number_quest << " deleted." << std::endl;
             return 0;
         }
     }
-    std::cout << "Item with ID " << itemId << " not found!" << std::endl;
+    std::cout << "Item with ID " << number_quest << " not found!" << std::endl;
     return -1;
 }
-    */
