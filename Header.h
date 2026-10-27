@@ -650,7 +650,7 @@ void RecountObject();
 void DisplayObjectStats();
 
 
-Object* GetOwner() const { return owner_p; } 
+Character* GetOwner() const { return owner_p; } 
 void SetOwner(Character* c) { owner_p = c; }  
 //Getters
 int GetObjectCount() {return count_object;}
