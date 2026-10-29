@@ -660,8 +660,8 @@ std::string GetType() const override { return "Object"; }
 
 //Base functions
 void ShowInfo() const override ;
-    void Use() override;
-    void Reset() override;
+void Use() override;
+
 
 //Setters
 void SetObjectCount(int count1) {count_object = count1;}
