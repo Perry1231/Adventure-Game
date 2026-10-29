@@ -656,7 +656,12 @@ void SetOwner(Character* c) { owner_p = c; }
 int GetObjectCount() const {return count_object;}
 std::string GetName() const {return name_object;}
 std::string GetType() const override { return "Object"; }
-    void ShowInfo() const override ;
+
+
+//Base functions
+void ShowInfo() const override ;
+    void Use() override;
+    void Reset() override;
 
 //Setters
 void SetObjectCount(int count1) {count_object = count1;}
