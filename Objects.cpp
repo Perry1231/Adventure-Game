@@ -24,8 +24,3 @@ void Object::EquipObject(Inventory& inv1)
 {
 
 }
-
-void Object::ShowInfo()
-{
-
-}
