@@ -5,6 +5,7 @@ void MainFunction() {
     Character hero;
     hero.RandomizeStats();
 
+
     Weapon* weapon_1 = new Weapon();
     weapon_1->RandomizeWeaponStart(hero.GetProfession());
 
@@ -45,6 +46,13 @@ void MainFunction() {
     quest1.SetQuestDescription("Find the lost home of the ancient civilization.");
     quest1.SetQuestDifficulty(3);
     quest1.DisplayAllQuestInfo();
+
+
+    Object* object1 = new Object();
+    object1->CreateObjectConstructor();
+    object1->SetObjectName("Aplle");
+    object1->SetObjectDescribtion("Big");
+    object1->SetOwner(&hero);
     
 //====================================================================
   int mainChoice =0;

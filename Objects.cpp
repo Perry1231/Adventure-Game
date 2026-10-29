@@ -3,10 +3,29 @@
 //Here will be functions for objects db and their abillities
 
 
-void CreateObjectConstructor();
+void Object::CreateObjectConstructor()
+{
+
+}
 
 
-void RecountObject();
+void Object::RecountObject()
+{
+
+}
 
 
-void DisplayObjectStats();
+void Object::DisplayObjectStats()
+{
+
+}
+
+void Object::EquipObject(Inventory& inv1)
+{
+
+}
+
+void Object::ShowInfo()
+{
+
+}

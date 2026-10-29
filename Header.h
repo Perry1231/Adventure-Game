@@ -644,7 +644,7 @@ Object(int price_object1, std::string name_object1, std::string describtion_obje
 
 
 //Main functions
-void EquipObject();
+void EquipObject(Inventory& inv1);
 void CreateObjectConstructor();
 void RecountObject();
 void DisplayObjectStats();
@@ -653,10 +653,15 @@ void DisplayObjectStats();
 Character* GetOwner() const { return owner_p; } 
 void SetOwner(Character* c) { owner_p = c; }  
 //Getters
-int GetObjectCount() {return count_object;}
+int GetObjectCount() const {return count_object;}
+std::string GetName() const {return name_object;}
+std::string GetType() const override { return "Object"; }
+    void ShowInfo() const override ;
 
 //Setters
 void SetObjectCount(int count1) {count_object = count1;}
+void SetObjectName(std::string name_object1) { name_object= name_object1; }
+void SetObjectDescribtion(std::string describtion_object1) { describtion_object= describtion_object1; }
 
 
 
