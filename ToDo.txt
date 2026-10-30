@@ -25,6 +25,7 @@ Add main functions for Quest class rom Invenctory
 Objects======================
 Add magic grass or else to collect
 Add functions to create them as object = items
+add object rarity
 
 
 //Additional_Functions=============================

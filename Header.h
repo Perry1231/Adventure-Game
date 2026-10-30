@@ -645,7 +645,6 @@ Object(int price_object1, std::string name_object1, std::string describtion_obje
 
 
 //Main functions
-void EquipObject(Inventory& inv1);
 void CreateObjectConstructor();
 void RecountObject();
 void DisplayObjectStats();

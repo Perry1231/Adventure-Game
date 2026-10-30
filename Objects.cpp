@@ -3,6 +3,7 @@
 //Here will be functions for objects db and their abillities
 
 
+
 void Object::CreateObjectConstructor()
 {
 
@@ -27,10 +28,6 @@ std::cout << "\n┌────────────────────�
     std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
-void Object::EquipObject(Inventory& inv1)
-{
-
-}
 
 
 void Object::ShowInfo() const {
