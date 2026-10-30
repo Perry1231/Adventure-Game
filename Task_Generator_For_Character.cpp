@@ -53,7 +53,7 @@ int Quest::AddQuest(Quest* quest1) {
 static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {                       //Basic tasks
     static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
-        yar = {
+        yar = { //Collect tasks
             {"Collect Magic Sticks", {25, 2, 0.01}}, // 25 gold, 2 difficulty , 0.01 exp
             {"Collect Magic Stones", {25, 2, 0.01}},
             {"ColLect Magic Items", {18,1, 0.01}},
@@ -69,7 +69,24 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
             {"Collect Magic Pages from Evil Book",{32, 2, 0.01}},
             {"Collect Magical Herb for village",{25, 2, 0.01}},
             {"Collect pinocones for magic squirrel",{12, 1, 0.01}},
-            {"Collect leaves for small dwarf's house",{20, 1, 0.01}}
+            {"Collect leaves for small dwarf's house",{20, 1, 0.01}},
+
+
+            {"Rescue girl form goblin", {40, 3, 0.3}},
+            {"Rescue village form orks", {50, 3, 0.3}},
+            {"Rescue boy form orks camp", {35, 3, 0.25}},
+            {"Rescue dog form misfortune", {15, 3, 0.09}},
+            {"Rescue a herd pf pigs for farmer", {20, 3, 0.05}},
+
+            {"Explore new lands for farmers", {15, 1, 0.03}},
+            {"Explore new lands for king", {27, 1, 0.05}},
+            {"Explore new lands for farmers", {15, 1, 0.03}},
+            {"Explore new lands for farmers", {15, 1, 0.03}},
+
+
+            {"Eliminate danger ork", {25, 2, 0.08}},
+            {"Kill big hog", {15, 1, 0.04}},
+            {"Eliminate danger bear", {17, 2, 0.05}}
             
         };
     }
@@ -77,46 +94,6 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
 }
 
 
-
-//Task for magic stranger
-static std::map<std::string, QuestStructBasic>& GetQuestTaskMagicDB() {                  //Magic tasks for magicians
-static std::map<std::string, QuestStructBasic> yar;
-    if (yar.empty()) {
-        yar = {
-            {"",{}},
-            {"",{}}
-        };
-    }
-    return yar;
-}
-
-
-
-
-//Task for evil stranger
-static std::map<std::string, QuestStructBasic>& GetQuestTaskEvilDB() {                   //Basic evil tasks
-static std::map<std::string, QuestStructBasic> yar;
-    if (yar.empty()) {
-        yar = {
-            {"",{}},
-            {"",{}}
-        };
-    }
-    return yar;
-}
-
-
-
-static std::map<std::string, QuestStructBasic>& GetQuestTaskDwarfDB() {                  //Basic dwarf tasks
-static std::map<std::string, QuestStructBasic> yar;
-    if (yar.empty()) {
-        yar = {
-            {"",{}},
-            {"",{}}
-        };
-    }
-    return yar;
-}
 
 
 
