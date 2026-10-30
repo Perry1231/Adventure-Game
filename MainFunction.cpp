@@ -50,7 +50,7 @@ void MainFunction() {
 
     Object* object1 = new Object();
     object1->CreateObjectConstructor();
-    object1->SetObjectName("Aplle");
+    object1->SetObjectName("Apple");
     object1->SetObjectDescribtion("Big");
     object1->SetOwner(&hero);
     

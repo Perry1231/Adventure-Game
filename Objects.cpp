@@ -17,7 +17,14 @@ void Object::RecountObject()
 
 void Object::DisplayObjectStats()
 {
-
+std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│              OBJECT CHARACTERISTICS             │\n";
+    std::cout << "├───────────────────────────────────────────────────┤\n";
+    std::cout << "│  Object : " << name_object << "\n";
+    std::cout << "│  Description: " << describtion_object << "\n";
+    std::cout << "│  Rarity   : " << rarityType_object << "\n";
+    std::cout << "│  Value    : " << price_object << " gold\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n\n";
 }
 
 void Object::EquipObject(Inventory& inv1)

@@ -622,7 +622,7 @@ class Quest
 
 };
 
-
+//================================================================================================================================
 class Object : public Item
 {
     Object** objects;
@@ -632,15 +632,16 @@ int price_object;
 std::string name_object;
 std::string describtion_object;
 bool isQuest;
-int count_object; 
+int count_object;
+std::string rarityType_object; 
 Character* owner_p;                          //how many
 
 public:
 
 Object() : price_object(0), name_object("Default name object"), describtion_object("Default describtion object"),
- isQuest("false"), count_object(0) {};
-Object(int price_object1, std::string name_object1, std::string describtion_object1, bool isQuest1, int count1): price_object(price_object1),
- name_object(name_object1), describtion_object(describtion_object1), isQuest(isQuest1), count_object(count1) {}
+ isQuest("false"), count_object(0) , rarityType_object("Common") {};
+Object(int price_object1, std::string name_object1, std::string describtion_object1, bool isQuest1, int count1, std::string RarityType_object1): price_object(price_object1),
+ name_object(name_object1), describtion_object(describtion_object1), isQuest(isQuest1), count_object(count1), rarityType_object(RarityType_object1) {}
 
 
 //Main functions
@@ -662,7 +663,7 @@ std::string GetType() const override { return "Object"; }
 void ShowInfo() const override;      // Implement in Objects.cpp
 std::string GetName() const override { return name_object; }
 std::string GetType() const override { return "Object"; }
-void Use() override;                 // Implement in Objects.cpp  
+void Use() override;                
 void Reset() override; 
 
 
