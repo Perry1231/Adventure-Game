@@ -12,6 +12,9 @@ Craete task creator for Task_Generator_For_Character
 
 
 
+//Plot===============================================
+Add creates appearance!!!!! and other things (objects , artifacts...)
+
 Task_Generator_For_Character========================
 Implement all functions
 Add task related on stranger job
