@@ -642,7 +642,7 @@ switch (choice)
 
 
 
-void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficultyLevel)
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty, Quest& quest)
 {
     int choice = 0;
 
@@ -671,7 +671,7 @@ void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty
     {
         case 1:
             std::cout << "💬 You talk to the " << enemy.GetName() << ".\n";
-            hero.Talk(enemy);
+            hero.Talk(enemy, quest, difficulty);
             break;
         case 2:
             std::cout << "⚔️ You attack the " << enemy.GetName() << "!\n";
@@ -745,7 +745,7 @@ return 0;
 }
 
 
-int Character::Talk(Enemy& enemy)
+int Character::Talk(Enemy& enemy, Quest& quest, GameHard& difficulty)
 {
     if(enemy.GetAttitude() < 1)
     {
@@ -757,10 +757,15 @@ int Character::Talk(Enemy& enemy)
         switch(choice)
         {
             case 1:
-            Task_Generator();
+            quest.RandomizeQuest(difficulty);
+            quest.DisplayQuestInfo();
+            quest.RandomizeQuest(difficulty);
+            quest.DisplayQuestInfo();
+            quest.RandomizeQuest(difficulty);
+            quest.DisplayQuestInfo();
             break;
             case 2:
-            Talk_About_Life();
+            Character::Talk_About_Life();
             break;
             case 3:
 

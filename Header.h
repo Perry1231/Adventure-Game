@@ -147,10 +147,10 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     
     //Interaction
     void Talk_About_Life();
-    void Task_Generator();
+    
     void Fight(Enemy& enemy);
     int Trade(Enemy& enemy);
-    int Talk(Enemy& enemy);
+    int Talk(Enemy& enemy, Quest& quest, GameHard& difficulty);
     void Attack(Character& hero, Enemy& enemy);
     void DamageSystem(Enemy& enemy);
 
@@ -672,9 +672,13 @@ void SetObjectDescribtion(std::string describtion_object1) { describtion_object=
 
 
 //Deleter
- ~Object(){for (int i = 0; i < count_object; i++)
-        delete objects[i];
-    delete[] objects;}
+~Object() {
+    if (objects) {
+        for (int i = 0; i < count_object; i++)
+            delete objects[i];
+        delete[] objects;
+    }
+}
 };
 
 //==================================================================Additional_Functions================================================
@@ -688,7 +692,7 @@ void MainFunction();
 void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1);
 void Help();
 void GetInfo();
-void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty);
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty, Quest& quest);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& levelDificulty);
 void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty);

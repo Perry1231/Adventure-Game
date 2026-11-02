@@ -470,7 +470,6 @@ switch (choice) {
 }
 
 void Hostel(Character& hero) {
-    // Atmospheric introduction box / header
     std::cout << Color::CYAN << Color::BOLD << "\n 🏨 [LOCATION] " 
               << Color::RESET << "The Dusty Lantern Hostel\n";
     std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
