@@ -59,3 +59,7 @@ void Object::Reset() {// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cout << "│  Resetting artifact: " << name_object << "!\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
+
+int Object::AddObject(MyInventory& inv1, Item* item) {
+    return inv1.AddItem(item);  
+}

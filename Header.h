@@ -327,18 +327,24 @@ virtual ~Armory() {}
 
 
 
-void SetOwner(Character* c) { owner = c; }
+
 void DisplayInventory() const;
 int GetCount() const { return count;}
 int GetCapacity() const {return capacity;}
 int AddItem(Item* item);
 Item* GetItem(int index) const;
+int GetID() const { return id; }
+
 
 void Clear(); //Additional
 int DelItem(int id);
 int ResizeInventoryBig();
 void InventoryFunctions();
 
+
+void SetCount(int c) { count = c; }
+void SetOwner(Character* c) { owner = c; }
+void SetID(int newId) { id = newId; }
 
 ~MyInventory(){for (int i = 0; i < count; i++)
         delete items[i];
@@ -645,6 +651,7 @@ Object(int price_object1, std::string name_object1, std::string describtion_obje
 
 
 //Main functions
+int AddObject(MyInventory& inv1, Item* item);
 void CreateObjectConstructor();
 void RecountObject();
 void DisplayObjectStats();
