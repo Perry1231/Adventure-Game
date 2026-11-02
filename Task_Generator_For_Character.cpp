@@ -86,7 +86,32 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
 
             {"Eliminate danger ork", {25, 2, 0.08}},
             {"Kill big hog", {15, 1, 0.04}},
-            {"Eliminate danger bear", {17, 2, 0.05}}
+            {"Eliminate danger bear", {17, 2, 0.05}},
+
+
+            {"Escort rich man", {17, 2, 0.05}},
+            {"Eliminate pretty girl", {20, 2, 0.06}},
+            {"Escort princess", {40, 2, 0.3}},
+            {"Escort old man", {10, 1, 0.04}},
+            {"Escort merchant", {17, 2, 0.05}},
+            {"Escort child to home", {5, 1, 0.04}},
+
+
+
+            {"Deliver package to village", {10, 1, 0.03}},
+            {"Deliver package to king", {20, 2, 0.05}},
+            {"Deliver package to merchant", {15, 1, 0.04}},
+            {"Deliver package to princess", {30, 2, 0.06}},
+            {"Deliver package to old man", {5, 1, 0.02}},
+
+            {"Solve puzzle in the cave", {25, 3, 0.08}},
+            {"Solve puzzle in the forest", {15, 2, 0.05}},
+            {"Solve puzzle in the castle", {35, 4, 0.1}},
+            {"Solve puzzle in the dungeon", {20, 3, 0.07}},
+            {"Eliminate danger bear", {17, 2, 0.05}},
+            {"Eliminate danger bear", {17, 2, 0.05}},
+            {"Eliminate danger bear", {17, 2, 0.05}},
+            {"Eliminate danger bear", {17, 2, 0.05}},
             
         };
     }
