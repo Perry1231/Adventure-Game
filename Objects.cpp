@@ -53,3 +53,9 @@ void Object::Use() {
     std::cout << "│  Using artifact: " << name_object << "!\n";
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
+
+void Object::Reset() {
+    std::cout << "\n┌───────────────────────────────────────────────────┐\n";
+    std::cout << "│  Resetting artifact: " << name_object << "!\n";
+    std::cout << "└───────────────────────────────────────────────────┘\n";
+}
