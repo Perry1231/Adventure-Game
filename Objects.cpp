@@ -63,3 +63,4 @@ void Object::Reset() {// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 int Object::AddObject(MyInventory& inv1, Item* item) {
     return inv1.AddItem(item);  
 }
+
