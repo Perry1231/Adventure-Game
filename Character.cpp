@@ -642,7 +642,7 @@ switch (choice)
 
 
 
-void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty, Quest& quest)
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty, Quest& quest, Objects* object, Item* item)
 {
     int choice = 0;
 
@@ -679,7 +679,7 @@ void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty
             break;
         case 3:
             std::cout << "🪙 You start trading with the " << enemy.GetName() << ".\n";
-            hero.Trade(enemy);
+            hero.Trade(enemy, inv1, difficulty, object, item);
             break;
         case 4:
             std::cout << "🚪 You leave the area.\n";
@@ -693,7 +693,7 @@ void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty
 
 
 
-int Character::Trade(Enemy& enemy)
+int Character::Trade(Enemy& enemy, MyInventory& inv1, GameHard& difficulty, Objects* object, Item* item)
 {
     if(enemy.GetAttitude() < 1)
     {
@@ -722,17 +722,23 @@ int Character::Trade(Enemy& enemy)
 
 if (enemy.GetProfession() == "Warrior") 
 {
-    // Add warrior-specific items
+    Object* object_enemy = new Object();
+    object_enemy->CreateObjectConstructor();      //For warior itemms 5 sztuk
+    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
 } 
 
 else if (enemy.GetProfession() == "Mage")
 {
-    // Add mage-specific items
+    Object* object_enemy = new Object();
+    object_enemy->CreateObjectConstructor();      //For Mage itemms 5 sztuk
+    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
 }
 
 else if (enemy.GetProfession() == "")
 {
- return 0;
+    Object* object_enemy = new Object();
+    object_enemy->CreateObjectConstructor();      //For Mage itemms 5 sztuk
+    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
 
 }
 
@@ -765,7 +771,7 @@ int Character::Talk(Enemy& enemy, Quest& quest, GameHard& difficulty)
             quest.DisplayQuestInfo();
             break;
             case 2:
-            Character::Talk_About_Life();
+            Character::Talk_About_Life(quest, difficulty);
             break;
             case 3:
 

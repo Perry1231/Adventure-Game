@@ -16,6 +16,8 @@ class MyInventory;
 class Chest; 
 class Enemy;
 class GameHard;
+class Quest;
+class Objects;
 
 enum ChestType { COMMON = 52, RARE = 28, EPIC=15, LEGENDARY=5 };
 enum EffectType { HEALTH, DEFENSE, AGILITY, INTELLIGENCE, GOLD, STRENGTH }; 
@@ -68,6 +70,7 @@ Weapon* equipped_weapon;                //For equipment
 Armory* equipped_armor;
 MyInventory* inventory;      //Character inventory
 Chest* currentChest;
+Objects* object; 
 
 
     public :
@@ -76,7 +79,7 @@ Character() : health(100), Shealth(100), name ("Hero"), age(20), race("Human"),
 profession("Adventurer"), level(1), description("A brave adventurer ready to explore the world."),
 strength(10), agility(10), intelligence(10), defense(10), gold(100),auraType(MEDIUM) ,
 equipped_weapon(nullptr), equipped_armor(nullptr),
-inventory(nullptr), currentChest(nullptr) {} 
+inventory(nullptr), currentChest(nullptr), object(nullptr) {} 
 
 //Parameterized constructor
 Character(int health_, std::string name_, int age_, std::string race_, std::string profession_, int level_, 
@@ -149,7 +152,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Talk_About_Life(Quest& quest, GameHard& difficulty);
     
     void Fight(Enemy& enemy);
-    int Trade(Enemy& enemy);
+    int Trade(Enemy& enemy, MyInventory& inv1, GameHard& difficulty, Objects* object, Item* item);
     int Talk(Enemy& enemy, Quest& quest, GameHard& difficulty);
     void Attack(Character& hero, Enemy& enemy);
     void DamageSystem(Enemy& enemy);
@@ -701,7 +704,7 @@ void MainFunction();
 void StartGame(Enemy& enemy, Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1);
 void Help();
 void GetInfo();
-void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty, Quest& quest);
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& levelDificulty, Quest& quest, Objects& object, Item& item);
 //==================================================================Main_Menu_Functions=========================================================================
 void Settings(Character& hero, MyInventory& inv, Enemy& enemy, GameHard& levelDificulty);
 void Reseter(Character& hero, MyInventory& inv, GameHard& levelDificulty);
