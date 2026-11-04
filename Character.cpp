@@ -7,7 +7,7 @@
 #include <limits>
 
 void Task_Generator();
-void Talk_About_Life();
+void Talk_About_Life(Quest& quest);
 //=============================Main functions=============================
 void Character::DisplayStats() 
 {

@@ -146,7 +146,7 @@ Character(int health_, std::string name_, int age_, std::string race_, std::stri
     void Usage();
     
     //Interaction
-    void Talk_About_Life();
+    void Talk_About_Life(Quest& quest, GameHard& difficulty);
     
     void Fight(Enemy& enemy);
     int Trade(Enemy& enemy);
@@ -599,6 +599,7 @@ class Quest
         int AddQuest(Quest* quest1);
         Quest* GetItemQuest(int index) const;
         int ResizeQuestBig();
+        std::string RandomizeQuest(GameHard& difficulty);
 
         
         void SetQuestNumber(int number_quest1) {number_quest = number_quest1; }

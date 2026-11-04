@@ -64,3 +64,8 @@ int Object::AddObject(MyInventory& inv1, Item* item) {
     return inv1.AddItem(item);  
 }
 
+
+void Object::DeleteObject(MyInventory& inv1, int id) {
+    inv1.DelItem(id);
+}
+

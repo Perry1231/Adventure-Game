@@ -191,9 +191,18 @@ void Quest::DisplayAllQuestInfo() const
 
 
 
-void Character::Talk_About_Life()
+void Character::Talk_About_Life(Quest& quest, GameHard& difficulty)
 {
-std::cout << "Talk about life Not implemented yet" << std::endl;
+std::cout << "I've lived a long time and seen many things." << std::endl;
+std::cout << "Life is full of challenges, but also moments of joy." << std::endl;
+std::cout << "Remember to cherish the people around you and the experiences you have." << std::endl;
+std::cout << "If you want to succeed, you must be brave and persistent." << std::endl;
+std::cout << "And always remember, the journey is just as important as the destination." << std::endl;
+
+std::cout << "Here is some quests you can do to earn gold and experience:\n";
+
+quest.RandomizeQuest(difficulty);
+quest.DisplayQuestInfo();
 }
 
 
