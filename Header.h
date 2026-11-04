@@ -670,6 +670,7 @@ std::string GetType() const override { return "Object"; }
 void ShowInfo() const override;
 void Use() override;
 void Reset() override;
+void DeleteObject(MyInventory& inv1, int id);
 
 //Setters
 void SetObjectCount(int count1) {count_object = count1;}
