@@ -47,6 +47,8 @@ void MainFunction() {
     quest1.SetQuestDifficulty(3);
     quest1.DisplayAllQuestInfo();
 
+    Chest* chest = new Chest();
+    chest->ChestCreate(COMMON, hero);
 
     Object* object1 = new Object();
     object1->CreateObjectConstructor();

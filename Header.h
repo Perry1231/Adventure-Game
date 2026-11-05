@@ -482,7 +482,7 @@ public:
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
     void ShowInfo() const;
-    void ShowItems() const;
+    void ShowItems(const Inventory& items) const;
 
 
     int GetItemCount() const { return items.size(); }
@@ -491,7 +491,6 @@ public:
 }
 
 ~Chest(){}
-    void RemoveItem(int index);
 };
 //==================================================================Other_Character============================================================================
 enum CharacterType{QUESTGIVERS, MERCHANS, ALLIES, ANTAGONISTS};

@@ -33,7 +33,8 @@ void Chest::Open(Character* target)
     isOpen = true;
     std::cout << "Chest opened!\n";
     
-    // TODO: Give items to target
+    chest.ShowInfo();
+    
 }
 
 void Chest::Close()
@@ -53,19 +54,37 @@ void Chest::ShowInfo() const
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
-void Chest::ShowItems() const
+void Chest::ShowItems(const Inventory& items) const
 {
+    constexpr const char* CYAN = "\033[36m";
+    constexpr const char* YELLOW = "\033[33m";
+    constexpr const char* GRAY = "\033[90m";
+    constexpr const char* RED = "\033[31m";
+    constexpr const char* RESET = "\033[0m";
     std::cout << "\n┌───────────────────────────────────────────────────┐\n";
     std::cout << "│                    CHEST ITEMS                   │\n";
     std::cout << "├───────────────────────────────────────────────────┤\n";
-    
-    // TODO: Display items in chest
+    if (capacity == 0)
+    {
+        std::cout << RED << "\n[!] Chest is completely empty.\n" << RESET;
+        return;
+    }
+
+    for (int i = 0; i < capacity; ++i)
+    {
+        std::cout << YELLOW << "#" << (i + 1) << " " << RESET
+                  << items[i]->GetName() 
+                  << GRAY << " [ID: " << items[i]->GetItemId() 
+                  << " | Type: " << items[i]->GetType() << "]" << RESET << "\n";
+
+  
+        items[i]->ShowInfo();
+
+        if (i < capacity - 1) {
+            std::cout << GRAY << "--------------------------------------------------\n" << RESET;
+        }
+    }
     
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
-void Chest::RemoveItem(int index)
-{
-    // TODO: Remove item at index
-    std::cout << "Item removed from chest (index " << index << ")!\n";
-}
