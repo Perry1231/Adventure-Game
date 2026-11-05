@@ -7,6 +7,10 @@ Perfect Character::DmageSystem(function)     +-
 
 
 
+Chest.cpp==============================================
+Add end functional for Chest
+
+
 Header.h==================(Task.class)=================
 Craete task creator for Task_Generator_For_Character
 
@@ -14,6 +18,7 @@ Craete task creator for Task_Generator_For_Character
 
 //Plot===============================================
 Add creates appearance!!!!! and other things (objects , artifacts...)
+
 
 Task_Generator_For_Character========================
 Implement all functions
