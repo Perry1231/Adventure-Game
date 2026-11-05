@@ -473,24 +473,29 @@ protected :
 
     ChestType chestType;
     int capacity;
-    Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
+    
 
 public:
+    Chest() : isOpen(false),  chestType(COMMON) , capacity(0){}
     void ChestCreate(ChestType type, Character& hero);
     void RandomizeChest(Character& hero);
-    void Open(Character* target);
+    void Open(Character* target, Chest& chest, Item* item);
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
     void ShowInfo() const;
-    void ShowItems(const Inventory& items) const;
+    void ShowItems() const;
 
 
     int GetItemCount() const { return items.size(); }
-    Item* GetItem(int index) const { 
-    return nullptr; 
-}
+    Item* GetItem(int index) const {
+    if (index >= 0 && index < (int)items.size())
+        return items[index];
+    return nullptr;
+    }
 
 ~Chest(){}
+void ChestRemoveItem(int index);
+
 };
 //==================================================================Other_Character============================================================================
 enum CharacterType{QUESTGIVERS, MERCHANS, ALLIES, ANTAGONISTS};
