@@ -414,7 +414,7 @@ void Character::Take() {
     Item* selectedItem = currentChest->GetItem(choice - 1);
     if (inventory) {
         inventory->AddItem(selectedItem);  // <-- ТУТ inventory->, а не inventory.
-        currentChest->RemoveItem(choice - 1);
+        currentChest->ChestRemoveItem(choice - 1);
         std::cout << "Successfully taken " << selectedItem->GetName() << "!\n";
     } else {
         std::cout << "Inventory not linked to character!\n";
@@ -439,7 +439,7 @@ void Character::TakeAll() {
     for (int i = itemCount - 1; i >= 0; --i) {
         Item* item = currentChest->GetItem(i);
         inventory->AddItem(item);  // <-- ТУТ теж inventory->
-        currentChest->RemoveItem(i);
+        currentChest->ChestRemoveItem(i);
         std::cout << "- Taken " << item->GetName() << std::endl;
     }
     std::cout << "All items transferred to inventory!\n";

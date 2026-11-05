@@ -61,11 +61,11 @@ void Object::Reset() {// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 int Object::AddObject(MyInventory& inv1, Item* item) {
-    return inv1.AddItem(item);  
+    return inv1.AddItem(objects[count_object] = dynamic_cast<Object*>(item));  
 }
 
 
 void Object::DeleteObject(MyInventory& inv1, int id) {
-    inv1.DelItem(id);
+    inv1.DelItem(objects[id]->GetItemId());
 }
 
