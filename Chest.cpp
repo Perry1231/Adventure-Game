@@ -62,7 +62,7 @@ void Chest::ShowItems() const
     constexpr const char* RED    = "\033[31m";
     constexpr const char* RESET  = "\033[0m";
 
-    // Перевіряємо реальну кількість предметів, а не capacity!
+    
     if (items.empty())
     {
         std::cout << RED << "\n[!] Chest is completely empty.\n" << RESET;

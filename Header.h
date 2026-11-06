@@ -626,7 +626,6 @@ class Quest
 
         
         int Delete_Quest(int number_quest);
-        std::string RandomizeQuest(GameHard& difficulty);
         bool IsCompleted() const { return isCompleted; }
 
 
@@ -661,9 +660,8 @@ Object(int price_object1, std::string name_object1, std::string describtion_obje
 //Main functions
 int AddObject(MyInventory& inv1, Item* item);
 void CreateObjectConstructor();
-void RecountObject();
 void DisplayObjectStats();
-
+std::string RandomizeObject();
 
 Character* GetOwner() const { return owner_p; } 
 void SetOwner(Character* c) { owner_p = c; }  
