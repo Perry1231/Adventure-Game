@@ -3,22 +3,32 @@
 #include <map> 
 //Here will be functions for objects db and their abillities
 
-static std::map<std::string, std::pair<int, int>>& GetObjectDB() {
-    static std::map<std::string, std::pair<int, int>> gtodb;        //name of get object db
+struct ObjectStructBasic
+{
+    std::string name_object;
+    std::string describtion_object;
+    int gold_object;
+    int rarityType_object;
+
+    
+};
+
+static std::map<std::string, ObjectStructBasic>& GetObjectDB() {
+    static std::map<std::string, ObjectStructBasic> gtodb;        //name of get object db
     if (gtodb.empty()) {
         gtodb = 
         {
             
-            {"Amulet of Strength", {10, 100}}, 
-            {"Ring of Agility", {5, 50}}, 
-            {"Cloak of Invisibility", {0, 200}}, 
-            {"Boots of Speed", {0, 75}}, 
-            {"Staff of Wisdom", {15, 150}}, 
-            {"Sword of Flames", {20, 250}}, 
-            {"Shield of Protection", {0, 125}}, 
-            {"Helmet of Insight", {0, 80}}, 
-            {"Gloves of Dexterity", {0, 60}}, 
-            {"Belt of Vitality", {0, 90}}
+            {"Amulet of Strength", {"Amulet of Strength", "A powerful amulet that enhances strength.", 10, 100}}, 
+            {"Ring of Agility", {"Ring of Agility", "A ring that increases agility.", 5, 50}}, 
+            {"Cloak of Invisibility", {"Cloak of Invisibility", "A cloak that makes the wearer invisible.", 0, 200}}, 
+            {"Boots of Speed", {"Boots of Speed", "Boots that increase movement speed.", 0, 75}}, 
+            {"Staff of Wisdom", {"Staff of Wisdom", "A staff that enhances wisdom.", 15, 150}}, 
+            {"Sword of Flames", {"Sword of Flames", "A sword that deals fire damage.", 20, 250}}, 
+            {"Shield of Protection", {"Shield of Protection", "A shield that provides protection.", 0, 125}}, 
+            {"Helmet of Insight", {"Helmet of Insight", "A helmet that grants insight.", 0, 80}}, 
+            {"Gloves of Dexterity", {"Gloves of Dexterity", "Gloves that enhance dexterity.", 0, 60}}, 
+            {"Belt of Vitality", {"Belt of Vitality", "A belt that boosts vitality.", 0, 90}}
         };
     }
 }
