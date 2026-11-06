@@ -9,7 +9,11 @@ struct ObjectStructBasic
     std::string describtion_object;
     int gold_object;
     int rarityType_object;
-
+    int health_object;
+    int strength_object;
+    int agility_object;
+    int intelligence_object;
+    int defense_object;
     
 };
 
@@ -19,16 +23,19 @@ static std::map<std::string, ObjectStructBasic>& GetObjectDB() {
         gtodb = 
         {
             
-            {"Amulet of Strength", {"Amulet of Strength", "A powerful amulet that enhances strength.", 10, 100}}, 
-            {"Ring of Agility", {"Ring of Agility", "A ring that increases agility.", 5, 50}}, 
-            {"Cloak of Invisibility", {"Cloak of Invisibility", "A cloak that makes the wearer invisible.", 0, 200}}, 
-            {"Boots of Speed", {"Boots of Speed", "Boots that increase movement speed.", 0, 75}}, 
-            {"Staff of Wisdom", {"Staff of Wisdom", "A staff that enhances wisdom.", 15, 150}}, 
-            {"Sword of Flames", {"Sword of Flames", "A sword that deals fire damage.", 20, 250}}, 
-            {"Shield of Protection", {"Shield of Protection", "A shield that provides protection.", 0, 125}}, 
-            {"Helmet of Insight", {"Helmet of Insight", "A helmet that grants insight.", 0, 80}}, 
-            {"Gloves of Dexterity", {"Gloves of Dexterity", "Gloves that enhance dexterity.", 0, 60}}, 
-            {"Belt of Vitality", {"Belt of Vitality", "A belt that boosts vitality.", 0, 90}}
+            {"Amulet of Strength", {"Amulet of Strength", "A powerful amulet that enhances strength.", 10, 100, 10, 10, 10, 10}}, 
+            {"Ring of Agility", {"Ring of Agility", "A ring that increases agility.", 5, 50, 5, 5, 5, 5}}, 
+            {"Cloak of Invisibility", {"Cloak of Invisibility", "A cloak that makes the wearer invisible.", 0, 200, 0, 0, 0, 0}}, 
+            {"Boots of Speed", {"Boots of Speed", "Boots that increase movement speed.", 0, 75, 0, 0, 0, 0}}, 
+            {"Staff of Wisdom", {"Staff of Wisdom", "A staff that enhances wisdom.", 15, 150, 15, 15, 15, 15}}, 
+            {"Sword of Flames", {"Sword of Flames", "A sword that deals fire damage.", 20, 250, 20, 20, 20, 20}},
+            {"Shield of Protection", {"Shield of Protection", "A shield that provides protection.", 0, 125, 0, 0, 0, 0}}, 
+            {"Helmet of Insight", {"Helmet of Insight", "A helmet that grants insight.", 0, 80, 0, 0, 0, 0}}, 
+            {"Gloves of Dexterity", {"Gloves of Dexterity", "Gloves that enhance dexterity.", 0, 60, 0, 0, 0, 0}}, 
+            {"Belt of Vitality", {"Belt of Vitality", "A belt that boosts vitality.", 0, 90, 0, 0, 0, 0}}
+
+
+
         };
     }
 }
