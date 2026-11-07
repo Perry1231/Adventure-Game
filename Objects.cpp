@@ -46,14 +46,31 @@ static std::map<std::string, ObjectStructBasic>& GetObjectDB() {
     }
 }
 
-std::string Object::RandomizeObject()   //Ready or not = 
+std::string Object::RandomizeObject(GameHard& difficulty) 
 {
-auto&  gtodb = GetObjectDB();
-    int randomIndex = rand() % gtodb.size();
-    auto it = gtodb.begin();
-    std::advance(it, randomIndex);
-    return it->first;
+
+    auto& gtodb = GetObjectDB();
+
+    std::string task_ob_ch[] = {   //List of tasks
+       "Collect Magic Sticks" , "Collect Magic Stones", "ColLect Magic Items", "ColLect Magic Grass", "Collect Magic Flowers",
+        "Collect Rare Ores", "Collect Broken Portal Fragments", "Collect Festival Ingredients"
+    };
+
+    std::string chosen_name_t;
+    name_object = task_ob_ch[rand() % std::size(task_ob_ch)];    
+    
+    auto it = gtodb.find(chosen_name_t);
+    if (it != gtodb.end()) {
+        price_object = it->second.gold_object;                     
+        
+  
+        price_object = price_object / difficulty.GetDifficultyLevel();
+    }
+
+    chosen_name_t = name_object;
+    return chosen_name_t;
 }
+
 
 
 void Object::CreateObjectConstructor()

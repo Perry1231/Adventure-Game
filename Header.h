@@ -661,7 +661,7 @@ Object(int price_object1, std::string name_object1, std::string describtion_obje
 int AddObject(MyInventory& inv1, Item* item);
 void CreateObjectConstructor();
 void DisplayObjectStats();
-std::string RandomizeObject();
+std::string RandomizeObject(GameHard& difficulty);
 
 Character* GetOwner() const { return owner_p; } 
 void SetOwner(Character* c) { owner_p = c; }  
