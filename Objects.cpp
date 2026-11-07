@@ -23,19 +23,25 @@ static std::map<std::string, ObjectStructBasic>& GetObjectDB() {
         gtodb = 
         {
             
-            {"Amulet of Strength", {"Amulet of Strength", "A powerful amulet that enhances strength.", 10, 100, 10, 10, 10, 10}}, 
-            {"Ring of Agility", {"Ring of Agility", "A ring that increases agility.", 5, 50, 5, 5, 5, 5}}, 
-            {"Cloak of Invisibility", {"Cloak of Invisibility", "A cloak that makes the wearer invisible.", 0, 200, 0, 0, 0, 0}}, 
-            {"Boots of Speed", {"Boots of Speed", "Boots that increase movement speed.", 0, 75, 0, 0, 0, 0}}, 
-            {"Staff of Wisdom", {"Staff of Wisdom", "A staff that enhances wisdom.", 15, 150, 15, 15, 15, 15}}, 
-            {"Sword of Flames", {"Sword of Flames", "A sword that deals fire damage.", 20, 250, 20, 20, 20, 20}},
-            {"Shield of Protection", {"Shield of Protection", "A shield that provides protection.", 0, 125, 0, 0, 0, 0}}, 
-            {"Helmet of Insight", {"Helmet of Insight", "A helmet that grants insight.", 0, 80, 0, 0, 0, 0}}, 
-            {"Gloves of Dexterity", {"Gloves of Dexterity", "Gloves that enhance dexterity.", 0, 60, 0, 0, 0, 0}}, 
-            {"Belt of Vitality", {"Belt of Vitality", "A belt that boosts vitality.", 0, 90, 0, 0, 0, 0}}
+            {"Amulet of Strength", {"Amulet of Strength", "A powerful amulet that enhances strength.", 50, 3, 10, 10, 10, 10}}, 
+            {"Ring of Agility", {"Ring of Agility", "A ring that increases agility.", 70, 3, 5, 5, 5, 5}}, 
+            {"Cloak of Invisibility", {"Cloak of Invisibility", "A cloak that makes the wearer invisible.", 100, 3, 0, 0, 0, 0}}, 
+            {"Boots of Speed", {"Boots of Speed", "Boots that increase movement speed.", 50, 3, 0, 0, 0, 0}}, 
+            {"Staff of Wisdom", {"Staff of Wisdom", "A staff that enhances wisdom.", 200, 3, 15, 15, 15, 15}}, 
+            {"Sword of Flames", {"Sword of Flames", "A sword that deals fire damage.", 50, 2, 20, 20, 20, 20}},
+            {"Shield of Protection", {"Shield of Protection", "A shield that provides protection.", 40, 2, 0, 0, 0, 0}}, 
+            {"Helmet of Insight", {"Helmet of Insight", "A helmet that grants insight.", 40, 3, 0, 0, 0, 0}}, 
+            {"Gloves of Dexterity", {"Gloves of Dexterity", "Gloves that enhance dexterity.", 50, 3, 0, 0, 0, 0}}, 
+            {"Belt of Vitality", {"Belt of Vitality", "A belt that boosts vitality.", 40, 3, 0, 0, 0, 0}},
 
-
-
+            //name + description + gold + rarity + health + strength + agility + intelligence + defense
+            {"Apple", {"Basic apple", "A simple apple that restores health.", 1, 1, 5, 0, 0, 0}},
+            {"Bread", {"Basic bread", "A simple bread.", 2, 1, 2, 0, 0, 0}},
+            {"Banana", {"Simple banana", "A simple banana from warm counties", 3, 1, 4, 0, 0, 0}},
+            {"Orrange", {"Simple orange", "A simple orange from warm counties", 4, 1, 6, 0, 0, 0}},
+            {"Sausage", {"Simple sausage", "A simple sausage.", 5, 1, 3, 0, 0, 0}},
+            {"Meat of deer", {"Meat of deer", "A simple meat from a deer.", 10, 1, 10, 0, 0, 0}},
+            {"Meat of boar", {"Meat of boar", "A simple meat from a boar.", 15, 1, 15, 0, 0, 0}}
         };
     }
 }
