@@ -122,7 +122,7 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
 
 
 
-std::string Quest::RandomizeQuest(GameHard& difficulty) {
+std::string Quest::RandomizeQuest(GameHard& difficulty) {                       //====================================!!!!!!!!!!!!!!!!!=====
     auto& yar = GetQuestTaskDB();
 
     std::string task_ar[] = {   //List of tasks

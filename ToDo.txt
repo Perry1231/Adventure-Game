@@ -33,6 +33,7 @@ Objects======================
 Add magic grass or else to collect
 Add functions to create them as object = items
 add object rarity
+Add main function and end them
 
 
 //Additional_Functions=============================
