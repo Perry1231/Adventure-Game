@@ -33,8 +33,7 @@ void Chest::Open(Character* target, Chest& chest, Item* item)
     isOpen = true;
     std::cout << "Chest opened!\n";
     
-    ShowItems();
-
+    ShowItems(*target, *target->GetInventory(), chest);
 }
 
 void Chest::Close()
@@ -54,7 +53,7 @@ void Chest::ShowInfo() const
     std::cout << "└───────────────────────────────────────────────────┘\n";
 }
 
-void Chest::ShowItems() const
+void Chest::ShowItems(Character& hero, MyInventory& inv1, Chest& chest) const
 {
     constexpr const char* CYAN   = "\033[36m";
     constexpr const char* YELLOW = "\033[33m";
@@ -86,6 +85,32 @@ void Chest::ShowItems() const
     }
 
     std::cout << CYAN << "====================================================\n\n" << RESET;
+    std::cout << "If you want to take an item, press 1 , if you want to close the chest, press 2\n";
+    int choice = ChoiceInput_Number();
+    if(choice == 1)
+    {
+        std::cout << "Enter the item number you want to take: ";
+        int itemIndex = ChoiceInput_Number() - 1; // Convert to 0-based index
+        if (itemIndex >= 0 && itemIndex < (int)items.size())
+        {
+            std::cout << "You have taken: " << items[itemIndex]->GetName() << "\n";
+            
+            chest.TakeFromChest(hero, itemIndex, inv1);
+        }
+        else
+        {
+            std::cout << "Invalid item number!\n";
+        }
+    }
+    else if(choice == 2)
+    {
+        chest.Close();
+    }
+    else
+    {
+        std::cout << "Invalid choice! Closing chest.\n";
+        chest.Close();
+    }
 }
 
 
@@ -97,6 +122,22 @@ void Chest::ChestRemoveItem(int index) {
     items.erase(items.begin() + index);
     capacity--;
     std::cout << "Item removed from chest.\n";
+}
+
+
+void Chest::TakeFromChest(Character& hero, int itemIndex, MyInventory& inv1) {
+    if (itemIndex < 0 || itemIndex >= (int)items.size()) {
+        std::cout << "Invalid item index!\n";
+        return;
+    }
+    
+    Item* item = items[itemIndex];
+    if (inv1.AddItem(item)) {
+        std::cout << "You took " << item->GetName() << " from the chest.\n";
+        ChestRemoveItem(itemIndex);
+    } else {
+        std::cout << "Your inventory is full! Cannot take the item.\n";
+    }
 }
 
 

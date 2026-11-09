@@ -357,7 +357,7 @@ void HelpFunction() ;
 
 
 
-
+//==================================================================Other_Inventory_structure========================================================================
 
 class OtInventory
 {
@@ -483,8 +483,8 @@ public:
     bool IsOpen() const{ return isOpen && capacity > 0; };
     void Close();
     void ShowInfo() const;
-    void ShowItems() const;
-
+    void ShowItems(Character& hero, MyInventory& inv1, Chest& chest) const;
+    void TakeFromChest(Character& hero, int itemIndex, MyInventory& inv1);
 
     int GetItemCount() const { return items.size(); }
     Item* GetItem(int index) const {

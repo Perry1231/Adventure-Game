@@ -16,7 +16,41 @@ enum EventType {
     VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
     
 };
-void BardStory() ;
+
+void ChestAppearance(Chest& chest, Character& hero, MyInventory& inv1,  int itemIndex)
+{
+int chance = rand() % 8 + 1; 
+if(chance == 1)
+{
+std::cout << "You found a chest! You can open it to find treasures." << std::endl;
+std::cout << "Do you want to open the chest? (1 for Yes, 2 for No)" << std::endl;
+int choice = ChoiceInput_Number();
+if(choice == 1)
+{
+chest.RandomizeChest(hero);
+chest.Open(&hero, chest, nullptr);
+
+chest.TakeFromChest(hero, itemIndex, inv1);
+
+}
+else if(choice == 2)
+{
+    std::cout << "You continue your journey without opening the chest." << std::endl;
+}
+
+else
+{}
+}
+}
+
+
+void BardStory() 
+{
+std::cout << "The bard begins to play a haunting melody on his lute, and the story of the hero's journey unfolds before your eyes...\n";
+
+}
+
+
 void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
 {
     int eventType = rand() % 41; //From 0 to 40
