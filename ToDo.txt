@@ -9,6 +9,7 @@ Perfect Character::DmageSystem(function)     +-
 
 Chest.cpp==============================================
 Add end functional for Chest
+Ceck properly all functions
 
 
 Header.h==================(Task.class)=================

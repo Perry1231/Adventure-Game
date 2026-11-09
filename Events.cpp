@@ -44,6 +44,7 @@ else
 }
 
 
+
 void BardStory() 
 {
 std::cout << "The bard begins to play a haunting melody on his lute, and the story of the hero's journey unfolds before your eyes...\n";
@@ -51,7 +52,7 @@ std::cout << "The bard begins to play a haunting melody on his lute, and the sto
 }
 
 
-void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1)
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest)
 {
     int eventType = rand() % 41; //From 0 to 40
     // Перевірка на повтор подій з історії — без безлімітного циклу
@@ -91,26 +92,26 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case EXTORTION: Extortion(hero, levelDificulty); break;
         case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
         case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty); break;
-        case FAKE_DISTRESS_CALL: FakeDistressCal(hero, levelDificulty); break;
+        case FAKE_DISTRESS_CALL: FakeDistressCal(hero, levelDificulty, chest, inv1); break;
         case MONEY_FIND: MoneyFind(hero, levelDificulty); break;
         case GOOD_STRANGER: GoodStranger(hero,  levelDificulty); break;
-        case GOOD_WEATHER: GoodWeather(hero,  levelDificulty); break;
-        case GOOD_REST: GoodRest(hero,  levelDificulty); break;
-        case TAVERN: Tavern(hero); break;
-        case HOSTEL: Hostel(hero); break;
-        case CASTLE: Castle(hero); break;
-        case DUNGEON: Dungeon(hero); break;
-        case CAVE: Cave(hero); break;
-        case FOREST: Forest(hero); break;
-        case DESERT: Desert(hero); break;
-        case VILLAGE: Village(hero); break;
-        case BASTION: Bastion(hero); break;
-        case TOWERPLACE: TowerPlace(hero); break;
-        case SIMPLE_HOUSE: SimpleHouse(hero); break;
-        case GOOD_PLACE: GoodPlace(hero); break;
-        case FISHING_CHALLENGE: FishingChallenge(hero); break;
-        case ARCHERY_CONTEST: ArcheryContest(hero, levelDificulty); break;
-        case STRANGE_STONE: StrangeStone(hero, inv1); break;
+        case GOOD_WEATHER: GoodWeather(hero,  levelDificulty, chest, inv1); break;
+        case GOOD_REST: GoodRest(hero,  levelDificulty, chest, inv1); break;
+        case TAVERN: Tavern(hero, levelDificulty, chest, inv1); break;
+        case HOSTEL: Hostel(hero, levelDificulty, chest, inv1); break;
+        case CASTLE: Castle(hero, levelDificulty, chest, inv1); break;
+        case DUNGEON: Dungeon(hero, levelDificulty, chest, inv1); break;
+        case CAVE: Cave(hero, levelDificulty, chest, inv1); break;
+        case FOREST: Forest(hero, levelDificulty, chest, inv1); break;
+        case DESERT: Desert(hero, levelDificulty, chest, inv1); break;
+        case VILLAGE: Village(hero, levelDificulty, chest, inv1); break;
+        case BASTION: Bastion(hero, levelDificulty, chest, inv1); break;
+        case TOWERPLACE: TowerPlace(hero, levelDificulty, chest, inv1); break;
+        case SIMPLE_HOUSE: SimpleHouse(hero, levelDificulty, chest, inv1); break;
+        case GOOD_PLACE: GoodPlace(hero, levelDificulty, chest, inv1); break;
+        case FISHING_CHALLENGE: FishingChallenge(hero, levelDificulty, chest, inv1); break;
+        case ARCHERY_CONTEST: ArcheryContest(hero, levelDificulty, chest, inv1); break;
+        case STRANGE_STONE: StrangeStone(hero, levelDificulty, chest, inv1); break;
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
@@ -339,7 +340,7 @@ void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEven
 
 
 
-void FakeDistressCal(Character& hero, GameHard& levelDificulty) {                                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void FakeDistressCal(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {                                       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     std::cout << "If want to check -- 1 \nIf you want pass --- 2" << std::endl;
     int choice =ChoiceInput_Number();
 
@@ -354,6 +355,7 @@ void FakeDistressCal(Character& hero, GameHard& levelDificulty) {               
     {
 case 1:
 std::cout << "It's only your tired imagination" << std::endl;
+ChestAppearance(chest, hero, inv1, 0);
 hero.SetLevel(hero.GetLevel() + 0.01);
 break;
 case 2:
@@ -397,44 +399,49 @@ void GainGold(Character& hero, int amount) {
 
 // Events
 
-void Earthquake(Character& hero, GameHard& levelDificulty) {
+void Earthquake(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::DARK_GRAY << " 🌋 [EVENT] " << Color::RESET << "An Earthquake shakes the ground! (Exp +0.01)\n";
     hero.SetLevel(hero.GetLevel() + 0.01);
+    ChestAppearance(chest, hero, inv1, 0);
 }
 
-void MoneyFind(Character& hero, GameHard& levelDificulty) {
+void MoneyFind(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     int gold = rand() % 100 + 1;
     std::cout << Color::YELLOW << " 💰 [EVENT] " << Color::RESET << "You stumbled upon a hidden stash!\n";
     GainGold(hero, gold);
+    ChestAppearance(chest, hero, inv1, 0);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
-void GoodStranger(Character& hero, GameHard& levelDificulty) {
+void GoodStranger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::CYAN << " 🤝 [EVENT] " << Color::RESET << "A Good Stranger shares a warm meal with you. You feel refreshed!\n";
     GainHealth(hero, 5);
+    ChestAppearance(chest, hero, inv1, 0);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
-void GoodWeather(Character& hero, GameHard& levelDificulty) {
+void GoodWeather(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::CYAN << " ☀️  [EVENT] " << Color::RESET << "Good Weather! The clear skies rejuvenate your spirit.\n";
     GainHealth(hero, 5);
+    ChestAppearance(chest, hero, inv1, 0);
     hero.SetLevel(hero.GetLevel() + 0.03);
 }
 
-void GoodRest(Character& hero, GameHard& levelDificulty) {
+void GoodRest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     int health = rand() % 20 + 10;
     std::cout << Color::GREEN << " ⛺ [EVENT] " << Color::RESET << "You found a safe, cozy place to rest.\n";
     GainHealth(hero, health);
+    ChestAppearance(chest, hero, inv1, 0);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
-void Tavern(Character& hero)
+void Tavern(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 std::cout << "You enter a cozy tavern. The smell of food and ale fills the air." << std::endl;
 std::cout << "You can rest here and regain some health." << std::endl;
 std::cout << "Or you can talk to the locals and gather information about your next adventure." << std::endl;
 std::cout << "You can also play a game of chance with the tavern patrons." << std::endl;
-
+ChestAppearance(chest, hero, inv1, 0);
 std::cout << "What would you like to do?" << std::endl;
 std::cout << "1. Rest and regain health" << std::endl;
 std::cout << "2. Talk to the locals" << std::endl;
@@ -503,13 +510,13 @@ switch (choice) {
 }
 }
 
-void Hostel(Character& hero) {
+void Hostel(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::CYAN << Color::BOLD << "\n 🏨 [LOCATION] " 
               << Color::RESET << "The Dusty Lantern Hostel\n";
     std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
     std::cout << " You step into a warm, dimly lit room. The air smells of woodsmoke and stale ale.\n";
     std::cout << " A weary innkeeper nods from behind the counter, and travelers murmur in corners.\n\n";
-
+    ChestAppearance(chest, hero, inv1, 0);
     std::cout << Color::BOLD << " What would you like to do?\n" << Color::RESET;
     std::cout << "  " << Color::YELLOW << "1." << Color::RESET << " Rent a room to rest and recover health\n";
     std::cout << "  " << Color::YELLOW << "2." << Color::RESET << " Approach the travelers to chat and gather rumors\n";
@@ -576,9 +583,10 @@ void Hostel(Character& hero) {
     }
 }
 
-void Castle(Character& hero)
+void Castle(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 std::cout << "You enter a grand castle. The halls are adorned with tapestries and the air smells of incense." << std::endl;
+ChestAppearance(chest, hero, inv1, 0);
 std::cout << "Select what you want to do: " << std::endl;
 std::cout << "1. Rest in the royal chambers" << std::endl;
 std::cout << "2. Search for hidden treasures" << std::endl;
@@ -635,57 +643,58 @@ default:
 }
 }
 
-void Dungeon(Character& hero)
+void Dungeon(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
 }
 
-void Cave(Character& hero)//goblin cave, dragon or simple cave
+void Cave(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//goblin cave, dragon or simple cave
 {
 
 }
 
-void Forest(Character& hero)
+void Forest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
 }
 
-void Desert(Character& hero)
+void Desert(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
 }
 
-void Village(Character& hero)
+void Village(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
 }
 
-void Bastion(Character& hero)
+void Bastion(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
 }
 
-void TowerPlace(Character& hero)//evil TowerPlace , mage TowerPlace
+void TowerPlace(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//evil TowerPlace , mage TowerPlace
 {
 
 }
 
-void SimpleHouse(Character& hero)//evil mage , witch , friendly house
+void SimpleHouse(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//evil mage , witch , friendly house
 {
 
 }
 
 
-void GoodPlace(Character& hero)//good place for rest and food
+void GoodPlace(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//good place for rest and food
 {
 std::cout << "You enter a peaceful place. The atmosphere is calm and serene." << std::endl;
 std::cout << "You can rest here and regain some health." << std::endl;
+ChestAppearance(chest, hero, inv1, 0);
 hero.SetLevel(hero.GetLevel() + 0.01);
 hero.SetHealth(hero.GetHealth() + 7);
 
 }
  //===============================================================================Additional_Events_Games======================================================
-void FishingChallenge(Character& hero)
+void FishingChallenge(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     std::cout << "You participate in a fishing challenge with the locals." << std::endl;
     std::cout << "You can try to catch the biggest fish or the rarest fish." << std::endl;
@@ -747,7 +756,7 @@ void FishingChallenge(Character& hero)
 
 }
 
-void ArcheryContest(Character& hero, GameHard& levelDificulty)
+void ArcheryContest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     std::cout << "You participate in an archery contest with the locals." << std::endl;
     std::cout << "You can try to hit the bullseye or aim for the highest score." << std::endl;
@@ -768,10 +777,12 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty)
                 std::cout << "You successfully hit the bullseye! You gain 30 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10); 
                 hero.SetLevel(hero.GetLevel() + 0.4);
+                ChestAppearance(chest, hero, inv1, 0);
             } else {
                 std::cout << "You miss the bullseye. You lose 2 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 2);
                 hero.SetLevel(hero.GetLevel() + 0.01);
+
             }
             break;
         }
@@ -783,6 +794,7 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty)
                 std::cout << "You achieve the highest score! You gain 40 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10);
                 hero.SetLevel(hero.GetLevel() + 0.4);
+                ChestAppearance(chest, hero, inv1, 0);
             } else {
                 std::cout << "You fail to achieve a high score. You lose 3 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 3);
@@ -802,10 +814,11 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty)
 
 }
 
-void StrangeStone(Character& hero, MyInventory& inv1)
+void StrangeStone(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     std::cout << "You find a strange stone with mysterious markings." << std::endl;
     std::cout << "You can try to decipher the markings or leave it alone." << std::endl;
+    ChestAppearance(chest, hero, inv1, 0);
     std::cout << "Enter your choice:\n1. Decipher the markings\n2. Leave it alone\n";
     int choice= ChoiceInput_Number();
 
@@ -908,10 +921,11 @@ void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty)
 }
 
 //===============================Talking to Locals Event (Placeholder)=============================
-void TalkToLocals(Character& hero, GameHard& levelDificulty)
+void TalkToLocals(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     std::cout << "You engage in conversation with the locals.\n";
     std::cout << "They share rumors of hidden treasures and dangerous creatures in the area.\n";
+    ChestAppearance(chest, hero, inv1, 0);
     std::cout << "You gain valuable information for your next adventure!\n";
     hero.SetLevel(hero.GetLevel() + 0.02);
 
