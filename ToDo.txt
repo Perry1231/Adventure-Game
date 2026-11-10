@@ -60,7 +60,7 @@ Tavern in Events.cpp +-
 Events.cpp and functions
 Add events related to tasks 
 End started evnts structure
-
+Add last evemt to finalize game
 
 
 Saver.cpp============================================
