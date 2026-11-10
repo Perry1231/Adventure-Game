@@ -15,7 +15,7 @@ enum EventType {
     MONEY_FIND=22, GOOD_STRANGER=23, GOOD_WEATHER=24, GOOD_REST=25 , TAVERN=26, HOSTEL=27, 
     CASTLE=28, DUNGEON=29, CAVE=30, FOREST=31, DESERT=32,
     VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , 
-    FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
+    FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40, LOST_CITY=41
     
 };
 
@@ -114,6 +114,7 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case FISHING_CHALLENGE: FishingChallenge(hero, levelDificulty, chest, inv1); break;
         case ARCHERY_CONTEST: ArcheryContest(hero, levelDificulty, chest, inv1); break;
         case STRANGE_STONE: StrangeStone(hero, levelDificulty, chest, inv1); break;
+        case LOST_CITY: LostCity(inv1, hero, levelDificulty, chest); break;
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
@@ -1142,3 +1143,16 @@ switch(story_random)
 
 }
 
+void LostCity (MyInventory& inv1, Character& hero, GameHard& levelDificulty, Chest& chest)
+{
+    std::cout << "You stumble upon the ruins of a lost city, its streets overgrown with vines and its buildings crumbling." << std::endl;
+    std::cout << "You can explore the ruins, search for hidden treasures, or try to uncover the secrets of the lost civilization." << std::endl;
+    std::cout << "You found a hidden chamber filled with ancient artifacts and gold!" << std::endl;
+    hero.SetGold(hero.GetGold() + 100);
+    hero.SetLevel(hero.GetLevel() + 0.05);
+    std::cout << "You found chest!" << std::endl;
+    ChestAppearance(chest, hero, inv1, 0);
+
+
+    std::cout << "You decide to explore the ruins further, hoping to uncover more secrets and treasures." << std::endl;
+}
