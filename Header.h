@@ -733,7 +733,7 @@ void ThePropheticBeggar(Character& hero, GameHard& levelDificulty);
 void TheShadowingKid(Character& hero, GameHard& levelDificulty);
 void Extortion(Character& hero, GameHard& levelDificulty);
 void TheTurncoatGuide(Character& hero, GameHard& levelDificulty);
-void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty);
+void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void FakeDistressCall(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void Earthquake(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void MoneyFind(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);

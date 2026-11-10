@@ -93,7 +93,7 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case THE_SHADOWING_KID: TheShadowingKid(hero, levelDificulty); break;
         case EXTORTION: Extortion(hero, levelDificulty); break;
         case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
-        case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty); break;
+        case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty, chest, inv1); break;
         case FAKE_DISTRESS_CALL: FakeDistressCall(hero, levelDificulty, chest, inv1); break;
         case MONEY_FIND: MoneyFind(hero, levelDificulty, chest, inv1); break;
         case GOOD_STRANGER: GoodStranger(hero,  levelDificulty, chest, inv1); break;
@@ -315,7 +315,7 @@ void Extortion(Character& hero, GameHard& levelDificulty) {
     
 }
 
-void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty) {
+void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     if(levelDificulty.GetDifficultyLevel()  ==3 ) 
     {
         PrintEventCard("🪤", "POACHER TRAP", "Snap! You stepped into a sharp steel trap!");
@@ -329,8 +329,41 @@ void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty) {
     
 }
 // Narrative Events (No stat loss)  =====================Need finish
-void WillWispAttraction(Character& hero, GameHard& levelDificulty)   { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); }
-void PollenHallucinations(Character& hero, GameHard& levelDificulty) { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA); }
+void WillWispAttraction(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)   
+{ PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); 
+std::cout << Color::CYAN << "You follow the lights and find a hidden treasure!" << Color::RESET << std::endl;
+ChestAppearance(chest, hero, inv1, 0);
+if(hero.GetIntelligence() > 10) {
+    std::cout << Color::GREEN << "Your intelligence helps you resist the lure of the lights." << Color::RESET << std::endl;
+    hero.SetLevel(hero.GetLevel() + 0.02);
+} else {
+    std::cout << Color::YELLOW << "You are momentarily distracted by the lights, but manage to regain your focus." << Color::RESET << std::endl;
+    hero.SetLevel(hero.GetLevel() + 0.01);
+}
+}
+
+void PollenHallucinations(Character& hero, GameHard& levelDificulty) 
+{ PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA);
+    std::cout << Color::CYAN << "You see visions of fantastical creatures and landscapes." << Color::RESET << std::endl;
+    if(hero.GetIntelligence() > 12) {
+        std::cout << Color::GREEN << "Your sharp mind allows you to see through the hallucinations." << Color::RESET << std::endl;
+         hero.SetLevel(hero.GetLevel() + 0.03);
+    }
+    else if(hero.GetIntelligence() > 8) {
+        std::cout << Color::YELLOW << "You are somewhat affected by the hallucinations, but manage to stay grounded." << Color::RESET << std::endl;
+        hero.SetLevel(hero.GetLevel() + 0.01);
+        hero.SetHealth(hero.GetHealth() - 3); 
+        std::cout << "You get 3 damage from the hallucinations." << std::endl;
+    } else {
+        std::cout << Color::RED << "The hallucinations overwhelm you, causing confusion and disorientation." << Color::RESET << std::endl;
+        DamageHero(hero, 5);
+        hero.SetLevel(hero.GetLevel() + 0.02);
+        hero.SetHealth(hero.GetHealth() - 5); 
+                std::cout << "You get 5 damage from the hallucinations." << std::endl;
+
+    }
+}
+
 void EnemyPatrol(Character& hero, GameHard& levelDificulty)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
 void MonsterAmbush(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
 void CunningScavengers(Character& hero, GameHard& levelDificulty)    { PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
