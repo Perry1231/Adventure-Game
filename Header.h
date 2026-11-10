@@ -722,10 +722,10 @@ void HumidHot(Character& hero, GameHard& levelDificulty);
 
 void ConstrictorVines(Character& hero, GameHard& levelDificulty);     //Events.cpp and all down
 void QuickFreezingGlad(Character& hero, GameHard& levelDificulty);
-void WillWispAttraction(Character& hero, GameHard& levelDificulty);
+void WillWispAttraction(Character& hero, GameHard& levelDificulty, Enemy& enemy);
 void PollenHallucinations (Character& hero, GameHard& levelDificulty);
-void EnemyPatrol(Character& hero, GameHard& levelDificulty);
-void MonsterAmbush(Character& hero, GameHard& levelDificulty);
+void EnemyPatrol(Character& hero, GameHard& levelDificulty, Enemy& enemy, MyInventory& inv1);
+void MonsterAmbush(Character& hero, GameHard& levelDificulty, Enemy& enemy);
 void CunningScavengers(Character& hero, GameHard& levelDificulty);
 void StagedAccident(Character& hero, GameHard& levelDificulty);
 void FalseHospitableHost(Character& hero, GameHard& levelDificulty);
@@ -734,12 +734,12 @@ void TheShadowingKid(Character& hero, GameHard& levelDificulty);
 void Extortion(Character& hero, GameHard& levelDificulty);
 void TheTurncoatGuide(Character& hero, GameHard& levelDificulty);
 void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
-void FakeDistressCall(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
+void FakeDistressCall(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1, Enemy& enemy);
 void Earthquake(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void MoneyFind(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void GoodStranger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void GoodWeather(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
-void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest);
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest, Enemy& enemy);
 void GoodRest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void Tavern(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void Hostel(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);

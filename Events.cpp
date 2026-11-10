@@ -54,7 +54,7 @@ std::cout << "The bard begins to play a haunting melody on his lute, and the sto
 }
 
 
-void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest)
+void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest, Enemy& enemy)
 {
     int eventType = rand() % 41; //From 0 to 40
     // Перевірка на повтор подій з історії — без безлімітного циклу
@@ -82,10 +82,10 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case HUMID_HOT: HumidHot(hero, levelDificulty); break;
         case CONSTRICTOR_VINES: ConstrictorVines(hero, levelDificulty); break;
         case QUICK_FREEZING_GLAD: QuickFreezingGlad(hero, levelDificulty); break;
-        case WILL_WISP_ATTRACTION: WillWispAttraction(hero, levelDificulty); break;
+        case WILL_WISP_ATTRACTION: WillWispAttraction(hero, levelDificulty, enemy); break;
         case POLLEN_HALLUCINATIONS: PollenHallucinations(hero, levelDificulty); break;
-        case ENEMY_PATROL: EnemyPatrol(hero, levelDificulty); break;
-        case MONSTER_AMBUSH: MonsterAmbush(hero, levelDificulty); break;
+        case ENEMY_PATROL: EnemyPatrol(hero, levelDificulty, enemy, inv1); break;
+        case MONSTER_AMBUSH: MonsterAmbush(hero, levelDificulty, enemy); break;
         case CUNNING_SCAVENGERS: CunningScavengers(hero, levelDificulty); break;
         case STAGED_ACCIDENT: StagedAccident(hero, levelDificulty); break;
         case FALSE_HOSPITABLE_HOST: FalseHospitableHost(hero, levelDificulty); break;
@@ -94,7 +94,7 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case EXTORTION: Extortion(hero, levelDificulty); break;
         case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
         case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty, chest, inv1); break;
-        case FAKE_DISTRESS_CALL: FakeDistressCall(hero, levelDificulty, chest, inv1); break;
+        case FAKE_DISTRESS_CALL: FakeDistressCall(hero, levelDificulty, chest, inv1, enemy); break;
         case MONEY_FIND: MoneyFind(hero, levelDificulty, chest, inv1); break;
         case GOOD_STRANGER: GoodStranger(hero,  levelDificulty, chest, inv1); break;
         case GOOD_WEATHER: GoodWeather(hero,  levelDificulty, chest, inv1); break;
@@ -364,14 +364,59 @@ void PollenHallucinations(Character& hero, GameHard& levelDificulty)
     }
 }
 
-void EnemyPatrol(Character& hero, GameHard& levelDificulty)          { PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); }
-void MonsterAmbush(Character& hero, GameHard& levelDificulty)        { PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); }
-void CunningScavengers(Character& hero, GameHard& levelDificulty)    { PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
-void StagedAccident(Character& hero, GameHard& levelDificulty)       { PrintEventCard("🎭", "STAGED ACCIDENT", "A traveler cries for help, but it feels like a trap.", Color::YELLOW); }
-void FalseHospitableHost(Character& hero, GameHard& levelDificulty)  { PrintEventCard("🏡", "FALSE HOSPITABLE HOST", "Your host offers food, but their smile feels unnatural.", Color::YELLOW); }
-void ThePropheticBeggar(Character& hero, GameHard& levelDificulty)   { PrintEventCard("🔮", "PROPHETIC BEGGAR", "An old beggar whispers an ominous prophecy.", Color::CYAN); }
-void TheShadowingKid(Character& hero, GameHard& levelDificulty)      { PrintEventCard("👀", "SHADOWING KID", "A young child stalks you quietly from behind.", Color::CYAN); }
-void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     { PrintEventCard("🗺️", "TURNCOAT GUIDE", "Your guide seems to be leading you off course...", Color::YELLOW); }
+void EnemyPatrol(Character& hero, GameHard& levelDificulty, Enemy& enemy, MyInventory& inv1)          
+{ 
+    PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); 
+    std::cout << "What will you do? (1: Hide, 2: Confront, 3: Flee)" << std::endl;
+    std::cout << "Enter your choice: ";
+    int choice = ChoiceInput_Number();
+    if(choice == 1) {
+        std::cout << "You hide and avoid detection. You gain some experience." << std::endl;
+        hero.SetLevel(hero.GetLevel() + 0.02);
+    } else if(choice == 2) {
+        std::cout << "You confront the patrol! A skirmish ensues." << std::endl;
+        DamageHero(hero, 8);
+        hero.SetLevel(hero.GetLevel() + 0.03);
+        hero.Fight(enemy);
+       
+    } else if(choice == 3) {
+        std::cout << "You attempt to flee, but the patrol spots you!" << std::endl;
+        DamageHero(hero, 5);
+        hero.SetLevel(hero.GetLevel() + 0.01);
+    } else {
+        std::cout << "Invalid choice! The patrol notices you and attacks!" << std::endl;
+        DamageHero(hero, 10);
+        hero.SetLevel(hero.GetLevel() + 0.01);
+    }
+}
+
+
+void MonsterAmbush(Character& hero, GameHard& levelDificulty, Enemy& enemy)        
+{ 
+    PrintEventCard("🐺", "MONSTER AMBUSH", "A wild beast leaps out from the shadows!", Color::RED); 
+    std::cout << "You are ambushed by a monster! Prepare for battle." << std::endl;
+    enemy.RandomizeStats();
+    hero.Fight(enemy);
+}
+
+void CunningScavengers(Character& hero, GameHard& levelDificulty)    
+{ PrintEventCard("🦅", "CUNNING SCAVENGERS", "Opportunists are watching your every step...", Color::YELLOW); }
+
+void StagedAccident(Character& hero, GameHard& levelDificulty)       
+{ PrintEventCard("🎭", "STAGED ACCIDENT", "A traveler cries for help, but it feels like a trap.", Color::YELLOW); }
+
+void FalseHospitableHost(Character& hero, GameHard& levelDificulty)  
+{ PrintEventCard("🏡", "FALSE HOSPITABLE HOST", "Your host offers food, but their smile feels unnatural.", Color::YELLOW); }
+
+void ThePropheticBeggar(Character& hero, GameHard& levelDificulty)   
+{ PrintEventCard("🔮", "PROPHETIC BEGGAR", "An old beggar whispers an ominous prophecy.", Color::CYAN); }
+
+void TheShadowingKid(Character& hero, GameHard& levelDificulty)      
+{ PrintEventCard("👀", "SHADOWING KID", "A young child stalks you quietly from behind.", Color::CYAN); }
+
+void TheTurncoatGuide(Character& hero, GameHard& levelDificulty)     
+{ PrintEventCard("🗺️", "TURNCOAT GUIDE", "Your guide seems to be leading you off course...", Color::YELLOW); }
+
 
 
 
