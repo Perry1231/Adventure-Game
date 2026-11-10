@@ -12,8 +12,10 @@ enum EventType {
     ENEMY_PATROL=11, MONSTER_AMBUSH=12, CUNNING_SCAVENGERS=13, STAGED_ACCIDENT=14,
     FALSE_HOSPITABLE_HOST=15, THE_PROPHETIC_BEGGAR=16, THE_SHADOWING_KID=17,
     EXTORTION=18, THE_TURNCOAT_GUIDE=19, POACHER_TRAP_TRIGGER=20, FAKE_DISTRESS_CALL=21,
-    MONEY_FIND=22, GOOD_STRANGER=23, GOOD_WEATHER=24, GOOD_REST=25 , TAVERN=26, HOSTEL=27, CASTLE=28, DUNGEON=29, CAVE=30, FOREST=31, DESERT=32,
-    VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
+    MONEY_FIND=22, GOOD_STRANGER=23, GOOD_WEATHER=24, GOOD_REST=25 , TAVERN=26, HOSTEL=27, 
+    CASTLE=28, DUNGEON=29, CAVE=30, FOREST=31, DESERT=32,
+    VILLAGE=33, BASTION=34, TOWERPLACE=35, SIMPLE_HOUSE=36, GOOD_PLACE=37 , 
+    FISHING_CHALLENGE=38, ARCHERY_CONTEST=39, STRANGE_STONE=40
     
 };
 
@@ -92,9 +94,9 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case EXTORTION: Extortion(hero, levelDificulty); break;
         case THE_TURNCOAT_GUIDE: TheTurncoatGuide(hero, levelDificulty); break;
         case POACHER_TRAP_TRIGGER: PoacherTrapTrigger(hero, levelDificulty); break;
-        case FAKE_DISTRESS_CALL: FakeDistressCal(hero, levelDificulty, chest, inv1); break;
-        case MONEY_FIND: MoneyFind(hero, levelDificulty); break;
-        case GOOD_STRANGER: GoodStranger(hero,  levelDificulty); break;
+        case FAKE_DISTRESS_CALL: FakeDistressCall(hero, levelDificulty, chest, inv1); break;
+        case MONEY_FIND: MoneyFind(hero, levelDificulty, chest, inv1); break;
+        case GOOD_STRANGER: GoodStranger(hero,  levelDificulty, chest, inv1); break;
         case GOOD_WEATHER: GoodWeather(hero,  levelDificulty, chest, inv1); break;
         case GOOD_REST: GoodRest(hero,  levelDificulty, chest, inv1); break;
         case TAVERN: Tavern(hero, levelDificulty, chest, inv1); break;
