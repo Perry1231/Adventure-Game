@@ -111,7 +111,7 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
             {"Eliminate danger bear", {17, 2, 0.05}},
             {"Eliminate danger bear", {17, 2, 0.05}},
             {"Eliminate danger bear", {17, 2, 0.05}},
-            {"Eliminate danger bear", {17, 2, 0.05}},
+            {"Eliminate danger bear", {17, 2, 0.05}}
             
         };
     }
@@ -127,7 +127,15 @@ std::string Quest::RandomizeQuest(GameHard& difficulty) {                       
 
     std::string task_ar[] = {   //List of tasks
        "Collect Magic Sticks" , "Collect Magic Stones", "ColLect Magic Items", "ColLect Magic Grass", "Collect Magic Flowers",
-        "Collect Rare Ores", "Collect Broken Portal Fragments", "Collect Festival Ingredients"
+        "Collect Rare Ores", "Collect Broken Portal Fragments", "Collect Festival Ingredients", "Collect Magic White moss", "Collect Mandragora", "Collect Magic Mirror", "Collect Magic Pages from Book",
+        "Collect Magic Pages from Evil Book", "Collect Magical Herb for village", "Collect pinocones for magic squirrel", "Collect leaves for small dwarf's house",
+        "Rescue girl form goblin", "Rescue village form orks", "Rescue boy form orks camp", "Rescue dog form misfortune", "Rescue a herd pf pigs for farmer",
+        "Explore new lands for farmers", "Explore new lands for king", "Explore new lands for farmers", "Explore new lands for farmers",
+        "Eliminate danger ork", "Kill big hog", "Eliminate danger bear",
+        "Escort rich man", "Eliminate pretty girl", "Escort princess", "Escort old man", "Escort merchant", "Escort child to home",
+        "Deliver package to village", "Deliver package to king", "Deliver package to merchant", "Deliver package to princess", "Deliver package to old man",
+        "Solve puzzle in the cave", "Solve puzzle in the forest", "Solve puzzle in the castle", "Solve puzzle in the dungeon"
+        
     };
 
     std::string chosen_name_t;
