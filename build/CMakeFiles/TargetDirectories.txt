@@ -1,0 +1,3 @@
+C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/CMakeFiles/AdventureGame.dir
+C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/CMakeFiles/edit_cache.dir
+C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,86 @@
+[
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Main.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Main.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Main.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Addition.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Addition.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Addition.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Addition.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Additional_Functions.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Additional_Functions.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Additional_Functions.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Additional_Functions.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\AdditionalGames.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\AdditionalGames.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/AdditionalGames.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/AdditionalGames.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Armory.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Armory.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Armory.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Armory.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Artifact.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Artifact.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Artifact.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Artifact.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Character.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Character.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Character.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Character.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Chest.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Chest.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Chest.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Chest.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Deleter.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Deleter.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Deleter.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Deleter.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Enemy.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Enemy.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Enemy.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Enemy.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\ErrorCatcher.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\ErrorCatcher.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/ErrorCatcher.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/ErrorCatcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Events.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Events.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Events.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Events.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Inventory.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Inventory.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Inventory.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj"
+},
+{
+  "directory": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles\\AdventureGame.dir\\includes_CXX.rsp  -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles\\AdventureGame.dir\\src\\Loader.cpp.obj -c \"C:\\Users\\Dell\\Desktop\\projetcs\\GitHub Projects\\AdventureGame\\Adventure-Game\\src\\Loader.cpp\"",
+  "file": "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Loader.cpp",
+  "output": "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj"
+}
+]
