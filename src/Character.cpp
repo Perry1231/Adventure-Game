@@ -14,6 +14,7 @@ void Character::DisplayStats()
     const int width = 45;
 
     std::cout << "\n";
+    // Замість '─' використайте рядок "─":
     std::cout << "┌" << std::string(width - 2, '─') << "┐\n";
     std::cout << "│ " << std::left << std::setw(width - 4) << "CHARACTER PROFILE" << " │\n";
     std::cout << "├" << std::string(width - 2, '─') << "┤\n";

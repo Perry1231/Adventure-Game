@@ -21,7 +21,9 @@ add_executable(AdventureGame
     src/Loader.cpp
     src/Weapon.cpp         
     src/Objects.cpp      
-    src/Potion.cpp      
+    src/Potion.cpp   
+    src/OtherRandomizer.cpp
+    src/ Task_Generatotor_For_Character.cpp
 )
 
 if(WIN32)
