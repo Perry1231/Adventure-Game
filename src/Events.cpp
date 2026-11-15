@@ -46,14 +46,6 @@ else
 }
 
 
-
-void BardStory() 
-{
-std::cout << "The bard begins to play a haunting melody on his lute, and the story of the hero's journey unfolds before your eyes...\n";
-
-}
-
-
 void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest, Enemy& enemy)
 {
     int eventType = rand() % 41; //From 0 to 40
@@ -114,7 +106,7 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
         case FISHING_CHALLENGE: FishingChallenge(hero, levelDificulty, chest, inv1); break;
         case ARCHERY_CONTEST: ArcheryContest(hero, levelDificulty, chest, inv1); break;
         case STRANGE_STONE: StrangeStone(hero, levelDificulty, chest, inv1); break;
-        case LOST_CITY: LostCity(inv1, hero, levelDificulty, chest); break;
+        case LOST_CITY: LostCity(hero, levelDificulty, chest, inv1); break;
         default: std::cout << "Unknown event type!" << std::endl; break;
     }
 }
@@ -1143,7 +1135,7 @@ switch(story_random)
 
 }
 
-void LostCity (MyInventory& inv1, Character& hero, GameHard& levelDificulty, Chest& chest)
+void LostCity (Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     std::cout << "You stumble upon the ruins of a lost city, its streets overgrown with vines and its buildings crumbling." << std::endl;
     std::cout << "You can explore the ruins, search for hidden treasures, or try to uncover the secrets of the lost civilization." << std::endl;
