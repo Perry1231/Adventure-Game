@@ -464,6 +464,54 @@ src/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/MainFunction.obj: src/MainFunction.cpp.obj
+.PHONY : src/MainFunction.obj
+
+# target to build an object file
+src/MainFunction.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj
+.PHONY : src/MainFunction.cpp.obj
+
+src/MainFunction.i: src/MainFunction.cpp.i
+.PHONY : src/MainFunction.i
+
+# target to preprocess a source file
+src/MainFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.i
+.PHONY : src/MainFunction.cpp.i
+
+src/MainFunction.s: src/MainFunction.cpp.s
+.PHONY : src/MainFunction.s
+
+# target to generate assembly for a file
+src/MainFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.s
+.PHONY : src/MainFunction.cpp.s
+
+src/ManageGamesaves.obj: src/ManageGamesaves.cpp.obj
+.PHONY : src/ManageGamesaves.obj
+
+# target to build an object file
+src/ManageGamesaves.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj
+.PHONY : src/ManageGamesaves.cpp.obj
+
+src/ManageGamesaves.i: src/ManageGamesaves.cpp.i
+.PHONY : src/ManageGamesaves.i
+
+# target to preprocess a source file
+src/ManageGamesaves.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.i
+.PHONY : src/ManageGamesaves.cpp.i
+
+src/ManageGamesaves.s: src/ManageGamesaves.cpp.s
+.PHONY : src/ManageGamesaves.s
+
+# target to generate assembly for a file
+src/ManageGamesaves.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.s
+.PHONY : src/ManageGamesaves.cpp.s
+
 src/Objects.obj: src/Objects.cpp.obj
 .PHONY : src/Objects.obj
 
@@ -488,6 +536,54 @@ src/Objects.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Objects.cpp.s
 .PHONY : src/Objects.cpp.s
 
+src/OtherCharacter.obj: src/OtherCharacter.cpp.obj
+.PHONY : src/OtherCharacter.obj
+
+# target to build an object file
+src/OtherCharacter.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj
+.PHONY : src/OtherCharacter.cpp.obj
+
+src/OtherCharacter.i: src/OtherCharacter.cpp.i
+.PHONY : src/OtherCharacter.i
+
+# target to preprocess a source file
+src/OtherCharacter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.i
+.PHONY : src/OtherCharacter.cpp.i
+
+src/OtherCharacter.s: src/OtherCharacter.cpp.s
+.PHONY : src/OtherCharacter.s
+
+# target to generate assembly for a file
+src/OtherCharacter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.s
+.PHONY : src/OtherCharacter.cpp.s
+
+src/Plot.obj: src/Plot.cpp.obj
+.PHONY : src/Plot.obj
+
+# target to build an object file
+src/Plot.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj
+.PHONY : src/Plot.cpp.obj
+
+src/Plot.i: src/Plot.cpp.i
+.PHONY : src/Plot.i
+
+# target to preprocess a source file
+src/Plot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Plot.cpp.i
+.PHONY : src/Plot.cpp.i
+
+src/Plot.s: src/Plot.cpp.s
+.PHONY : src/Plot.s
+
+# target to generate assembly for a file
+src/Plot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Plot.cpp.s
+.PHONY : src/Plot.cpp.s
+
 src/Potion.obj: src/Potion.cpp.obj
 .PHONY : src/Potion.obj
 
@@ -511,6 +607,54 @@ src/Potion.s: src/Potion.cpp.s
 src/Potion.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Potion.cpp.s
 .PHONY : src/Potion.cpp.s
+
+src/Saver.obj: src/Saver.cpp.obj
+.PHONY : src/Saver.obj
+
+# target to build an object file
+src/Saver.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj
+.PHONY : src/Saver.cpp.obj
+
+src/Saver.i: src/Saver.cpp.i
+.PHONY : src/Saver.i
+
+# target to preprocess a source file
+src/Saver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Saver.cpp.i
+.PHONY : src/Saver.cpp.i
+
+src/Saver.s: src/Saver.cpp.s
+.PHONY : src/Saver.s
+
+# target to generate assembly for a file
+src/Saver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Saver.cpp.s
+.PHONY : src/Saver.cpp.s
+
+src/Task_Generator_For_Character.obj: src/Task_Generator_For_Character.cpp.obj
+.PHONY : src/Task_Generator_For_Character.obj
+
+# target to build an object file
+src/Task_Generator_For_Character.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj
+.PHONY : src/Task_Generator_For_Character.cpp.obj
+
+src/Task_Generator_For_Character.i: src/Task_Generator_For_Character.cpp.i
+.PHONY : src/Task_Generator_For_Character.i
+
+# target to preprocess a source file
+src/Task_Generator_For_Character.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.i
+.PHONY : src/Task_Generator_For_Character.cpp.i
+
+src/Task_Generator_For_Character.s: src/Task_Generator_For_Character.cpp.s
+.PHONY : src/Task_Generator_For_Character.s
+
+# target to generate assembly for a file
+src/Task_Generator_For_Character.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.s
+.PHONY : src/Task_Generator_For_Character.cpp.s
 
 src/Weapon.obj: src/Weapon.cpp.obj
 .PHONY : src/Weapon.obj
@@ -587,12 +731,30 @@ help:
 	@echo ... src/Main.obj
 	@echo ... src/Main.i
 	@echo ... src/Main.s
+	@echo ... src/MainFunction.obj
+	@echo ... src/MainFunction.i
+	@echo ... src/MainFunction.s
+	@echo ... src/ManageGamesaves.obj
+	@echo ... src/ManageGamesaves.i
+	@echo ... src/ManageGamesaves.s
 	@echo ... src/Objects.obj
 	@echo ... src/Objects.i
 	@echo ... src/Objects.s
+	@echo ... src/OtherCharacter.obj
+	@echo ... src/OtherCharacter.i
+	@echo ... src/OtherCharacter.s
+	@echo ... src/Plot.obj
+	@echo ... src/Plot.i
+	@echo ... src/Plot.s
 	@echo ... src/Potion.obj
 	@echo ... src/Potion.i
 	@echo ... src/Potion.s
+	@echo ... src/Saver.obj
+	@echo ... src/Saver.i
+	@echo ... src/Saver.s
+	@echo ... src/Task_Generator_For_Character.obj
+	@echo ... src/Task_Generator_For_Character.i
+	@echo ... src/Task_Generator_For_Character.s
 	@echo ... src/Weapon.obj
 	@echo ... src/Weapon.i
 	@echo ... src/Weapon.s

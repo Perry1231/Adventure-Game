@@ -2,7 +2,7 @@
 #include <iostream>
 //For main events and plot
 
-void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Quest& quest1)
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Quest& quest1, Chest& chest, Enemy& enemy)
 {
     int choice = 0;
     do {
@@ -22,7 +22,7 @@ void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInv
         {
             case 1:
                 std::cout << "\nYou make a turn.\n";
-                RandomizerEvent(hero, levelDificulty, gameEvent, inv1);
+                RandomizerEvent(hero, levelDificulty, gameEvent,inv1, chest, enemy);
                 break;
             case 2:
                 std::cout << "\nYou have chosen to look in your inventory.\n";

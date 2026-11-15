@@ -22,8 +22,14 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Inventory.cpp" "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Loader.cpp" "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Main.cpp" "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/MainFunction.cpp" "CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/ManageGamesaves.cpp" "CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Objects.cpp" "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/OtherCharacter.cpp" "CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Plot.cpp" "CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Potion.cpp" "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Saver.cpp" "CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Task_Generator_For_Character.cpp" "CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Weapon.cpp" "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj.d"
   )
 

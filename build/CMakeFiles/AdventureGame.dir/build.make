@@ -281,26 +281,41 @@ CMakeFiles/AdventureGame.dir/src/Loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Loader.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Loader.cpp" -o CMakeFiles\AdventureGame.dir\src\Loader.cpp.s
 
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Weapon.cpp
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Weapon.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Weapon.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp"
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/MainFunction.cpp
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\MainFunction.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\MainFunction.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\MainFunction.cpp"
 
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/Weapon.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp" > CMakeFiles\AdventureGame.dir\src\Weapon.cpp.i
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\MainFunction.cpp" > CMakeFiles\AdventureGame.dir\src\MainFunction.cpp.i
 
-CMakeFiles/AdventureGame.dir/src/Weapon.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Weapon.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp" -o CMakeFiles\AdventureGame.dir\src\Weapon.cpp.s
+CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\MainFunction.cpp" -o CMakeFiles\AdventureGame.dir\src\MainFunction.cpp.s
+
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/ManageGamesaves.cpp
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\ManageGamesaves.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\ManageGamesaves.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\ManageGamesaves.cpp"
+
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\ManageGamesaves.cpp" > CMakeFiles\AdventureGame.dir\src\ManageGamesaves.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\ManageGamesaves.cpp" -o CMakeFiles\AdventureGame.dir\src\ManageGamesaves.cpp.s
 
 CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
 CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
 CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Objects.cpp
 CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Objects.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Objects.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Objects.cpp"
 
 CMakeFiles/AdventureGame.dir/src/Objects.cpp.i: cmake_force
@@ -311,11 +326,41 @@ CMakeFiles/AdventureGame.dir/src/Objects.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Objects.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Objects.cpp" -o CMakeFiles\AdventureGame.dir\src\Objects.cpp.s
 
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/OtherCharacter.cpp
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\OtherCharacter.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\OtherCharacter.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\OtherCharacter.cpp"
+
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\OtherCharacter.cpp" > CMakeFiles\AdventureGame.dir\src\OtherCharacter.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\OtherCharacter.cpp" -o CMakeFiles\AdventureGame.dir\src\OtherCharacter.cpp.s
+
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Plot.cpp
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Plot.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Plot.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Plot.cpp"
+
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/Plot.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Plot.cpp" > CMakeFiles\AdventureGame.dir\src\Plot.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/Plot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Plot.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Plot.cpp" -o CMakeFiles\AdventureGame.dir\src\Plot.cpp.s
+
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Potion.cpp
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Potion.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Potion.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Potion.cpp"
 
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.i: cmake_force
@@ -325,6 +370,51 @@ CMakeFiles/AdventureGame.dir/src/Potion.cpp.i: cmake_force
 CMakeFiles/AdventureGame.dir/src/Potion.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Potion.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Potion.cpp" -o CMakeFiles\AdventureGame.dir\src\Potion.cpp.s
+
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Saver.cpp
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Saver.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Saver.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Saver.cpp"
+
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/Saver.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Saver.cpp" > CMakeFiles\AdventureGame.dir\src\Saver.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/Saver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Saver.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Saver.cpp" -o CMakeFiles\AdventureGame.dir\src\Saver.cpp.s
+
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Task_Generator_For_Character.cpp
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Task_Generator_For_Character.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Task_Generator_For_Character.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Task_Generator_For_Character.cpp"
+
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Task_Generator_For_Character.cpp" > CMakeFiles\AdventureGame.dir\src\Task_Generator_For_Character.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Task_Generator_For_Character.cpp" -o CMakeFiles\AdventureGame.dir\src\Task_Generator_For_Character.cpp.s
+
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/flags.make
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/includes_CXX.rsp
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: C:/Users/Dell/Desktop/projetcs/GitHub\ Projects/AdventureGame/Adventure-Game/src/Weapon.cpp
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj: CMakeFiles/AdventureGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj -MF CMakeFiles\AdventureGame.dir\src\Weapon.cpp.obj.d -o CMakeFiles\AdventureGame.dir\src\Weapon.cpp.obj -c "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp"
+
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AdventureGame.dir/src/Weapon.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp" > CMakeFiles\AdventureGame.dir\src\Weapon.cpp.i
+
+CMakeFiles/AdventureGame.dir/src/Weapon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AdventureGame.dir/src/Weapon.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\src\Weapon.cpp" -o CMakeFiles\AdventureGame.dir\src\Weapon.cpp.s
 
 # Object files for target AdventureGame
 AdventureGame_OBJECTS = \
@@ -342,9 +432,15 @@ AdventureGame_OBJECTS = \
 "CMakeFiles/AdventureGame.dir/src/Events.cpp.obj" \
 "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj" \
 "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj" \
-"CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj" \
 "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj" \
-"CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj"
+"CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj" \
+"CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj"
 
 # External object files for target AdventureGame
 AdventureGame_EXTERNAL_OBJECTS =
@@ -363,14 +459,20 @@ AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/ErrorCatcher.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Events.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj
-AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/MainFunction.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/ManageGamesaves.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/OtherCharacter.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Plot.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Saver.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Task_Generator_For_Character.cpp.obj
+AdventureGame.exe: CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/build.make
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/linkLibs.rsp
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/objects1.rsp
 AdventureGame.exe: CMakeFiles/AdventureGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable AdventureGame.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Dell\Desktop\projetcs\GitHub Projects\AdventureGame\Adventure-Game\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable AdventureGame.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AdventureGame.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

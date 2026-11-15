@@ -768,7 +768,7 @@ void FistFight(Character& hero);
 void DrinkingContest(Character& hero, GameHard& levelDificulty);
 void CardDraw(Character& hero);
 //==================================================================StoryFunction_and_Turn_Functions=============================================================================
-void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1); //Plot.cpp
+void Turn(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Quest& quest1, Chest& chest, Enemy& enemy); //Plot.cpp
 void BugReportFunction();           //Addition.cpp
 //==================================================================Additional_functions================================================================================
 void HowToPlayRollDiceFunction();

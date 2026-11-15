@@ -19,11 +19,15 @@ add_executable(AdventureGame
     src/Events.cpp
     src/Inventory.cpp
     src/Loader.cpp
-    src/Weapon.cpp         
-    src/Objects.cpp      
-    src/Potion.cpp   
-    src/OtherRandomizer.cpp
-    src/ Task_Generatotor_For_Character.cpp
+    src/MainFunction.cpp     
+    src/ManageGamesaves.cpp      
+    src/Objects.cpp
+    src/OtherCharacter.cpp       
+    src/Plot.cpp                 
+    src/Potion.cpp
+    src/Saver.cpp                 
+    src/Task_Generator_For_Character.cpp 
+    src/Weapon.cpp
 )
 
 if(WIN32)
