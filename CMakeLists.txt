@@ -19,6 +19,9 @@ add_executable(AdventureGame
     src/Events.cpp
     src/Inventory.cpp
     src/Loader.cpp
+    src/Weapon.cpp         
+    src/Objects.cpp      
+    src/Potion.cpp      
 )
 
 if(WIN32)

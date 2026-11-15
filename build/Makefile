@@ -464,6 +464,78 @@ src/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/Objects.obj: src/Objects.cpp.obj
+.PHONY : src/Objects.obj
+
+# target to build an object file
+src/Objects.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj
+.PHONY : src/Objects.cpp.obj
+
+src/Objects.i: src/Objects.cpp.i
+.PHONY : src/Objects.i
+
+# target to preprocess a source file
+src/Objects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Objects.cpp.i
+.PHONY : src/Objects.cpp.i
+
+src/Objects.s: src/Objects.cpp.s
+.PHONY : src/Objects.s
+
+# target to generate assembly for a file
+src/Objects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Objects.cpp.s
+.PHONY : src/Objects.cpp.s
+
+src/Potion.obj: src/Potion.cpp.obj
+.PHONY : src/Potion.obj
+
+# target to build an object file
+src/Potion.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj
+.PHONY : src/Potion.cpp.obj
+
+src/Potion.i: src/Potion.cpp.i
+.PHONY : src/Potion.i
+
+# target to preprocess a source file
+src/Potion.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Potion.cpp.i
+.PHONY : src/Potion.cpp.i
+
+src/Potion.s: src/Potion.cpp.s
+.PHONY : src/Potion.s
+
+# target to generate assembly for a file
+src/Potion.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Potion.cpp.s
+.PHONY : src/Potion.cpp.s
+
+src/Weapon.obj: src/Weapon.cpp.obj
+.PHONY : src/Weapon.obj
+
+# target to build an object file
+src/Weapon.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj
+.PHONY : src/Weapon.cpp.obj
+
+src/Weapon.i: src/Weapon.cpp.i
+.PHONY : src/Weapon.i
+
+# target to preprocess a source file
+src/Weapon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Weapon.cpp.i
+.PHONY : src/Weapon.cpp.i
+
+src/Weapon.s: src/Weapon.cpp.s
+.PHONY : src/Weapon.s
+
+# target to generate assembly for a file
+src/Weapon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AdventureGame.dir\build.make CMakeFiles/AdventureGame.dir/src/Weapon.cpp.s
+.PHONY : src/Weapon.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -515,6 +587,15 @@ help:
 	@echo ... src/Main.obj
 	@echo ... src/Main.i
 	@echo ... src/Main.s
+	@echo ... src/Objects.obj
+	@echo ... src/Objects.i
+	@echo ... src/Objects.s
+	@echo ... src/Potion.obj
+	@echo ... src/Potion.i
+	@echo ... src/Potion.s
+	@echo ... src/Weapon.obj
+	@echo ... src/Weapon.i
+	@echo ... src/Weapon.s
 .PHONY : help
 
 

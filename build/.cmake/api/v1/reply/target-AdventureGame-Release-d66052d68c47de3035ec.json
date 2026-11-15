@@ -50,7 +50,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -static -static-libgcc -static-libstdc++ -g -std=gnu++17"
+					"fragment" : " -static -static-libgcc -static-libstdc++ -O3 -DNDEBUG -std=gnu++17"
 				}
 			],
 			"includes" : 
@@ -84,7 +84,10 @@
 				10,
 				11,
 				12,
-				13
+				13,
+				14,
+				15,
+				16
 			]
 		}
 	],
@@ -94,7 +97,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-static -static-libgcc -static-libstdc++ -g",
+				"fragment" : "-static -static-libgcc -static-libstdc++ -O3 -DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -130,7 +133,10 @@
 				10,
 				11,
 				12,
-				13
+				13,
+				14,
+				15,
+				16
 			]
 		}
 	],
@@ -274,6 +280,36 @@
 			],
 			"compileGroupIndex" : 0,
 			"path" : "src/Loader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "src/Weapon.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "src/Objects.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "src/Potion.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

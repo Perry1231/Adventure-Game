@@ -44,6 +44,7 @@ static std::map<std::string, ObjectStructBasic>& GetObjectDB() {
             {"Meat of boar", {"Meat of boar", "A simple meat from a boar.", 15, 1, 15, 0, 0, 0}}
         };
     }
+     return gtodb;
 }
 
 std::string Object::RandomizeObject(GameHard& difficulty) 

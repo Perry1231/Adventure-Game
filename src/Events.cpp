@@ -19,6 +19,7 @@ enum EventType {
     
 };
 
+
 void ChestAppearance(Chest& chest, Character& hero, MyInventory& inv1,  int itemIndex)
 {
 int chance = rand() % 8 + 1; 
@@ -111,7 +112,7 @@ void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameE
     }
 }
 void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
-
+void BardStory(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 // ANSI Colors for Console
 namespace Color {
     const std::string RESET   = "\033[0m";
@@ -1033,7 +1034,7 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty, Chest& chest, MyInv
                 break;
 
             case 2:
-                TalkStrangers();
+                TalkStrangers(hero, levelDificulty, chest, inv1);
                 hero.SetLevel(hero.GetLevel() + 0.02);
                 break;
 
@@ -1058,14 +1059,14 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty, Chest& chest, MyInv
 }
 
 
-void TalkStrangers()
+void TalkStrangers(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
     int talk_random = rand() % 6 + 1;       //6 diffarnte talks with strangers
     switch(talk_random)
     {
         case 1:
             std::cout << "You meet a wandering bard who shares tales of ancient heroes." << std::endl;
-            BardStory();
+            BardStory(hero, levelDificulty, chest, inv1);
             break;
 
         case 2:
@@ -1093,7 +1094,7 @@ void TalkStrangers()
 }
 
 
-void BardStory()
+void BardStory(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 int story_random = rand() % 4 + 1;      
 switch(story_random)

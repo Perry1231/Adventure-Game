@@ -30,6 +30,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj.d"
   "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj"
   "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj.d"
+  "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj"
+  "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj.d"
+  "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj"
+  "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj.d"
+  "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj"
+  "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj.d"
   "libAdventureGame.dll.a"
 )
 

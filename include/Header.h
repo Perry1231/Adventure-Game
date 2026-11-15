@@ -760,7 +760,7 @@ void Tired_Granny_Event(Character& hero, GameHard& levelDificulty);
 void Wendigo_Encounter_Event(Character& hero, GameHard& levelDificulty);
 void TalkToLocals(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 void LostCity(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
-void TalkStrangers();
+void TalkStrangers(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1);
 //==================================================================GameIn_Functions============================================================================
 void DiceRoll(Character& hero); //OtherRandomizer.cpp
 void MusicChallenge(Character& hero);

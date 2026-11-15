@@ -22,6 +22,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Inventory.cpp" "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Inventory.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Loader.cpp" "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Loader.cpp.obj.d"
   "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Main.cpp" "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Main.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Objects.cpp" "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Objects.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Potion.cpp" "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Potion.cpp.obj.d"
+  "C:/Users/Dell/Desktop/projetcs/GitHub Projects/AdventureGame/Adventure-Game/src/Weapon.cpp" "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj" "gcc" "CMakeFiles/AdventureGame.dir/src/Weapon.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
