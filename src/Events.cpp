@@ -1149,3 +1149,12 @@ void LostCity (Character& hero, GameHard& levelDificulty, Chest& chest, MyInvent
 
     std::cout << "You decide to explore the ruins further, hoping to uncover more secrets and treasures." << std::endl;
 }
+
+
+void FakeDistressCall(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv, Enemy& enemy) {
+    
+}
+
+void WillWispAttraction(Character& hero, GameHard& levelDificulty, Enemy& enemy) {
+    
+}
