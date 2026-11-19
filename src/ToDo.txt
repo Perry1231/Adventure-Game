@@ -23,10 +23,7 @@ Add creates appearance!!!!! and other things (objects , artifacts...)
 
 Task_Generator_For_Character========================
 Implement all functions
-Add task related on stranger job
-Change experience in DB related to difficulty
-Add display tasks actibe to main
-Add main functions for Quest class rom Invenctory
+Add main functions for Quest class from Invenctory
 
 
 

@@ -21,9 +21,10 @@ constexpr const char* RESET = "\033[0m";
 
 struct QuestStructBasic
 {
+    std::string description_task;
     int gold_task;
     int difficulty_task;
-    float experience_task;
+    double experience_task;
 };
 
 int Quest::ResizeQuestBig()
@@ -50,68 +51,69 @@ int Quest::AddQuest(Quest* quest1) {
 
 // name + gold
 // name -> {gold, difficulty}
-static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {                       //Basic tasks
+static std::map<std::string, QuestStructBasic>& GetQuestTaskDB( GameHard&  difficultyLevel) {                       //Basic tasks
     static std::map<std::string, QuestStructBasic> yar;
     if (yar.empty()) {
         yar = { //Collect tasks
-            {"Collect Magic Sticks", {25, 2, 0.01}}, // 25 gold, 2 difficulty , 0.01 exp
-            {"Collect Magic Stones", {25, 2, 0.01}},
-            {"ColLect Magic Items", {18,1, 0.01}},
-            {"ColLect Magic Grass",{15, 2, 0.01}},
-            {"Collect Magic Flowers", {18, 2, 0.01}},
-            {"Collect Rare Ores",{23, 2, 0.01}},
-            {"Collect Broken Portal Fragments",{39, 2, 0.01}},
-            {"Collect Festival Ingredients",{20, 1, 0.01}},
-            {"Collect Magic White moss",{15,1, 0.01}},
-            {"Collect Mandragora",{22, 2, 0.01}},
-            {"Collect Magic Mirror",{20, 1, 0.01}},
-            {"Collect Magic Pages from Book",{25, 5, 0.01}},
-            {"Collect Magic Pages from Evil Book",{32, 2, 0.01}},
-            {"Collect Magical Herb for village",{25, 2, 0.01}},
-            {"Collect pinocones for magic squirrel",{12, 1, 0.01}},
-            {"Collect leaves for small dwarf's house",{20, 1, 0.01}},
+            // 25 gold, 2 difficulty , 0.01 exp
+            {"Collect Magic Sticks", "Collect magic sticks.", {25/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}}, 
+            {"Collect Magic Stones", "Collect magic stones.", {25/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"ColLect Magic Items", "Collect magic items.", {18/difficultyLevel.GetDifficultyLevel(),1, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"ColLect Magic Grass","Collect magic grass.", {15/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magic Flowers", "Collect magic flowers.", {18/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Rare Ores","Collect rare ores.", {23/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Broken Portal Fragments","Collect broken portal fragments.", {39/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Festival Ingredients","Collect festival ingredients.", {20/difficultyLevel.GetDifficultyLevel(), 1, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magic White moss","Collect magic white moss.", {15/difficultyLevel.GetDifficultyLevel(),1, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Mandragora","Collect mandragora.", {22/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magic Mirror","Collect magic mirror.", {20/difficultyLevel.GetDifficultyLevel(), 1, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magic Pages for Book","Collect magic pages.", {25/difficultyLevel.GetDifficultyLevel(), 5, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magic Pages from Evil Book","Collect magic pages from evil book.", {32/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect Magical Herb for village","Collect magical herb for village.", {25/difficultyLevel.GetDifficultyLevel(), 2, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect pinocones for magic squirrel","Collect pinocones for magic squirrel.", {12/difficultyLevel.GetDifficultyLevel(), 1, 0.01*difficultyLevel.GetDifficultyLevel()}},
+            {"Collect leaves for small dwarf's house","Collect leaves for small dwarf's house.", {20/difficultyLevel.GetDifficultyLevel(), 1, 0.01*difficultyLevel.GetDifficultyLevel()}},
 
 
-            {"Rescue girl form goblin", {40, 3, 0.3}},
-            {"Rescue village form orks", {50, 3, 0.3}},
-            {"Rescue boy form orks camp", {35, 3, 0.25}},
-            {"Rescue dog form misfortune", {15, 3, 0.09}},
-            {"Rescue a herd pf pigs for farmer", {20, 3, 0.05}},
+            {"Rescue girl form goblin", "Rescue girl from goblin.", {40/difficultyLevel.GetDifficultyLevel(), 3, 0.3*difficultyLevel.GetDifficultyLevel()}},
+            {"Rescue village form orks", "Rescue village from orks.", {50/difficultyLevel.GetDifficultyLevel(), 3, 0.3*difficultyLevel.GetDifficultyLevel()}},
+            {"Rescue boy form orks camp", "Rescue boy from orks camp.", {35/difficultyLevel.GetDifficultyLevel(), 3, 0.25*difficultyLevel.GetDifficultyLevel()}},
+            {"Rescue dog form misfortune", "Rescue dog from misfortune.", {15/difficultyLevel.GetDifficultyLevel(), 3, 0.09*difficultyLevel.GetDifficultyLevel()}},
+            {"Rescue a herd pf pigs for farmer", "Rescue a herd of pigs for farmer.", {20/difficultyLevel.GetDifficultyLevel(), 3, 0.05*difficultyLevel.GetDifficultyLevel()}},
 
-            {"Explore new lands for farmers", {15, 1, 0.03}},
-            {"Explore new lands for king", {27, 1, 0.05}},
-            {"Explore new lands for farmers", {15, 1, 0.03}},
-            {"Explore new lands for farmers", {15, 1, 0.03}},
-
-
-            {"Eliminate danger ork", {25, 2, 0.08}},
-            {"Kill big hog", {15, 1, 0.04}},
-            {"Eliminate danger bear", {17, 2, 0.05}},
+            {"Explore new lands for farmers", "Explore new lands for farmers to cultivate.", {15/difficultyLevel.GetDifficultyLevel(), 1, 0.03*difficultyLevel.GetDifficultyLevel()}},
+            {"Explore new lands for king", "Explore new lands for king to rule.", {27/difficultyLevel.GetDifficultyLevel(), 1, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Explore new lands for researchers", "Explore new lands for researchers.", {15/difficultyLevel.GetDifficultyLevel(), 1, 0.03*difficultyLevel.GetDifficultyLevel()}},
+            {"Explore new lands for castle's knight", "Explore new lands for castle's knight.", {15/difficultyLevel.GetDifficultyLevel(), 1, 0.03*difficultyLevel.GetDifficultyLevel()}},
 
 
-            {"Escort rich man", {17, 2, 0.05}},
-            {"Eliminate pretty girl", {20, 2, 0.06}},
-            {"Escort princess", {40, 2, 0.3}},
-            {"Escort old man", {10, 1, 0.04}},
-            {"Escort merchant", {17, 2, 0.05}},
-            {"Escort child to home", {5, 1, 0.04}},
+            {"Eliminate danger ork", "Eliminate danger ork in danger lands.", {25/difficultyLevel.GetDifficultyLevel(), 2, 0.08*difficultyLevel.GetDifficultyLevel()}},
+            {"Kill big hog", "Kill big hog in the forest.", {15/difficultyLevel.GetDifficultyLevel(), 1, 0.04*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate danger bear", "Eliminate danger bear in the forest.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+
+
+            {"Escort rich man", "Escort rich man to the castle.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate pretty girl", "Eliminate pretty girl.", {20/difficultyLevel.GetDifficultyLevel(), 2, 0.06*difficultyLevel.GetDifficultyLevel()}},
+            {"Escort princess", "Escort princess to the castle.", {40/difficultyLevel.GetDifficultyLevel(), 2, 0.3*difficultyLevel.GetDifficultyLevel()}},
+            {"Escort old man", "Escort old man to the village.", {10/difficultyLevel.GetDifficultyLevel(), 1, 0.04*difficultyLevel.GetDifficultyLevel()}},
+            {"Escort merchant", "Escort merchant to the market.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Escort child to home", "Escort child to home.", {5/difficultyLevel.GetDifficultyLevel(), 1, 0.04*difficultyLevel.GetDifficultyLevel()}},
 
 
 
-            {"Deliver package to village", {10, 1, 0.03}},
-            {"Deliver package to king", {20, 2, 0.05}},
-            {"Deliver package to merchant", {15, 1, 0.04}},
-            {"Deliver package to princess", {30, 2, 0.06}},
-            {"Deliver package to old man", {5, 1, 0.02}},
+            {"Deliver package to village", "Deliver package to village.", {10/difficultyLevel.GetDifficultyLevel(), 1, 0.03*difficultyLevel.GetDifficultyLevel()}},
+            {"Deliver package to king", "Deliver package to king.", {20/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Deliver package to merchant", "Deliver package to merchant.", {15/difficultyLevel.GetDifficultyLevel(), 1, 0.04*difficultyLevel.GetDifficultyLevel()}},
+            {"Deliver package to princess", "Deliver package to princess.", {30/difficultyLevel.GetDifficultyLevel(), 2, 0.06*difficultyLevel.GetDifficultyLevel()}},
+            {"Deliver package to old man", "Deliver package to old man.", {5/difficultyLevel.GetDifficultyLevel(), 1, 0.02*difficultyLevel.GetDifficultyLevel()}},
 
-            {"Solve puzzle in the cave", {25, 3, 0.08}},
-            {"Solve puzzle in the forest", {15, 2, 0.05}},
-            {"Solve puzzle in the castle", {35, 4, 0.1}},
-            {"Solve puzzle in the dungeon", {20, 3, 0.07}},
-            {"Eliminate danger bear", {17, 2, 0.05}},
-            {"Eliminate danger bear", {17, 2, 0.05}},
-            {"Eliminate danger bear", {17, 2, 0.05}},
-            {"Eliminate danger bear", {17, 2, 0.05}}
+            {"Solve puzzle in the cave", "Solve puzzle in the cave.", {25/difficultyLevel.GetDifficultyLevel(), 3, 0.08*difficultyLevel.GetDifficultyLevel()}},
+            {"Solve puzzle in the forest", "Solve puzzle in the forest.", {15/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Solve puzzle in the castle", "Solve puzzle in the castle.", {35/difficultyLevel.GetDifficultyLevel(), 4, 0.1*difficultyLevel.GetDifficultyLevel()}},
+            {"Solve puzzle in the dungeon", "Solve puzzle in the dungeon.", {20/difficultyLevel.GetDifficultyLevel(), 3, 0.07*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate danger bear", "Eliminate danger bear.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate danger bear", "Eliminate danger bear.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate danger bear", "Eliminate danger bear .", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}},
+            {"Eliminate danger bear", "Eliminate danger bear in the forest.", {17/difficultyLevel.GetDifficultyLevel(), 2, 0.05*difficultyLevel.GetDifficultyLevel()}}
             
         };
     }
@@ -123,7 +125,7 @@ static std::map<std::string, QuestStructBasic>& GetQuestTaskDB() {              
 
 
 std::string Quest::RandomizeQuest(GameHard& difficulty) {                       //====================================!!!!!!!!!!!!!!!!!=====
-    auto& yar = GetQuestTaskDB();
+    auto& yar = GetQuestTaskDB(difficulty);
 
     std::string task_ar[] = {   //List of tasks
        "Collect Magic Sticks" , "Collect Magic Stones", "ColLect Magic Items", "ColLect Magic Grass", "Collect Magic Flowers",
@@ -187,7 +189,7 @@ void Quest::DisplayAllQuestInfo() const
                   << " | Type: " << quests[i]->GetQuestDifficulty() << "]" << RESET << "\n";
 
   
-        quests[i]->DisplayQuestInfo();//Details here are
+        quests[i]->DisplayQuestInfo();
 
         if (i < count_quest - 1) {
             std::cout << GRAY << "--------------------------------------------------\n" << RESET;
