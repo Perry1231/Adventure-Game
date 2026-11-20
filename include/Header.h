@@ -485,7 +485,9 @@ public:
     void ShowInfo() const;
     void ShowItems(Character& hero, MyInventory& inv1, Chest& chest) const;
     void TakeFromChest(Character& hero, int itemIndex, MyInventory& inv1);
+    void AppereanceForEvents(ChestType chestType, Character& hero, Chest& chest);
 
+    
     int GetItemCount() const { return items.size(); }
     Item* GetItem(int index) const {
     if (index >= 0 && index < (int)items.size())

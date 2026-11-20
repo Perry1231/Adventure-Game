@@ -140,4 +140,22 @@ void Chest::TakeFromChest(Character& hero, int itemIndex, MyInventory& inv1) {
     }
 }
 
+void Chest::AppereanceForEvents(ChestType chestType, Character& hero, Chest& chest)
+{
+    int chance = rand() % 100;
+    if (chance < 10) { // 30% chance to find a chest
+        std::cout << "You stumble upon a mysterious chest!\n"; 
+    chest.ChestCreate(chestType, hero);
+    chest.RandomizeChest(hero);
+
+    std::cout << "You found a chest! You can open it to find treasures." << std::endl;
+    std::cout << "Do you want to open the chest? (1 for Yes, 2 for No)" << std::endl;
+    int choice = ChoiceInput_Number();
+    if (choice == 1) {
+        chest.Open(&hero, chest, nullptr);
+    } else if (choice == 2) {
+        std::cout << "You continue your journey without opening the chest." << std::endl;
+    }
+}
+}
 
