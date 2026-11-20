@@ -41,9 +41,6 @@ Add more functions except these in code       Example : char Choice()   ->>><<<-
 
 
 //Buggs=============================================
-
-
-
 //check all functions (actions)
 Add level uprade to all functions
 Add strenght uprade to all functions
