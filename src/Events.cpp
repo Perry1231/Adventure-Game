@@ -20,32 +20,6 @@ enum EventType {
 };
 
 
-void ChestAppearance(Chest& chest, Character& hero, MyInventory& inv1,  int itemIndex)
-{
-int chance = rand() % 8 + 1; 
-if(chance == 1)
-{
-std::cout << "You found a chest! You can open it to find treasures." << std::endl;
-std::cout << "Do you want to open the chest? (1 for Yes, 2 for No)" << std::endl;
-int choice = ChoiceInput_Number();
-if(choice == 1)
-{
-chest.RandomizeChest(hero);
-chest.Open(&hero, chest, nullptr);
-
-chest.TakeFromChest(hero, itemIndex, inv1);
-
-}
-else if(choice == 2)
-{
-    std::cout << "You continue your journey without opening the chest." << std::endl;
-}
-
-else
-{}
-}
-}
-
 
 void RandomizerEvent(Character& hero, GameHard& levelDificulty, GameEvent& gameEvent, MyInventory& inv1, Chest& chest, Enemy& enemy)
 {
@@ -265,7 +239,7 @@ void HumidHot(Character& hero, GameHard& levelDificulty) {
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
-void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
+void ConstrictorVines(Character& hero, GameHard& levelDificulty, Chest& chest) {
     if(levelDificulty.GetDifficultyLevel()  ==3 ) 
     {
         PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you! Extra damage due to high difficulty level.");
@@ -275,6 +249,7 @@ void ConstrictorVines(Character& hero, GameHard& levelDificulty) {
         PrintEventCard("🌿", "CONSTRICTOR VINES", "Predatory vines squeeze tight around you!");
         DamageHero(hero, 3);
     }
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
@@ -326,7 +301,7 @@ void PoacherTrapTrigger(Character& hero, GameHard& levelDificulty, Chest& chest,
 void WillWispAttraction(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)   
 { PrintEventCard("👻", "WILL-O'-WISP", "Mysterious glowing lights attempt to lead you astray.", Color::MAGENTA); 
 std::cout << Color::CYAN << "You follow the lights and find a hidden treasure!" << Color::RESET << std::endl;
-ChestAppearance(chest, hero, inv1, 0);
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 if(hero.GetIntelligence() > 10) {
     std::cout << Color::GREEN << "Your intelligence helps you resist the lure of the lights." << Color::RESET << std::endl;
     hero.SetLevel(hero.GetLevel() + 0.02);
@@ -334,9 +309,10 @@ if(hero.GetIntelligence() > 10) {
     std::cout << Color::YELLOW << "You are momentarily distracted by the lights, but manage to regain your focus." << Color::RESET << std::endl;
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
-void PollenHallucinations(Character& hero, GameHard& levelDificulty) 
+void PollenHallucinations(Character& hero, GameHard& levelDificulty, Chest& chest) 
 { PrintEventCard("🍄", "POLLEN HALLUCINATIONS", "Strange floral pollen fills the air, distorting your sight.", Color::MAGENTA);
     std::cout << Color::CYAN << "You see visions of fantastical creatures and landscapes." << Color::RESET << std::endl;
     if(hero.GetIntelligence() > 12) {
@@ -356,9 +332,11 @@ void PollenHallucinations(Character& hero, GameHard& levelDificulty)
                 std::cout << "You get 5 damage from the hallucinations." << std::endl;
 
     }
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
-void EnemyPatrol(Character& hero, GameHard& levelDificulty, Enemy& enemy, MyInventory& inv1)          
+void EnemyPatrol(Character& hero, GameHard& levelDificulty, Enemy& enemy, MyInventory& inv1, Chest& chest)          
 { 
     PrintEventCard("⚔️", "ENEMY PATROL", "You spot an armed patrol marching nearby!", Color::YELLOW); 
     std::cout << "What will you do? (1: Hide, 2: Confront, 3: Flee)" << std::endl;
@@ -382,6 +360,7 @@ void EnemyPatrol(Character& hero, GameHard& levelDificulty, Enemy& enemy, MyInve
         DamageHero(hero, 10);
         hero.SetLevel(hero.GetLevel() + 0.01);
     }
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 
@@ -429,7 +408,7 @@ void FakeDistressCal(Character& hero, GameHard& levelDificulty, Chest& chest, My
     {
 case 1:
 std::cout << "It's only your tired imagination" << std::endl;
-ChestAppearance(chest, hero, inv1, 0);
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 hero.SetLevel(hero.GetLevel() + 0.01);
 break;
 case 2:
@@ -476,36 +455,40 @@ void GainGold(Character& hero, int amount) {
 void Earthquake(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::DARK_GRAY << " 🌋 [EVENT] " << Color::RESET << "An Earthquake shakes the ground! (Exp +0.01)\n";
     hero.SetLevel(hero.GetLevel() + 0.01);
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void MoneyFind(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     int gold = rand() % 100 + 1;
     std::cout << Color::YELLOW << " 💰 [EVENT] " << Color::RESET << "You stumbled upon a hidden stash!\n";
     GainGold(hero, gold);
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     hero.SetLevel(hero.GetLevel() + 0.01);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void GoodStranger(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::CYAN << " 🤝 [EVENT] " << Color::RESET << "A Good Stranger shares a warm meal with you. You feel refreshed!\n";
     GainHealth(hero, 5);
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     hero.SetLevel(hero.GetLevel() + 0.01);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void GoodWeather(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     std::cout << Color::CYAN << " ☀️  [EVENT] " << Color::RESET << "Good Weather! The clear skies rejuvenate your spirit.\n";
     GainHealth(hero, 5);
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     hero.SetLevel(hero.GetLevel() + 0.03);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void GoodRest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
     int health = rand() % 20 + 10;
     std::cout << Color::GREEN << " ⛺ [EVENT] " << Color::RESET << "You found a safe, cozy place to rest.\n";
     GainHealth(hero, health);
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     hero.SetLevel(hero.GetLevel() + 0.01);
 }
 
@@ -515,7 +498,7 @@ std::cout << "You enter a cozy tavern. The smell of food and ale fills the air."
 std::cout << "You can rest here and regain some health." << std::endl;
 std::cout << "Or you can talk to the locals and gather information about your next adventure." << std::endl;
 std::cout << "You can also play a game of chance with the tavern patrons." << std::endl;
-ChestAppearance(chest, hero, inv1, 0);
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 std::cout << "What would you like to do?" << std::endl;
 std::cout << "1. Rest and regain health" << std::endl;
 std::cout << "2. Talk to the locals" << std::endl;
@@ -582,6 +565,8 @@ switch (choice) {
     default:
         std::cout << "Invalid choice. You leave the tavern." << std::endl;
 }
+
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Hostel(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1) {
@@ -590,7 +575,7 @@ void Hostel(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory
     std::cout << Color::DARK_GRAY << "----------------------------------------\n" << Color::RESET;
     std::cout << " You step into a warm, dimly lit room. The air smells of woodsmoke and stale ale.\n";
     std::cout << " A weary innkeeper nods from behind the counter, and travelers murmur in corners.\n\n";
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     std::cout << Color::BOLD << " What would you like to do?\n" << Color::RESET;
     std::cout << "  " << Color::YELLOW << "1." << Color::RESET << " Rent a room to rest and recover health\n";
     std::cout << "  " << Color::YELLOW << "2." << Color::RESET << " Approach the travelers to chat and gather rumors\n";
@@ -655,12 +640,14 @@ void Hostel(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory
             std::cout << Color::RED << " ⚠️  [NOTICE] " << Color::RESET << "Indecisive, you are gently nudged out the front door.\n";
             break;
     }
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Castle(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 std::cout << "You enter a grand castle. The halls are adorned with tapestries and the air smells of incense." << std::endl;
-ChestAppearance(chest, hero, inv1, 0);
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 std::cout << "Select what you want to do: " << std::endl;
 std::cout << "1. Rest in the royal chambers" << std::endl;
 std::cout << "2. Search for hidden treasures" << std::endl;
@@ -715,21 +702,28 @@ default:
         break;
     }
 }
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Dungeon(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Cave(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//goblin cave, dragon or simple cave
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Forest(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Desert(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
@@ -740,21 +734,30 @@ void Desert(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory
 void Village(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void Bastion(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void TowerPlace(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//evil TowerPlace , mage TowerPlace
 {
 
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 void SimpleHouse(Character& hero, GameHard& levelDificulty, Chest& chest, MyInventory& inv1)//evil mage , witch , friendly house
 {
 
+
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 }
 
 
@@ -762,7 +765,7 @@ void GoodPlace(Character& hero, GameHard& levelDificulty, Chest& chest, MyInvent
 {
 std::cout << "You enter a peaceful place. The atmosphere is calm and serene." << std::endl;
 std::cout << "You can rest here and regain some health." << std::endl;
-ChestAppearance(chest, hero, inv1, 0);
+chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 hero.SetLevel(hero.GetLevel() + 0.01);
 hero.SetHealth(hero.GetHealth() + 7);
 
@@ -851,7 +854,7 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty, Chest& chest, MyI
                 std::cout << "You successfully hit the bullseye! You gain 30 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10); 
                 hero.SetLevel(hero.GetLevel() + 0.4);
-                ChestAppearance(chest, hero, inv1, 0);
+                chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
             } else {
                 std::cout << "You miss the bullseye. You lose 2 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 2);
@@ -868,7 +871,7 @@ void ArcheryContest(Character& hero, GameHard& levelDificulty, Chest& chest, MyI
                 std::cout << "You achieve the highest score! You gain 40 gold." << std::endl;
                 hero.SetGold(hero.GetGold() + levelDificulty.GetDifficultyLevel() * 10);
                 hero.SetLevel(hero.GetLevel() + 0.4);
-                ChestAppearance(chest, hero, inv1, 0);
+                chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
             } else {
                 std::cout << "You fail to achieve a high score. You lose 3 health." << std::endl;
                 hero.SetHealth(hero.GetHealth() - 3);
@@ -892,7 +895,7 @@ void StrangeStone(Character& hero, GameHard& levelDificulty, Chest& chest, MyInv
 {
     std::cout << "You find a strange stone with mysterious markings." << std::endl;
     std::cout << "You can try to decipher the markings or leave it alone." << std::endl;
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     std::cout << "Enter your choice:\n1. Decipher the markings\n2. Leave it alone\n";
     int choice= ChoiceInput_Number();
 
@@ -999,7 +1002,7 @@ void TalkToLocals(Character& hero, GameHard& levelDificulty, Chest& chest, MyInv
 {
     std::cout << "You engage in conversation with the locals.\n";
     std::cout << "They share rumors of hidden treasures and dangerous creatures in the area.\n";
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
     std::cout << "You gain valuable information for your next adventure!\n";
     hero.SetLevel(hero.GetLevel() + 0.02);
 
@@ -1144,7 +1147,7 @@ void LostCity (Character& hero, GameHard& levelDificulty, Chest& chest, MyInvent
     hero.SetGold(hero.GetGold() + 100);
     hero.SetLevel(hero.GetLevel() + 0.05);
     std::cout << "You found chest!" << std::endl;
-    ChestAppearance(chest, hero, inv1, 0);
+    chest.AppereanceForEvents(ChestType::COMMON, hero, chest);
 
 
     std::cout << "You decide to explore the ruins further, hoping to uncover more secrets and treasures." << std::endl;
