@@ -757,7 +757,10 @@ int Character::Talk(Enemy& enemy, Quest& quest, GameHard& difficulty)
     if(enemy.GetAttitude() < 1)
     {
         std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
-        
+        return 0;
+    }
+    else if(enemy.GetAttitude() >= 1)
+    {
         std::cout << "`Do what you want` ---->" << std::endl;
         std::cout << "1 - Take task \n2 - Talk about life \n 3 - Leave" << std::endl;
         int choice=ChoiceInput_Number();
@@ -808,3 +811,33 @@ void Character::Fight(Enemy& enemy)
 }
 
 
+void Character::Talk_About_Life(Quest& quest, GameHard& difficulty)
+{
+std::cout << "I've lived a long time and seen many things." << std::endl;
+std::cout << "Life is full of challenges, but also moments of joy." << std::endl;
+std::cout << "Remember to cherish the people around you and the experiences you have." << std::endl;
+std::cout << "If you want to succeed, you must be brave and persistent." << std::endl;
+std::cout << "And always remember, the journey is just as important as the destination." << std::endl;
+
+std::cout << "1-What about locals, 2-What about your profession, 3-What about your life, 4-Leave" << std::endl;
+int choice=ChoiceInput_Number();
+if (choice ==1)
+{
+    std::cout << "Locals are the heart of any community. They have their own stories, traditions, and ways of life." << std::endl;
+    std::cout << "It's important to respect and understand them, as they can offer valuable insights and assistance." << std::endl;
+}
+else if (choice ==2)
+{
+    std::cout << "My profession has taught me discipline, skill, and the importance of continuous learning." << std::endl;
+    std::cout << "No matter what path you choose, dedication and passion will lead to mastery." << std::endl;
+}
+else if (choice ==3)
+{
+    std::cout << "Life is a series of choices and experiences. Embrace both the good and the bad, for they shape who you are." << std::endl;
+    std::cout << "Always strive to be better than you were yesterday." << std::endl;
+}
+else if (choice ==4)
+{
+    std::cout << "Farewell, traveler. May your journey be safe and your adventures grand." << std::endl;
+}
+}
