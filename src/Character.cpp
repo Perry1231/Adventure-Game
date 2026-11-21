@@ -643,7 +643,7 @@ switch (choice)
 
 
 
-void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty, Quest& quest, Objects* object, Item* item)
+void Menu(Enemy& enemy, Character& hero, MyInventory& inv1, GameHard& difficulty, Quest& quest, Objects* object, Item* item, Object* object_enemy)
 {
     int choice = 0;
 
@@ -701,53 +701,46 @@ int Character::Trade(Enemy& enemy, MyInventory& inv1, GameHard& difficulty, Obje
         std::cout << "You have bad attitude to your opponent !!! \n You can't talk and trade " << std::endl;
         return 0;
     }
-    Weapon* weapon_2 = new Weapon();
-    weapon_2->RandomizeWeaponStart(enemy.GetProfession());
-
-    Armory* armor_2 = new Armory();
-    armor_2->RandomizeArmorStart();
-
-    Weapon* weapon_3 = new Weapon();
-    weapon_3->RandomizeWeaponSpeacial();
-
 
     MyInventory inv2;
     inv2.SetOwner(&enemy);
     enemy.SetInventory(&inv2);
 
-    inv2.AddItem(weapon_2);             //Added item with ID ---- will be written
-    inv2.AddItem(armor_2);
-    inv2.AddItem(weapon_2);
-//Created inventory of enemy 
-//Implemed creating inventory from enemy profession , role , etc
+    int randomNumber = rand() % 11 + 1;
+    for(int i = 0; i < randomNumber; ++i) {
+        Object* object_enemy = new Object();
+        object_enemy->CreateObjectConstructor();
+        inv2.AddItem(object_enemy);
+    }
 
-if (enemy.GetProfession() == "Warrior") 
-{
-    Object* object_enemy = new Object();
-    object_enemy->CreateObjectConstructor();      //For warior itemms 5 sztuk
-    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
-} 
-
-else if (enemy.GetProfession() == "Mage")
-{
-    Object* object_enemy = new Object();
-    object_enemy->CreateObjectConstructor();      //For Mage itemms 5 sztuk
-    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
+for(int i = 0; i < inv2.GetCount(); ++i) {
+    std::cout << "Item " << i + 1 << ": ";
+    inv2.GetItem(i)->ShowInfo();
 }
-
-else if (enemy.GetProfession() == "")
-{
-    Object* object_enemy = new Object();
-    object_enemy->CreateObjectConstructor();      //For Mage itemms 5 sztuk
-    //inv2.AddItem(object_enemy[count_object_con] = dynamic_cast<Object*>(item));
-
+std::cout << "Select an item to trade (1-" << inv2.GetCount() << ") or 0 to cancel: ";
+int choice = ChoiceInput_Number();
+if (choice == 0) {
+    std::cout << "Trade canceled." << std::endl;
+    return 0;
 }
-
-else 
-{
- return 0;
+else if(choice < 0|| (choice <1 && choice != 0) || choice > inv2.GetCount()) {
+    std::cout << "Invalid choice." << std::endl;
+    return 0;
 }
-
+else {
+    Item* selectedItem = inv2.GetItem(choice - 1);
+std::cout << "You selected: ";
+selectedItem->ShowInfo();
+std::cout << "Do you want to trade this item? (1 - Yes, 2 - No): ";
+int tradeChoice = ChoiceInput_Number();
+if (tradeChoice == 1) {
+    inv1.AddItem(selectedItem);
+    inv2.DelItem(choice - 1); 
+        std::cout << "Trade successful!" << std::endl;
+    } else {
+        std::cout << "Trade canceled." << std::endl;
+    }
+}
 return 0;
 }
 
